@@ -1,0 +1,22 @@
+
+{
+    "labels": {
+        "insuranceName": "Insurance Name",
+        "insuranceNumber": "Insurance Number",
+        "insuranceType": "Insurance Type",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "insuranceCompany": "Insurance Company",
+        "coverageDetails": "Coverage Details",
+        "nominee":"Nominee",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "insurance": "Insurance",
+        "folder":"Upload File"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,103 @@
+<!--/*=======================================================================
+ All rights reserved to  Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : LocationList.html
+ Type                : IONIC & HTML
+ Description         :
+ References          :
+ Author              :  Satya kalyani Lanka
+ Created Date        :  07-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1        1.0       13-April-2016         Sri Venkatesh.T           No Issues
+
+****************************************************************************/-->
+<ion-view view-title="Location List">
+  <ion-content scroll="true">
+
+    
+    <div class="text_container">
+  	
+     	<link href="Location/Mobile/css/bootstrap.css" rel="stylesheet">
+
+    
+            
+              
+              <div class="row responsive-sm">
+                  <div class="col-md-3">
+                    <div class="input-group input-group-lg add-on">
+                      <input type="text" class="form-control search-query" ng-model="query" ng-change="search()" placeholder="Search">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  
+                  </div>
+                 <!--  <div class="col-md-3">
+                    <select class="form-control input-lg pull-right" ng-model="itemsPerPage" ng-change="perPage()" ng-options="('show '+size+' per page') for size in pageSizes"></select>
+                  </div> -->
+                </div>
+            
+            
+                
+                 <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                             <th>{{lables.Country}}</th>
+
+                            <th>{{lables.District}}</th>
+                            <th>{{lables.Location}}</th>
+                            <th>{{lables.Edit}}</th>
+                            <th>{{lables.Delete}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="location in locationDetails">
+                             <td> {{ location.CountryID }}  </td>
+                            <td>{{ location.DistrictID }}  </td>
+                            <td> {{ location.GeoLocation }}  </td>
+
+
+
+                            <td>
+                                
+                                <a ng-click="" href="#/app/editOrg/{{ location.LocationID }}"><i class="fa fa-pencil-square-o"></i></a>
+                            </td>
+                            <td><a ng-click="removeLocation(location.LocationID)"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                  
+              
+           
+            </div>
+      
+		</div>
+<!-- 
+ <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script> -->
+     
+  </ion-content>
+</ion-view>
+ 
+ 
+
+ 
+  
+  
+  
+	

@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "LivingPlace": "లివింగ్ ప్లేస్",
+        "LivingPlaceName": "रहने वाले स्थान का नाम",
+        "LivingPlaceType": "లివింగ్ ప్లేస్ టైప్",
+        "Location":"స్థానం",
+        "StartDate":"ప్రారంబపు తేది",
+        "EndDate":"ఆఖరి తేది",
+        "Submit": "సమర్పించండి",
+        "Title":"శీర్షిక",
+        "LivingPlaceType":"లివింగ్ ప్లేస్ టైప్",
+        "StartDate":"ప్రారంబపు తేది",
+        "EndDate":"ఆఖరి తేది",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి"
+    },
+    "errors": {
+
+    }
+}

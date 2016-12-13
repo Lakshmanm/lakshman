@@ -1,0 +1,25 @@
+{
+    "labels": {
+        "title": "Name",
+        "startDate": "start Date",
+        "endDate": "End Date",
+        "instituteName": "Institute Name",
+        "instituteCode": "Institute Code",
+        "instituteMedium": "Institute Medium",
+        "marksObtained": "Percentage of Marks ",
+        "gradeObtained": "Grade Obtained",
+        "location": "Location",
+        "yearOfPassing": "Year Of Passing",
+        "qualification": "Qualification",
+        "submit": "Submit",
+        "edit":"Edit",
+        "delete":"Delete",
+        "educationInfo": "Education",
+        "course":"Course",
+        "group":"Group"
+
+    },
+    "errors": {
+
+    }
+}

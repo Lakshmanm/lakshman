@@ -1,0 +1,17 @@
+
+{
+    "labels": {
+        "Visa": "Visa",
+        "Person": "Person",
+        "Country": "Country",
+        "VisaType": "Visa Type",
+        "StartDate":"Start Date",
+        "EndDate":"End Date",
+        "Submit":"Submit",
+        "Edit":"Edit",
+        "Delete":"Delete"
+
+
+
+    }
+}

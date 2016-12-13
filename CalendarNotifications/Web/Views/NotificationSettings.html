@@ -1,0 +1,189 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4>Notification Settings</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+
+
+                <form name="Form" role="form" id="form">
+                    <div class="col-md-6"   ng-show="showTemplateFields">
+                        <fieldset>
+                            <legend>
+                                Notification
+                            </legend>
+                           <div class="form-group" >
+                                    <label class="control-label">Notification Template <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                     <span class="clip-select" >
+                                                <select name="notificationTemplate" class="form-control" ng-options="notificationTemplate.TemplateReferenceKey as notificationTemplate.TemplateName for notificationTemplate in notificationTemplates" ng-model="notificationTemplatedetails.notificationTemplate" ng-change="change()">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    </span>
+                                    </div>
+                                </div>
+
+                               <div class="form-group" >
+                                    <label class="control-label">Notification Template User <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                     <span class="clip-select">
+                                                <select name="notificationTemplateUser" class="form-control" ng-options="notificationTemplateUser.UserTypeReferenceKey as notificationTemplateUser.UserTypeName for notificationTemplateUser in notificationTemplateUsers" ng-model="notificationTemplatedetails.notificationTemplateUser" ng-change="change()">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    </span>
+                                    </div>
+                                </div>  
+
+
+                                 <div class="form-group" >
+                                    <label class="control-label">Notification Type <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                     <span class="clip-select">
+                                                <select name="notificationType" class="form-control" ng-options="notificationType.TypeReferenceKey as notificationType.TypeName for notificationType in notificationTypes" ng-model="notificationTemplatedetails.notificationType" ng-change="change()">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    </span>
+                                    </div>
+                                </div>  
+                               
+                        </fieldset>
+                    </div>
+                   
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+  <div class="row"  ng-show="showTemplateFieldset"> 
+        <div class="col-md-12">
+        
+            <div>
+                <!-- start: USER TABSET -->
+
+
+                <form name="formtemp" role="form" id="formtemp" novalidate>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <legend>
+                                <h4>{{templateFieldsetTitle}}</h4>
+                            </legend>
+
+                             <div class="form-group" >
+                                    <label class="control-label">Title</label>
+                                     <div class="clip-radio radio-primary">
+                                    <input type="text" id="title" class="form-control underline input-lg" ng-model="title"  name="title" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true">
+                <span style="color:red" ng-show="formtemp.title.$dirty && formtemp.title.$invalid || formtemp.$submitted">
+                <span ng-show="formtemp.title.$error.required">Title is required.</span>
+                <span ng-show="formtemp.title.$error.pattern">Please use numbers letters only</span>
+                </span>
+                                    </div>
+                                </div>  
+                            
+                                 <div class="form-group" ng-show="showfromEmail" >
+                                    <label class="control-label">From Email <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                    <input type="email" id="fromEmail" class="form-control underline input-lg" ng-model="fromEmail" name="fromEmail" ng-required="showfromEmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+
+                                    <span style="color:red" ng-show="formtemp.fromEmail.$dirty && formtemp.fromEmail.$invalid || formtemp.$submitted">
+                <span ng-show="formtemp.fromEmail.$error.required">Email is required.</span>
+                 <span ng-show="formtemp.fromEmail.$error.pattern">Please enter valid email</span>
+               
+                
+                </span>
+                                    </div>
+                                </div>  
+
+                                <div class="form-group"  ng-show="showfromMobile" >
+                                    <label class="control-label">From Mobile <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                    <input type="number" id="fromMobile" class="form-control underline input-lg" ng-model="fromMobile" name="fromMobile" ng-required="showfromMobile" ng-pattern="/^[0-9]*$/"  ng-minlength="10" 
+                   ng-maxlength="10"  maxlength="10">
+                <span style="color:red" ng-show="formtemp.fromMobile.$dirty && formtemp.fromMobile.$invalid || formtemp.$submitted">
+                <span ng-show="formtemp.fromMobile.$error.required">Mobile Number is required.</span>
+                <span ng-show="formtemp.fromMobile.$error.pattern">Please use numbers only</span>
+                <span ng-show="formtemp.fromMobile.$error.number">Please enter valid number</span>
+                 <span
+                  ng-show="((formtemp.fromMobile.$error.minlength ||
+                           formtemp.fromMobile.$error.maxlength) && 
+                           formtemp.fromMobile.$dirty) ">
+                           Mobile number should be 10 digits
+            </span>
+                </span>
+               
+                                    </div>
+                                </div>  
+
+                               <div class="form-group" >
+                                    <label class="control-label">Template Heading <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                    <input type="text" id="heading" class="form-control underline input-lg" ng-model="heading" name="heading" ng-required="true" ng-pattern="/^[:a-zA-Z0-9\s]*$/">
+                <span style="color:red" ng-show="formtemp.heading.$dirty && formtemp.heading.$invalid || formtemp.$submitted">
+                <span ng-show="formtemp.heading.$error.required">Heading is required.</span>
+                <span ng-show="formtemp.heading.$error.pattern">Please use numbers letters only</span>
+                </span>
+                                    </div>
+                                </div>  
+
+
+                                 <div class="form-group" >
+                                <label class="control-label">Notification Content <span></span> </label>
+                               
+                                <div >
+                                <div ckeditor="options" ng-model="content" id="content" ready="onReady()"></div>
+                                <!-- <div class="well margin-top-20">
+                                {{content}}
+                                </div> -->
+                                </div>
+
+
+                                </div>
+
+                                <div >
+                                <center>
+                                <button type="submit" ng-click="formtemp.$valid && update()" class="btn btn-wide btn-primary" >
+                                Update
+                                </button>
+                                 <button type="button"  ng-click="reset()" class="btn btn-wide btn-primary" >
+                                Reset
+                                </button>
+                                 <button type="button"  ng-click="cancel()" class="btn btn-wide btn-primary" >
+                                Cancel
+                                </button>
+
+                           
+                        </center>
+                    </div>
+                                </div>  
+
+                               
+                        </fieldset>
+                    </div>
+
+                   
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<!-- end: USER PROFILE

@@ -1,0 +1,263 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Education
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Phani
+ Created Date       : 11-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+<div id="main-wrapper">
+
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#/app/start">Start</a></li>
+        <li><a data-toggle="tab" href="#/app/enrolmentBasicInfo">Basic Info</a></li>
+      <li><a data-toggle="tab" href="#/app/enrollmentNumber/EnrollmentKey/:EnrollmentKey/PersonKey/:PersonKey">Enrollment No</a></li>
+        <li><a data-toggle="tab" href="#/app/entrollmentaddress">Address</a></li>
+        <li><a data-toggle="tab" href="#/app/guardian">Guardian</a></li>
+        <li class="active"><a data-toggle="tab" href="#/app/enrolmentEducation">Past Education</a></li>
+        <li><a data-toggle="tab" href="#/app/complete">Complete</a></li>
+
+    </ul>
+
+    <div class="container-fluid container-fullw bg-white">
+        <form name="educationForm">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.title.$dirty && educationForm.title.$invalid, 'has-success':educationForm.title.$valid}">
+                        <label>{{educationLabels.title}} <span class="symbol required"></span> </label> <span class="clip-select">
+          <input class="form-control" type="text" name="title" ng-model="education.educationName" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                        <span class="error text-small block" ng-if="educationForm.title.$dirty && educationForm.title.$invalid" class="validationMessage">    
+                              <p ng-show="educationForm.title.$invalid && educationForm.title.$error.required">Title is required</p>
+                      <p ng-show="educationForm.title.$error.minlength">Title should be minimum of 3 characters</p>
+                        <p ng-show="educationForm.title.$error.maxlength">Title should be maximum of 30 characters</p> 
+                            <p ng-show="educationForm.title.$error.pattern">Title accept only alphabetic characters</p>
+                        </span> </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.startDate.$dirty && educationForm.startDate.$invalid, 'has-success':educationForm.startDate.$valid}">
+                        <label>Start Date<span class="symbol required"></span> </label> <span class="clip-select">
+                      <!--   <input class="form-control" name="startDate" type="date" ng-model="education.startDate" required> -->
+
+ <input class="form-control date-picker" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" ng-model="education.startDate"  name="startDate" type="date" ng-required="true"></span>
+
+                        <span class="error text-small block" ng-if="educationForm.recognitionType.$dirty && leaveForm.recognitionType.$invalid">    
+          <p ng-show="educationForm.startDate.$invalid && educationForm.startDate.$error.required">Start date is required</p>
+                          </span></div>
+                </div>
+
+
+                <!--   <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.endDate.$dirty && educationForm.endDate.$invalid, 'has-success':educationForm.endDate.$valid}">
+                        <label>{{educationLabels.endDate}}<span class="symbol required"></span></label>
+                        <input class="form-control" name="endDate" type="date" ng-model="education.endDate" required>
+                         <span class="error text-small block" ng-if="educationForm.endDate.$dirty && educationForm.endDate.$invalid" style="color:red">
+                            <p ng-show="educationForm.endDate.$error.required ">End date is required</p> </span>
+                        </div>
+                    </div> -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.endDate.$dirty && educationForm.endDate.$invalid, 'has-success':educationForm.endDate.$valid}">
+                        <label class="control-label"> {{educationLabels.endDate}} <span class="symbol required"></span> </label>
+                        <!--   <input type="date" name="DOB" class="form-control" ng-model="Staff.DateOfBirth" required />-->
+                        <input class="form-control date-picker" ng-model="education.endDate" name="endDate" type="date" min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" required> <span class="error text-small block" ng-if="(educationForm.endDate.$dirty ||educationForm.$submitted) && educationForm.DOB.$invalid">    
+                                        <p ng-show="educationForm.endDate.$invalid && educationForm.endDate.$error.required" style="color:#a94442">End Date is required</p>                                        
+                                  </span> </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.InstituteName.$dirty && educationForm.InstituteName.$invalid, 'has-success':educationForm.InstituteName.$valid}">
+                        <label>{{educationLabels.instituteName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" type="text" name="InstituteName" ng-model="education.instituteName" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="100" required></span>
+                        <span class="error text-small block" ng-if="educationForm.InstituteName.$dirty && educationForm.InstituteName.$invalid" style="color:red">    
+                            <p ng-show="educationForm.InstituteName.$error.required ">Institute Name is required</p>
+                            <p ng-show="educationForm.InstituteName.$error.minlength">Institute Name is too short must be longer than 3 characters</p>
+                            <p ng-show="educationForm.InstituteName.$error.maxlength">Institute Name is too long it should be below 100 characters</p>
+                            <p ng-show="educationForm.InstituteName.$error.pattern">Institute Name accept only alphabetic characters</p>
+                        </span>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.instituteCode.$dirty && educationForm.instituteCode.$invalid, 'has-success':educationForm.instituteCode.$valid}">
+                        <label>{{educationLabels.instituteCode}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="instituteCode" ng-pattern="/^[a-zA-Z0-9\s]*$/" type="text" ng-model="education.instituteCode" maxlength="30" required></span>
+                        <span class="error text-small block" ng-if="educationForm.instituteCode.$dirty && educationForm.instituteCode.$invalid" style="color:red">    
+                              <p ng-show="educationForm.instituteCode.$invalid && educationForm.instituteCode.$error.required">Title is required</p>
+                      <p ng-show="educationForm.instituteCode.$error.minlength">Institute Code should be minimum of 3 characters</p>
+                        <p ng-show="educationForm.instituteCode.$error.maxlength">Institute Code  should be maximum of 30 characters</p> 
+                            <p ng-show="educationForm.instituteCode.$error.pattern">Institute Code accept only Alphanumeric characters</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.instituteMedium.$dirty && educationForm.instituteMedium.$invalid, 'has-success':educationForm.instituteMedium.$valid}">
+                        <label>{{educationLabels.instituteMedium}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="instituteMedium" style="width: 100%" ng-options="lng.languageId as lng.languageName for lng in languageList" ng-model="education.instituteMedium" required>
+                            <option value="">English</option>
+                        </select></span>
+                        <span class="error text-small block" ng-if="educationForm.instituteMedium.$dirty && educationForm.instituteMedium.$invalid" style="color:red">    
+                              <p ng-show="educationForm.instituteMedium.$invalid && educationForm.instituteMedium.$error.required">Institute Medium is required</p>
+                     
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.marksObtained.$dirty && educationForm.marksObtained.$invalid, 'has-success':educationForm.marksObtained.$valid}">
+                        <label>{{educationLabels.marksObtained}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="marksObtained" type="number" ng-model="education.marksObtained" ng-minlength="1" ng-maxlength="10" required></span>
+                        <span class="error text-small block" ng-if="educationForm.marksObtained.$dirty && educationForm.marksObtained.$invalid" style="color:red">    
+                              <p ng-show="educationForm.marksObtained.$invalid && educationForm.marksObtained.$error.required">Marks Obtained is required</p>
+ <p ng-show="educationForm.marksObtained.$error.minlength">Marks Obtained should be minimum of 1 characters</p>
+                        <p ng-show="educationForm.marksObtained.$error.maxlength">Marks Obtained should be maximum of 10 characters</p> 
+                              </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.gradeObtained.$dirty && educationForm.gradeObtained.$invalid, 'has-success':educationForm.gradeObtained.$valid}">
+                        <label>{{educationLabels.gradeObtained}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="gradeObtained" ng-pattern="/^[a-zA-Z\s]*$/" type="text" ng-model="education.gradeObtained" ng-minlength="1" ng-maxlength="10" required></span>
+                        <span class="error text-small block" ng-if="educationForm.gradeObtained.$dirty && educationForm.gradeObtained.$invalid" style="color:red">    
+                              <p ng-show="educationForm.gradeObtained.$invalid && educationForm.gradeObtained.$error.required">Grade Obtained is required</p>
+ <p ng-show="educationForm.gradeObtained.$error.minlength">Grade Obtained should be minimum of 1 characters</p>
+                        <p ng-show="educationForm.gradeObtained.$error.maxlength">Grade Obtained  should be maximum of 10 characters</p> 
+ <p ng-show="educationForm.gradeObtained.$error.pattern">Grade Obtained accept only alphabetic </p>
+
+                              </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+ <div class="form-group" ng-class="{'has-error':educationForm.location.$dirty && educationForm.location.$invalid, 'has-success':educationForm.location.$valid}">
+                    <label>{{educationLabels.location}}<span class="symbol required"></span> </label> <span class="clip-select">
+                    <!--<input class="form-control" type="text" ng-model="education.addressID">-->
+                    <input type="text" id="Autocomplete2" ng-model="educationLocation.geoLocation" name="location" class="form-control" ng-autocomplete ng-minlength="3" ng-maxlength="100" options="options" details="details" required/></span>
+                     <span class="error text-small block" ng-if="educationForm.location.$dirty && educationForm.location.$invalid" style="color:red">    
+            <p ng-show="educationForm.location.$invalid && educationForm.location.$error.required">Location is required</p>
+ <p ng-show="educationForm.location.$error.minlength">Location should be minimum of 3 characters</p>
+                        <p ng-show="educationForm.location.$error.maxlength">Location should be maximum of 100 characters</p> 
+                             </span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.yearOfPassing.$dirty && educationForm.yearOfPassing.$invalid, 'has-success':educationForm.yearOfPassing.$valid}">
+                        <label>{{educationLabels.yearOfPassing}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="yearOfPassing" ng-pattern="/^[0-9]/" ng-model="education.yearOfPassing" ng-minlength="4" ng-maxlength="4" required></span>
+                        <span class="error text-small block" ng-if="educationForm.yearOfPassing.$dirty && educationForm.yearOfPassing.$invalid" style="color:red">
+                            <p ng-show="educationForm.yearOfPassing.$invalid && educationForm.yearOfPassing.$error.required">Year of passing is required</p>
+                             <p ng-show="educationForm.yearOfPassing.$error.pattern">Year of passing accepts only Numbers</p>
+                        </span>
+                    </div>
+                </div>
+            <!--     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':educationForm.qualificationID.$dirty && educationForm.qualificationID.$invalid, 'has-success':educationForm.qualificationID.$valid}">
+                        <label>{{educationLabels.qualification}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="qualificationID" style="width: 100%" ng-options="qua.qualificationId as 
+qua.qualificationName for qua in qualificationList" ng-model="education.qualificationId" required>
+                            <option value="">--select--</option>
+                        </select></span>
+                        <span class="error text-small block" ng-if="educationForm.gradeObtained.$dirty && educationForm.gradeObtained.$invalid" style="color:red">    
+                            <p ng-show="educationForm.qualificationID.$error.required ">Qualification is required</p>
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row">
+                <div style="text-align:center">
+                    <!--  <button type="submit" ng-click="educationForm.$valid&&saveEducation()" class="btn btn-primary">{{educationLabels.submit}}</button> -->
+                    <button type="button" class="btn btn-wide btn-primary" ng-disabled="educationForm.$invalid" ng-click="educationForm.$valid && saveEducation()" v-pressable>{{educationLabels.submit}}</button>
+
+                </div>
+            </div>
+        </form>
+        <!--<form class="form-inline">
+<div class="form-group">
+<label>Search<span style="color:red">*</span></label>
+<input type="text" ng-model="search" class="form-control" placeholder="Search">
+</div>
+</form>-->
+        <div class="row">
+            <div style="width:20%">
+                
+            </div>
+            <table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                <thead>
+                    <tr>
+                        <th>{{educationLabels.title}}</th>
+                        <th>{{educationLabels.instituteName}}</th>
+                        <th>{{educationLabels.instituteCode}}</th>
+                        <th>{{educationLabels.yearOfPassing}}</th>
+                        <th>{{educationLabels.edit}}</th>
+                        <th>{{educationLabels.delete}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="education in educationList">
+                        <td>{{education.educationName}}</td>
+                        <td>{{education.instituteName}}</td>
+                        <td>{{education.instituteCode}}</td>
+                        <td>{{education.yearOfPassing}}</td>
+                        <!-- <a ng-click="editEducation(education.EducationId)"><span title="edit" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;
+                    <a ng-click="deleteEducation(education.educationID)" confirmation-needed="Really Delete?"><span title="delete" class="glyphicon glyphicon-remove"></span></a> -->
+                        <td> <a ng-click="editEducation(education.referenceKey)"><i class="fa fa-pencil"></i></a> </td>
+                        <td><a ng-click="deleteEducation(education.referenceKey)"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--  <div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>--></div>
+    </div>
+</div>

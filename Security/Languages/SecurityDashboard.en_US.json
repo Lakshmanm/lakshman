@@ -1,0 +1,16 @@
+
+
+{
+    "labels": {
+         "ChangePassword": "Change Password",
+        "LogOut": "Log Out",
+         "Admin": "Admin",
+         "Dashboard": "Dashboard",
+         "Profile": "Profile"
+        
+           },
+    "errors": {
+        
+        }
+    
+}

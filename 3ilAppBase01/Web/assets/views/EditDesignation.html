@@ -1,0 +1,147 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: EditDesignation.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4>Designation</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+                <form name="MYForm" novalidate>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend>
+                                Designation Info
+                            </legend>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="control-label"> {{labelsDesignation.designationTitle}}<span class="symbol required"></span> </label>
+                                    <input type="text" placeholder="" class="form-control" name="orgName" ng-model="entityDesignation.designationTitle" ng-minlength="3" ng-maxlength="50" required>
+                                    <span ng-if="MYForm.$submitted || MYForm.orgName.$touched" style="color:red;">
+                        <span class="error text-small block" ng-if="MYForm.orgName.$invalid && MYForm.orgName.$error.required ">Designation Title is required.</span>
+                                    <span ng-if="MYForm.orgName.$error.minlength">Designation Title is too short.</span>
+                                    <span ng-if="MYForm.orgName.$error.maxlength">Designation Title is too long.</span>
+                                    </span>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label">{{labelsDesignation.designationDetails}} </label>
+                                    <textarea placeholder="" class="form-control" name="depdetails" ng-model="entityDesignation.designationDetails" ng-minlength="5" ng-maxlength="250"></textarea>
+                                    <span ng-if="MYForm.$submitted || MYForm.depdetails.$touched" style="color:red;">
+                        <!-- <span class="error text-small block" ng-if="MYForm.orgName.$invalid && MYForm.orgName.$error.required ">Department Name is required.</span> -->
+
+                                    <span ng-if="MYForm.depdetails.$error.maxlength">Department Details are too long.</span>
+                                    </span>
+                                </div>
+
+
+                                <!--    <div class="form-group">
+                                    <label class="control-label">Parent Department <span></span> </label>
+                                     <div class="clip-radio radio-primary">
+                                     <span class="clip-select">
+                                                <select name="depType" class="form-control" ng-options="dept.departmentID as dept.departmentName for dept in departments" ng-model="department.parentDepartmentID">
+                                                   
+                                        <option value="">--Select--</option>
+                                    </select>
+                                    </span>
+                           
+                                    </div>
+                                </div> -->
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-12">
+                        <center>
+                            <button ng-disabled="!MYForm.$valid" type="button" ng-click="updateDesignation()" class="btn btn-wide btn-primary" v-pressable>
+                               Update
+                            </button>
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-click="cancel()" v-pressable>
+                                Cancel
+                            </button>
+                        </center>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+<div id="main-wrapper">
+    <div class="panel-white">
+ 
+        <div class="row">
+            <div class="col-lg-12">
+       
+                 <h4>Designation  </h4>
+            </div>
+       
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsDesignation.designationTitle}}</label>
+					 <input class="form-control" id="input-Default" ng-model="entityDesignation.designationTitle" name="designationTitle" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsDesignation.designationDetails}}</label>
+					 <input class="form-control" id="input-Default" ng-model="entityDesignation.designationDetails" name="designationDetails" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+				 </div>
+			 </div>
+			 <div class="row"><div class="col-md-3">
+				 <div class="panel-body">
+					 <button type="submit" class="btn btn-default" ng-click="updateDesignation()">{{labelsDesignation.submit}}</button>
+				 </div>
+			 </div>
+		 </div>
+	 
+			 </div>
+		 </div>
+	 </div>
+
+	 -->

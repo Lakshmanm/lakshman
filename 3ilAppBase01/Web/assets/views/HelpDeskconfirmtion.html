@@ -1,0 +1,164 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" >Organization Details</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+              
+                 
+                        <form action="#" role="form" id="form">
+                             <div class="col-md-1">
+                            </div>
+                           <div class="col-md-10"> 
+                                <div class="col-md-1">
+                            </div>
+                                <fieldset>
+                         
+                                <legend>Clinic Details</legend>
+                                    
+                                <div class="row">
+                                  
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Clinic Name
+                                            </label>
+                                            
+                                            <input type="text" class="form-control" name="clinicname" ng-model="orgProfile.name">
+                                        </div>
+                                    <div class="form-group">
+                                            <label class="control-label">
+                                               Phone Number
+                                            </label>
+                                            
+                                            <input type="text"  class="form-control" name="PhoneNumber" ng-model="orgProfile.Phone">
+                                        </div>
+                                    <div class="form-group">
+                                            <label class="control-label">
+                                                Email
+                                            </label>
+                                            
+                                            <input type="text"  class="form-control" name="Email" ng-model="orgProfile.email">
+                                        </div>
+                                     <div class="form-group">
+                                            <label class="block">
+                                                Gender
+                                            </label>
+                                            <div class="clip-radio radio-primary">
+                                                <input type="radio" id="us-female" name="Active" value="Active" ng-model="orgProfile.Active">
+                                                <label for="us-female">
+                                                    Active
+                                                </label>
+                                                <input type="radio" id="us-male" name="Active" value="InActive" ng-model="orgProfile.InActive">
+                                                <label for="us-male">
+                                                    InActive
+                                                </label>
+                                            </div>
+                                        </div>
+                                    
+                                    <div class="form-group">
+                       <label class="control-label">
+                                             Package
+                                            </label>
+                                     
+                        
+                                        <select class="cs-select cs-skin-elastic" ng-model="orgProfile.Package">
+                                            <option value="" disabled selected>Select a Package</option>
+                                            <option value="1">Free</option>
+                                            <option value="1">30 Days Trail</option>
+                                             <option value="1">500 Per Month</option>
+                                             <option value="1">5000 Per Year</option>
+                                        </select>
+                                    
+                                        </div>
+                                    
+                                     <div class="form-group">
+                                            <label class="control-label">
+                                               UserId
+                                            </label>
+                                            
+                                            <input type="text" class="form-control" name="UserId" ng-model="orgProfile.UserId">
+                                        </div>
+                                    
+                                     <div class="form-group">
+                                            <label class="control-label">
+                                                Password
+                                            </label>
+                                            <input type="password"  class="form-control" name="Password" ng-model="Staff.Password">
+                                        </div>
+                                            
+                                     <div class="form-group">
+                                            <label class="control-label">
+                                               Confirm Password
+                                            </label>
+                                            <input type="password"  class="form-control" name="ConfirmPassword" ng-model="Staff.ConfirmPassword">
+                                        </div>
+                                    
+                                      <!--  <div class="form-group">
+                                            <label class="control-label">
+                                                 Description
+                                            </label>
+                                            <input type="text" placeholder="Enter Description" class="form-control" name="Description" ng-model="orgProfile.Description">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Admin FirstName
+                                            </label>
+                                            <input type="text" placeholder="Enter Admin FirstName" class="form-control" name="AdminFirstName" ng-model="orgProfile.AdminFirstName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Admin MiddleName
+                                            </label>
+                                            <input type="text" placeholder="Enter MiddleName" class="form-control" name="MiddleName" ng-model="orgProfile.AdminMiddleName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Admin LastName
+                                            </label>
+                                            <input type="text" placeholder="Enter Admin LastName" class="form-control" name="AdminLastName" ng-model="orgProfile.AdminLastName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Clinic Established On
+                                            </label>
+                                            <input type="date" placeholder="Enter Clinic Date" class="form-control" name="ClinicDate" ng-model="orgProfile.ClinicDate">
+                                        </div>-->
+                                    </div>
+                                 <div class="col-md-12"> 
+                                <center>
+                              <button type="button" class="btn btn-wide btn-primary" ng-click="Redirecthome()" v-pressable>
+                           Update
+                        </button>
+                                     <button type="button" class="btn btn-wide btn-primary" ng-click="Redirecthome()" v-pressable>
+                            Cancel
+                        </button>
+                                
+                                    </center>
+                            </div>
+                                   </fieldset>       
+                                      
+                            </div>
+                                           <br/>
+                            <br/>
+                           
+                        </form>
+                  
+                    <!-- end: TAB EDIT ACCOUNT -->
+                    <!-- start: TAB PROJECTS -->
+                   
+                    <!-- end: TAB PROJECTS -->
+               
+                <!-- end: USER TABSET -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE -->

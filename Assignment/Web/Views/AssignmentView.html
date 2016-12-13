@@ -1,0 +1,288 @@
+<div class="container-fluid container-fullw bg-white">
+    <form name="assignmentForm" novalidate>
+
+        <label>  Assignment Details</label>
+
+
+
+
+
+        <div ng-show="studentView">
+
+            <div align="right" class="panel-body">
+
+                <label>
+   <a href="#"  ng-click="editStudentAssignment(entityAssignment.assignmentKey,entityAssignment.branchKey)">Edit</a> 
+   </label>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.assignmentName}}</label>
+
+                        <input class="form-control" id="input-Default" ng-model="entityAssignment.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="true" ng-required="true">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <span class="validationStar">*</span> <label>{{labelsAssignment.assignmentType}}</label>
+                        <select ng-options="assignment.AssignmentTypeKey as assignment.AssignmentTypeName for assignment in assignmentCollections" value="3" class="form-control " ng-model="entityAssignment.assignmentTypeKey" name="assignmentType" ng-disabled="true" ng-required="true"> 
+					  <option value="">--Select--</option>
+					 </select>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <span class="validationStar">*</span> <label>{{labelsAssignment.groupTitle}}</label>
+                        <select ng-options="group.InstituteGroupkey as group.GroupTitle  for group in groupList" value="3" class="form-control " ng-change="getCourse(entityAssignment.groupKey)" ng-model="entityAssignment.groupKey" name="groupName" ng-disabled="true" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <!--  -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.courseTitle}}</label>
+                        <select ng-options="course.InstituteCourseKey as course.CourseTitle  for course in courseList" value="3" class="form-control " ng-change="getBatch(entityAssignment.courseKey)" ng-model="entityAssignment.courseKey" ng-disabled="true" name="courseName"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.batchTitle}}</label>
+                        <select ng-options="batch.InstituteBatchKey as batch.BatchName  for batch in batchList" value="3" class="form-control " ng-change="getStudentList(entityAssignment.batchKey)" ng-model="entityAssignment.batchKey" ng-disabled="true" name="batchName"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.subjectTitle}}</label>
+                        <select ng-options="subject.InstituteSubjectkey as subject.SubjectTitle  for subject in subjectList" value="3" class="form-control " ng-disabled="true" ng-model="entityAssignment.subjectKey" name="subjectName"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.topicTitle}}</label>
+                        <input class="form-control" id="input-Default" ng-model="entityAssignment.topicTitle" name="topicTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-disabled="true" ng-pattern="/^[a-zA-Z\s]*$/">
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.startDate}}</label>
+                        <input class="form-control date-picker" ng-model="entityAssignment.startDate" ng-disabled="true" name="startDate" type="date">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+
+
+                        <label>{{labelsAssignment.endDate}}</label>
+                        <input class="form-control date-picker" ng-model="entityAssignment.endDate" ng-disabled="true" name="endDate" type="date">
+
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.priority}}</label>
+                        <select ng-options="priority.priorityKey as priority.priorityStatus  for priority in priorityList" class="form-control " ng-model="entityAssignment.priorityKey" name="priority" ng-disabled="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.description}}</label>
+                        <textarea class="form-control " ng-model="entityAssignment.description" name="description" type="text" ng-disabled="true"></textarea>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+
+                <table id="tblAssignmentStudentList" class="table table-stripped" cellspacing="0" width="100 % ">
+
+
+
+                    <thead>
+                        <tr>
+                            <th>{{labelsAssignment.studentName}}</th>
+                            <th>{{labelsAssignment.updatedOn}}</th>
+                            <th>{{labelsAssignment.uploads}}</th>
+                            <th>{{labelsAssignment.status}}</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="assignment in entityAssignment">
+                            <td> {{ assignment.Firstname + assignment.Lastname }} </td>
+                            <td> {{ assignment.LastUpdatedDateTime | date }} </td>
+                            <td><a href="#" download ng-click="getFile(assignment.FolderKey,assignment.N3DMSFileKey)">{{ assignment.FileName }}</a> </td>
+                            <td> {{ assignment.AssignmentStatusName }} </td>
+
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div ng-show="staffView">
+
+
+            <div class="row">
+
+                <div align="right" class="panel-body">
+
+                    <label>
+   <a href="#"  ng-click="editStaffAssignment(entityAssignment.assignmentKey,entityAssignment.branchKey)">Edit</a> 
+   </label>
+
+
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.assignmentName}}</label>
+
+                        <input class="form-control" id="input-Default" ng-model="entityAssignment.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-disabled="true">
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.assignmentType}}</label>
+                        <select ng-options="assignment.AssignmentTypeKey as assignment.AssignmentTypeName for assignment in assignmentCollections" value="3" class="form-control " ng-model="entityAssignment.assignmentTypeKey" name="assignmentType" ng-required="true" ng-disabled="true"> 
+					  <option value="">--Select--</option>
+					 </select>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.topicTitle}}</label>
+                        <input class="form-control" id="input-Default" ng-model="entityAssignment.topicTitle" name="topicTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-disabled="true">
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.startDate}}</label>
+                        <input class="form-control date-picker" ng-model="entityAssignment.startDate" name="startDate" type="date" ng-disabled="true">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+
+
+                        <label>{{labelsAssignment.endDate}}</label>
+                        <input class="form-control date-picker" ng-model="entityAssignment.endDate" name="endDate" type="date" ng-disabled="true">
+
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.priority}}</label>
+                        <select ng-options="priority.priorityKey as priority.priorityStatus  for priority in priorityList" class="form-control " ng-model="entityAssignment.priorityKey" name="priority" ng-disabled="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.description}}</label>
+                        <textarea class="form-control " ng-model="entityAssignment.description" name="description" type="text" ng-disabled="true"></textarea>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+
+                <table id="tblAssignmentStudentList" class="table table-stripped" cellspacing="0" width="100 % ">
+
+
+
+                    <thead>
+                        <tr>
+                            <th>{{labelsAssignment.staffName}}</th>
+                            <th>{{labelsAssignment.updatedOn}}</th>
+                            <th>{{labelsAssignment.uploads}}</th>
+                            <th>{{labelsAssignment.status}}</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="assignment in entityAssignment">
+                            <td> {{ assignment.Firstname + assignment.Lastname }} </td>
+                            <td> {{ assignment.LastUpdatedDateTime | date }} </td>
+                            <td><a href="#" download ng-click="getFile(assignment.FolderKey,assignment.N3DMSFileKey)">{{ assignment.FileName }}</a> </td>
+                            <td> {{ assignment.AssignmentStatusName }} </td>
+
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+
+
+    </form>
+</div>

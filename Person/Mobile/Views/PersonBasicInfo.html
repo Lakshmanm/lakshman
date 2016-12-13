@@ -1,0 +1,133 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personBasicInfo.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************-->
+
+
+<form name="basicform" novalidate>
+
+
+    <h2>{{basicInfoLabels.basicInfo}}</h2>
+
+
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.firstName}}<span style="color:red">*</span></span>
+
+            <input ng-model="person.firstName" type="text" name="firstName" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+            <div ng-if="basicform.$submitted || basicform.firstName.$touched" style="color:red">
+                <p ng-show="basicform.firstName.$invalid && basicform.firstName.$error.required">First name is required</p>
+                <p ng-show="basicform.firstName.$error.minlength">First name is too short</p>
+                <p ng-show="basicform.firstName.$error.pattern">Alphabets Only</p>
+            </div>
+        </label>
+
+
+
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.middleName}}</span>
+
+            <input ng-model="person.middleName" type="text" name="middleName" ng-minlength="3" ng-maxlength="50" />
+
+            <div ng-if="basicform.$submitted || basicform.middleName.$touched" style="color:red">
+                <p ng-show="basicform.middleName.$error.minlength">Middle name is too short</p>
+                <p ng-show="basicform.middleName.$error.pattern">Alphabets Only</p>
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.lastName}}<span style="color:red">*</span></span>
+
+            <input ng-model="person.lastName" type="text" name="lastName" ng-minlength="3" ng-maxlength="50" ng-required="true" />
+
+            <div ng-if="basicform.$submitted || basicform.lastName.$touched" style="color:red">
+                <p ng-show="basicform.lastName.$invalid && basicform.lastName.$error.required">Last name is required</p>
+                <p ng-show="basicform.lastName.$error.minlength">Last name is too short</p>
+                <p ng-show="basicform.lastName.$error.pattern">Alphabets Only</p>
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.dateOfBirth}}<span style="color:red">*</span></span>
+
+            <input ng-model="person.dateOfBirth" name="dateOfBirth" type="date" required/>
+
+            <div class="padding" ng-if="basicform.dateOfBirth.$touched || basicform.$submitted" style="color:red">
+                <p ng-show="basicform.dateOfBirth.$error.required ">Date of birth is required</p>
+
+            </div>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.placeOfBirth}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="location.geoLocation" name="placeOfBirth" ng-autocomplete options="options" details="details" required />
+
+            <div class="padding" ng-if="basicform.placeOfBirth.$touched || basicform.$submitted" style="color:red">
+                <p ng-show="basicform.placeOfBirth.$error.required ">Place of birth is required</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-select item-stacked-label">
+            <span>{{basicInfoLabels.gender}}<span style="color:red">*</span></span>
+
+            <select name="genderId" style="width: 100%" ng-options="gender.genderId as gender.title for gender in  genders" ng-model="person.genderId" required>
+                <option value="">--Select--</option>
+            </select>
+
+
+            <div class="padding" ng-if="basicform.genderID.$touched || basicform.$submitted" style="color:red">
+                <p ng-show="basicform.genderID.$error.required ">Gender is required</p>
+
+            </div>
+
+        </label>
+        <label class="item item-input item-select item-stacked-label">
+            <span>{{basicInfoLabels.bloodGroup}}<span style="color:red">*</span></span>
+
+            <select ng-options="group.bloodGroupId as group.bloodGroupName  for group in bloodGroups" value="3" name="bloodGroupId" ng-model="person.bloodGroupId" style="width: 100%" required>
+                <option value="">--Select--</option>
+            </select>
+
+            <div class="padding" ng-if="basicform.bloodGroupId.$touched || basicform.$submitted" style="color:red">
+                <p ng-show="basicform.bloodGroupId.$error.required ">Blood group is required</p>
+
+            </div>
+
+        </label>
+
+
+
+        <label class="item item-input item-stacked-label">
+            <span>{{basicInfoLabels.identificationMarks}}</span>
+
+            <textarea id="console" ng-model="person.identificationMarks" rows="3"></textarea>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+
+            <button type="submit" id="type_saveid" name="type_saveid" ng-click="basicform.$valid && saveBasicInfo()" class=" button button-stable">{{basicInfoLabels.submit}}</button>
+
+        </label>
+    </div>
+</form>

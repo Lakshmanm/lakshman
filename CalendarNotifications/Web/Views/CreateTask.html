@@ -1,0 +1,159 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Create Event
+        <!--{{profileLables.ProfileSettings}} --></h4>
+    
+</div>
+
+<div class="container-fluid container-fullw bg-white">
+     
+    <div class="row">
+        <div class="col-md-12">
+   
+    <div class="profile_form">
+
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
+        <div class="alert alert-warning" ng-show="showErrorAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×</button> {{errorTextAlert}}</div>
+    </div>
+
+    <div class="profile_form" >
+        <form id="myForm" name="createTaskForm" novalidate >
+
+            <div   class="row">
+
+            <div class="col-md-3" style="margin-top:30px;" >
+                   
+                   
+    <input type="checkbox" class="form-control" id="FulldayEvent" ng-model="createTask.fulldayEvent"  ng-click="displaydates()"/>
+    <label for="FulldayEvent">Is it Full Day Event?</label>
+                
+                </div>
+            </div>
+            <div class="row">
+                <!--<p class="required" style="padding-left:15px;">* Required</p> -->
+                <div class="col-md-3">
+                    <label for="TaskTitle"><span>*</span>{{createTaskLables.TaskTitle}}</label>
+                    <input  class="form-control" id="TaskTitle" autocomplete="off" name="TaskTitle" type="text" ng-model="createTask.title" ng-required="true"  ng-pattern="/^[a-zA-Z0-9\s]*$/" />
+                     <span style="color:red" ng-show="createTaskForm.TaskTitle.$dirty && createTaskForm.TaskTitle.$invalid || createTaskForm.$submitted">
+  <span ng-show="createTaskForm.TaskTitle.$error.required">Event Title is required.</span>
+  <span ng-show="createTaskForm.TaskTitle.$error.pattern">Please use numbers letters only</span>
+  </span>
+  
+                </div>
+
+              
+                 
+
+                </div>
+
+                <div class="row">
+                
+                <div class="col-md-3"  ng-show="!createTask.fulldayEvent">
+                    <label for="dateofbirth"><span>*</span>{{createTaskLables.StartDateTime}}</label>
+                   <!--  <input class="form-control" type="text" required  datetime-picker name="starttime" ng-model="createTask.startDateTime" date-format="yyyy-MM-dd HH:mm:ss" /> -->
+                   <circulartimepicker  model="createTask.startDateTime" format="{military:true}"></circulartimepicker>
+                </div>
+                <div class="col-md-3" ng-show="!createTask.fulldayEvent">
+                    <label for="gender"><span>*</span>{{createTaskLables.EndDateTime}}</label>
+                   <!--  <input type="text" clas!s="form-control" required  datetime-picker name="Endtime" ng-model="createTask.endDateTime" date-format="yyyy-MM-dd HH:mm:ss" /> -->
+
+                      <circulartimepicker  model="createTask.endDateTime" format="{military:true}"></circulartimepicker>
+
+                </div>
+
+                  <div class="col-md-3" ng-show="createTask.fulldayEvent">
+                    <label for="gender"><span>*</span>Date</label>
+                   <!--  <input type="text" clas!s="form-control" required  datetime-picker name="Endtime" ng-model="createTask.endDateTime" date-format="yyyy-MM-dd HH:mm:ss" /> -->
+
+                      <circulartimepicker  model="createTask.DateTime" format="{momentFormat:'YYYY-MM-DD'}"></circulartimepicker>
+
+                </div>
+
+
+            </div>
+
+
+          <!--   <div class="row">
+                <div class="col-md-3">
+                    <label for="phone"><span>*</span>{{createTaskLables.Calender}}</label>
+                    <select id="calenderid" class="form-control" required name="calenderid" ng-options="cal.PersonCalendarID as cal.PersonCalendarName for cal in userCalenders " ng-model="createTask.userCalenderId" required>
+                    <option value="">Select Calender</option>
+                </select>
+
+                </div>
+                <div class="col-md-3">
+                    <label for="bloodgroup"><span>*</span>{{createTaskLables.Status}}</label>
+                    <select id="taskstatus" class="form-control" name="taskstatus" required ng-options="status.EventStatusID as status.EventStatusName for status in eventStatus " ng-model="createTask.taskStatusId" required>
+                    <option value="">Select</option>
+                </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="email"><span>*</span>{{createTaskLables.Priority}}</label>
+                    <select id="taskpriority" class="form-control" required name="taskpriority" ng-options="priority.EventPriorityID as priority.EventPriorityName for priority in eventPriority " ng-model="createTask.taskPriorityId" required>
+                    <option value="">Select</option>
+                </select>
+
+                </div>
+
+
+
+
+
+            </div>
+ -->
+                  <div class="row">
+                  <div class="col-md-6">
+                    <label for="TaskDescription"><span>*</span>{{createTaskLables.TaskDescription}}</label>
+                    <textarea class="form-control" type="text"  name="description" ng-model="createTask.description" ng-required="true" ng-pattern="/^[a-zA-Z0-9\s]*$/"></textarea>
+                     <span style="color:red" ng-show="createTaskForm.description.$dirty && createTaskForm.description.$invalid || createTaskForm.$submitted">
+  <span ng-show="createTaskForm.description.$error.required">Event Description is required.</span>
+  <span ng-show="createTaskForm.description.$error.pattern">Please use numbers letters only</span>
+  </span>
+
+                </div>
+
+               
+                </div>
+
+
+
+
+            <div class="row">
+                <div class="col-md-12" ng-bind="messageerror">
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <br/>
+                <div class="col-md-5">
+
+                    <button class="btn btn-primary button" type="submit" name="Update" ng-click="createTaskForm.$valid && createNewTask()"> {{createTaskLables.Save}}</button>
+                    
+
+                    <button class="btn btn-warning button" ng-click="cancel()">{{createTaskLables.Cancel}}</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+     
+</div>
+</div>
+
+
+  
+   
+
+
+
+
+
+
+

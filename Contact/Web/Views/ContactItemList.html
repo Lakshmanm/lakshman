@@ -1,0 +1,67 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: ContactItemList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsContactItem.ContactItemListTitle}}</h2></div>
+    
+    <div class="col-lg-12">
+        <input type="text" placeholder="search with contactKey" ng-model="search"/></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+                 
+                    <table id="tblcontactList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th>{{labelsContactItem.ContactInfo}}</th>
+                                <th>{{labelsContactItem.contactItemInfo}}</th>
+                                <th>{{labelsContactItem.contactType}}</th>
+                                <th>{{labelsContactItem.isPrimary}}</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entityContactItem in contactItems|filter:search">
+                                <td>{{ entityContactItem.contactKey }}</td>
+                                <td>{{ entityContactItem.contactItemInfo }}</td>
+                                <td>{{ entityContactItem.contactTypeTitle }}</td>
+                                <td>{{ (entityContactItem.isPrimary=='1')?'Yes':'No' }}</td>
+                                <td><a href="#/editContactItem/{{entityContactItem.contactItemKey}}">Edit</a>
+                                
+                                </td>
+
+                                <td><a ng-click="deleteContactItem(entityContactItem.contactItemKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </table>
+</div>

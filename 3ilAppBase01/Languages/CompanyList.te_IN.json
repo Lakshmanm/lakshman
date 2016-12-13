@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "CompanyTitle": "Company Title",
+        "CompanyDetails": "Company Details",
+        "CompanyAddress": "Company Address",
+        "CompanyEmail": "Company Email",
+        "CompanyPhone": "Company Phone",
+        "edit": "Edit",
+        "delete": "Delete",
+        "CompanyList": "CompanyList"
+
+    },
+    "errors": {
+
+    }
+}

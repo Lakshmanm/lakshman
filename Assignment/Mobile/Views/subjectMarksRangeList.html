@@ -1,0 +1,51 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: subjectMarksRangeList.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="subjectMarksRange List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="list subjectMarksRange_table">
+					 <div class="row item" dir-paginate="entitysubjectMarksRange in collectionsubjectMarksRange | orderBy:sortColumn: reverseSort | orderBy:sortKey: reverse | itemsPerPage:pageSize">
+						 <div class="col col-80">
+
+							 {{ entitysubjectMarksRange.minimumSubjects }}
+							 &nbsp;
+							 {{ entitysubjectMarksRange.maximumSubjects }}
+							 &nbsp;
+						 </div>
+						 <div class="col col-10">
+							 <a  ng-click="" href="#/app/editsubjectMarksRange/{{entitysubjectMarksRange.subjectMarksRangeKey}}"><span  class="new_icon ion-edit"></span></a>
+						 </div>
+						 <div class="col col-10">
+							 <a ng-click="deletesubjectMarksRange(entitysubjectMarksRange.subjectMarksRangeKey)"><span class="new_icon ion-trash-a"></span></a>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

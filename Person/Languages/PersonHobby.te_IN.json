@@ -1,0 +1,19 @@
+{
+    "hobbyLabels": {
+        "hobbyName": "అభిరుచి పేరు",
+        "hobbyType": "అభిరుచి టైప్",
+        "details": "వివరాలు",
+        "proficiency": "నైపుణ్యత",
+          "submit": "సమర్పించండి",
+          "edit": "మార్చు",
+           "delete": "తొలగించు",
+           "hobby":"అభిరుచి"
+   
+
+
+      
+    },
+    "errors": {
+
+    }
+}

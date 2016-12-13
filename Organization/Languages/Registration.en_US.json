@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "RegistrationType": "Registration Type",
+        "ValidFrom": "Valid From",
+        "ValidTo": "Valid To",
+        "RegistrationDetails":"Registration Details",
+        "Submit": "Submit",
+        "Update": "Update",
+        "RegistrationBasicInfo1": "Registration Basic Info",
+         "RegistrationType" : "Registration Type",
+        "ValidFrom": "Valid From",
+        "ValidTo": "Valid To",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "RegistrationList": " Registration List"
+
+
+    },
+    "errors": {
+
+    }
+}

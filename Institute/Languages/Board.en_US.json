@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "boardHeading": "Board",
+        "boardOrganizationKey": "Board Organization Key",
+        "instanceOrganizationKey": "Instance OrganizationKey",
+        "boardTitle": "Board Title",
+        "edit": "Edit",
+        "deleted": "Delete",
+        "submit": "Save",
+        "update": "Update"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,118 @@
+<!--=======================================================================
+  All rights reserved to Thrill Innovations Lab.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : User Role
+ Type                : Html
+ Description         : This HTML file dispalys role for the user
+ References          :
+ Author              :  Tulasi Ballada
+ Created Date        :  07-Apl-2016
+****************************************************************************
+MODIFICATION LOG
+
+**************************************************************************** 
+Ver Date         Modified By            Description
+
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       15-April-2016         Sri Venkatesh.T           No Issues
+****************************************************************************
+*/
+-->
+
+<div id="main-wrapper">
+    <form name="basicform">
+
+        <div id="main-wrapper">
+            <div class="panel-white">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel-body">
+                            <label>{{securityUserRole.UserID}}</label>
+
+
+                            <!-- <select id="namedropdown" ng-model="userrole.user" name="username" ng-options="User.UserID as User.FullName for User in Names"> -->
+
+                            <select id="namedropdown" ng-model="userrole.UserID" ng-options="User.UserID as User.FullName for User in Names">
+                                <option value="">--Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel-body">
+
+                            <label>{{securityUserRole.RoleID}}</label>
+                            <select id="Roledropdown" ng-model="userrole.RoleID" ng-options="Role.RoleID as Role.RoleName for Role in Roles">
+                                <option value="">--Select--</option>
+
+                            </select>
+                            <!-- <dropdown-multiselect model="userrole.roleid" name="userrole" options="Roles" name="userroles">
+                        </dropdown-multiselect> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel-body">
+                            <label>{{securityUserRole.IsActive}}</label>
+                            <input class="form-control" ng-model="userrole.isActive" type="checkbox" name="isacive" />
+                        </div>
+                    </div>
+
+                </div>
+                <div style="text-align:center" class="row">
+                    <button type="submit" name="type_saveid" ng-show="save" ng-click="UsersSave()" class="btn btn-primary">{{securityUserRole.Save}}</button>
+                </div>
+                <div style="text-align:center" class="row">
+                    <button type="submit" id="type_saveid" ng-show="update" name="type_saveid" ng-click="updateUsers(list.UserRoleID)" class="btn btn-primary">{{securityUserRole.Update}}</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <table style="font-size:small" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>{{securityUserRole.UserID}}</th>
+                                        <th>{{securityUserRole.RoleID}}</th>
+                                        <th>{{securityUserRole.isActive}}</th>
+                                        <th>{{securityUserRole.Edit}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="list in userroles">
+                                        <td>{{list.fullname}}</td>
+                                        <td>{{list.RoleName}}</td>
+                                        <td>{{(list.isActive ==1)?"Active":"In Active"}} </td>
+                                        <td>
+                                            <ul class="nav">
+                                                <!-- <li class="active"><a href="#/Roles/{{role.RoleID}}" ng-click="editRoles(role)">Edit</a></li>
+ -->
+                                                <li class="active"><a href="" ng-click="edituser(list)">Edit</a></li>
+                                            </ul>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <!-- Row -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form> <!-- form -->
+</div>
+<!-- Main Wrapper -->

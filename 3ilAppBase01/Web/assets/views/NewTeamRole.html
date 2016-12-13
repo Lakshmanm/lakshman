@@ -1,0 +1,73 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewTeamRole.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <form name="RoleForm" novalidate>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4> {{labelsTeamRole.teamRoleHeading}}  </h4>
+            </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeamRole.teamRoleTitle}}</label>
+					 <input class="form-control" id="input-Default" ng-model="entityTeamRole.teamRoleTitle" name="teamRoleTitle" type="text" ng-minlength = "4" ng-maxlength = "80" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" > 
+                       <div class="padding" ng-if="RoleForm.teamRoleTitle.$touched || RoleForm.$submitted" style="color:red">
+                      <p ng-show="RoleForm.teamRoleTitle.$error.required">Team title  is required</p>
+                      <p ng-show="RoleForm.teamRoleTitle.$error.minlength">Team title  is too short</p>
+                        <p ng-show="RoleForm.teamRoleTitle.$error.maxlength">Team title  is too Long</p>
+<p ng-show="RoleForm.teamRoleTitle.$error.pattern">Enter Only Alphabets</p>
+                        </div>
+				 </div>
+			 </div>
+            
+             <!--<div class="col-lg-3 col-md-6">
+               
+            </div>-->
+         <!--    <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeamRole.organizationKey}}</label>
+					 <input class="form-control" id="input-Default" ng-model="entityTeamRole.organizationKey" name="organizationKey" type="text" ng-minlength = "4" ng-maxlength = "80" ng-required="true" > 
+                       <div class="padding" ng-if="RoleForm.organizationKey.$touched || RoleForm.$submitted" style="color:red">
+                      <p ng-show="RoleForm.organizationKey.$error.required">Team Role  is required</p>
+                      <p ng-show="RoleForm.organizationKey.$error.minlength">Team Role  is too short</p>
+                        <p ng-show="RoleForm.organizationKey.$error.maxlength">Team Role  is too Long</p>
+
+                        </div>
+				 </div>
+			 </div>-->
+			
+            
+			 </div>
+             <div class="row"><div class="col-md-3">
+				 <div class="panel-body">
+ <button type="submit" class="btn btn-wide btn-primary" ng-click="RoleForm.$valid && addTeamRole()">{{labelsTeamRole.submit}}</button>  
+				 </div>
+			 </div>
+		 </div>
+        </form>
+		 </div>
+	 </div>

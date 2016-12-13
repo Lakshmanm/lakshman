@@ -1,0 +1,144 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Relative
+ Type		    	: html 
+ Description		: html page for person Relative 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 06-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+
+<form name="notesForm" >
+
+    <div class="col-lg-12">
+    
+<fieldset ng-disabled="details"> 
+   
+
+    <div class="row">
+     <div class="col-lg-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':notesForm.title.$dirty && notesForm.title.$invalid, 'has-success':notesForm.title.$valid}">
+             <label>{{noteLabels.name}} <span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" type="text" name="title" ng-model="notes.title" ng-maxlength="50" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                         <span class="error text-small block" ng-if="notesForm.title.$dirty && notesForm.title.$invalid" style="color:red">    
+                              <p ng-show="notesForm.title.$invalid && notesForm.title.$error.required">Name is required</p>
+                      <p ng-show="notesForm.title.$error.minlength">Name be minimum of 3 characters</p>
+                        <p ng-show="notesForm.title.$error.maxlength">Namebe maximum of 50 characters</p> 
+                            <p ng-show="notesForm.title.$error.pattern">Name accepts only alphabets </p>
+                        </span> </div>
+                </div>
+
+        </div>
+        <div class="row">
+        <div class="col-lg-6 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':notesForm.description.$dirty && notesForm.description.$invalid, 'has-success':notesForm.description.$valid}">
+             <label>{{noteLabels.description}} <span class="symbol required"></span> </label> <span class="clip-select">
+                        <textarea class="form-control" type="text" name="description" ng-model="notes.description" ng- ng-required="true"></textarea></span>
+                         <span class="error text-small block" ng-if="notesForm.description.$dirty && notesForm.description.$invalid" style="color:red">    
+                              <p ng-show="notesForm.description.$invalid && notesForm.description.$error.required">Address is required</p>
+                   
+                        </span> </div>
+                </div>
+
+
+
+        </div> 
+      
+
+</fieldset>
+
+        </div> 
+        
+          
+        
+
+    <div class="row">
+        <div style="text-align:center">
+         
+<button type="button" ng-hide="notes" class="btn btn-wide btn-primary" ng-disabled="notesForm.$invalid" ng-click="notesForm.$valid && saveNotes()" v-pressable>{{noteLabels.submit}}</button>
+
+
+        </div>
+    </div>
+
+
+</form>
+
+
+
+
+ 
+  
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                  
+
+<table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                   <th>{{noteLabels.name}}</th>
+                             <th>Created Date</th>
+                                
+                                <th>{{noteLabels.edit}}</th>
+                                <th ng-hide="notes" >{{noteLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="notes in notesList">
+                                <td>{{notes.Title}}</td>
+                                <td>{{notes.CreatedDateTime|date}}</td>
+                               
+                                <td>
+                                    <a ng-click="getNotes(notes.ReferenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td ng-hide="notes" ><a ng-click="deleteNotes(notes.ReferenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    
+                </div>
+            </div>
+        </div>
+ 
+</div>
+</div>

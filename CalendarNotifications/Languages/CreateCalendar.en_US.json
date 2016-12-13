@@ -1,0 +1,14 @@
+{
+    "labels": {
+    	
+        "CalenderName": "Calendar Name",
+        "CalenderColor": "Calendar Color",
+        "Description": "Description",
+        "Save": "Save",
+        "Cancel": "Cancel" 
+
+    },
+    "errors": {
+
+    }
+}

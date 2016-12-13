@@ -1,0 +1,84 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewElectiveGroup.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="electiveGroupForm" novalidate>
+            <div class="row">
+              
+            </div>
+        </form>
+
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblElectiveGroupList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsElectiveGroup.electiveGroupTitle}}</th>
+                                    <th>{{labelsElectiveGroup.minimumSubjects}}</th>
+                                    <th>{{labelsElectiveGroup.maximumSubjects}}</th>
+                                    <th></th>
+                                   <!-- <th>Edit</th>
+                                    <th>Delete</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityElectiveGroup in electiveGroupCollection">
+                                    <td>{{ entityElectiveGroup.electiveGroupTitle }}</td>
+                                    <td>{{ entityElectiveGroup.minimumSubjects }}</td>
+                                    <td>{{ entityElectiveGroup.maximumSubjects }}</td>
+                                     <td> 
+                            <input type="checkbox" class="checkbox" id="{{entityElectiveGroup.electiveGroupKey}}" ng-model="entityElectiveGroup.electiveGroupCheck" ng-true="1" ng-false="null" name="isElective">
+                            <label for="{{entityElectiveGroup.electiveGroupKey}}">              
+                                            </label>
+
+                                    </td>
+                                              
+ 
+                                   
+                                    
+                                    <!--<td><a ng-click="editElectiveGroup(entityElectiveGroup.electiveGroupKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteElectiveGroup(entityElectiveGroup.electiveGroupKey)"><i class="fa fa-trash"></i></a></td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+ <center> <button class="btn btn-wide btn-primary" ng-if="savebtn" ng-click="saveElectiveGroup(electiveGroupCollection)">Save</button>  </center>
+                    </div>
+                </div>

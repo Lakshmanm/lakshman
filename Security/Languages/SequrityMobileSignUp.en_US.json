@@ -1,0 +1,19 @@
+
+
+{
+    "labels": {
+        "Register": "Register",
+        "UserName": "User Name",
+        "Password": "Password",
+        "EmailId": "EmailID",
+        "FirstName": "First Name",
+        "MiddleName": "Middle Name",
+        "LastName": "Last Name",
+        "Submit": "Submit"
+
+    },
+    "errors": {
+
+    }
+
+}

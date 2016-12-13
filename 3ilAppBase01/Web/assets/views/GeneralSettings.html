@@ -1,0 +1,28 @@
+<div class="container-fluid container-fullw bg-white">
+    <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">General Settings</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+    <form  name="generalSettings" role="dgdg" id="form">
+          <div class="row">
+           <div class="col-lg-3 col-md-6" >
+                   <div class="form-group" ng-class="{'has-error':generalSettings.attTypeName.$dirty && generalSettings.attTypeName.$invalid, 'has-success':generalSettings.attTypeName.$valid}">
+   <div class="form-group" ng-class="{'has-error':form.branch.$dirty && form.branch.$invalid, 'has-success':form.branch.$valid}"> <label class="control-label">
+                          Attendance Type<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select ng-options="attList.AttendanceTypeKey as attList.Title  for attList in attendaneTyp" value="3" class="form-control "  ng-model="entityattendance.AttendanceTypeKey" ng-change="getAttendanceType(entityattendance.AttendanceTypeKey)" name="attTypeName" ng-required="true" > 
+             <option value="">--Select--</option>
+           </select></span>
+            <span ng-if="generalSettings.$submitted || generalSettings.attTypeName.$touched" class="error text-small block">
+            <span ng-if="generalSettings.attTypeName.$invalid && generalSettings.attTypeName.$error.required ">Attendance Type is required.</span>
+                        </span>
+                                </div>
+</div>
+</div>    
+        </div>
+        <div class="row" align="center">
+          <button type="button" ng-disabled="generalSettings.$invalid" ng-click="generalSettings.$valid &&addGeneralSettings()"  ng-show="savee" class="btn btn-wide btn-primary" v-pressable> Save </button>
+          <button type="button" ng-disabled="generalSettings.$invalid"  ng-show="updatee" ng-click="generalSettings.$valid&&updateGeneralSettings()"  class="btn btn-wide btn-primary" v-pressable> Update </button>
+          </div>
+    
+    </form>
+</div>

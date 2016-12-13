@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "identitytype": "पहचान",
+        "identityNumber":"पहचान के प्रकार",
+        "submit": "जमा करें",
+        "edit": "संपादित करें",
+        "delete":"मिटाना",
+        "identity": "पहचान"
+
+    },
+    "errors": {
+
+    }
+}

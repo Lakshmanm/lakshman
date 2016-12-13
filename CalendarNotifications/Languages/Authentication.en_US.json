@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "WelcomeNote": "Welcome, Please login.",
+        "Login": "Login",
+        "ForgotPassword": "Forgot Password",
+        "Submit": "Submit",
+        "BackToLogin": "Back To Login"
+
+    },
+    "errors": {
+
+    }
+}

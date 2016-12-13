@@ -1,0 +1,105 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExamSchedule.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="yearForm" novalidate>
+            <div class="row">
+                <!--  <div class="col-lg-12">
+
+                    <h2> {{labelsExamSchedule.examScheduleHeading}}  </h2>
+                </div> -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group " ng-class="{ 'has-error':yearForm.academicYearName.$dirty && yearForm.academicYearName.$invalid, 'has-success':yearForm.academicYearName.$valid} ">
+                        <label>{{labelsAcademicYear.academicYearTitle}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityAcademic.academicYearName" name="academicYearName" type="text" ng-min="0" ng-max="1000" ng-required="true"> <span ng-if="yearForm.academicYearName.$dirty && yearForm.academicYearName.$invalid" class="error text-small block">
+                        <p ng-show="yearForm.academicYearName.$invalid && yearForm.academicYearName.$error.required">Academic Year Title is required</p> <p ng-show="yearForm.academicYearName.$error.min">Academic Year Title is invalid</p> <p ng-show="yearForm.academicYearName.$error.max">Academic Year Title is too long</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group " ng-class="{ 'has-error':yearForm.startDate.$dirty && yearForm.startDate.$invalid, 'has-success':yearForm.startDate.$valid} ">
+                        <label>{{labelsAcademicYear.startDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityAcademic.startDate" name="startDate" type="date" ng-required="true"> <span ng-if="yearForm.startDate.$dirty && yearForm.startDate.$invalid" class="error text-small block">
+                        <p ng-show=" yearForm.startDates.$error.required ">Start date is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group " ng-class="{ 'has-error':yearForm.endDate.$dirty && yearForm.endDate.$invalid, 'has-success':yearForm.endDate.$valid} ">
+                        <label>{{labelsAcademicYear.endDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityAcademic.endDate" name="endDate" type="date" ng-required="true" min="{{entityAcademic.startDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}"> <span ng-if="yearForm.endDate.$dirty && yearForm.endDate.$invalid" class="error text-small block">
+                        <p ng-show="yearForm.endDate.$error.required ">End date is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group ">
+                        <div class="checkbox">
+                            <input type="checkbox" ng-checked="active" id="checkbox1" ng-model="entityAcademic.isActive" name="isActive">
+                            <label for="checkbox1"> {{labelsAcademicYear.isActive}} </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group ">
+                            <div ng-if="save">
+                                <button type="submit" ng-disabled="yearForm.$invalid" class="btn btn-wide btn-primary" ng-click="yearForm.$valid&&addAcademicYear()">{{labelsAcademicYear.save}}</button>
+                            </div>
+                            <div ng-if="update">
+                                <button type="submit" ng-disabled="yearForm.$invalid" class="btn btn-wide btn-primary" ng-click="yearForm.$valid&&updateAcademicYear()">{{labelsAcademicYear.update}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <table id="tblExamScheduleList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsAcademicYear.academicYearTitle }}</th>
+                                    <th>{{labelsAcademicYear.startDate }}</th>
+                                    <th>{{labelsAcademicYear.endDate }}</th>
+                                    <th>{{labelsAcademicYear.isActive }}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityYear in yearCollection">
+                                    <td>{{ entityYear.AcademicYearName}}</td>
+                                    <td>{{ entityYear.StartDate|date : "dd/MM/yyyy"}}</td>
+                                    <td>{{ entityYear.EndDate|date : "dd/MM/yyyy"}}</td>
+                                    <td>{{ (entityYear.IsActive.data==1)?"Yes":"No"}}</td>
+                                    <td><a ng-click="editYear(entityYear.AcademicYearKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteYear(entityYear.AcademicYearKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+        </div>
+    </div>

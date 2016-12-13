@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "award": "అవార్డు",
+        "awardedName": "ప్రదానం పేరు",
+        "awardedDate": "ప్రదానం తేదీ",
+        "description": "వివరణ ",
+        "awardedOrganization": "ప్రదానం సంస్థ",
+        "location": "నగర",
+        "submit": "సమర్పించండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించు"
+    },
+    "errors": {
+
+    }
+}

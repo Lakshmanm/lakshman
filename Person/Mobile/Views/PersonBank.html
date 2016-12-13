@@ -1,0 +1,136 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personBank.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************-->
+
+<form name="bankForm" novalidate>
+    <h2>{{bankLabels.bank}}</h2>
+
+    <label class="item item-input item-stacked-label">
+        <span>{{bankLabels.title}}<span style="color:red">*</span></span>
+        <input type="text" ng-model="bank.bankTitle" name="title" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+        <div class="padding" ng-if="bankForm.title.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.title.$error.required ">Title is required</p>
+            <p ng-show="bankForm.title.$error.minlength">Title is too short must be longer than 3 characters</p>
+            <p ng-show="bankForm.title.$error.maxlength">Title is too long it should be below 30 characters</p>
+            <p ng-show="bankForm.title.$error.pattern">Title accept only alphabetic characters</p>
+        </div>
+    </label>
+    <label class="item item-input item-stacked-label">
+        <span>{{bankLabels.address}}<span style="color:red">*</span></span>
+
+        <input type="text" ng-model="bankLocation.geoLocation" name="geoLocation" required />
+        <div class="padding" ng-if="bankForm.geoLocation.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.geoLocation.$error.required ">Address is required</p>
+
+        </div>
+    </label>
+
+    <label class="item item-input item-select item-stacked-label">
+        <span>{{bankLabels.bank}}<span style="color:red">*</span>
+        </span>
+        <select class="form-control" style="width: 100%" ng-options="bank.bankNameId as bank.bankName for bank in bankNames" ng-model="bank.bankNameId" name="bankName" required>
+
+
+            <option value="">--Select--</option>
+
+
+        </select>
+
+        <div class="padding" ng-if="bankForm.bankName.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.bankName.$error.required "> Branch is mandatory</p>
+
+        </div>
+    </label>
+    <label class="item item-input item-stacked-label">
+        <span>{{bankLabels.branch}}<span style="color:red">*</span></span>
+        <input type="text" ng-model="bank.branchName" name="branchName" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+        <div class="padding" ng-if="bankForm.branchName.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.branchName.$error.required ">Branch name is required</p>
+            <p ng-show="bankForm.branchName.$error.minlength">Branch name is too short must be longer than 3 characters</p>
+            <p ng-show="bankForm.branchName.$error.maxlength">Branch name is too long it should be below 30 characters</p>
+            <p ng-show="bankForm.branchName.$error.pattern">Branch name accept only alphabetic characters</p>
+        </div>
+    </label>
+    <label class="item item-input item-stacked-label">
+        <span>{{bankLabels.accountNumber}}<span style="color:red">*</span></span>
+        <input type="text" ng-model="bank.accountNumber" name="accountNumber" mask-clean='true' mask='999' restrict="reject" clean="true" pattern="[0-9]*" s required>
+        <div class="padding" ng-if="bankForm.accountNumber.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.accountNumber.$error.required ">Account number is required</p>
+            <p ng-show="bankForm.accountNumber.$error.minlength">Account number is too short must be longer than 3 characters</p>
+            <p ng-show="bankForm.accountNumber.$error.maxlength">Account number is too long it should be below 30 characters</p>
+            <p ng-show="bankForm.accountNumber.$error.pattern">Account number accept only Numeric characters</p>
+        </div>
+
+    </label>
+    <label class="item item-input item-stacked-label">
+        <span>{{bankLabels.iFSCCode}}<span style="color:red">*</span></span>
+        <input type="text" ng-model="bank.iFSCCode" name="iFSCCode" required>
+        <div class="padding" ng-if="bankForm.iFSCCode.$touched || bankForm.$submitted" style="color:red">
+            <p ng-show="bankForm.iFSCCode.$error.required ">IFSC code is required</p>
+            <p ng-show="bankForm.iFSCCode.$error.minlength">IFSC code is too short must be longer than 3 characters</p>
+            <p ng-show="bankForm.iFSCCode.$error.maxlength">IFSC code is too long it should be below 30 characters</p>
+            <p ng-show="bankForm.iFSCCode.$error.pattern">IFSC code accept only Numeric characters</p>
+        </div>
+    </label>
+
+
+
+    <label class="item item-input item-stacked-label">
+        <div style="text-align:center">
+            <button type="submit" ng-click="bankForm.$valid&&saveBank()" class=" button button-stable">{{bankLabels.submit}}</button>
+        </div>
+    </label>
+</form>
+
+<br/>
+<div style="text-align:center">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{bankLabels.title}}</th>
+                <th>{{bankLabels.address}}</th>
+                <th>{{bankLabels.branch}}</th>
+                <th>{{bankLabels.accountNumber}}</th>
+                <th>{{bankLabels.iFSCCode}}</th>
+                <th>{{bankLabels.edit}}</th>
+                <th>{{bankLabels.delete}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="bank in bankList">
+
+
+                <td>{{bank.bankTitle}}</td>
+                <td>{{bank.geoLocation}}</td>
+                <td>{{bank.branchName}}</td>
+                <td>{{bank.accountNumber}}</td>
+                <td>{{bank.iFSCCode}}</td>
+                <td>
+                    <a ng-click="getBank(bank.referenceKey)"><i class="fa fa-pencil"></i>Edit</a>
+                </td>
+                <td><a ng-click="deleteBank(bank.referenceKey)" confirmation-needed="Really Delete?"><i class="fa fa-trash"></i>Delete</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

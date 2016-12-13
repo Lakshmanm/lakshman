@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "award": "Award",
+        "awardedName": "Awarded Name",
+        "awardedDate": "Awarded Date",
+        "description": "Description ",
+        "awardedOrganization": "Awarded Organization",
+        "location": "Location",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

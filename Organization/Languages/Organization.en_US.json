@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "Title": "Organization Name",
+        "ParentOrganization": "Parent Organization",
+        "OrganizationLevel": "Organization Level",
+        "EstablishedOn": "EstablishedOn",
+        "OrganizationType": "Organization Type",
+        "SubOrganizationType": "SubOrganization Type",
+        "OrganizationCode":"OrganizationCode",
+        "OrganizationDetails": "Organization Details",
+        "Save":"Save",
+        "OrgnizationBasicInfo":"Orgnization Basic Info"
+
+    }
+}

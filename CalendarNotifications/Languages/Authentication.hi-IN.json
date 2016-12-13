@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "WelcomeNote": "आपका स्वागत है, लॉग इन करें ।",
+        "Login": "लॉगिन",
+        "ForgotPassword": "पासवर्ड भूल गए",
+        "Submit": "जमा करें",
+        "BackToLogin": "लॉगिन पर वापस जाएं"
+
+    },
+    "errors": {
+
+    }
+}

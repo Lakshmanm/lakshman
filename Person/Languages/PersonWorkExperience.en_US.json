@@ -1,0 +1,23 @@
+{
+    "labels": {
+        "title": "Job Title",
+        "organizationName": "Organization Name",
+        "designation": "Designation",
+        "occupation": "Occupation",
+        "location": "Location",
+         "totalYears": "Total Years",
+        "teachingExperience": "Teaching Experience",
+        "otherExperience": "Other Experience",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+         "submit": "Submit",
+         "edit": "Edit",
+        "delete": "Delete",
+        "workExperiences": "WorkExperiences",
+        "subjects":"Subject"
+     
+    },
+    "errors": {
+
+    }
+}

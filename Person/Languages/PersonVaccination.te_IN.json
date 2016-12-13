@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "Vaccination": "టీకాలు",
+        "VaccinationName": "టీకా పేరు",
+        "MedicineType": "వైద్య పద్ధతి",
+        "VaccinationType":"టీకా టైప్",
+        "InspectionDate":"తనిఖీ తేదీ",
+        "Remarks":"విశేషాంశాలు",
+        "Submit": "సమర్పించండి",
+        "Title":"శీర్షిక",
+        "MedicineType": "వైద్య పద్ధతి",
+        "VaccinationType":"టీకా టైప్",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి"
+    },
+    "errors": {
+
+    }
+}

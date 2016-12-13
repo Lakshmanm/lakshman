@@ -1,0 +1,167 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">New Assignment</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+
+      <form name="assignmentForm" novalidate>
+            <div class="row">
+                <!-- <div class="col-lg-12">
+                    <h2> {{labelsBoard.boardHeading}}  </h2>
+                </div> -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                       <span class="validationStar">*</span> <label>{{labelsAssignment.assignmentName}}</label>
+                        {{entityAssignment.assignmentName}}
+
+                       
+
+                    </div>
+                </div>
+                
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <span class="validationStar">*</span> <label>{{labelsAssignment.assignmentType}}</label>
+					{{entityAssignment.assignmentType}}
+                      
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					<span class="validationStar">*</span>  <label>{{labelsAssignment.groupTitle}}</label>
+					{{entityAssignment.groupTitle}}
+									 </div>
+			 </div>
+                 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.courseTitle}}</label>
+					{{entityAssignment.courseTitle}}
+				 </div>
+			 </div>
+			  </div>
+			  <div class="row">
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.batchTitle}}</label>
+					{{entityAssignment.batchTitle}}
+				 </div>
+			 </div>
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.subjectTitle}}</label>
+					 {{entityAssignment.subjectTitle}}
+				 </div>
+			 </div>
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.topicTitle}}</label>
+					{{entityAssignment.topicTitle}}
+				 </div>
+			 </div>
+               
+					
+					  <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                         <label>{{labelsAssignment.startDate}}</label>
+                      {{entityAssignment.startDate}}
+                       
+                    </div>
+                </div>
+                </div>
+				 <div class="row">
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					
+					 
+                        <label>{{labelsAssignment.endDate}}</label>
+                        {{entityAssignment.startDate}}
+                       
+                   
+				 </div>
+			 </div>
+                 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.priority}}</label>
+					 {{entityAssignment.priority}}
+				 </div>
+			 </div>
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					<span class="validationStar">*</span>  <label>{{labelsAssignment.status}}</label>
+					  {{entityAssignment.status}}
+				 </div>
+			 </div>
+                <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsAssignment.description}}</label>
+					{{entityAssignment.description}}
+					 
+				 </div>
+			 </div>
+</div>
+ <div class="row">
+			  <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 Assigned to {{entityAssignment.staff}} by {{entityAssignment.staff}}
+
+					 
+				 </div>
+			 </div>
+                
+       </div> 
+               </form>
+
+<table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblAssignmentDetailList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsAssignment.studentName}}</th>
+                                     <th>{{labelsAssignment.updatedOn}}</th>
+                                      <th>{{labelsAssignment.uploads}}</th>
+                                       <th>{{labelsAssignment.status}}</th>
+                                        <th>{{labelsAssignment.remarks}}</th>
+                                       
+
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="assignment in assignmentDetailsCollection">
+                               
+                                    <td>{{ assignment.examinationDate|date : "dd/MM/yy" }}</td>
+
+                                    <td>{{ assignment.startDate|date : "dd/MM/yy" }}</td>
+                                    <td>{{ assignment.endDate|date : "dd/MM/yy" }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+
+
+
+
+</div>
+    <!-- end: USER PROFILE -->

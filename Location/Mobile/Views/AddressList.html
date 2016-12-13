@@ -1,0 +1,91 @@
+<!--/*=======================================================================
+ All rights reserved to  Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                :  LocationList.html
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  Satya kalyani Lanka
+ Created Date        :  07-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1        1.0       13-April-2016         Sri Venkatesh.T           No Issues
+
+****************************************************************************/-->
+<ion-view view-title="Address List">
+    <ion-content scroll="true">
+
+<div class="panel-white">
+
+
+    <div class="col-lg-12">
+        <h2>{{lables.AddressList}}</h2></div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="panel-body">
+
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            
+                            <th>{{lables.Country}}</th>
+                            <th>{{lables.District}}</th>
+                            <th>{{lables.Location}}</th>
+                            <th>{{lables.EntityDetails}}</th>
+                            <th>{{lables.StreetDetails}}</th>
+                            <th>{{lables.Pincode}}</th>
+                            <th>{{lables.Edit}}</th>
+                            <th>{{lables.Delete}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr ng-repeat="address in addressDetails">
+                            
+                            <td> {{ address.country }} </td>
+                            <td> {{ address.district }} </td>
+                            <td> {{ address.geoLocation }} </td>
+                            <td> {{ address.entityDetails }} </td>
+                            <td> {{ address.streetDetails }} </td>
+                            <td> {{ address.pincode }} </td>
+                            <td>
+                                <a ng-click="" href="#/address/{{address.addressKey}}"><i class="fa fa-pencil"></i></a>
+                            </td>
+                            <td><a ng-click="removeAddress(address.addressKey)"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+        
+          </ion-content>
+</ion-view>
+
+
+
+
+<!-- Page Content -->

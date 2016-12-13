@@ -1,0 +1,148 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: SpecializationList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Specializations</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+            <div class="col-md-12">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Specialization
+                        </label>
+                        <input type="text" placeholder="search by text" class="form-control" name="specialization" ng-model="specializationSearch">
+                    </div>
+
+                </div>
+                <!--
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            City
+                        </label>
+                        <input type="text" placeholder="Enter City" class="form-control" name="City" ng-model="Branches.City">
+                    </div>
+
+                </div>-->
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            &nbsp
+                        </div>
+                        <div class="col-md-2">
+
+
+
+                            <label class="control-label">
+
+                            </label>
+                            <!--<button type="button" class="btn  btn-primary" v-pressable>
+                            Search
+                        </button> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div ng-hide="OrganizationRemove">
+                            <!-- <image class="form-control" ></image>  -->
+                            <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG" height="18px">
+                            <a ng-href="#/app/newSpecialization">Add Specialization</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+
+                            <!--<h2>{{labelsSpecializationList.specializationHeading}}</h2></div>-->
+
+                            <table id="tblSpecializationList" class="table table-stripped" cellspacing="0" width="100 % ">
+                                <thead>
+                                    <tr>
+
+                                        <th style="cursor: pointer" ng-click="sortData('specializationTitle')">{{labelsSpecializationList.specializationTitle}}
+                                            <div ng-class="getSortClass('specializationTitle')"></div>
+                                        </th>
+                                        <th style="cursor: pointer" ng-click="sortData('specializationDetails')">{{labelsSpecializationList.specializationDetails}}
+                                            <div ng-class="getSortClass('specializationDetails')"></div>
+                                        </th>
+
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="entitySpecialization in specializationCollection | itemsPerPage:pageSize | filter:specializationSearch | orderBy:sortColumn:reverseSort">
+
+
+                                        <td>{{ entitySpecialization.specializationTitle }}</td>
+                                        <td>{{ entitySpecialization.specializationDetails }}</td>
+                                        <td><a ng-click="" href="#/app/editSpecialization/{{entitySpecialization.specializationKey}}"><i class="fa fa-pencil"></i></a></td>
+                                        <td><a ng-click="deleteSpecialization(entitySpecialization.specializationKey)"><i class="fa fa-trash"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2" ng-hide="((specializationCollection | filter:specializationSearch).length<=10)||((specializationCollection | filter:specializationSearch).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end: USER PROFILE -->

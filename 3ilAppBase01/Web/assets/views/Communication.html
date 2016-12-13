@@ -1,0 +1,291 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Settings</h4>
+    <!--<div ncy-breadcrumb class="pull-right"></div>-->
+</div>
+    <div class="container-fluid container-fullw">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-white">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <uib-tabset justified="true" class="tabbable">
+                                    <uib-tab heading="SMS">
+                                        <div style="width: 90%; margin: 0px auto;">
+                                           
+                                    <!--     <div class="form-group">
+                                            <label class="control-label">
+                                               Phone Number
+                                            </label>
+                                            
+                                            <input type="text" placeholder="Enter your PhoneNumber"  name="clinicname" ng-model="MainorgProfile.PhoneNumber">
+                                        </div>
+                                      --->
+                                        <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Confirmation SMS 
+                                        </label>
+                                          
+                                        </div>
+                                
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                     SMS send to the patient on successful confirmation of appointment
+                                            </div>
+                                       <!-- <div class="col-md-4">
+                                              <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Update
+                        </button>
+                                        </div> !-->
+                                    </div>
+                                    <div class="panel panel-white" style="width: -50%; margin: 0px auto;" id="panelAppointmentSmsConfirmation">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelAppointmentSmsConfirmation" ng-init="panelAppointmentSmsConfirmation=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+                                    
+						</div>
+                                <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Confirmation SMS 
+                                        </label>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                      SMS send to the patient once the appointment got cancelled
+                                      <div class="panel panel-white" id="panelAppointmentSmsCancel">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelAppointmentSmsCancel" ng-init="panelAppointmentSmsCancel=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+                                <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Reminder SMS
+                                        </label>
+                                    <div class="panel panel-white" id="panelAppointmentSms">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelAppointmentSms" ng-init="panelAppointmentSms=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                          Follow Up Reminder SMS
+                                        </label>
+                                     <div class="panel panel-white" id="panelreminder">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelreminder" ng-init="panelreminder=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                        <label for="checkbox17">
+                                          Send SMS on the day of appointment @ 07:30 AM
+                                        </label>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                          Send Birthday Wishes
+                                        </label>
+                                          
+                                        </div>
+                                   
+  <div class="form-group"> 
+                                <center>
+                              <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Save
+                        </button>
+                                     <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Cancel
+                        </button>
+                                
+                                    </center>
+                            </div>
+                                            </div>
+                                    </uib-tab>
+                                    <uib-tab heading="EMAIL">
+                                        <div style="width: 90%; margin: 0px auto;">
+                                        <div class="form-group"  >
+                                            <label class="control-label">
+                                               Email
+                                            </label>
+                                            
+                                            <input type="text" placeholder="Enter your Email"  name="Email" ng-model="MainorgProfile.Email">
+                                        </div>
+                                        <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Confirmation Email
+                                        </label>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                      Email send to the patient on successful confirmation of appointment
+                                      <div class="panel panel-white" id="panelEmailSendConfirm">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelEmailSendConfirm" ng-init="panelEmailSendConfirm=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+                                        
+                               
+                                <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Confirmation Email 
+                                        </label>
+                                          
+                                        </div>
+                                          <div class="form-group">
+                                      Email send to the patient once the appointment got cancelled
+                                      <div class="panel panel-white" id="panelEmailsendCancelappointment">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelEmailsendCancelappointment" ng-init="panelEmailsendCancelappointment=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been cancelled @
+                                    (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+                                 
+                                <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                           Appointment Reminder Email
+                                        </label>
+                                          <div class="panel panel-white" id="panelAppointmentReminder">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelAppointmentReminder" ng-init="panelAppointmentReminder=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                          Follow Up Reminder Email
+                                        </label>
+                                          <div class="panel panel-white" id="panelFolloeupReminder">
+								<div class="panel-heading">
+									Sample
+									<ct-paneltool class="panel-tools" tool-collapse="tool-collapse" ></ct-paneltool>
+								</div>
+								<div uib-collapse="panelFolloeupReminder" ng-init="panelFolloeupReminder=true" class="panel-wrapper">
+									<div class="panel-body">
+										<p>
+																				(Patient), your appointment has been confirmed @
+                                     (Clinic) on (Date), (Time), for any query contact (contact number)
+										</p>
+									</div>
+								</div>
+							</div>
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                        <label for="checkbox17">
+                                          Send Email on the day of appointment @ 07:30 AM
+                                        </label>
+                                          
+                                        </div>
+                                 <div class="form-group">
+                                           <input type="checkbox" id="checkbox17" value="1">
+                                        <label for="checkbox17">
+                                          Send Birthday Wishes
+                                        </label>
+                                          
+                                        </div>
+                                            </div>
+                                 <center>
+                              <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                           Save
+                        </button>
+                                     <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Cancel
+                        </button>
+                                
+                                    </center>
+                                   
+                                    </uib-tab>
+                                   
+                                </uib-tabset>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,396 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+   .validationStar {
+        color: red
+    }
+</style>
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Staff List</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+      <form name="staffListForm" >
+    <div class="row">
+      
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+           
+                     <div class="col-lg-3 col-md-3">
+                   <div class="form-group" ng-class="{'has-error':staffListForm.referenceKey.$dirty && staffListForm.referenceKey.$invalid, 'has-success':staffListForm.referenceKey.$valid}">
+                        <label class="control-label">
+                            Branch
+                        <span class="symbol required"></span> </label> <span class="clip-select">
+                         <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="Staff.SuborganizationKey" ng-options="item.referenceKey as item.organizationName for item in subOrganizationList" ng-change="getInstitutes()"name="referenceKey" required>
+                                        <option value="" >-Select-</option>
+                                        </select></span>
+ <span class="error text-small block" ng-if="staffListForm.referenceKey.$dirty && staffListForm.referenceKey.$invalid" style="color:red">    
+            <p ng-show="staffListForm.referenceKey.$invalid && staffListForm.referenceKey.$error.required">Title is required</p></span>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                  <!-- <div class="form-group" ng-class="{'has-error':staffListForm.employeeCategory.$dirty && staffListForm.employeeCategory.$invalid, 'has-success':staffListForm.employeeCategory.$valid}">
+                      -->
+                        <label class="control-label">
+                            Category of Employee
+                        </label> 
+                         <select name="employeeCategory" class="form-control" ng-model="Staff.EmployeeCategoryKey" ng-options="employeeCategorytype.EmployeeCategoryKey as employeeCategorytype.EmployeeCategoryName for employeeCategorytype in employeeCategoryTypes" >
+                                                    <option value="">--Select--</option>
+                                                     </select>
+<!--
+       <span class="error text-small block" ng-if="staffListForm.employeeCategory.$dirty && staffListForm.employeeCategory.$invalid" style="color:red">    
+            <p ng-show="staffListForm.employeeCategory.$invalid && staffListForm.employeeCategory.$error.required">Category is required</p></span>
+                    </div>-->
+                </div>
+
+                   <div class="col-md-3">
+                   <div class="form-group">
+                        <label class="control-label">
+                           Department
+                        </label>
+                     <select name="assignedDepartment" class="form-control" ng-model="Staff.referenceKey" ng-options="assignedDepartmenttype.referenceKey as assignedDepartmenttype.departmentName for assignedDepartmenttype in assignedDepartmentTypes" >
+                                                    <option value="">--Select--</option>
+                                                     </select></span>
+                                                     
+
+                    </div>
+
+                </div>
+                   <div class="col-md-3">
+                   <div class="form-group"> 
+                    
+                        <label class="control-label">
+                            Designation
+                      </label>
+                       <select name="designation" class="form-control" ng-model="Staff.designationId" ng-options="designationtype.designationId as designationtype.designationName for designationtype in designationTypes" >
+                                                    <option value="">--Select--</option>
+                                                    </select></span>
+                    </div>
+
+                </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-3">
+                  <div class="form-group">
+                        <label class="control-label">
+                            Type of Employee
+                    </label>
+                        <select name="typeOfEmployment" class="form-control" ng-model="Staff.EmploymentTypeKey" ng-options="typeOfEmploymenttype.EmploymentTypeKey as typeOfEmploymenttype.EmploymentTypeName for typeOfEmploymenttype in typeOfEmploymentTypes" >
+                                                    <option value="">--Select--</option>
+                                                     </select>
+
+
+                    </div>
+
+                </div>
+                   <div class="col-md-3">
+                   <div class="form-group"> 
+                   
+                        <label class="control-label">
+                         Status</label>
+                    
+                      <select name="maritalStatus" class="form-control" ng-model="Staff.maritalStatusTypeId" ng-options="maritalStatustype.StatusId as maritalStatustype.StatusName for maritalStatustype in statusTypes" >
+                                                    <option value="">--Select--</option>
+                                                     </select>
+                            
+                    </div>
+                </div>
+              </div>
+              </form>
+              <div class="row">
+                 <div class="col-md-3">
+
+                   <!--   <button type="button" ng-click="getAllStaff()" class="btn btn-wide btn-primary" v-pressable>
+                            Search
+                        </button>
+ -->
+<button type="button" class="btn btn-wide btn-primary" ng-disabled="staffListForm.$invalid" ng-click="staffListForm.$valid && getAllStaff()" v-pressable> Search</button>
+                 </div>
+  <div class="col-md-1">
+</div>
+<div class="col-md-8"></div>
+
+                 <div class="col-md-3">
+                    <div class="form-group">
+                            <!-- <image class="form-control" ></image>  -->
+                            <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG" height="18px">
+                           <label> <a ng-click="addStaff()">Add Staff</a></label>
+                 
+
+                    </div>
+                </div>
+
+</div>
+                <!--<div class="col-md-3">
+                  <div class="form-group">
+                                            <label class="control-label">
+                                                Middlename
+                                            </label>
+                                            <input type="text" class="form-control" name="Middlename" ng-model="Branches.Middlename">
+                                        </div>
+             
+            </div>
+              <div class="col-md-3">
+                  <div class="form-group">
+                                            <label class="control-label">
+                                                Lastname
+                                            </label>
+                                            <input type="text"   class="form-control" name="Lastname" ng-model="Branches.Lastname">
+                                        </div>
+             
+            </div>
+             <div class="col-md-2">
+                 <div class="form-group">
+                       <label class="control-label">
+                                             Role
+                                            </label>
+                                     
+                                         <span class="clip-select" class="form-control"> 
+                                        <select class="form-control"  ng-model="Staff.Role">
+                                            <option value="" disabled selected>Select a Role</option>
+                                            <option value="Doctor">Doctor</option>
+                                            <option value="Pharmacist">Pharmacist</option>
+                                               <option value="Clerk">Clerk</option>
+                                            <option value="LabTechnician">LabTechnician</option>
+                                            <option value="Pharmacist">Pharmacist</option>
+                                              <option value="HelpDesk">HelpDesk</option>
+                                        </select>
+                                    </span>
+                                        </div>
+             
+            </div>
+             <div class="col-md-1" ng-hide="stafflistRemove" >
+                  <div class="form-group">
+                      <div class="col-md-1">
+                     <image class="form-control" ></image>  
+                        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope pull-right" src="3ilAppBase01/Web/assets/images/Add.PNG" ng-click="addNew()" height="18px">
+                     <h5> <a ng-click="Clear()">AddStaff</a></h5>
+                      </div>
+             
+            </div>
+        </div>  
+            </div>-->
+                <!-- <div class="col-md-12">
+            
+            <div class="col-md-3">
+               <div class="form-group">
+                       <label class="control-label">
+                                             Branch
+                                            </label>
+                                     
+                        
+                                        <select class="form-control" ng-model="Staff.BranchBelongsto">
+                                            <option value="" disabled selected>Select a Branch</option>
+                                            <option value="Suryaclinic">Suryaclinic</option>
+                                            <option value="ChildCareClinic">ChildCareClinic</option>
+                                            <option value="Heart">Heart</option>
+                                        </select>
+                                    
+                                        </div>
+           
+            </div>
+                      <div class="col-md-3">
+             <div class="form-group">
+                       <label class="control-label">
+                                             Specialization
+                                            </label>
+                                     <span class="clip-select" class="form-control"> 
+                        
+                                        <select class="form-control" ng-model="Staff.Specialization">
+                                            <option value="" disabled selected>Select a Specialization</option>
+                                            <option value="Pediatrician">Pediatrician</option>
+                                            <option value="Neonatologist">Neonatologist</option>
+                                        </select>
+                                     </span>
+                                        </div>
+                      </div>
+              <div class="col-md-3">
+                  <div class="form-group">
+                       <label class="control-label">
+                                             Department
+                                            </label>
+                                     
+                                     <span class="clip-select" class="form-control"> 
+                                        <select class="form-control"  ng-model="Staff.Department">
+                                            <option value="" disabled selected>Select a Department</option>
+                                            <option value="Pediatric">Pediatric</option>
+                                            <option value="Neonatology">Neonatology</option>
+                                        </select>
+                                    </span>
+                                        </div>
+                                    
+             
+            </div>
+             <div class="col-md-2">
+                 
+             
+            </div>
+             -->
+       
+            <!--    <div class="col-md-12"> 
+                                <center>
+                              <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Submit
+                        </button>
+                                    
+                                
+                                    </center>
+                            </div>-->
+
+
+            <div class="col-md-12">
+
+                <div class="panel panel-white">
+                    <div class="panel-body">
+
+                        
+                        <table class="table table-hover" id="sample-table-1">
+                            <thead>
+                                <tr>
+                                    <!-- <th>S.No</th> -->
+                                    <th style="cursor: pointer" ng-click="sortData('firstname')">Staff Name
+                                        <div ng-class="getSortClass('firstname')"></div>
+                                    </th>
+                                    <th>Employee Type</th>
+                                    <th>Category of Employee</th>
+                                    <th>Department</th>
+                                    <th>Action</th>
+                                 
+                                        
+                                  <!--   <th style="cursor: pointer" ng-click="sortData('RoleName')">Role
+                                        <div ng-class="getSortClass('RoleName')"></div>
+                                    </th> -->
+                                    <!--<th style="cursor: pointer" ng-click="sortData('DateOfBirth')">Date Of Birth<div ng-class="getSortClass('DateOfBirth')"></div> 
+                        </th>-->
+                                 <!--    <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr dir-paginate="Staff in staffCollection | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+                                <!--   <td>{{p.id}}</td>-->
+                                   <td>{{Staff.FirstName}} {{Staff.MiddleName}} {{Staff.LastName}}</td>
+                                    <td>{{Staff.EmploymentTypeName}}</td>
+                                    <td>{{Staff.EmployeeCategoryName}}</td>
+                                    <td>{{Staff.DepartmentName}}</td>
+                                   
+                                    <!--  <td>{{p.DateOfBirth | date :  "dd.MM.yyyy"}}</td>-->
+
+
+                                    <td>
+                                        <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                            <!--<a ng-show="A" href="#/app/app/child/{{child.referenceKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Basic Information"><img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"></a> href="#/app/staff/{{p.personKey}}"-->
+                                            
+                                            <a  href="#/app/staff/StaffKey/{{Staff.StaffKey}}/PersonKey/{{Staff.PersonKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a ng-hide="{{p.deletehide}}"  ng-click="deleteStaff(Staff.StaffKey)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove" ng-hide="stafflistRemove"><i class="fa fa-times fa fa-white"></i></a>
+
+                                        </div>
+                                       <!--  <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                            <div class="btn-group" uib-dropdown>
+                                                <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                    <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                    <li>
+                                                        <a ng-click="edit(p)"> Edit </a>
+                                      <a href="#/app/editGroup/{{entityGroup.groupkey}}"> Edit </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="#"      ng-hide="stafflistRemove"> Remove </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div> --> 
+                                    </td>
+
+                                </tr>
+                                <tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+  
+
+       
+     <div class="col-md-2" ng-hide="((Stafflist | filter:search).length<=10)||((Stafflist | filter:search).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+   </div>
+            <!--
+       <div class="col-md-12">
+             <div>
+                 <table class="table table-hover" id="sample-table-1">
+                        <thead>
+                               <tr>
+                                <th>S.No</th>
+                                <th>StaffName</th>
+                                <th>Role</th>
+                                 <th>Designation</th>
+                                <th>Branch</th>
+                                  <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="p in Stafflistorgs">
+                                <td>{{p.id}}</td>
+                                <td>{{p.Firstname}}{{p.Middlename}}{{p.Lastname}}</td>
+                                <td>{{p.Role}}</td>
+                                 <td>{{p.Specialization}}</td> 
+                                 <td>{{p.BranchBelongsto}}</td> 
+                                <td>{{p.Department}}</td> 
+                               
+                                <td >
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        <a href ng-click="edit(p)" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                        
+                                        <a href ng-click="deleteFamilyDetails(x.id)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="btn-group" uib-dropdown>
+                                            <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                <li>
+                                                    <a href="#" > Edit </a>
+                                                    
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="#"> Remove </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                             
+                            </tr>
+                            <tbody>
+                    </table>
+                 
+                 
+                  
+                </div>
+            </div>
+            -->
+
+
+        <!-- end: USER PROFILE

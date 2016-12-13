@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "identitytype": "గుర్తింపు రకం",
+        "identityNumber": "గుర్తింపు సంఖ్య ",
+        "submit": "సపింమర్చండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "identity": "గుర్తింపు"
+
+    },
+    "errors": {
+
+    }
+}

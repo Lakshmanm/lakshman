@@ -1,0 +1,220 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Relative
+ Type		    	: html 
+ Description		: html page for person Relative 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 06-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+
+<form name="referenceForm" >
+    <div class="col-lg-12">
+    
+
+   
+
+    <div class="row">
+     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':referenceForm.title.$dirty && referenceForm.title.$invalid, 'has-success':referenceForm.title.$valid}">
+             <label>{{referenceLabels.name}} <span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" type="text" name="title" ng-model="reference.FirstName" ng-maxlength="50" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                         <span class="error text-small block" ng-if="referenceForm.title.$dirty && referenceForm.title.$invalid" style="color:red">    
+                              <p ng-show="referenceForm.title.$invalid && referenceForm.title.$error.required">Name is required</p>
+                      <p ng-show="referenceForm.title.$error.minlength">Name be minimum of 3 characters</p>
+                        <p ng-show="referenceForm.title.$error.maxlength">Namebe maximum of 50 characters</p> 
+                            <p ng-show="referenceForm.title.$error.pattern">Name accepts only alphabets </p>
+                        </span> </div>
+                </div>
+
+
+
+       
+
+
+       
+   
+     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':referenceForm.contact.$dirty && referenceForm.contact.$invalid, 'has-success':referenceForm.contact.$valid}">
+             <label>{{referenceLabels.contact}} <span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" type="text" name="contact" ng-model="reference.primaryMobileNumber" ng-maxlength="10" ng-minlength="10" ng-pattern="/^[0-9]{1,10}$/" ng-required="true"></span>
+                        
+                        <span class="error text-small block" ng-if="(referenceForm.contact.$dirty ||referenceForm.$submitted) && referenceForm.contact.$invalid">    
+                                  <p ng-show="referenceForm.contact.$error.minlength">Contact must be minimum of 10 digits</p>
+                        <p ng-show="referenceForm.contact.$error.maxlength">Contact must be maximum of 10 digits</p>        
+                                        <p ng-show="referenceForm.contact.$invalid && referenceForm.contact.$error.required" style="color:#a94442">Mobile number is required</p>
+                       <p ng-show="referenceForm.contact.$error.pattern" style="color:#a94442">Invalid mobile number</p>
+                                  </span>
+                         </div>
+                </div>
+        <div class="col-lg-4 col-md-6">
+         <div class="form-group" ng-class="{'has-error':referenceForm.EmailId.$dirty && referenceForm.EmailId.$invalid, 'has-success':referenceForm.EmailId.$valid}">
+                                    <label class="control-label">{{referenceLabels.email}} <span class="symbol required"></span></label>
+                                    <input type="text" class="form-control" placeholder="" ng-model="reference.emailId" name="EmailId" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/" required> <span class="error text-small block" ng-if="(referenceForm.EmailId.$dirty ||referenceForm.$submitted) && referenceForm.EmailId.$invalid">    
+                                       
+                                        <p ng-show="referenceForm.EmailId.$invalid && referenceForm.EmailId.$error.required" style="color:#a94442">Email id is required</p>
+                       <p ng-show="referenceForm.EmailId.$error.pattern" style="color:#a94442">Invalid email id</p>
+                                    
+                                    </span> </div>
+       </div>
+        </div>
+   <div class="row">
+       
+        <div class="col-lg-4 col-md-6">
+            <div class="form-group" ng-class="{'has-error':referenceForm.relationTyes.$dirty && referenceForm.relationTyes.$invalid, 'has-success':referenceForm.relationTyes.$valid}">
+                <label>{{referenceLabels.occupation}}<span class="symbol required"></span> </label> <span class="clip-select">
+              
+                <select class="form-control" style="width: 100%" ng-options="occupation.occupationId as occupation.occupationName for occupation in occupationList" ng-model="reference.occupationId" name="relationTyes" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="referenceForm.relationTyes.$dirty && referenceForm.relationTyes.$invalid" style="color:red">    
+                 <p ng-show="referenceForm.relationTyes.$invalid && referenceForm.relationTyes.$error.required">Occupation is required</p></span>
+           
+        </div>
+    </div>
+        <div class="col-lg-8 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':referenceForm.address.$dirty && referenceForm.address.$invalid, 'has-success':referenceForm.address.$valid}">
+             <label>{{referenceLabels.address}} <span class="symbol required"></span> </label> <span class="clip-select">
+                        <textarea class="form-control" type="text" name="address" ng-model="reference.address" ng- ng-required="true"></textarea></span>
+                         <span class="error text-small block" ng-if="referenceForm.address.$dirty && referenceForm.address.$invalid" style="color:red">    
+                              <p ng-show="referenceForm.address.$invalid && referenceForm.address.$error.required">Address is required</p>
+                   
+                        </span> </div>
+                </div>
+
+
+
+        </div> 
+        <div class="row">
+         <div class="col-lg-6 col-md-6">
+                  
+             <label>{{referenceLabels.know}}  </label> 
+                        <textarea class="form-control" type="text" name="know" ng-model="reference.how " ></textarea>
+                        
+                   
+                      </div>
+            
+             <div class="col-lg-6 col-md-6">
+                  
+             <label>{{referenceLabels.howLong}}  </label> 
+                 <div class="row">
+                         <div class="col-lg-3 col-md-3">
+                         <label>{{referenceLabels.years}}  </label>  
+                       
+              <input type="number"  class="form-control" style="width: 100%"  name="year" ng-model="reference.year">
+      
+                 </div>
+                        <div class="col-lg-3 col-md-3">
+                         <label>{{referenceLabels.months}}  </label>  
+                            
+                <input type="number" class="form-control" style="width: 100%"  ng-model="reference.month" name="month" >
+                     
+                 </div>  
+                   </div>
+                      </div>
+            
+            
+                </div>
+
+
+
+        </div> 
+        
+          
+        
+
+    <div class="row">
+        <div style="text-align:center">
+          <!--   <button type="submit" ng-click="referenceForm.$valid&&saveRelative()" class="btn btn-primary">{{referenceLabels.submit}}</button> -->
+<button type="button" class="btn btn-wide btn-primary" ng-disabled="referenceForm.$invalid" ng-click="referenceForm.$valid && saveReference()" v-pressable>{{referenceLabels.submit}}</button>
+
+
+        </div>
+    </div>
+
+
+</form>
+
+
+
+
+ 
+  
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                  
+
+<table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                   <th>{{referenceLabels.name}}</th>
+                                <th>{{referenceLabels.occupation}}</th>
+                                <th>{{referenceLabels.email}}</th>
+                                <th>{{referenceLabels.edit}}</th>
+                                <th>{{referenceLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="reference in referenceCollection">
+                                <td>{{reference.FirstName}}</td>
+                                <td>{{reference.OccupationName}}</td>
+                                <td>{{reference.EmailId}}</td>
+
+
+
+                                <td>
+                                    <a ng-click="getRelative(reference.ReferenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRelative(reference.ReferenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    
+                </div>
+            </div>
+        </div>
+ 
+</div>
+</div>

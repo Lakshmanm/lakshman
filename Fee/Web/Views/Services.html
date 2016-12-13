@@ -1,0 +1,273 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewCours.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="courseForm" novalidate>
+            <!-- 
+            <div class="col-lg-12">
+                <h2> {{labelsCours.coursHeading}}  </h2>
+            </div> -->
+            <!--  <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsCours.courseKey}}</label>
+					 <select ng-options="" value="3" class="form-control "  ng-model="entityCours.courseKey" name="courseKey" > 
+						 <option value="">--Select--</option>
+					 </select>
+				 </div>
+			 </div> -->
+            <div class="row">
+                <div class=" col-md-3">
+
+                    <div class="form-group" ng-class="{'has-error':courseForm.boardTitle.$dirty && courseForm.boardTitle.$invalid, 'has-success':courseForm.boardTitle.$valid}">
+                        <label>{{labelsCours.ServiceCategory}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="category.ServiceTypeID as category.ServiceTypeName for category in CategoryCollection" value="3" class="form-control" ng-model="service.ServiceTypeID" name="boardTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select></span>
+                        <span ng-if="courseForm.$submitted || courseForm.boardTitle.$touched" class="validationMessage">
+                        <span ng-if="courseForm.boardTitle.$invalid && courseForm.boardTitle.$error.required ">Service Category is required.</span>
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':courseForm.servicename.$dirty && courseForm.servicename.$invalid, 'has-success':courseForm.servicename.$valid}">
+                        <label>{{labelsCours.servicename}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" id="input-Default" ng-model="service.ServiceName" name="servicename" type="text" ng-minlength="2" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                        <span ng-if="courseForm.$submitted || courseForm.servicename.$touched" class="validationMessage">
+                        <span ng-if="courseForm.servicename.$invalid && courseForm.servicename.$error.required ">Service Name is required.</span>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+
+                    <div class="form-group" ng-class="{'has-error':courseForm.courseTitle.$dirty && courseForm.courseTitle.$invalid, 'has-success':courseForm.courseTitle.$valid}">
+
+                        <label>{{labelsCours.serviceType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" id="input-Default" ng-model="service.ServiceType" name="courseTitle" type="text" ng-minlength="2" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/"  ng-required="true"></span>
+                        <span ng-if="courseForm.$submitted || courseForm.courseTitle.$touched" class="validationMessage">
+                        <span ng-if="courseForm.courseTitle.$invalid && courseForm.courseTitle.$error.required ">Service Type is required.</span>
+                        <span ng-if="courseForm.courseTitle.$error.minlength">Service Type is too small.</span>
+                        <span ng-if="courseForm.courseTitle.$error.maxlength">Service Typeis too long.</span>
+                        <span ng-if="courseForm.courseTitle.$error.pattern">Alphabets only.</span>
+                        </span>
+                    </div>
+
+                </div>
+                <!--    <div class="col-md-3">
+
+                    <label>{{labelsCours.taxtype}}</label>
+                    <table>
+                        <tr ng-repeat="taxs in TaxCollection">
+                            <div class="col-md-1">
+                                <td>
+                                    <input type="checkbox" class="checkbox" id="{{taxs.TaxID}}" ng-model="taxs.taxvalue" ng-true="1" ng-false="null" name="isElective">
+                                    <label for="{{taxs.TaxID}}">              
+                                           </label>
+
+                                </td>
+                            </div>
+                            <div class="col-md-2">
+                                <td>{{taxs.TaxName}}</td>
+                            </div>
+
+                        </tr>
+                    </table> -->
+
+
+
+                <div class="col-md-3">
+                    <div class="panel-body">
+                        <table id="tblExaminationList" class="table table-stripped" cellspacing="0" width="20 % ">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>{{labelsCours.taxtype}}</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="taxs in TaxCollection">
+                                    <label> {{taxs.TaxValue}}</label>
+                                    <td> <input type="checkbox" class="checkbox" id="{{taxs.TaxID}}" ng-model="taxs.TaxValue" ng-true="1" ng-false="null" name="isElective">
+                                        <label for="{{taxs.TaxID}}">              
+                                           </label></td>
+                                    <td>{{taxs.TaxName}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!-- <span ng-if="courseForm.$submitted || courseForm.courseTitle.$touched" class="validationMessage">
+                        <span ng-if="courseForm.courseTitle.$invalid && courseForm.courseTitle.$error.required ">Course title  is required.</span>
+                        <span ng-if="courseForm.courseTitle.$error.minlength">Course title is too small.</span>
+                        <span ng-if="courseForm.courseTitle.$error.maxlength">Course title is too long.</span>
+                        <span ng-if="courseForm.courseTitle.$error.pattern">Alphabets only.</span>
+                        </span> -->
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+
+                    <div class="form-group" ng-class="{'has-error':courseForm.measurement.$dirty && courseForm.measurement.$invalid, 'has-success':courseForm.measurement.$valid}">
+
+
+                        <label>{{labelsCours.measurement}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select ng-options="category.UnitMeasurementID as category.UnitMesurementName for category in MeasurementCollection" value="3" class="form-control" ng-model="service.UnitMeasurementId" name="measurement" ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                        <span ng-if="courseForm.$submitted || courseForm.measurement.$touched" class="validationMessage">
+                        <span ng-if="courseForm.measurement.$invalid && courseForm.measurement.$error.required ">Unit  is required.</span>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="form-group" ng-class="{'has-error':courseForm.amount.$dirty && courseForm.amount.$invalid, 'has-success':courseForm.amount.$valid}">
+
+                        <label>{{labelsCours.amount}}(in ₹)<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" id="input-Default" ng-model="service.Price" name="amount" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" type="text" ng-minlength="2" ng-maxlength="6" ng-required="true"></span>
+                        <span ng-if="courseForm.$submitted || courseForm.amount.$touched" class="validationMessage">
+                        <span ng-if="courseForm.amount.$invalid && courseForm.amount.$error.required ">Amount is required.</span>
+                        <span ng-if="courseForm.amount.$error.minlength">Amount is too small.</span>
+                        <span ng-if="courseForm.amount.$error.maxlength">Amount is too long.</span>
+                        <span ng-if="courseForm.amount.$error.pattern">Numericals only.</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--   <div class="col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsCours.taxtype}}</label>
+                        <table>
+                            <tr ng-repeat="taxs in TaxCollection">
+                                <td>{{taxs.TaxName}}</td>
+                                <td>
+                                    <input type="checkbox" class="checkbox" id="{{taxs.TaxID}}" ng-model="taxs.taxvalue" ng-true="1" ng-false="null" name="isElective">
+                                    <label for="{{taxs.TaxID}}">              
+                                           </label>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- <span ng-if="courseForm.$submitted || courseForm.courseTitle.$touched" class="validationMessage">
+                        <span ng-if="courseForm.courseTitle.$invalid && courseForm.courseTitle.$error.required ">Course title  is required.</span>
+                        <span ng-if="courseForm.courseTitle.$error.minlength">Course title is too small.</span>
+                        <span ng-if="courseForm.courseTitle.$error.maxlength">Course title is too long.</span>
+                        <span ng-if="courseForm.courseTitle.$error.pattern">Alphabets only.</span>
+                        </span>
+                    </div>
+                </div> -->
+
+            <!--
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsCours.instanceOrganizationKey}}</label>
+                    <select ng-options="instance.instanceorganizationkey as instance.instanceorganizationtitle for instance in organizationList " value="3" class="form-control " ng-model="entityCours.instanceOrganizationKey" name="instanceOrganizationKey"> 
+						 <option value="">--Select--</option>
+					 </select>
+                </div>
+            </div>
+			-->
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel-body">
+                        <div ng-if="save">
+                            <button type="submit" class="btn btn-wide btn-primary" ng-show="save" ng-click="courseForm.$valid&&saveService(TaxCollection)">{{labelsCours.submit}}</button>
+                        </div>
+                        <div ng-if="update">
+                            <button type="submit" class="btn btn-wide btn-primary" ng-show="update" ng-click="courseForm.$valid&&updateService(TaxCollection)">{{labelsCours.update}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+                    <table id="tblCoursList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th>{{labelsCours.ServiceCategory}}</th>
+                                <th>{{labelsCours.servicename}}</th>
+                                <th>{{labelsCours.serviceType}}</th>
+                                <th>{{labelsCours.measurement}}</th>
+                                <th>{{labelsCours.amount}}</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="serv in serviceCollection">
+                                <td>{{ serv.ServiceTypeName }}</td>
+                                <td>{{ serv.ServiceName }}</td>
+                                <td>{{ serv.ServiceType }}</td>
+                                <td>{{ serv.UnitMesurementName }}</td>
+                                <td>{{ serv.Price }}</td>
+
+
+                                <td><a ng-click="editService(serv.ServiceKey)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click="deleteService(serv.ServiceKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </table>
+</div>
+</div>
+</div>
+</div>

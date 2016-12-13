@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "firstName": "पहला नाम",
+        "middleName": "मध्य नाम",
+        "lastName": "अंतिम नाम",
+        "dateOfBirth": "जन्मतिथि",
+        "placeOfBirth": "जन्म स्थान",
+        "gender": "लिंग",
+        "identificationMarks": "पहचान के निशान",
+        "languages": "भाषाओं",
+        "bloodGroup": "रक्त समूह",
+        "submit": "जमा करें",
+        "basicInfo": "बुनियादी जानकारी"
+    },
+    "errors": {
+
+    }
+}

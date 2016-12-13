@@ -1,0 +1,177 @@
+<!-- <ion-view view-title="Employee Experience">
+  <ion-content scroll="true">
+  
+    
+    <div class="text_container">
+              
+                       <div class="col col-100"><h2>{{lables.EmployeeExperience}}</h2></div>
+                              <div class="row responsive-sm">
+                              
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.CompanyName}}</span>
+                                    <label class="item item-input">
+                                       <input type="text" id="input-Default" ng-model="employeeExperienceInfo.CompanyName">
+                                   </label>
+                                      
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.URL}} </span>
+                                    <label class="item item-input">
+                                       <input type="text"  ng-model="employeeExperienceInfo.URL" >
+                                   </label>
+                                      
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.StartDate}}</span>
+                                    <label class="item item-input">
+                                      <input  type="date" ng-model="data.dueDate" ng-model="employeeExperienceInfo.StartDate" >
+                                    </label>
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="row responsive-sm">
+                              
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.EndDate}}</span>
+                                    <label class="item item-input">
+                                      <input  type="date" ng-model="data.dueDate" placeholder="Enter Date" ng-model="employeeExperienceInfo.EndDate">
+                                    </label>
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.Designation}}</span>
+                                    <label class="item item-input">
+                                       <input type="text" ng-model="employeeExperienceInfo.Designation">
+                                   </label>
+                                      
+                                </div>
+                               
+                            </div>
+                              
+                              <div class="row responsive-sm" >
+                                  <button class="button" ng-click="addUpdateEmployeeExperience()">{{lables.Submit}}</button>
+                              </div>
+                           
+                            <div class="row responsive-sm">&nbsp;</div>
+                             <div class="row responsive-sm"> 
+                              <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{lables.CompanyName}}</th>
+                                <th>{{lables.StartDate}}</th>
+                                <th>{{lables.EndDate}}</th>
+                                <th>{{lables.Designation}}</th>
+                                <th>{{lables.Edit}}</th>
+                                <th>{{lables.Delete}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="experience in employeeExperiences">
+                                <td>{{experience.CompanyName}}</td>
+                               
+                                <td>{{experience.StartDate|date}}</td>
+                                <td>{{experience.EndDate|date}}</td>
+                                <td>{{experience.Designation}}</td>
+                                <td><a ng-click="getEmployeeExperience(experience.ID)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click=""><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                             </div>  
+                                
+                            
+                         </div>  
+                              
+
+                              </div>
+                             
+                        
+
+
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script> 
+  </ion-content>
+</ion-view> -->
+    <div class="text_container">
+
+<div class="col col-100"><h2>{{lables.EmployeeExperience}}</h2></div>
+                              <div class="row responsive-sm">
+                              
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.CompanyName}}</span>
+                                    <label class="item item-input">
+                                       <input type="text" placeholder="First Name" ng-model="employeeExperienceInfo.CompanyName">
+                                   </label>
+                                      
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.URL}} </span>
+                                    <label class="item item-input">
+                                       <input type="text" placeholder="Last Name" ng-model="employeeExperienceInfo.URL">
+                                   </label>
+                                      
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.StartDate}}</span>
+                                    
+                                      <input  type="date" ng-model="data.dueDate" placeholder="Enter Date" ng-model="employeeExperienceInfo.StartDate">
+                                    
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="row responsive-sm">
+                              
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.EndDate}}</span>
+                                    
+                                      <input  type="date" ng-model="data.dueDate" placeholder="Enter Date" ng-model="employeeExperienceInfo.EndDate">
+                                    
+                                </div>
+                                <div class="col col-33">
+                                    <span class="input-label">{{lables.Designation}}</span>
+                                    <label class="item item-input">
+                                       <input type="text" placeholder="First Name" ng-model="employeeExperienceInfo.Designation">
+                                   </label>
+                                      
+                                </div>
+                               
+                            </div>
+                              
+                              <div class="row responsive-sm" >
+                                  <button class="button" ng-click="addUpdateEmployeeExperience()">{{lables.Submit}}</button>
+                              </div>
+                           
+                            <div class="row responsive-sm">&nbsp;</div>
+                             <div class="row responsive-sm"> 
+                              <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{lables.CompanyName}}</th>
+                                <th>{{lables.StartDate}}</th>
+                                <th>{{lables.EndDate}}</th>
+                                <th>{{lables.Designation}}</th>
+                                <th>{{lables.Edit}}</th>
+                                <th>{{lables.Delete}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="experience in employeeExperiences">
+                                <td>{{experience.CompanyName}}</td>
+                               
+                                <td>{{experience.StartDate|date}}</td>
+                                <td>{{experience.EndDate|date}}</td>
+                                <td>{{experience.Designation}}</td>
+                                <td><a ng-click="getEmployeeExperience(experience.ID)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click=""><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                             </div>  
+                                
+                            <div class="row responsive-sm" >
+                          
+                                 
+                           
+                        </div>
+
+                            </div>

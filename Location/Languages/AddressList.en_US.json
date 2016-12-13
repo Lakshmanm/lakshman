@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "AddressList": "Address List",
+        "Country": "Country",
+        "District": "District",
+        "Location": "Location",
+        "Mandal": "Mandal",
+        "Village": "Village",
+        "EntityDetails":"EntityDetails",
+        "StreetDetails":"StreetDetails",
+        "Pincode":"Pincode",
+        "Edit":"Edit",
+        "Delete":"Delete"
+
+    }
+}

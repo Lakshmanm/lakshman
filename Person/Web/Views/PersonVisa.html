@@ -1,0 +1,151 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Visa
+ Type		    	: html 
+ Description		: html page for person Visa 
+ References		    :
+ Author	    		: Satyanarayana Tippani
+ Created Date       : 13-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+    <div class="panel-white">
+        <div class="col-lg-12">
+            <h2>{{visaLabels.Visa}}</h2></div>
+
+        <form name="visaForm" novalidate>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{visaLabels.Country}}<span style="color:red">*</span></label>
+
+                        <select class="form-control" style="width: 100%" ng-options="countries.countryId as countries.countryName for countries in countriesList" ng-model="visa.countryId" name="country" required>
+                            <option value="">--Select--</option>
+                        </select>
+                        <div class="padding" ng-if="visaForm.country.$touched || visaForm.$submitted" style="color:red">
+                            <p ng-show="visaForm.country.$error.required "> Country is mandatory</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{visaLabels.VisaType}}<span style="color:red">*</span></label>
+                        <select class="form-control" style="width: 100%" ng-options="visaType.visaTypeId as visaType.visaTypeName for visaType in visaTypeList" ng-model="visa.visaTypeId" name="visaType" required>
+
+                            <option value="">--Select--</option>
+
+                        </select>
+
+                        <div class="padding" ng-if="visaForm.visaType.$touched || visaForm.$submitted" style="color:red">
+                            <p ng-show="visaForm.visaType.$error.required "> Visa type is mandatory</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{visaLabels.StartDate}}<span style="color:red">*</span></label>
+                        <input class="form-control date-picker" name="startDate" ng-model="visa.startDate" type="date" required>
+                        <div class="padding" ng-if="visaForm.startDate.$touched || visaForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="visaForm.startDate.$error.required ">Start date is required</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{visaLabels.EndDate}}<span style="color:red">*</span></label>
+                        <input class="form-control date-picker" name="endDate" ng-model="visa.endDate" type="date" required>
+                        <div class="padding" ng-if="visaForm.endDate.$touched || visaForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="visaForm.endDate.$error.required ">End date is required</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-primary" ng-click="visaForm.$valid&&saveVisa()">{{visaLabels.Submit}}</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+
+                                <th>{{visaLabels.Country}}</th>
+                                <th>{{visaLabels.VisaType}}</th>
+                                <th>{{visaLabels.StartDate}}</th>
+                                <th>{{visaLabels.EndDate}}</th>
+
+                                <th>{{visaLabels.Edit}}</th>
+                                <th>{{visaLabels.Delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="visa in visaList">
+                                <td>{{visa.countryName}}</td>
+                                <td>{{visa.visaTypeName}}</td>
+                                <td>{{visa.startDate|date}}</td>
+                                <td>{{visa.endDate|date}}</td>
+                                <td>
+                                    <a ng-click="getVisa(visa.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                   
+                                <td><a ng-click="deleteVisa(visa.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : Certification.html
+ Type                : HTML 
+ Description         :
+ References          :
+ Author              :  Naveena Lingam
+ Created Date        :  13-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+S.No  Ver    Date               Modified By            Description
+1.    1.0    14-04-2016         Kiranmai Labhala       Define Certification Validations 
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************/-->
+<form name="certificationform" novalidate>
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <div class="row">
+                <div class="col-lg-12">
+                    <h2>{{orgCertification.OrganizationCertification}} </h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel-body">
+                            <label>{{orgCertification.CertificationName}} <span style="color:red;">*</span></label>
+                            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.certificationName" type="text" name="Title" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+                <span ng-if="certificationform.$submitted || certificationform.Title.$touched" style="color:red;">
+                    <p ng-show="certificationform.Title.$invalid && certificationform.Title.$error.required">Certification name is required</p>
+                    <p ng-show="certificationform.Title.$error.minlength">Certification  name is too short</p>
+                    <p ng-show="certificationform.Title.$error.pattern">Alphabets Only</p>
+                </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel-body">
+                            <label>{{orgCertification.CertificationType}} </label>
+                             <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="orgCertificationInfo.certificationBodyID" ng-options="certList.certificationBodyTypeID as certList.certificationBodyTypeName for certList in certLists">
+                                 <option value="" >-select-</option>
+                    </select>
+                           
+                             
+                            
+                        
+                        </div>
+                    </div>
+              </div>
+            
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel-body">
+                            <label>{{orgCertification.ValidFrom}}<span style="color:red;">*</span></label>
+                            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.validFrom" type="date"  name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+                <span ng-if="certificationform.$submitted || certificationform.validFrom.$touched" style="color:red;"  >
+                    <p ng-show="certificationform.validFrom.$invalid && certificationform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel-body">
+                            <label>{{orgCertification.ValidTo}}<span style="color:red;">*</span></label>
+                            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.validTo" type="date"  name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+                <span ng-if="certificationform.$submitted || certificationform.validFrom.$touched" style="color:red;"  >
+                    <p ng-show="certificationform.validFrom.$invalid && certificationform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+
+                        </div>
+                    </div>
+                </div>
+                
+             <div class="row">  
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <button type="submit" class="btn btn-default" ng-click="certificationform.$valid&&addCertification()">{{orgCertification.Submit}}</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{orgCertification.CertificationName}}</th>
+                                <th>{{orgCertification.CertificationType}}</th>
+                                <th>{{orgCertification.ValidFrom}}</th>
+                                <th>{{orgCertification.ValidTo}}</th>
+                                <th>{{orgCertification.Edit}}</th>
+                                <th>{{orgCertification.Delete}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="certificate in certifications">
+                                <td>{{certificate.certificationName}}</td>
+                                <td>{{certificate.certificationBodyTypeName}}</td>
+                                <td>{{certificate.validFrom|date:"MM/dd/yyyy"}}</td>
+                                <td>{{certificate.validTo|date:"MM/dd/yyyy"}}</td>
+                                <td><a ng-click="editCertification(certificate.referenceKey)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click="deleteCertification(certificate.referenceKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

@@ -1,0 +1,72 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personDemographics.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************-->
+<ion-view view-title="New Employee">
+    <ion-content>
+        <div class="panel-white">
+
+
+            <div class="col-lg-12">
+                <h2>{{lables.PersonList}}</h2></div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="panel-body">
+
+                        <table id="example" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>{{lables.Name}}</th>
+
+                                    <th>{{lables.Edit}}</th>
+                                    <th>{{lables.Delete}}</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="person in personList">
+                                    <td> {{person.firstName }} {{person.middleName}} {{person.lastName }} </td>
+
+                                    <td>
+                                        <a href="#/editPerson/{{person.personId}}"><i class="fa fa-pencil"></i></a>
+                                    </td>
+                                    <td><a ng-click=""><i class="fa fa-trash"></i></a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

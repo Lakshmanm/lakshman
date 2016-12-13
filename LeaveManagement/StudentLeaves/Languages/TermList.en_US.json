@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "termTitle": "Term Title",
+        "startDate": "Start Date",
+        "endDate":"End Date",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "ContactList": " Contact List"
+
+    }
+}

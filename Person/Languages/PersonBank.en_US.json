@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "bank": "Bank",
+        "title": "title",
+        "address": "Address",
+        "branch": "Branch ",
+        "accountNumber": "Account Number",
+        "iFSCCode": "IFSC Code",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "name":"Benificiary Name"
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "AddressList": "నగర జాబితా",
+        "Country": "దేశం",
+        "District": "జిల్లా",
+        "Location": "స్థానం",
+        "Mandal": "మండల",
+        "Village": "గ్రామం",
+        "EntityDetails":"చిరునామా 1",
+        "StreetDetails":"చిరునామా 2",
+        "Pincode":"పిన్ కోడ్",
+        "Edit":"మార్చు",
+        "Delete":"తొలగించు"
+        
+    }
+}

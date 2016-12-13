@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "LivingPlace": "रहने की जगह",
+        "Title": "शीर्षक",
+        "LivingPlaceType": "रहने वाले स्थान के प्रकार",
+        "Location":"स्थान",
+        "StartDate":"आरंभ करने की तिथि",
+        "EndDate":"अंतिम तिथि",
+        "Submit": "जमा करें",
+        "Title":"शीर्षक",
+        "LivingPlaceType":"रहने वाले स्थान के प्रकार",
+        "StartDate":"आरंभ करने की तिथि",
+        "EndDate":"अंतिम तिथि",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

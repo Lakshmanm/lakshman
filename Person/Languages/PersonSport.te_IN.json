@@ -1,0 +1,20 @@
+{
+    "labels": {
+       
+        "sportName": "క్రీడ పేరు",
+        "curricularActivityType": "పాఠ్య కార్యాచరణ టైప్",
+         "sportType":"క్రీడ రకం",
+         "proficiency":"నైపుణ్యత",
+         "sportType":"క్రీడ రకం",
+         "highestLevelPlay":"అత్యధిక స్థాయి ప్లే",
+         
+        "submit": "సపింమర్చండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "sports": "క్రీడలు"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,16 @@
+
+
+{
+    "labels": {
+        "Registration":"నమోదు",
+        "MobileNumber": "మొబైల్ నంబర్ ఎంటర్",
+        "Send": "పంపండి",
+        "ReSend":"మళ్ళీ పంపండి",
+        "EnterOtp":"OTP ని ఎంటర్",
+        "Verify":"నిర్ధారించండి",
+           },
+    "errors": {
+        
+        }
+    
+}

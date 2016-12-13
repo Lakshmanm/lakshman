@@ -1,0 +1,88 @@
+[{
+        roleId: 1
+        , role: 'Doctor'
+        , permissions: {
+            staff: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , appointments: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , child: {
+                basicInfo: {
+                    view: true
+                    , save: false
+                    , update: false
+                    , delete: false
+                }
+                , all: {
+                    view: true
+                    , save: false
+                    , update: false
+                    , delete: false
+                }
+            }
+            , organizations: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , subOrganizations: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+        }
+}
+    , {
+        roleId: 2
+        , role: 'Clerk'
+        , permissions: {
+            staff: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , appointments: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , child: {
+                basicInfo: {
+                    view: true
+                    , save: false
+                    , update: false
+                    , delete: false
+                }
+                , all: {
+                    view: true
+                    , save: false
+                    , update: false
+                    , delete: false
+                }
+            }
+            , organizations: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+            , subOrganizations: {
+                view: true
+                , save: false
+                , update: false
+                , delete: false
+            }
+        }
+    }]

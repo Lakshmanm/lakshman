@@ -1,0 +1,435 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Flexible Structure</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white" ng-controller="feeDetailController">
+    <form name="examinationForm" novalidate>
+        <div class="row">
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+
+
+
+            <div class="col-md-3">
+                <label class="control-label">
+                            Name
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                <input type="text" class="form-control" name="FirstName" ng-model="PayFee.Name" ng-disabled="true">
+
+
+            </div>
+            <div class="col-md-3">
+                <label class="control-label">
+                           Admission Number
+                       <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                <input type="text" class="form-control" name="AdmissionNo" ng-model="PayFee.AdmissionNumber" ng-disabled="true">
+
+
+            </div>
+          <!--   <div class="col-md-3">
+                <label class="control-label">
+                            Course
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                <input type="text" class="form-control" name="scourse" ng-model="PayFee.Course" ng-disabled="true">
+
+
+            </div>
+            <div class="col-md-3">
+                <label class="control-label">
+                            Batch
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                <input type="text" class="form-control" name="sbatch" ng-model="PayFee.Batch" ng-disabled="true">
+
+
+            </div> -->
+        
+       
+            <div class="col-md-3">
+
+                <label class="control-label">
+                            Total Amount(in ₹)
+                        </label>
+                <input type="text" class="form-control" name="tamount" ng-disabled="getdis" ng-model="calculate.TotalAmount">
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="form-group" ng-class="{'has-error':examinationForm.Discount.$dirty && examinationForm.Discount.$invalid, 'has-success':examinationForm.Discount.$valid}">
+
+                    <label class="control-label">
+                          Discount(in ₹)
+                      <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                    <input type="text" class="form-control" name="Discount" ng-required="true" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-disabled="getdis" ng-model="calculate.Discount">
+                    <span ng-if="examinationForm.$submitted || examinationForm.Discount.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.Discount.$invalid && examinationForm.Discount.$error.required ">Tax is required.</span>
+                    <span ng-if="examinationForm.Discount.$error.pattern">Numericals only.</span>
+
+                    </span>
+                </div>
+
+            </div>
+
+            </div>
+             <div class="row">
+            <div class="col-md-3">
+
+                <div class="form-group" ng-class="{'has-error':examinationForm.intialPayment.$dirty && examinationForm.intialPayment.$invalid, 'has-success':examinationForm.intialPayment.$valid}">
+
+                    <label class="control-label">
+                          Intial Payment(in ₹)
+                      <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                    <input type="text" class="form-control" ng-required="true" name="intialPayment" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-disabled="getdis" ng-model="calculate.InitalPayment" ng-change="calculateDue()">
+                    <span ng-if="examinationForm.$submitted || examinationForm.intialPayment.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.intialPayment.$invalid && examinationForm.intialPayment.$error.required ">Tax is required.</span>
+                    <span ng-if="examinationForm.intialPayment.$error.pattern">Numericals only.</span>
+
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="form-group" ng-class="{'has-error':examinationForm.DueAmount.$dirty && examinationForm.DueAmount.$invalid, 'has-success':examinationForm.DueAmount.$valid}">
+
+                    <label class="control-label">
+                           Due Amount(in ₹)
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                    <input type="text" class="form-control" name="DueAmount" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-disabled="getdis" ng-required="true" ng-model="calculate.DueAmount">
+                    <span ng-if="examinationForm.$submitted || examinationForm.DueAmount.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.DueAmount.$invalid && examinationForm.DueAmount.$error.required ">Tax is required.</span>
+                    <span ng-if="examinationForm.DueAmount.$error.pattern">Numericals only.</span>
+
+                    </span>
+                </div>
+
+            </div>
+        
+            <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':examinationForm.InstallmentPlanName.$dirty && examinationForm.InstallmentPlanName.$invalid, 'has-success':examinationForm.InstallmentPlanName.$valid}">
+
+
+                    <label class="control-label">
+                            Number Of Installments
+                     <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                    <select ng-options="entityPlan as entityPlan.InstallmentPlanName for entityPlan in PlanCollection" value="3" class="form-control" ng-show="indirect" ng-model="calculate.NoOfInstallments" ng-change="getInstallmentsNumber(calculate.NoOfInstallments)" name="InstallmentPlanName"
+                        ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select>
+
+                    <span ng-if="examinationForm.$submitted || examinationForm.InstallmentPlanName.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.InstallmentPlanName.$invalid && examinationForm.tax.$error.required ">No Of Installments is required.</span>
+
+
+                    </span>
+                    <input type="text" class="form-control" name="FirstName" ng-show="direct" ng-disabled="getdis" ng-model="calculate.InstallmentPlanName">
+                </div>
+
+            </div>
+            <
+
+            <div class="col-md-12">
+                <center>
+                    <button type="button" class="btn btn-wide btn-primary" ng-show="calbtn" v-pressable ng-click="examinationForm.$valid&& gridDisplay()">
+                            Calculate
+                        </button>
+
+
+                </center>
+            </div>
+
+        </div>
+</div>
+</form>
+
+
+<div class="col-md-12">
+</div>
+
+
+
+<div class="row" ng-show="grid">
+    <div class="col-md-12">
+
+        <div class="panel panel-white">
+            <div class="panel-body">
+
+
+                <div class="container">
+
+
+                    <form ng-submit="addNew()">
+                        <div class="left-col">
+                            <div class="head-row">
+                                <!--         <div class="head-col"><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></div>
+ -->
+                                <div class="head-col">S.No</div>
+                                <div class="head-col">Installment Due Date</div>
+                                <div class="head-col">Installment Amount(in ₹)</div>
+                                <div class="head-col">Paid Date</div>
+                                <div class="head-col">Paid Amount(in ₹)</div>
+                                <div class="head-col">Payment Option</div>
+                            </div>
+                            <div class="b-row" ng-repeat="personalDetail in personalDetails">
+                                <!-- <div class="b-col"> <input type="checkbox" ng-model="personalDetail.selected"/>
+            </div> -->
+                                <div class="b-col"> {{$index+1}}</div>
+                                <div class="b-col"> <input type="text" style="text-align: right" class="form-control" ng-model="personalDetail.dueDate" ng-disabled="true" required/></div>
+                                <div class="b-col"> <input type="text" style="text-align: right" class="form-control" ng-model="personalDetail.Amount" ng-disabled="true" required/></div>
+                                <div class="b-col"> <input type="date" style="text-align: right" class="form-control" ng-model="personalDetail.paiddate" ng-change="dateValidationCheck($index)" ng-disabled="personalDetail.datepaid" max="{{requestedMaxDate | date:'yyyy-MM-dd'}}" name="paiddate{{$index}}" ng-required="pdate"
+                                    />
+
+                                <p  style="color:red" ng-if="dateValidation[$index]">Date is required</p>
+                                 <!--    <div class="padding " ng-if="LeaveForm[ 'paiddate'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                        <p ng-show="LeaveForm[ 'paiddate'+$index].$error.required ">Amount is required</p>
+                                        <span class="error" ng-show="!LeaveForm['paiddate'+$index].$error.required&&!LeaveForm['paiddate'+$index].$valid">
+         Not a valid date!</span>
+                                    </div> -->
+                                </div>
+                                <div class="b-col"><input type="number" class="form-control" ng-model="personalDetail.paidAmount" ng-change="numberValidationCheck($index)" ng-disabled="personalDetail.amountpaid" name="paidAmount{{$index}}" style="text-align: right" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-required="pamount"
+                                    />
+
+                               <p  style="color:red" ng-if="amountValidation[$index]">Amount is required</p>
+                                  <!--   <div class="padding " ng-if="LeaveForm['paidAmount'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                        <p ng-show="LeaveForm['paidAmount'+$index].$error.required ">Paid Date is required</p>
+
+                                    </div> -->
+                                </div>
+
+
+                                <div class="b-col">
+                                    <div class="more" ng-if="personalDetail.paybtn" data-toggle="modal" ng-click="payMoney(personalDetail,$index)" data-target=".bs-example-modal-sm">Pay </div>
+                                    <i class="fa fa-file-pdf-o" style="text-align: left;font-size:25px;" ng-if="personalDetail.receipt" ng-click="Receipt(personalDetail.InstallmentID)"></i>
+                                </div>
+
+
+
+                                <!--     <div  id="more{{personalDetail.id}}" style="display:none;">
+               <div class="b-row-bottom"> 
+                <div class="b-colele">&nbsp;&nbsp;</div>
+                <div class="b-colele"><input type="text" class="form-control" placeholder="Till Date"></div>
+                <div class="b-colele"><input type="text"  class="form-control" placeholder="Comments"></div>
+                <div class="b-colele"><input type="file" class="form-control" placeholder="upload"></div>
+            </div>  
+           </div> -->
+                            </div>
+                            <!--     <div class="b-row-bottom">
+           
+    <input ng-hide="!personalDetails.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
+    <input type="submit" class="btn btn-primary addnew pull-right" value="Add New">
+                         
+        </div> -->
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <center>
+            <button type="button" class="btn btn-wide btn-primary" v-pressable ng-show="savebtn" ng-click="saveInstallments()">
+                           Save
+                        </button>
+            <button type="button" class="btn btn-wide btn-primary" v-pressable ng-show="backbtn" ng-click="gobackView()">
+                           Back
+                        </button>
+
+        </center>
+    </div>
+
+</div>
+<!--   <div class="col-md-2">
+        <div ng-init="pageSize=10 ">
+            <label for="search">Records per page:</label>
+            <select min="1" max="100" ng-model="pageSize">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                    </select>
+        </div>
+    </div> -->
+<div class="col-lg-6 col-md-12" style="text-align:left">
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+</div>
+
+
+<!--
+       <div class="col-md-12">
+             <div>
+                 <table class="table table-hover" id="sample-table-1">
+                        <thead>
+                               <tr>
+                                <th>S.No</th>
+                                <th>StaffName</th>
+                                <th>Role</th>
+                                 <th>Designation</th>
+                                <th>Branch</th>
+                                  <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="p in Stafflistorgs">
+                                <td>{{p.id}}</td>
+                                <td>{{p.Firstname}}{{p.Middlename}}{{p.Lastname}}</td>
+                                <td>{{p.Role}}</td>
+                                 <td>{{p.Specialization}}</td> 
+                                 <td>{{p.BranchBelongsto}}</td> 
+                                <td>{{p.Department}}</td> 
+                               
+                                <td >
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        <a href ng-click="edit(p)" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                        
+                                        <a href ng-click="deleteFamilyDetails(x.id)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="btn-group" uib-dropdown>
+                                            <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                <li>
+                                                    <a href="#" > Edit </a>
+                                                    
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="#"> Remove </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                             
+                            </tr>
+                            <tbody>
+                    </table>
+                 
+                 
+                  
+                </div>
+            </div>
+            -->
+
+</div>
+<style>
+    .container {
+        width: 100%;
+        margin: auto;
+        border: solid px #333;
+        position: relative;
+    }
+    
+    .head-row {
+        width: 115%;
+        background: #ddd;
+        color: #333;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border: solid 1px #333;
+    }
+    
+    .head-col {
+        width: 15%;
+        display: inline-block;
+        text-align: center;
+        line-height: 30px;
+        border-left: solid 1px #fff
+    }
+    
+    .head-col:first-child {
+        border-left: none;
+    }
+    
+    .b-row {
+        width: 115%;
+        display: inline-block;
+        border: solid 1px #333;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .b-row-bottom {
+        width: 80%;
+        display: inline-block;
+        margin-top: 10px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .b-col {
+        width: 15%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        border-left: solid 1px #333
+    }
+    
+    .b-col:first-child {
+        border-left: none;
+    }
+    
+    .b-colele {
+        width: 15%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        border-left: none;
+    }
+    
+    .b-colele:first-child {
+        border-left: none;
+    }
+    
+    .b-col {
+        width: 15%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        border-left: solid 1px #333
+    }
+    
+    .b-col:first-child {
+        border-left: none;
+    }
+    
+    .left-col {
+        width: 90%;
+        float: left;
+        position: relative
+    }
+    
+    .right-col {
+        width: 9%;
+        height: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    
+    .more-elements,
+    .show-elements {
+        width: 100%;
+        float: left;
+        background-color: #f1f1f1;
+        padding: 10px;
+        min-height: 60px;
+        display: none;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .show-elements {
+        display: block;
+    }
+</style>
+<!-- end: USER PROFILE

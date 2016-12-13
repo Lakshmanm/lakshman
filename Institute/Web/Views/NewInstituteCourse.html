@@ -1,0 +1,88 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewCours.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="courseForm" novalidate>
+            <div class="row">
+                
+            </div>
+        </form>
+
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblCoursList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                <th>Group Title</th>
+                                    <th>{{labelsCours.courseTitle}}</th>
+                                    <th></th>
+                                    <!--<th>Edit</th>
+                                    <th>Delete</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityCours in coursCollection">
+                                <td>{{entityCours.groupTitle}}</td>
+                                    <td>{{ entityCours.courseTitle }}</td>
+                                     <td> 
+                               
+                            <input type="checkbox" class="checkbox" id="{{entityCours.courseKey }}" ng-model="entityCours.courseCheck"  ng-true="1" ng-false="null" name="isElective" >
+                            <label for="{{entityCours.courseKey }}">              
+                                            </label>
+
+                                    </td>
+ 
+                                     
+                                    
+                                    
+                                   <!-- <td><a ng-click="editCours(entityCours.courseKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteCours(entityCours.courseKey)"><i class="fa fa-trash"></i></a></td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                     <center>  <button class="btn btn-wide btn-primary" ng-if="savebtn" ng-click="saveCourse(coursCollection)">Save</button>  </center> 
+                    </div>
+                </div>
+            </div>
+        </table>
+
+    </div>
+</div>

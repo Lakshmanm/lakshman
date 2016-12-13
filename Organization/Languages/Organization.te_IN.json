@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "Title": "శీర్షిక",
+        "ParentOrganization": " మాతృ సంస్థ",
+        "OrganizationLevel": "సంస్థ స్థాయి",
+        "OrganizationDetails": "సంస్థ వివరాలు",
+        "EstablishedOn": "స్థాపించిన",
+        "OrganizationType": "సంస్థ రకం",
+        "SubOrganizationType": "ఉప సంస్థ రకం",
+        "OrganizationCode":"సంస్థ కోడ్",
+        "Save":"సమర్పించండి",
+        "OrgnizationBasicInfo":"సంస్థ ప్రాథమిక సమాచారం"
+
+    }
+}

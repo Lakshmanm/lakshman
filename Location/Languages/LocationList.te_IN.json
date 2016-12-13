@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "LocationList": "నగర జాబితా",
+        "Country": "దేశం",
+        "District": "జిల్లా",
+        "Location": "స్థానం",
+        "Edit":"మార్చు",
+        "Delete":"తొలగించు"
+
+    }
+}

@@ -1,0 +1,480 @@
+<div class="breadcrumb-wrapper">
+
+    <h4 class="mainTitle no-margin">Assignment List</h4>
+
+    <div class="panel-body" align="right">
+
+        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="DailyRoutine/Web/assets/images/Add.PNG" height="18px">
+        <a ng-click="getNew()">New Assignment</a>
+
+
+
+        <!--  <button class="btn btn-wide btn-primary" ng-click="getNew()">NewAssignment</button>-->
+    </div>
+
+
+</div>
+
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+    
+    .modal-body {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .modal-dialog {
+        height: 300px;
+        width: 300px;
+    }
+</style>
+
+
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <table id="tblAssignmentList" class="table table-stripped" cellspacing="0" width="100 % ">
+                <thead>
+                    <tr>
+                        <th>{{labelsAssignment.currentDate}}</th>
+                        <th>{{labelsAssignment.myTasks}}</th>
+                        <th>{{labelsAssignment.assignedByMe}}</th>
+                        <th>{{labelsAssignment.completed}}</th>
+                        <th>{{labelsAssignment.inProgress}}</th>
+                        <th>{{labelsAssignment.notYetStarted}}</th>
+                        <th>{{labelsAssignment.toStaff}}</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="task in taskCollection">
+                        <td>{{date}}</td>
+                        <td>{{ task.myTasks }}</td>
+                        <td>{{ task.assignedByMe }}</td>
+                        <td>{{ task.completed}}</td>
+                        <td>{{ task.inProgress }}</td>
+                        <td>{{ task.notYetStarted}}</td>
+                        <td>{{ task.toStaff}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--   <form name="assignmentForm" novalidate> -->
+
+
+    <div class="row">
+        <div class=" col-md-2">
+            <div class="panel-body">
+                <span class="validationStar">*</span> <label>{{labelsAssignment.branches}}</label>
+
+
+
+                <select ng-options="institute as institute.OrganizationName for institute in instituteList" value="3" class="form-control " ng-click="getBranchKey(entityAssignment.branchKey.InstituteKey,entityAssignment.branchKey.SubOrganizationKey)" ng-model="entityAssignment.branchKey"
+                    name="branches" ng-disabled="assignmentInstitute" ng-required="true"> 
+					  <option value="">--Select--</option>
+					 </select>
+
+
+                <span ng-if="assignmentForm.$submitted || assignmentForm.branches.$touched" class="validationMessage">
+                      <span ng-if="assignmentForm.branches.$invalid && assignmentForm.branches.$error.required ">Branch  is required.</span></span>
+
+
+            </div>
+        </div>
+   
+
+    
+        <div class="col-md-2">
+        <br>
+            <div class="panel-body">
+                <label>{{labelsAssignment.staff}}</label>
+                <input type="radio" name="staff" ng-click="getDetails(entityAssignment)" ng-model="entityAssignment.staff" value="staff">
+
+                <label>{{labelsAssignment.student}}</label>
+                <input type="radio" name="student" ng-click="getDetails(entityAssignment)" ng-model="entityAssignment.staff" value="student">
+
+            </div>
+        </div>
+    
+
+    <div ng-show="staff">
+        
+           <!--  <div class="col-lg-3 col-md-2">
+                <a href="#" data-toggle="modal" data-target="#myModal">
+ Staff List
+</a>
+
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr ng-repeat="assignment in assignmentStaffCollection">
+                                        <td>
+                                            <input type="checkbox" id="checkbox{{$index}}" ng-model="check" ng-click="getStaffKeys(assignment.StaffKey,check)">
+                                            <label for="checkbox{{$index}}">
+{{ assignment.FirstName}}</label>
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+
+           <!--  <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.assignmentName}}</label>
+                    <input class="form-control" id="input-Default" ng-model="entityAssignmentStaff.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true">
+
+
+
+                </div>
+            </div> -->
+
+<div class=" col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.startDate}}</label>
+                    <input class="form-control date-picker" 
+                           ng-model="entityAssignmentStaff.startDate" name="startDate" type="date">
+
+                </div>
+            </div>
+
+    <div class=" col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.endDate}}</label>
+                    <input class="form-control date-picker" ng-model="entityAssignmentStaff.endDate" name="endDate" type="date">
+                </div>
+            </div>
+                    
+  <div class="col-md-2">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.status}}</label>
+                    <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" value="3" class="form-control " ng-model="entityAssignmentStaff.assignmentStatusKey" name="status"> 
+                         <option value="">--Select--</option>
+                     </select>
+
+                </div>
+            </div>
+
+                
+
+             <div class="col-lg-12 col-md-12" align="center">
+            <span align="center" class="red">{{searchMessage}}</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12" align="right">
+                <div class="panel-body">
+
+                    <button class="btn btn-wide btn-primary" ng-click="SearchAssignmentStaff()">{{labelsAssignment.search}}</button>
+
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div ng-show="student">
+             <!-- <div class="col-md-2">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.subjectTitle}}</label>
+                    <select ng-options="subject.InstituteSubjectkey as subject.SubjectTitle  for subject in subjectStaffList" value="3" class="form-control " ng-model="entityAssignment.subjectKey" name="subjectName"> 
+                         <option value="">--Select--</option>
+                     </select>
+                </div>
+            </div> -->
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.startDate}}</label>
+                    <input class="form-control date-picker" ng-model="entityAssignment.startDate " name="startDate" type="date">
+
+                </div>
+            </div>
+            <div class=" col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.endDate}}</label>
+                    <input class="form-control date-picker" ng-model="entityAssignment.endDate" name="endDate" type="date">
+                </div>
+            </div>
+        
+            <div class="col-md-2">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.status}}</label>
+                    <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" value="3" class="form-control " ng-model="entityAssignment.assignmentStatusKey" name="status"> 
+                         <option value="">--Select--</option>
+                     </select>
+
+                </div>
+            </div>
+             <div class="row">
+            <div class="col-lg-12 col-md-12" align="right">
+                <div class="panel-body">
+
+                    <button class="btn btn-wide btn-primary" ng-click="SearchAssignmentStudent()">{{labelsAssignment.search}}</button>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+     <!--    <div class="row">
+           
+
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.status}}</label>
+                    <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" value="3" class="form-control " ng-model="entityAssignmentStaff.assignmentStatusKey" name="status"> 
+                         <option value="">--Select--</option>
+                     </select>
+
+                </div>
+            </div>
+        </div> -->
+
+       
+
+
+    
+
+    <div ng-show="staff" class="row">
+        <table>
+
+            <div class="col-md-12">
+                <div class="panel-body">
+                    <table id="tblAssignmentList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th style="cursor: pointer" ng-click="sortData('assignmentName')">{{labelsAssignment.assignmentName}}
+                                    <div ng-class="getSortClass('assignmentName')"></div>
+                                </th>
+                                <th>AssignedBy
+                                   
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('topicTitle')">{{labelsAssignment.topicTitle}}
+                                    <div ng-class="getSortClass('topicTitle')"></div>
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('startDate')">{{labelsAssignment.startDate}}
+                                    <div ng-class="getSortClass('startDate')"></div>
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('endDate')">{{labelsAssignment.endDate}}
+                                    <div ng-class="getSortClass('endDate')"></div>
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('status')">{{labelsAssignment.status}}
+                                    <div ng-class="getSortClass('status')"></div>
+                                </th>
+                                <th style="cursor: pointer" >Actions
+                                </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="assignment in assignmentStaff |  orderBy:sortColumn:reverseSort">
+                                <td><a ng-click="getList(assignment.AssignmentKey,assignment.BranchKey,assignment)">{{assignment.AssignmentName}}</a></td>
+                                <td>{{assignment.FirstName}}</td>
+                                <td>{{assignment.TopicKey}}</td>
+
+                                <td>{{ assignment.StartDate|date : "dd/MM/yy" }}</td>
+                                <td>{{ assignment.EndDate|date : "dd/MM/yy" }}</td>
+                                <td>{{assignment.AssignmentStatusName}}</td>
+                                <td> 
+                                <label>
+<a href="#"   ng-click="editStaffAssignment(assignment.AssignmentKey,assignment.BranchKey)"><i class="fa fa-pencil"></i></a> 
+                                </label>
+                                <label>
+   <a href="#"  class="glyphicon glyphicon-info-sign" ng-click="getList(assignment.AssignmentKey,assignment.BranchKey,assignment)"></a> 
+                                </label>
+   </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+        <!--            <div class="col-md-2" ng-hide="((assignmentStaff.length<=10)||(assignmentStaff.length==undefined))">
+                        <div ng-init="pageSize=10 ">
+                            <label for="search">Records per page:</label>
+                            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12" style="text-align:left">
+                        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                        </dir-pagination-controls>
+                    </div>-->
+
+
+                </div>
+            </div>
+
+        </table>
+    </div>
+
+
+   <!--  <div ng-show="student">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.assignmentName}}</label>
+                    <input class="form-control" id="input-Default" ng-model="entityAssignment.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true">
+
+
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.subjectTitle}}</label>
+                    <select ng-options="subject.InstituteSubjectkey as subject.SubjectTitle  for subject in subjectStaffList" value="3" class="form-control " ng-model="entityAssignment.subjectKey" name="subjectName"> 
+                         <option value="">--Select--</option>
+                     </select>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.startDate}}</label>
+                    <input class="form-control date-picker" ng-model="entityAssignment.startDate" name="startDate" type="date">
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.endDate}}</label>
+                    <input class="form-control date-picker" ng-model="entityAssignment.endDate" name="endDate" type="date">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.status}}</label>
+                    <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" value="3" class="form-control " ng-model="entityAssignment.assignmentStatusKey" name="status"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                </div>
+            </div>
+        </div>
+       </div> -->
+
+   
+
+
+
+    <div ng-show="studentTable" class="row">
+        <table>
+
+            <div class="col-md-12">
+                <div class="panel-body">
+                    <table id="tblAssignmentList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th style="cursor: pointer" ng-click="sortData('assignmentName')">{{labelsAssignment.assignmentName}}
+                                    <div ng-class="getSortClass('assignmentName')"></div>
+                                </th>
+ <th>AssignedBy
+                                   
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('startDate')">{{labelsAssignment.startDate}}
+                                    <div ng-class="getSortClass('startDate')"></div>
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('endDate')">{{labelsAssignment.endDate}}
+                                    <div ng-class="getSortClass('endDate')"></div>
+                                </th>
+                                <th style="cursor: pointer" ng-click="sortData('status')">{{labelsAssignment.status}}
+                                    <div ng-class="getSortClass('status')"></div>
+                                </th>
+                                  <th style="cursor: pointer" >Actions
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="assignment in assignmentStudent">
+
+                                <td><a ng-click="getList(assignment.AssignmentKey,assignment.BranchKey,assignment)">{{assignment.AssignmentName}}</a></td>
+
+ <td>{{assignment.FirstName}}</td>
+
+                                <td>{{ assignment.StartDate|date : "dd/MM/yy" }}</td>
+                                <td>{{ assignment.EndDate|date : "dd/MM/yy" }}</td>
+                                <td>{{assignment.AssignmentStatusName }}</td>
+ <td> 
+                                <label>
+<a href="#"   ng-click="editStudentAssignment(assignment.AssignmentKey,assignment.BranchKey)"><i class="fa fa-pencil"></i></a> 
+                                </label>
+                                <label>
+   <a href="#"  class="glyphicon glyphicon-info-sign" ng-click="getList(assignment.AssignmentKey,assignment.BranchKey,assignment)"></a> 
+                                </label>
+   </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-2" ng-hide="((assignmentStudent.length<=10)||(assignmentStudent.length==undefined))">
+                        <div ng-init="pageSize=10 ">
+                            <label for="search">Records per page:</label>
+                            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12" style="text-align:left">
+                        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                        </dir-pagination-controls>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </table>
+    </div>
+
+
+
+
+    <!-- </form>
+ -->
+</div>

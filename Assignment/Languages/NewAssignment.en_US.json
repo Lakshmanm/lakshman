@@ -1,0 +1,39 @@
+{
+    "labels": {
+         "assignmentName":"Assignment Name ",
+        "assignmentType": "Assignment Type",
+        "courseTitle":"Course Title",
+        "groupTitle":"Group Title",
+        "batchTitle":"Batch Title",
+        "subjectTitle":"Subject Title",
+        "topicTitle":"Topic Title",
+       "startDate":"Start Date",
+       "endDate":"End Date",
+       "priority":"Priority",
+       "status":"Status",
+       "description":"Description",
+       "staff":"Staff",
+       "student":"Student",
+       "submit":"Save",
+       "search":"Search",
+       "cancel":"Cancel",
+        "departmentName":"Department Name",
+        "myTasks":"My Tasks",
+        "assignedByMe":"Assigned By Me",
+        "completed":"Completed",
+        "inProgress":"In Progress",
+         "notYetStarted":"Not Yet Started",
+        "toStaff":"To Staff",
+        "branches":"Institute",
+        "currentDate":"Current Date",
+        "folderKey":"Upload File",
+        "updatedOn":"Updated On",
+        "uploads":"Uploads",
+        "status":"Status",
+        "update":"Update"
+
+    },
+    "errors": {
+
+    }
+}

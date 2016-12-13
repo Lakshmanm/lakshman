@@ -1,0 +1,18 @@
+{
+    "labels": {
+         "height": "Height",
+        "weight": "Weight",
+        "bmi": "BMI",
+        "temperature": "Temperature",
+        "hemoglobin": "Hemoglobin",
+        "inspectionDate": "InspectionDate",
+        "edit": "Edit",
+        "delete": "Delete",
+        "submit": "Submit",
+        "demographics": "Demographics",
+        "folder":"Photo Path"
+    },
+    "errors": {
+
+    }
+}

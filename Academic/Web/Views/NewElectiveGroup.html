@@ -1,0 +1,150 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewElectiveGroup.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="electiveGroupForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.boardTitle.$dirty && electiveGroupForm.boardTitle.$invalid, 'has-success':electiveGroupForm.boardTitle.$valid}">
+                        <label>{{labelsElectiveGroup.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entityElectiveGroup.boardKey)" ng-model="entityElectiveGroup.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="electiveGroupForm.boardTitle.$dirty && electiveGroupForm.boardTitle.$invalid" class="error text-small block">
+                        <p ng-show="electiveGroupForm.boardTitle.$error.required ">Board title is required</p>
+
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.groupTitle.$dirty && electiveGroupForm.groupTitle.$invalid, 'has-success':electiveGroupForm.groupTitle.$valid}">
+                        <label>{{labelsElectiveGroup.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3" class="form-control " ng-change="getGroupCourse(entityElectiveGroup.groupKey)" ng-model="entityElectiveGroup.groupKey" name="groupTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="electiveGroupForm.groupTitle.$dirty && electiveGroupForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show=" electiveGroupForm.groupTitle.$error.required">Group title is required</p>
+
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.courseTitle.$dirty && electiveGroupForm.courseTitle.$invalid, 'has-success':electiveGroupForm.courseTitle.$valid}">
+                        <label>{{labelsElectiveGroup.courseTitle}}<span class="symbol required"></span></label>{{}}
+                        <select ng-options="course.courseKey as course.courseTitle for course in courseList " value="3" class="form-control " ng-change="getCourseTerm(entityElectiveGroup.courseKey)" ng-model="entityElectiveGroup.courseKey" name="courseTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="electiveGroupForm.courseTitle.$dirty && electiveGroupForm.courseTitle.$invalid" class="error text-small block">
+                        <p ng-show="electiveGroupForm.courseTitle.$error.required ">Course title  is required</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.termTitle.$dirty && electiveGroupForm.termTitle.$invalid, 'has-success':electiveGroupForm.termTitle.$valid}">
+                        <label>{{labelsElectiveGroup.termTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="term.termKey as term.termTitle for term in termList" value="3" class="form-control " ng-model="entityElectiveGroup.termKey" name="termTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="electiveGroupForm.termTitle.$dirty && electiveGroupForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-show="electiveGroupForm.termTitle.$error.required ">Term title  is required</p>
+                        </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.electiveGroupTitle.$dirty && electiveGroupForm.electiveGroupTitle.$invalid, 'has-success':electiveGroupForm.electiveGroupTitle.$valid}">
+                        <label>{{labelsElectiveGroup.electiveGroupTitle}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.electiveGroupTitle" name="electiveGroupTitle" type="text" ng-minlength="4" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true"> <span ng-if="electiveGroupForm.electiveGroupTitle.$dirty && electiveGroupForm.electiveGroupTitle.$invalid" class="error text-small block">
+                        <p ng-show="electiveGroupForm.electiveGroupTitle.$invalid && electiveGroupForm.electiveGroupTitle.$error.required ">ElectiveGroup title is required.</p>
+                        <p ng-show="electiveGroupForm.electiveGroupTitle.$error.minlength">ElectiveGroup title minimum length is 4 characters</p>
+                        <p ng-show="electiveGroupForm.electiveGroupTitle.$error.maxlength">ElectiveGroup title maximum length is 80 characters</p>
+                        <p ng-show="electiveGroupForm.electiveGroupTitle.$error.pattern">Alphanumeric characters only</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.minimumSubjects.$dirty && electiveGroupForm.minimumSubjects.$invalid, 'has-success':electiveGroupForm.minimumSubjects.$valid}">
+                        <label>{{labelsElectiveGroup.minimumSubjects}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.minimumSubjects" name="minimumSubjects" type="number" ng-min="1" ng-max="50" ng-required="true" ng-pattern="/^[0-9]{1,7}$/"> <span ng-if="electiveGroupForm.minimumSubjects.$dirty && electiveGroupForm.minimumSubjects.$invalid" class="error text-small block">
+                        <p ng-show=" electiveGroupForm.minimumSubjects.$error.required ">Minimum Subjects is required</p>
+                        <p ng-show="electiveGroupForm.minimumSubjects.$error.min">Minimum Subjects minimum length is 1 </p>
+                        <p ng-show="electiveGroupForm.minimumSubjects.$error.max">Minimum Subects maximum length is 50 </p>
+                        <p ng-show="electiveGroupForm.minimumSubjects.$error.pattern">Numbers only</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.maximumSubjects.$dirty && electiveGroupForm.maximumSubjects.$invalid, 'has-success':electiveGroupForm.maximumSubjects.$valid}">
+                        <label>{{labelsElectiveGroup.maximumSubjects}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.maximumSubjects" name="maximumSubjects" type="number" ng-min="1" ng-max="50" ng-required="true" ng-pattern="/^[0-9]{1,7}$/"> <span ng-if="electiveGroupForm.maximumSubjects.$dirty && electiveGroupForm.maximumSubjects.$invalid" class="error text-small block">
+                        <p ng-show=" electiveGroupForm.maximumSubjects.$error.required ">Maximum Subjects is required.</p>
+                        <p ng-show="electiveGroupForm.maximumSubjects.$error.min">Maximum Subjects minimum length is 1 </p>
+                        <p ng-show="electiveGroupForm.maximumSubjects.$error.max">Maximum Subjects maximum length is 50</p>
+                        <p ng-show="electiveGroupForm.maximumSubjects.$error.pattern">Numbers only</p>
+                        </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <center>
+                            <div class="form-group">
+                                <div ng-if="save">
+                                    <button type="submit" ng-disabled="electiveGroupForm.$invalid" class="btn btn-wide btn-primary" ng-click="electiveGroupForm.$valid&&addElectiveGroup()">{{labelsElectiveGroup.save}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" ng-disabled="electiveGroupForm.$invalid" class="btn btn-wide btn-primary" ng-click="electiveGroupForm.$valid&&updateElectiveGroup()">{{labelsElectiveGroup.update}}</button>
+                                </div>
+                        </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="tblElectiveGroupList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsElectiveGroup.electiveGroupTitle}}</th>
+                                    <th>{{labelsElectiveGroup.board}}</th>
+                                    <th>{{labelsElectiveGroup.group}}</th>
+                                    <th>{{labelsElectiveGroup.course}}</th>
+                                    <th>{{labelsElectiveGroup.term}}</th>
+                                    <th>{{labelsElectiveGroup.minimumSubjects}}</th>
+                                    <th>{{labelsElectiveGroup.maximumSubjects}}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityElectiveGroup in electiveGroupCollection">
+                                    <td>{{ entityElectiveGroup.electiveGroupTitle }}</td>
+                                    <td>{{ entityElectiveGroup.boardTitle }}</td>
+                                    <td>{{ entityElectiveGroup.groupTitle }}</td>
+                                    <td>{{ entityElectiveGroup.courseTitle }}</td>
+                                    <td>{{ entityElectiveGroup.termTitle }}</td>
+                                    <td>{{ entityElectiveGroup.minimumSubjects }}</td>
+                                    <td>{{ entityElectiveGroup.maximumSubjects }}</td>
+                                    <td><a ng-click="editElectiveGroup(entityElectiveGroup.electiveGroupKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteElectiveGroup(entityElectiveGroup.electiveGroupKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>

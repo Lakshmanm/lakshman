@@ -1,0 +1,245 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Edit Appointment
+       </h4>
+    
+</div>
+
+<div class="container-fluid container-fullw bg-white">
+     
+    <div class="row">
+
+    <div class="col-md-12">
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
+        <div class="alert alert-warning" ng-show="showErrorAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×</button> {{errorTextAlert}}</div>
+
+    </div>
+    <form id="myForm" name="editEventForm" novalidate>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.EventTitle}}</div>
+            <div class="col-lg-9">
+                <input class="form-control" type="text" name="eventTitle" ng-model="editEvent.eventTitle" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true" />
+                 <span style="color:red" ng-show="editEventForm.eventTitle.$dirty && editEventForm.eventTitle.$invalid || editEventForm.$submitted">
+  <span ng-show="editEventForm.eventTitle.$error.required">Appointment Title is required.</span>
+  <span ng-show="editEventForm.eventTitle.$error.pattern">Please use numbers letters only</span>
+  </span>
+
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.StartDateTime}}</div>
+            <div class="col-lg-9" style="padding:0px;">
+                <div class="col-lg-8">
+                 <!--    <input type="text" name="starttime"  datetime-picker required ng-model="editEvent.startDate" date-format="yyyy-MM-dd HH:mm:ss" class="form-control"> -->
+                  <circulartimepicker  model="editEvent.startDate" format="{military:true}"></circulartimepicker>
+
+                </div>
+                <div class="col-lg-4">
+                    <!-- <input type="text" class="form-control"> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.EndDateTime}}</div>
+
+            <div class="col-lg-9" style="padding:0px;">
+                <div class="col-lg-8">
+                    <!-- <input type="text"  datetime-picker  name="endtime" ng-model="editEvent.endDate" required date-format="yyyy-MM-dd HH:mm:ss" class="form-control"> -->
+
+                    <circulartimepicker  model="editEvent.endDate" format="{military:true}"></circulartimepicker>
+                </div>
+                <div class="col-lg-4">
+                    <!-- <input type="text" class="form-control"> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.Reminder}}</div>
+            <div class="col-lg-9">
+                <select id="reminder" class="form-control" name="reminder" ng-options="rem.ReminderID as rem.Reminder for rem in eventReminders " ng-model="editEvent.reminder" required>
+                    <option value="">Select reminder</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.ReminderType}}</div>
+            <div class="col-lg-9">
+                <select id="remindertype" class="form-control" name="remindertype" ng-options="remtype.ReminderTypeID as remtype.ReminderTypeName for remtype in eventReminderTypes " ng-model="editEvent.remindertype" required>
+                    <option value="">Select reminder type</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.Calender}}</div>
+            <div class="col-lg-9">
+                <select id="calenderid" class="form-control" required name="calenderid" ng-options="cal.PersonCalendarID as cal.PersonCalendarName for cal in userCalenders " ng-model="editEvent.calenderid">
+                    <option value="">Select Calender</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="col-lg-12" style="border-bottom:dashed 1px #d2d2d2; height:30px; float:left;"></div>
+
+        <div class="col-lg-12" style="margin-top:20px; float:left;">
+            <div class="col-lg-3">{{editEventLables.RecurrencePattern}} </div>
+            <div class="col-lg-9">
+                <div class="col-lg-3" ng-repeat="recc in eventRecurrenceTypes" style="border-bottom:solid 1px #d2d2d2; padding-bottom:10px;">
+                    <input name="pattern" ng-model="editEvent.recurrencePattern" value="{{recc.EventRecurrenceTypeID}}" ng-click="reccurence(recc.DisplaySequence)" type="radio"> {{recc.DisplayText}}</div>
+
+                <!--Daily-->
+                <div class="col-lg-12" style="padding:0; margin-top:10px; float:left;" ng-show="daily">
+                    <div class="col-lg-4" style="line-height:30px;">
+
+                        <input type="radio" ng-model="editEvent.repeateveryXdays" ng-value="1" name="test"> {{editEventLables.RepeatsEvery}} Repeats Every</div>
+
+                    <div class="col-lg-4">
+                        <input type="number" ng-model="editEvent.DailyEveryXDays" min="1" ng-value="1" class="form-control">
+                    </div>
+                    <div class="col-lg-4" style="line-height:30px;">{{editEventLables.days(s)}} </div>
+                    <div class="col-lg-12" style="padding:0px; margin-top:10px;">
+                        <div class="col-lg-6" style="line-height:30px;">
+                            <input type="radio" name="test" ng-model="editEvent.DailyEveryWeekday" ng-value="2">{{editEventLables.Oneveryweekday}} </div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-2" style="line-height:30px;"> </div>
+                    </div>
+                </div>
+
+                <!--Monthly-->
+                <div class="col-lg-12" style="padding:0; margin-top:10px; float:left;" ng-show="weekly">
+                    <div class="col-lg-4" style="line-height:30px;">{{editEventLables.StartDateTime}} Recur every</div>
+                    <div class="col-lg-4">
+                        <input type="number" min="0" ng-model="editEvent.WeeklyEveryXWeeks" value="1" class="form-control">
+                    </div>
+                    <div class="col-lg-4" style="line-height:30px;">{{editEventLables.Week}}(s) on :</div>
+                    <div class="col-lg-12" style="padding:0px; margin-top:10px;">
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklyMonday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Monday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklyTuesday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Tuesday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklyWednesday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Wednesday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklyThursday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Thursday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklyFriday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Friday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklySaturday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Saturday</div>
+                        <div class="days">
+                            <input ng-model="editEvent.WeeklySunday" ng-true-value="1" ng-false-value="'null'" type="checkbox"> Sunday</div>
+                    </div>
+                </div>
+                <!--Yearly-->
+                <div class="col-lg-12" style="padding:0; margin-top:10px; float:left;" ng-show="monthly">
+                    <div class="col-lg-2" style="line-height:30px;">
+
+                        <input type="radio" name="test" ng-model="editEvent.dayXOfEveryXMonth" ng-value="1">{{editEventLables.Day}} Day </div>
+
+                    <div class="col-lg-3" style="line-height:30px;">
+                        <input type="number" min="0" ng-model="editEvent.DayX" class="form-control "> </div>
+
+                    <div class="col-lg-2">{{editEventLables.ofevery}}of every</div>
+
+                    <div class="col-lg-3">
+                        <input type="number" min="0" ng-model="editEvent.EveryX1Months" class="form-control ">
+                    </div>
+                    <div class="col-lg-2" style="line-height:30px;">{{editEventLables.months}} (s) </div>
+                    <div class="col-lg-12" style="padding:0px; margin-top:10px;">
+                        <div class="col-lg-1" style="line-height:30px;">
+
+                            <input type="radio" name="test" ng-model="editEvent.theXXOfEveryXMonth" ng-value="1">{{editEventLables.The}} </div>
+                        <div class="col-lg-3" style="line-height:30px;">
+
+                            <select ng-model="editEvent.monthfirst" class="form-control">
+                                <option value="" style="display:none;">select</option>
+                                <option value="First">First</option>
+                                <option value="Second">Second</option>
+                                <option value="Third">Third</option>
+                                <option value="Fourth">Fourth</option>
+                                <option value="Last">Last</option>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <select ng-model="editEvent.monthlySunday" class="form-control">
+                                <option value="" style="display:none;">select</option>
+                                <option value="MonthlySunday">Monthly Sunday</option>
+                                <option value="MonthlyMonday">Monthly Monday</option>
+                                <option value="MonthlyTuesday">Monthly Tuesday</option>
+                                <option value="MonthlyWednesday">Monthly Wednesday</option>
+                                <option value="MonthlyThursday">Monthly Thursday</option>
+                                <option value="MonthlyFriday">Monthly Friday</option>
+                                <option value="MonthlySaturday">Monthly Saturday</option>
+
+
+
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2">{{editEventLables.ofevery}}</div>
+                        <div class="col-lg-2" style="line-height:30px;">
+                            <input type="number" ng-model="editEvent.EveryX2Months" min="0" class="form-control ">
+                        </div>
+                        <div class="col-lg-1" style="line-height:30px;">{{editEventLables.months}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12" style="border-bottom:dashed 1px #d2d2d2; height:30px; float:left;"></div>
+        <div class="col-lg-12" style="margin-top:20px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.Location}}</div>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" name="location" ng-model="editEvent.location" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true" />
+                 <span style="color:red" ng-show="editEventForm.location.$dirty && editEventForm.location.$invalid || createEventForm.$submitted">
+  <span ng-show="editEventForm.location.$error.required">Location is required.</span>
+  <span ng-show="editEventForm.location.$error.pattern">Please use numbers letters only</span>
+  </span>
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3">{{editEventLables.Attendee}}</div>
+            <div class="col-lg-9">
+                <textarea class="form-control" name="attendees" ng-model="editEvent.attendents" id="demo-input-local" name="calshareemails"></textarea>
+                <!--  	<input class="form-control" type="text"/> -->
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"><span style="color:#ff0000;">*</span>{{editEventLables.Description}}</div>
+            <div class="col-lg-9">
+                <textarea class="form-control" name="description" required ng-model="editEvent.description" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true" ></textarea>
+
+                 <span style="color:red" ng-show="editEventForm.description.$dirty && editEventForm.description.$invalid || editEventForm.$submitted">
+  <span ng-show="editEventForm.description.$error.required">Description is required.</span>
+  <span ng-show="editEventForm.description.$error.pattern">Please use numbers letters only</span>
+  </span>
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-3"> </div>
+            <div class="col-lg-9">
+
+                <input type="hidden" ng-model="editEvent.sendical"><!-- {{editEventLables.SendiCalender}} -->
+            </div>
+        </div>
+        <div class="col-lg-12" style="margin-top:10px;">
+            <div class="col-lg-3"> </div>
+            <div class="col-lg-9">
+
+
+                <button class="btn btn-primary button" type="submit" name="Update" ng-click=" editEventForm.$valid && updateEvent()">{{editEventLables.Save}}</button>
+
+                <button class="btn btn-warning button" ng-click="cancel()">{{editEventLables.Cancel}}</button>
+
+
+            </div>
+        </div>
+    </form>
+</div>
+</div>

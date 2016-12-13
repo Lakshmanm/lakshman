@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "minimumMarks": "Pass Marks",
+        "maximumMarks": "Maximum Marks",
+        "termTitle": "Term Title",
+        "courseTitle": "Course Title",
+        "groupTitle": "Group Title",
+        "boardTitle": "Board Title",
+        "instanceOrganizationKey": "Instance OrganizationKey",
+        "edit": "Edit",
+        "delete": "Delete",
+        "subject":"Subject",
+        "subjectMarksRangeList": "Subject Marks Range List",
+        "subjectTitle": "Subject",
+        "examinationType": "Examination Type",
+        "update": "Update",
+        "organization": "Organization",
+        "save": "Save"
+    },
+    "errors": {}
+}

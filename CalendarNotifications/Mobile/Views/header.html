@@ -1,0 +1,32 @@
+    <div class="navbar-fixed" > 
+    <nav> 
+        <div class="nav-wrapper"> 
+            <a class="brand-logo">Calendar</a> 
+            
+            <div id="login-data" class="right">
+                
+                <div class="sign_name">
+                     <span class="signinas">Signed in as</span> <span class="user-name">
+                            <div ng-repeat="user in globals  ">
+                            {{user.username}}
+                            </div></span>
+                      
+                </div>
+                <div class="menu_icon">
+                    <div class="h_line"></div>
+                    <div class="h_line"></div>
+                    <div class="h_line"></div>
+                </div>
+                <ul class="drop_menu">
+                    <li  ><a href="#/calender">Calender</a></li>
+                    <li><a href="#/profile-settings">Profile</a></li>
+                    <li><a href="#/notification-settings">Notification</a></li>
+                    <li><a href="#/login">Sign Out</a></li>
+                    
+
+                </ul>
+            </div>
+            
+        </div> 
+    </nav> 
+</div>

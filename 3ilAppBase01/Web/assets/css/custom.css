@@ -1,0 +1,163 @@
+/* Write your custom CSS here */
+
+label {
+	/*width:100%;*/
+	padding-right:10px;
+	
+}
+
+.panel-group .panel-heading .panel-title > a {
+	width:100%;
+	padding:20px;
+	display:inline-block;
+}
+
+.panel-group .panel-heading {
+	padding:0px;
+}
+
+.panel-group .panel-heading .panel-title > a.collapsed::after {
+	content:none;
+}
+.panel-group .panel-heading .panel-title > a::after  {
+	content:none;
+}
+
+.dataTables_filter {
+	text-align:right;
+}
+
+.dataTables_paginate {
+	/*float:right*/
+}
+
+
+.page-content {
+	background-color:#fff;
+}
+.page-footer {
+	position:relative;
+	border-top:solid 1px #ccc
+}
+.min_content {
+	min-height:400px;
+}
+.header {
+	width:100%;
+	float:left;
+	top:0px;
+	background-color:#c64817;
+	border-bottom:solid 1px ccc;
+	z-index:101
+}
+.header .logo {
+	float:left;
+	margin-top:8px;
+}
+.head_rt {
+	float:right;
+	width:auto;
+}
+
+.nav {
+	float:left;
+	margin:10px;
+
+}
+.nav.nav-tabs {
+	width:100%;
+}
+.tab-content {
+	margin-top:30px;
+}
+.nav ul {
+	padding:0px;
+	margin:0px;
+}
+
+.nav ul li {
+	list-style:none;
+	display:inline;
+	border-left:solid 1px #ccc;
+	position:relative;
+}
+.nav ul li:first-child {
+	border-left:0px;
+}
+.nav ul li a {
+	color:#333;
+	font-size:14px;
+	text-transform:uppercase;
+	text-decoration:none;
+	padding:0 20px;
+	line-height:36px;
+	display:inline-block;
+}
+
+.nav ul li:hover a {
+	/*color:#ff0000;*/
+}
+/******  Drop menu  css ********/
+
+ .nav ul ul{ 
+	position:absolute; 
+	width:170px;
+	top:-99999px;
+	left:0;
+	opacity: 0;
+	-webkit-transition: opacity .5s ease-in-out;
+	-moz-transition: opacity .5s ease-in-out;
+	-o-transition: opacity .5s ease-in-out;
+	z-index:497; 
+	background-color:#fff;
+	/*border:solid 1px #d9d9d9*/
+	box-shadow: 0 0 7px #ccc;
+	
+}
+
+.nav ul ul li {
+	padding:0px;
+	line-height:56px;
+	font-size:12px;
+	width:100%;
+	float:left;
+	border-left:none;
+	margin-left:0px;
+	background:url(../images/dot_line.jpg) bottom repeat-x
+	}
+
+.nav ul ul li a {
+	color:#333;
+	font-size:12px;
+	width:100%;
+	padding:5px 10px;
+	line-height:20px;
+	text-align:left;
+	float:left;
+	text-transform:none;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+.nav ul ul li:hover a{
+	color:#fff;
+	background-color:#0088cc;
+	}
+
+.nav ul ul ul { 
+	position:absolute; 
+	top:-99999px; 
+	left:100%; 
+	opacity: 0; 
+	background-color:transparent;
+	-webkit-transition: opacity .5s ease-in-out;
+	-moz-transition: opacity .5s ease-in-out;
+	-o-transition: opacity .5s ease-in-out;
+	
+	
+}
+
+
+.nav ul li:hover>ul { opacity: 1; position:absolute; top:26px; left:0px; }
+.nav ul ul li:hover>ul{ position:absolute; top:0; left:100%; opacity: 1; z-index:497;  }   
+ 
+/********  Drop menu css closed ***********/ 	

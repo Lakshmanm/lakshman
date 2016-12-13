@@ -1,0 +1,177 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Vaccination
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Kiranmai Labhala
+ Created Date       : 21-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+S.No Ver  Date       Modified By  Description
+1   1.0  29-04-2016  Kiranmai    Define referenceKeys,changing  service API calls  
+************************************************************************************                           
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+    
+        <form name="vaccinationForm" novalidate>
+          
+           <fieldset ng-disabled="details">     
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="form-group" ng-class="{'has-error':vaccinationForm.title.$dirty && vaccinationForm.title.$invalid, 'has-success':vaccinationForm.title.$valid}">
+                        <label>{{vaccinationLables.VaccinationName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control"  ng-pattern="/^[a-zA-Z0-9\s]*$/"  ng-maxlength="30" ng-minlength="3" type="text" ng-model="vaccination.vaccinationName" name="title" required></span>
+
+                       <span class="error text-small block" ng-if="vaccinationForm.title.$dirty && vaccinationForm.title.$invalid" style="color:red">    
+                              <p ng-show="vaccinationForm.title.$invalid && vaccinationForm.title.$error.required">vaccination Name is required</p>
+                      <p ng-show="vaccinationForm.title.$error.minlength">vaccination Name should be minimum of 3 characters</p>
+                        <p ng-show="vaccinationForm.title.$error.maxlength">vaccination Name should be maximum of 30 characters</p> 
+                            <p ng-show="vaccinationForm.title.$error.pattern">vaccination Name accept only Alphanumeric characters</p>
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                   <div class="form-group" ng-class="{'has-error':vaccinationForm.medicineType.$dirty && vaccinationForm.medicineType.$invalid, 'has-success':vaccinationForm.medicineType.$valid}">
+                        <label>{{vaccinationLables.MedicineType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" style="width: 100%" ng-options="vaccination.medicineTypeId as vaccination.medicineTypeName for vaccination in medicineTypeList" ng-model="vaccination.medicineTypeId" name="medicineType" required>
+
+                            <option value="">--Select--</option>
+
+
+                        </select></span>
+
+                        <span class="error text-small block" ng-if="vaccinationForm.medicineType.$dirty && vaccinationForm.medicineType.$invalid" style="color:red">    
+                              <p ng-show="vaccinationForm.medicineType.$invalid && vaccinationForm.medicineType.$error.required">Medicine Type is required</p>
+                   
+                        
+                        </span> 
+                    </div>
+                </div>
+
+
+ <div class="col-lg-4 col-md-6">
+                  <div class="form-group" ng-class="{'has-error':vaccinationForm.vaccinationType.$dirty && vaccinationForm.vaccinationType.$invalid, 'has-success':vaccinationForm.vaccinationType.$valid}">
+                        <label>{{vaccinationLables.VaccinationType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" style="width: 100%" ng-options="vaccination.vaccinationTypeId as vaccination.vaccinationTypeName for vaccination in vaccinationTypeList" ng-model="vaccination.vaccinationTypeId" name="vaccinationType" required>
+
+                            <option value="">--Select--</option>
+
+
+                        </select></span>
+                        <span class="error text-small block" ng-if="vaccinationForm.vaccinationType.$dirty && vaccinationForm.vaccinationType.$invalid" style="color:red">    
+                              <p ng-show="vaccinationForm.vaccinationType.$invalid && vaccinationForm.vaccinationType.$error.required">vaccination Type is required</p>
+                     
+                        </span> 
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="row">
+         
+                <div class="col-lg-4 col-md-6">
+
+                  <div class="form-group" ng-class="{'has-error':vaccinationForm.inspectionDate.$dirty && vaccinationForm.inspectionDate.$invalid, 'has-success':vaccinationForm.inspectionDate.$valid}">
+                        <label>{{vaccinationLables.InspectionDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                        <input class="form-control " type="date" ng-model="vaccination.inspectionDate" name="inspectionDate" required></span>
+
+                        <span class="error text-small block" ng-if="vaccinationForm.inspectionDate.$dirty && vaccinationForm.inspectionDate.$invalid" style="color:red">    
+                              <p ng-show="vaccinationForm.inspectionDate.$invalid && vaccinationForm.inspectionDate.$error.required">Inspection Date is required</p>
+                    
+                        </span> 
+                    </div>
+                </div>
+
+                 <div class="col-lg-6 col-md-6">
+                  <div >
+                <label>{{vaccinationLables.Remarks}}</label>
+                        <textarea id="console" ng-minlength="3" ng-maxlength="100" name="remarks" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="vaccination.remarks" class="form-control" rows="3"></textarea> 
+  <div class="padding" ng-if="vaccinationForm.remarks.$touched || vaccinationForm.$submitted" style="color:red">
+                              <p ng-show="vaccinationForm.remarks.$error.minlength || vaccinationForm.remarks.$error.minlength">Remarks should be minimum of 3 characters</p>
+                             <p ng-show="vaccinationForm.remarks.$error.maxlength || vaccinationForm.remarks.$error.maxlength">  Remarks  should be maxmum of 100 characters</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </fieldset>
+
+            <div class="row">
+                <div style="text-align:center">
+                 <!--    <button type="submit" ng-click="vaccinationForm.$valid &&saveVaccination()" class="btn btn-primary">{{vaccinationLables.Submit}}</button> -->
+<button type="button" ng-hide="vaccine" class="btn btn-wide btn-primary" ng-disabled="vaccinationForm.$invalid" ng-click="vaccinationForm.$valid && saveVaccination()" v-pressable>{{vaccinationLables.Submit}}</button>
+
+
+
+                </div>
+            </div>
+
+        </form>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+
+                        <thead>
+                            <tr>
+                            <th>Inspection Date</th>
+                                <th>{{vaccinationLables.VaccinationName}}</th>
+                                <th>{{vaccinationLables.MedicineType}}</th>
+                                <th>{{vaccinationLables.VaccinationType}}</th>
+                                <th>{{vaccinationLables.edit}}</th>
+                                <th  ng-hide="vaccine">{{vaccinationLables.delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="vaccination in vaccinationList">
+                            <td>{{vaccination.inspectionDate|date}}</td>
+                                <td>{{vaccination.vaccinationName}}</td>
+                                <td>{{vaccination.medicineTypeName}}</td>
+                                <td>{{vaccination.vaccinationTypeName}}</td>
+                                <td>
+                                    <a ng-click="getVaccinationById(vaccination.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td  ng-hide="vaccine">
+                                    <a ng-click="deleteVaccinationById(vaccination.referenceKey)"><i class="fa fa-trash"></i></a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

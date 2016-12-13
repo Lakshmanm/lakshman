@@ -1,0 +1,107 @@
+<!--=======================================================================
+  All rights reserved to Thrill Innovations Lab.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : Dashboard  
+ Type                : Html
+ Description         : This HTML file dispalys Change Password and Log out
+ References          :
+ Author              :  Tulasi Ballada
+ Created Date        :  07-Apl-2016
+****************************************************************************
+MODIFICATION LOG
+
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       15-April-2016         Sri Venkatesh.T           No Issues
+****************************************************************************
+-->
+
+<form name="SettingsForm">
+
+    <div class="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel ">
+
+
+
+                    <div class="panel-body text-center">
+                        <button  ng-click="changePasswordAction()"><i class="fa fa-key"></i>Change Password</button>
+
+                        <a href="#/loginpage" class="log-out waves-effect waves-button waves-classic text-right">
+                            <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span></a>
+
+
+
+
+                        <!-- <a href="#/loginpage" class="log-out waves-effect waves-button waves-classic text-right">
+                                        <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span></a> -->
+
+                    </div>
+                    <div class="panel-body text-right">
+                        <button ng-show="show" ng-click="admin()"><i class="fa fa-key"></i>Admin</button>
+                        <!-- 
+                              <a href="#/admin" class="log-out waves-effect waves-button waves-classic text-left">
+                                        <span><i class=""></i>Admin</span> 
+
+                        </a>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title text-center text-primary">
+                <h1>Dashboard</h1>
+            </div>
+            <div id="main-wrapper">
+
+                <h3>Profile</h3>
+                <div class="profile-cover">
+                    <div class="row">
+                        <div class="col-md-3 profile-image">
+                            <div class="profile-image-container">
+                                <img src="assets/images/avatar4.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+
+
+                    <div class="col-md-4 user-profile">
+                        <div class="panel panel-white">
+                            <div class="panel-heading clearfix">
+                                <h3 class="text-center">UserName</h3>
+                            </div>
+                            <p class="text-center">
+                                <h3 class="text-center">{{username}}</h3></p>
+                            <hr>
+                            <ul class="list-unstyled text-center">
+                                <li>
+                                    <p><i class="fa fa-map-marker m-r-xs"></i>{{number}}</p>
+                                </li>
+                                <li>
+                                    <p><i class="fa fa-envelope m-r-xs"></i><a href="#">{{email}}</a></p>
+                                </li>
+                            </ul>
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</form>

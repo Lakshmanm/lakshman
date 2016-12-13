@@ -1,0 +1,60 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExaminationType.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="ExaminationType List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsExaminationTypeList.examinationTypeHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsExaminationType.examinationTypeTitle}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityExaminationType.examinationTypeTitle" name="examinationTypeTitle" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsExaminationType.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExaminationType.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsExaminationType.examinationLevelKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExaminationType.examinationLevelKey" name="examinationLevelKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addexaminationType()">{{labelsexaminationType.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

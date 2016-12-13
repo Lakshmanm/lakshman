@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "AddressList": "स्थान सूची",
+        "Country": "देश",
+        "District": "जिला",
+        "Location": "स्थान",
+        "Mandal": "मंडल",
+        "Village": "गाँव",
+        "EntityDetails":"पता पंक्ति 1",
+        "StreetDetails":"पता पंक्ति 2",
+        "Pincode":"पिन कोड",
+        "Edit":"संपादित करें",
+        "Delete":"मिटाना",
+    }
+}
+

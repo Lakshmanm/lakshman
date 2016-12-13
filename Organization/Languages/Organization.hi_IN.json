@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "Title": "शीर्षक",
+        "ParentOrganization": " माता पिता के संगठन",
+        "OrganizationLevel": "संगठन के स्तर",
+        "OrganizationDetails": "संगठन का विवरणు",
+        "EstablishedOn": "कायम करना",
+        "OrganizationType": "संगठन का प्रकार",
+        "SubOrganizationType": "उप संगठन प्रकार",
+        "OrganizationCode":"संगठन कोड",
+        "Save":"जमा करें",
+        "OrgnizationBasicInfo":"संगठन बुनियादी जानकारी"
+
+    }
+}

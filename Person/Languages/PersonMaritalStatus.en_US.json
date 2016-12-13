@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "MaritalStatus": "Marital Status",
+        "MaritalStatusName": "Marital Status Name",
+        "StartDate":"Start Date",
+        "EndDate":"End Date",
+        "MaritalStatusType":"Marital Status Type",
+        "Submit": "Submit",
+
+        "MaritalStatusName":"Marital Status Name",
+        "MaritalStatusType":"Marital Status Type",
+        "StartDate":"Start Date",
+        "EndDate":"End Date",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

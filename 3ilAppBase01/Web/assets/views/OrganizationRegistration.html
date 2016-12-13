@@ -1,0 +1,129 @@
+<!-- start: REGISTRATION -->
+<div>
+	<img src="3ilAppBase01/web/assets/images/thrilllogo.png">
+</div>
+<form name="MYForm" novalidate>
+
+		<div class="col-md-10"></div>
+		<div class="col-md-2">
+		   <!--  <a ui-sref="organizationList">
+                           organizationList
+                        </a></div> -->
+  <label><a ui-sref="organizationList">Organization List</a> </label></div>
+
+	<h4> <i><label> New Organization</label></i></h4>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label"> Organization Type <span class="symbol required"></span> </label> <span class="clip-select"
+					class="form-control">  
+                                        <select class="form-control" name="orgType"  ng-model="organization.basicInfo.organizationTypeKey" ng-options="type.organizationTypeKey as type.organizationTypeTitle for type in organizationTypes" required>
+                                            <option value="" disabled selected>Select Type</option>
+                                            
+                                        </select>
+                                    </span> <span ng-if="MYForm.$submitted || MYForm.orgType.$touched" style="color:red;">
+                        <span  ng-if="MYForm.orgType.$invalid && MYForm.orgType.$error.required ">Organization Type is required.</span>				</span>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label"> Organization Name <span class="symbol required"></span> </label>
+				<input type="text" placeholder="" class="form-control" name="orgName" ng-model="organization.basicInfo.organizationName"
+					ng-minlength="5" ng-maxlength="250" required> <span ng-if="MYForm.$submitted || MYForm.orgName.$touched" style="color:red;">
+                        <span class="error text-small block" ng-if="MYForm.orgName.$invalid && MYForm.orgName.$error.required ">Organization Name is required.</span>				<span ng-if="MYForm.orgName.$error.minlength">Organization Name is too short.</span> <span ng-if="MYForm.orgName.$error.maxlength">Organization Name is too long.</span>				</span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label"> Admin First Name <span class="symbol required"></span> </label>
+				<input type="text" placeholder="" class="form-control" name="Fname" ng-model="organization.security.firstName" ng-pattern="/^[a-zA-Z\s]*$/"
+					ng-minlength="3" ng-maxlength="50" required> <span ng-if="MYForm.$submitted || MYForm.Fname.$touched" style="color:red;">
+                        <span  ng-if="MYForm.Fname.$invalid && MYForm.Fname.$error.required ">First Name is required.</span>				<span ng-if="MYForm.Fname.$error.minlength">First Name is too short.</span> <span ng-if="MYForm.Fname.$error.maxlength">First Name is too long.</span>				<span ng-if="MYForm.Fname.$error.pattern">Please enter only alphabets.</span> </span>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label"> Admin Last Name <span class="symbol required"></span> </label>
+				<input type="text" placeholder="" class="form-control" name="Lname" ng-model="organization.security.lastName" ng-pattern="/^[a-zA-Z\s]*$/"
+					ng-minlength="3" ng-maxlength="50" required> <span ng-if="MYForm.$submitted || MYForm.Lname.$touched" style="color:red;">
+                        <span  ng-if="MYForm.Lname.$invalid && MYForm.Lname.$error.required ">Last Name is required.</span>				<span ng-if="MYForm.Lname.$error.minlength">Last Name is too short.</span> <span ng-if="MYForm.Lname.$error.maxlength">Last Name is too long.</span>				<span ng-if="MYForm.Lname.$error.pattern">Please enter only alphabets.</span> </span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="control-label">Admin Email <span class="symbol required"></span> </label>
+				<input type="email" placeholder="" class="form-control" name="adminEmail"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="organization.security.adminEmail" required>				<span ng-if="MYForm.$submitted || MYForm.adminEmail.$touched" style="color:red;">
+                        
+                         <p ng-show="MYForm.adminEmail.$invalid && MYForm.adminEmail.$error.required">Email ID is required</p>
+                                         
+                       <p ng-show="MYForm.adminEmail.$error.pattern" style="color:#a94442">Invalid email ID</p>
+                                    
+                      
+			</div>
+		</div>
+		<div class="col-md-4">
+		
+				<label>Mobile<span class="symbol required"></span></label>
+				<input type="number" name="mobile" ng-model="organization.security.mobileNumber" placeholder=""  ng-pattern="/^[0-9]{1,10}$/"
+					class="form-control" required> <span ng-if="MYForm.$submitted || MYForm.mobile.$touched" style="color:red;">
+                       
+                       <p  ng-if="MYForm.mobile.$invalid && MYForm.mobile.$error.required">Mobile Number is required.</p>
+                            <p  ng-if="MYForm.mobile.$invalid && MYForm.mobile.$error.pattern">Invalid mobile number.</p>
+                        </span> 
+		</div>
+	</div>
+	<div calss="row">
+		<div class="col-md-4">
+			
+				<label>Password <span class="symbol required"></span></label>
+				<input type="password" name="password" ng-model="organization.security.password" class="form-control" required>
+				<span
+					ng-if="MYForm.$submitted || MYForm.password.$touched" style="color:red;">
+
+					<span ng-if="MYForm.password.$invalid && MYForm.password.$error.required ">Password is required.</span> </span>
+					<div class="progress" style="margin-top:10px">
+						<div class="progress-bar" ng-class="{'progress-bar-success': isPasswordStrong(), 'progress-bar-warning': isPasswordOk(), 'progress-bar-danger': isPasswordWeak()}"
+							aria-valuenow="{{ passwordStrength }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ passwordStrength }}%">
+						
+					</div>
+			</div>
+			</div>
+<div class="col-md-4">
+			
+				<label>Confirm Password <span class="symbol required"></span></label>
+				<input type="password" name="confirmPassword" ng-model="organization.security.confirmPassword" ng-change="conformPassword()"  class="form-control" required>
+				<span
+					ng-if="MYForm.$submitted || MYForm.confirmPassword.$touched" style="color:red;">
+
+					<span ng-if="MYForm.confirmPassword.$invalid && MYForm.confirmPassword.$error.required ">Confirm Password is required.</span> 
+                   <span ng-show="showMessage">Enter correct Password to confirm.</span>
+					</span>
+					
+			
+</div>
+
+	
+      <!--   <div class="form-group form-actions">
+                        <label>Confirm Password</label>
+                        <input type="password" style="width:300px" class="form-control password" ng-change="conformPassword()" name="confirm" ng-model="organization.confirmpassword" required> 
+<label ng-show="showMessage">Enter correct password to confirm</label>
+                        </div> -->
+	</div>
+
+	<div calss="row">
+		<div class="col-md-12">
+			<center>
+				<button type="submit" ng-disabled="OrgProfileForm.$invalid" ng-click="MYForm.$valid && Register()" class="btn btn-wide btn-primary"
+					ng-hide="Organizationupdate" v-pressable> Save </button>
+			</center>
+			<div class="copyright"> Copyright © 2016 Thrill Innovative Labs. All rights reserved. </div>
+		</div>
+	</div>
+
+</form>
+</div>

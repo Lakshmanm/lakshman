@@ -1,0 +1,29 @@
+
+
+{
+    "labels": {
+         "SignUp": "साइन अप करें",
+         "BasicInfo": "बुनियादी जानकारी",
+        "Address": "पता",
+         "UserName": "उपयोगकर्ता नाम",
+         "CheckAvailability": "उपलब्धता जाँचें",
+         "Password": "पासवर्ड",
+         "ReEnterPassword": "पासवर्ड फिर से दर्ज करें",
+         "DoorNo": "दरवाजा संख्या",
+        "Street1": "सड़क1",
+        "Street2": "सड़क2",
+        "Country": "देश",
+        "State": "राज्य",
+        "District": "जिला",
+        "Mandal": "मंडल",
+        "Village": "गाँव",
+        "Pincode": "पिन कोड",
+        "SecurityQuestion": "सुरक्षा प्रश्न चुनें",
+        "HintAnswer": "सांकेतिक जवाब",
+         "Submit": "जमा करें"
+           },
+    "errors": {
+        
+        }
+    
+}

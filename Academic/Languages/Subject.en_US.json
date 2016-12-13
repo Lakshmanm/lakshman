@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "subjectHeading": "New Subject"
+        , "subjectTitle": "Subject Title"
+        , "termTitle": "Term"
+        , "courseTitle": "Course"
+        , "groupTitle": "Group"
+        , "boardTitle": "Board"
+        , "instanceOrganizationKey": "Instance Organization Key"
+        , "submit": "save"
+        , "update": "update"
+        , "isElective": "is Elective"
+        , "electiveGroupTitle": "Elective Group Title"
+        , "minimumTeachingHours": "Minimum Teaching Hours"
+        , "term": "Term"
+        , "course": "Course"
+        , "group": "Group"
+        , "board": "Board"
+        , "elective": "Elective Group"
+    }
+    , "errors": {}
+}

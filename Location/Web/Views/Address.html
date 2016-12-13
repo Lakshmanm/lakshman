@@ -1,0 +1,193 @@
+<!--/*=======================================================================
+ All rights reserved to  Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                :  Location.html
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  Satya kalyani Lanka
+ Created Date        : 06-04-2016 
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+1   14-04-2016   Satya kalyani Lanka                Dropdown column names changed 
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1        1.0       13-April-2016         Sri Venkatesh.T           At Name section in the header section must have the Name of File not the Developer name
+
+****************************************************************************/-->
+
+<form name="AddressForm" novalidate>
+
+    <div id="main-wrapper">
+        <div class="panel-white">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2> {{addressInfoLables.AddressTitle}}  </h2></div>
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.Country}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.countryId as country.countryName for country in countryList" ng-model="addressInfo.countryId" ng-change="getStates(addressInfo.countryId)" ng-required="true" name="countryname">
+                            <option value="">-select-</option>
+                        </select>
+                        <div class="padding" ng-if="AddressForm.countryname.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.countryname.$error.required ">Country is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.State}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.stateId as state.stateName for state in stateList" ng-model="addressInfo.stateId" ng-change="getDistricts(addressInfo.stateId)" ng-required="true" name="statename">
+                            <option value="">-select-</option>
+
+                        </select>
+                        <div class="padding" ng-if="AddressForm.statename.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.statename.$error.required ">state is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-3 col-md-6" ng-hide="true">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.City}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="city.cityId as city.cityName for city in citiesList" ng-model="addressInfo.cityId" ng-change="" ng-required="true" name="cityname">
+                            <option value="">-select-</option>
+
+                        </select>
+                        <div class="padding" ng-if="AddressForm.cityname.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.cityname.$error.required ">city is required</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.District}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.districtId as district.districtName for district in districtList" ng-change="getMandals(addressInfo.districtId)" ng-model="addressInfo.districtId" ng-required="true" name="districtname">
+                            <option value="">-select-</option>>
+
+                        </select>
+
+                        <div class="padding" ng-if="AddressForm.districtname.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.districtname.$error.required ">District is required</p>
+                        </div>
+
+                    </div>
+                </div>
+            
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.Mandal}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.mandalId as mandal.mandalName for mandal in mandalList" ng-change="getVillages(addressInfo.mandalId)" ng-model="addressInfo.mandalId" ng-required="true" name="mandalname">
+                            <option value="">-select-</option>
+
+                        </select>
+                        <div class="padding" ng-if="AddressForm.mandalname.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.mandalname.$error.required ">Mandal is required</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.Village}}</label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="addressInfo.villageId" ng-options="village.villageId as village.villageName for village in villageList" ng-required="true" name="villagename">
+                            <option value="">-select-</option>
+
+                        </select>
+                        <div class="padding" ng-if="AddressForm.villagename.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.villagename.$error.required ">Village is required</p>
+                        </div>
+                    </div>
+                </div>
+               
+                </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.LocationName}}</label>
+                        <input type="text" class="form-control" id="txtAutocomplete2" ng-model="addressInfo.geoLocation" placeholder="Enter your geo location">
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.EntityDetails}}</label>
+                         <input type="text" class="form-control"  ng-model="addressInfo.entityDetails" placeholder="Enter your entity details" name="entityDetails" >
+                        <div class="padding" ng-if="AddressForm.entityDetails.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.entityDetails.$error.required ">EntityDetails is required</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.StreetDetails}}</label>
+                         <input type="text" name="streetDetails" class="form-control"  ng-model="addressInfo.streetDetails" placeholder="Enter your street details" ng-required="true">
+                        <div class="padding" ng-if="AddressForm.streetDetails.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.streetDetails.$error.required ">StreetDetails is required</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div class="row">
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{addressInfoLables.Pincode}}</label>
+                        <input type="number" name="pincode" ng-minlength="6" ng-maxlength="6" class="form-control"  ng-model="addressInfo.pincode" placeholder="Enter your pincode" ng-required="true">
+                        <div class="padding" ng-if="AddressForm.pincode.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.pincode.$error.required">Pincode is required</p>
+                            <p ng-show="AddressForm.pincode.$error.minlength || AddressForm.pincode.$error.maxlength"> 6 digit number only</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel-body">
+                        <button type="submit" class="btn btn-default" ng-click="addAddress()">{{addressInfoLables.Submit}}</button>
+                    </div>
+                </div>
+                <!--<div class="col-md-3">
+                <div class="panel-body">
+                    <button type="button" class="btn btn-default" ng-click="updateLocation()">Update</button>
+                </div>
+            </div>-->
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</form>
+
+
+<!-- Page Content -->

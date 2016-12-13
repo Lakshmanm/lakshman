@@ -1,0 +1,250 @@
+<!--=======================================================================
+  All rights reserved to Thrill Innovations Lab.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : Address
+ Type                : Html
+ Description         : This HTML file displays the address details of user
+ References          :
+ Author              :  Tulasi Ballada
+ Created Date        :  07-Apl-2016
+****************************************************************************
+MODIFICATION LOG
+
+**************************************************************************** 
+Ver Date         Modified By            Description
+
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       15-April-2016         Sri Venkatesh.T           No Issues
+****************************************************************************
+-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <form name="UserForm">
+            <div class="page-title">
+                <h3>{{securityBasicInfo.SignUp}}</h3>
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#basicInfo">{{securityBasicInfo.BasicInfo}}</a></li>
+                <li><a data-toggle="tab" href="#address">{{securityBasicInfo.Address}}</a></li>
+
+            </ul>
+            <div id="main-wrapper">
+                <div class="panel-white">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Username}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.Username" type="text" name="username" ng-minlength="2" ng-required="true" maxlength="50" />
+                                <label ng-show="message"><span style="color:red;"> Username unavialable.Kindly try another name.</span></label>
+                                <span ng-if="UserForm.$submitted || UserForm.username.$touched" style="color:red;">
+                    <p ng-show="UserForm.username.$invalid && UserForm.username.$error.required">Username is required</p>
+                    <p ng-show="UserForm.username.$error.minlength">Username is too short</p>
+                    
+                </span>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+
+                                <br>
+                                <button type="button" name="type" ng-click="checkusers()" class="">{{securityBasicInfo.CheckAvailability}}</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Password}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.Password" type="password" name="password" id="passwordid" ng-required="true" />
+
+                                <span ng-if="UserForm.$submitted || UserForm.password.$touched" style="color:red;">
+
+<p ng-show="UserForm.password.$invalid && UserForm.password.$error.required">Password is required</p>
+</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.ReEnterPassword}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.ReEnterPassword" type="password" name="rpassword" id="confirmid" ng-required="true" />
+                                <div ng-show="!UserForm.rpassword.$error.required&&Regs.ReEnterPassword!=Regs.Password"><span style="color:red;">Passwords do not match.</span></div>
+
+
+                                <!-- <div ng-show="!UserForm.rpassword.$error.required&&UserForm.rpassword!=UserForm.rpassword"><span style="color:red;">Passwords do not match.</span></div>-->
+
+                                <!--                               <div ng-show="UserForm.rpassword.$error.required&&Regs.rpassword!=Regs.password"><span style="color:red;">Passwords do not match.</span></div>-->
+
+                                <span ng-if="UserForm.$submitted || UserForm.rpassword.$touched" style="color:red;">
+<p ng-show="UserForm.rpassword.$invalid && UserForm.rpassword.$error.required">Re-enter Password is required</p>
+
+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.DoorNo}}<span style="color:red">*</span> </label>
+                                <input class="form-control" ng-model="Regs.DoorNo" type="text" name="dno" ng-minlength="2" ng-required="true" maxlength="10" />
+                                <span ng-if="UserForm.$submitted || UserForm.dno.$touched" style="color:red;">
+                    <p ng-show="UserForm.dno.$invalid && UserForm.dno.$error.required">Door No is required</p>
+                    <p ng-show="UserForm.dno.$error.minlength">D-no is too short</p>
+                    
+                </span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Addressline1}} <span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.Addressline1" type="text" name="StreetName" ng-minlength="5" ng-required="true" maxlength="50" />
+                                <span ng-if="UserForm.$submitted || UserForm.StreetName.$touched" style="color:red;">
+                    <p ng-show="UserForm.StreetName.$invalid && UserForm.StreetName.$error.required">Street is required</p>
+                    <p ng-show="UserForm.StreetName.$error.minlength">street name is too short</p>
+                    
+                </span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Addressline2}}</label>
+                                <input class="form-control" ng-model="Regs.Addressline2" type="text" name="FirstName" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.CountryID}}<span style="color:red">*</span></label>
+                                <select id="namedropdown" ng-model="Regs.CountryID" name="Country" ng-options="Country.CountryID as Country.CountryName  for Country in countrys" ng-required="true" ng-change="state()">
+                                    <option value="">--Select--</option>
+                                </select>
+                                <span ng-if="UserForm.$submitted || UserForm.Country.$touched" style="color:red;">
+                    <p ng-show="UserForm.Country.$invalid && UserForm.Country.$error.required">Country is required</p>
+                  </span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.StateID}}<span style="color:red">*</span></label>
+                                <select id="namedropdown" ng-model="Regs.StateID" name="State" ng-required="true" ng-options="State.StateID as State.StateName for State in states" ng-change="district()">
+                                    <option value "">--Select--</option>
+                                </select>
+                                <span ng-if="UserForm.$submitted || UserForm.State.$touched" style="color:red;">
+                    <p ng-show="UserForm.State.$invalid && UserForm.State.$error.required">State is  required</p>
+                  </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.DistrictID}}<span style="color:red">*</span></label>
+                                <select id="namedropdown" ng-model="Regs.DistrictID" name="District" ng-required="true" ng-options="District.DistrictID as District.DistrictName for District in districts" ng-change="mandal()">
+                                    <option value="">--Select--</option>
+                                </select>
+                                <span ng-if="UserForm.$submitted || UserForm.District.$touched" style="color:red;">
+                    <p ng-show="UserForm.District.$invalid && UserForm.District.$error.required">District is required</p>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.MandalID}} <span style="color:red">*</span></label>
+                                <select id="namedropdown" ng-model="Regs.MandalID" name="Mandal" ng-required="true" ng-options="Mandal.MandalID as Mandal.MandalName for Mandal in mandals" ng-change="village()">
+                                    <option value="">--Select--</option>
+                                </select>
+                                <span ng-if="UserForm.$submitted || UserForm.Mandal.$touched" style="color:red;">
+                    <p ng-show="UserForm.Mandal.$invalid && UserForm.Mandal.$error.required">Mandal is required</p>
+                  </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.VillageID}}</label>
+                                <select id="namedropdown" ng-model="Regs.VillageID" name="Village" ng-options="village.VillageID as village.Title for village in villages">
+                                    <option value="">--Select--</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.ZipCode}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.Pincode" type="tel" name="pincode" ng-minlength="06" onkeypress="return isNumberKey(event)" ng-required="true" ng-pattern="/^[0-9\s]*$/" maxlength="06" />
+                                <span ng-if="UserForm.$submitted || UserForm.pincode.$touched" style="color:red;">
+                    <p ng-show="UserForm.pincode.$invalid && UserForm.pincode.$error.required">Pincode is required</p>
+                  </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.QuestionaireId}}<span style="color:red">*</span></label>
+                                <select id="namedropdown" ng-model="Regs.QuestionaireId" name="question" ng-required="true" ng-options="ques.ID as ques.Questionaire for ques in questions">
+                                    <option value="">--Select--</option>
+                                </select>
+                                <span ng-if="UserForm.$submitted || UserForm.question.$touched" style="color:red;">
+                    <p ng-show="UserForm.question.$invalid && UserForm.question.$error.required">Question  is required</p>
+                   
+                    
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.HintAnswer}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.HintAnswer" type="text" name="Answer" ng-minlength="3" ng-required="true" maxlength="20" />
+
+                                <span ng-if="UserForm.$submitted || UserForm.Answer.$touched" style="color:red;">
+                    <p ng-show="UserForm.Answer.$invalid && UserForm.Answer.$error.required">Answer is required</p>
+                   
+                    
+                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div style="text-align:center" class="row">
+                            <button type="submit" name="type_saveid" ng-click=" UserForm.$valid && postaddress()" class="btn btn-primary">{{securityBasicInfo.Submit}}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+        <!-- form -->
+    </div>
+    <!-- panel white -->
+</div>
+<!-- Main Wrapper -->

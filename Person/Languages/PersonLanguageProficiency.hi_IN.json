@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "LanguageProficiency": "भाषा प्रवीणता",
+        "Language": "भाषा",
+        "LanguageProficiency": "भाषा प्रवीणता",
+        "Submit": "जमा करें",
+        "Language":"भाषा",
+        "Read":"पढ़ना",
+        "Write":"लिखना",
+        "Speak":"बोले",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

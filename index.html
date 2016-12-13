@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-touch-fullscreen" content="yes" />;
+    <title>MCampuz</title>
+    <!-- Google fonts -->
+    <!-- <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />-->
+    <!--      <script type="text/javascript" src="SystemLibrary/angular.js"></script>-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/themify-icons/themify-icons.css">
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/flag-icon-css/css/flag-icon.min.css">
+    <!-- Loading Bar -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/animate.css/animate.min.css">
+    <!-- Perfect Scrollbar Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
+    <!-- Date Range Picker Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <!-- Angular ui-switch Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/angular-ui-switch/angular-ui-switch.min.css">
+    <!-- Angular Toaster Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/AngularJS-Toaster/toaster.css">
+    <!-- Angular Ng-Aside Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/angular-aside/dist/css/angular-aside.min.css">
+    <!-- Angular Notification Icons Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/angular-notification-icons/dist/angular-notification-icons.min.css">
+    <!-- V-Accordion Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/v-accordion/dist/v-accordion.min.css">
+    <!-- V-Button Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/v-button/dist/v-button.min.css">
+    <!-- Sweet Alert Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/sweetalert/lib/sweet-alert.css">
+    <!-- Ladda Buttons Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/ladda/dist/ladda-themeless.min.css">
+    <!-- Angular Awesome Slider Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/angular-awesome-slider/dist/css/angular-awesome-slider.min.css">
+    <!-- Slick Carousel Css -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="3ilAppBase01/Web/bower_components/slick-carousel/slick/slick-theme.css">
+    <!-- Packet CSS -->
+    <link rel="stylesheet" href="3ilAppBase01/Web/assets/css/styles.css">
+    <link rel="stylesheet" href="3ilAppBase01/Web/assets/css/plugins.css">
+    <!-- Packet Theme -->
+    <link rel="stylesheet" data-ng-href="3ilAppBase01/Web/assets/css/themes/{{ app.layout.theme }}.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" /> </head>
+
+<body ng-controller="AppCtrl">
+    <div ui-view id="app" class="lyt-2" ng-class="{'app-mobile' : app.isMobile, 'app-navbar-fixed' : app.layout.isNavbarFixed, 'app-sidebar-fixed' : app.layout.isSidebarFixed, 'app-sidebar-closed':app.layout.isSidebarClosed, 'app-footer-fixed':app.layout.isFooterFixed}"></div>
+    <!-- jQuery -->
+    <script src="3ilAppBase01/Web/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Fastclick -->
+    <script src="3ilAppBase01/Web/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- Modernizr -->
+    <script src="3ilAppBase01/Web/bower_components/components-modernizr/modernizr.js"></script>
+    <!-- Moment -->
+    <script src="3ilAppBase01/Web/bower_components/moment/min/moment.min.js"></script>
+    <!-- Perfect Scrollbar -->
+    <script src="3ilAppBase01/Web/bower_components/perfect-scrollbar/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Date Range Picker -->
+    <script src="3ilAppBase01/Web/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/chartjs/Chart.js"></script>
+    <!-- Sweet Alert -->
+    <script src="3ilAppBase01/Web/bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+    <!-- Spin -->
+    <script src="3ilAppBase01/Web/bower_components/spin.js/spin.js"></script>
+    <!-- Ladda Buttons -->
+    <script src="3ilAppBase01/Web/bower_components/ladda/dist/ladda.min.js"></script>
+    <!-- Slick Carousel -->
+    <script src="3ilAppBase01/Web/bower_components/slick-carousel/slick/slick.min.js"></script>
+    <!-- Angular -->
+    <script src="canvasjs.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular/angular.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- Angular storage -->
+    <script src="3ilAppBase01/Web/bower_components/ngstorage/ngStorage.min.js"></script>
+    <!-- Angular Translate -->
+    <script src="3ilAppBase01/Web/bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-translate-loader-url/angular-translate-loader-url.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+    <!-- oclazyload -->
+    <script src="3ilAppBase01/Web/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <!-- breadcrumb -->
+    <script src="3ilAppBase01/Web/bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+    <!-- angular-swipe -->
+    <script src="3ilAppBase01/Web/bower_components/angular-swipe/dist/angular-swipe.min.js"></script>
+    <!-- UI Bootstrap -->
+    <script src="3ilAppBase01/Web/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!-- Loading Bar -->
+    <script src="3ilAppBase01/Web/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <!-- Angular Scroll -->
+    <script src="3ilAppBase01/Web/bower_components/angular-scroll/angular-scroll.min.js"></script>
+    <!-- Angular Fullscreen -->
+    <script src="3ilAppBase01/Web/bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
+    <!-- Angular DateRangePicker -->
+    <script src="3ilAppBase01/Web/bower_components/ng-bs-daterangepicker/dist/ng-bs-daterangepicker.min.js"></script>
+    <!-- Angular Truncate -->
+    <script src="3ilAppBase01/Web/bower_components/angular-truncate/src/truncate.js"></script>
+    <!-- Angular Moment -->
+    <script src="3ilAppBase01/Web/bower_components/angular-moment/angular-moment.min.js"></script>
+    <!-- Angular ui-switch -->
+    <script src="3ilAppBase01/Web/bower_components/angular-ui-switch/angular-ui-switch.min.js"></script>
+    <!-- Angular Toaster -->
+    <script src="3ilAppBase01/Web/bower_components/AngularJS-Toaster/toaster.js"></script>
+    <!-- Angular Ng-Aside -->
+    <script src="3ilAppBase01/Web/bower_components/angular-aside/dist/js/angular-aside.min.js"></script>
+    <!-- V-Accordion -->
+    <script src="3ilAppBase01/Web/bower_components/v-accordion/dist/v-accordion.min.js"></script>
+    <!-- V-Button -->
+    <script src="3ilAppBase01/Web/bower_components/v-button/dist/v-button.min.js"></script>
+    <!-- Angular Sweet Alert -->
+    <script src="3ilAppBase01/Web/bower_components/angular-sweetalert-promised/SweetAlert.min.js"></script>
+    <!-- Angular Notification Icons -->
+    <script src="3ilAppBase01/Web/bower_components/angular-notification-icons/dist/angular-notification-icons.min.js"></script>
+    <!-- Angular Awesome Slider -->
+    <script src="3ilAppBase01/Web/bower_components/angular-awesome-slider/dist/angular-awesome-slider.min.js"></script>
+    <!-- Angular Ladda -->
+    <script src="3ilAppBase01/Web/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+    <!-- Angular Slick Carousel -->
+    <script src="3ilAppBase01/Web/bower_components/angular-slick-carousel/dist/angular-slick.min.js"></script>
+    <script src="3ilAppBase01/Web/bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
+    <!--<script src="3ilAppBase01/Web/bower_components/ngmap/build/scripts/ng-map.min.js"></script>-->
+    <script type="text/javascript" src="SystemLibrary/angular-base64-upload.js"></script>
+    <!-- Packet Scripts -->
+    <script src="3ilAppBase01/Web/assets/js/app.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/main.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/config.constant.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/config.router.js"></script>
+    <!-- Packet Directives -->
+    <script src="3ilAppBase01/Web/assets/js/directives/toggle.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/perfect-scrollbar.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/empty-links.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/sidebars.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/off-click.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/full-height.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/panel-tools.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/char-limit.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/dismiss.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/compare-to.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/select.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/messages.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/chat.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/touchspin.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/file-upload.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/letter-icon.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/directives/landing-header.js"></script>
+    <!-- Packet Controllers -->
+    <script src="3ilAppBase01/Web/assets/js/controllers/mainCtrl.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/controllers/inboxCtrl.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/controllers/bootstrapCtrl.js"></script>
+    <!-- controller -->
+        <script src="3ilAppBase01/Logic/RolePassword.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/EmailConfirmedController.js"></script>
+    <script src="3ilAppBase01/Logic/EmailConfirmedPageLogic.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskHomeController.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskHomeLogic.js"></script>
+    <script src="3ilAppBase01/Logic/OrganizationApprovalController.js"></script>
+    <script src="3ilAppBase01/Logic/OrganizationApprovalLogic.js"></script>
+    <!-- recently Added -->
+     <script src="3ilAppBase01/Logic/PersonNotes.Controller.js"></script>
+      <script src="3ilAppBase01/Logic/PersonNotes.Logic.js"></script>
+      <script src="3ilAppBase01/Logic/PersonElocker.Controller.js"></script>
+      <script src="3ilAppBase01/Logic/PersonEloclker.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/PersonCurricularActivity.Controller.js"></script>
+     <script src="3ilAppBase01/Logic/PersonReferences.Controller.js"></script>
+     <script src="3ilAppBase01/Logic/PersonReferences.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/PersonSettingsController.js"></script>
+    <script src="3ilAppBase01/Logic/PersonSettingsLogic.js"></script>
+ <script src="3ilAppBase01/Logic/GeneralSettingsController.js"></script>
+    <script src="3ilAppBase01/Logic/GeneralSettingsLogic.js"></script>
+
+
+    <script src="3ilAppBase01/Logic/Dashboard.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/Organization.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/Organization.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/EditOrganization.js"></script>
+    <script src="3ilAppBase01/Logic/OrganizationListLogic.js"></script>
+    <script src="3ilAppBase01/Logic/OrganizationListController.js"></script>
+    <script src="3ilAppBase01/Logic/MainOrganizationController.js"></script>
+    <script src="3ilAppBase01/Logic/MainOrganizationLogic.js"></script>
+    <script src="3ilAppBase01/Logic/AvailaibilityController.js"></script>
+    <script src="3ilAppBase01/Logic/CalenderSettingController.js"></script>
+    <script src="3ilAppBase01/Logic/CalenderSettingLogic.js"></script>
+    <script src="3ilAppBase01/Logic/CalenderSettingController.js"></script>
+    <script src="3ilAppBase01/Logic/EmailConfirmedController.js"></script>
+    <script src="3ilAppBase01/Logic/EmailConfirmedPageLogic.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskHomeController.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskHomeLogic.js"></script>
+    <script src="3ilAppBase01/Logic/RolesController.js"></script>
+    <script src="3ilAppBase01/Logic/RolesLogic.js"></script>
+    <script src="3ilAppBase01/Logic/Strength.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationController.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationLogic.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationListController.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationListLogic.js"></script>
+    <script src="3ilAppBase01/Logic/DepartmentController.js"></script>
+    <script src="3ilAppBase01/Logic/DepartmentLogic.js"></script>
+    <script src="3ilAppBase01/Logic/DepartmentListController.js"></script>
+    <script src="3ilAppBase01/Logic/BranchTypeList.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/BranchType.Controller.js"></script>
+    <!-- <script src="3ilAppBase01/Logic/AppBaseQueries.js"></script>-->
+    <!--  <script src="3ilAppBase01/Logic/SubOrganizationController.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationLogic.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationListController.js"></script>
+    <script src="3ilAppBase01/Logic/SubOrganizationListLogic.js"></script> -->
+    <script src="3ilAppBase01/Logic/StafflistController.js"></script>
+    <script src="3ilAppBase01/Logic/StafflistLogic.js"></script>
+    <script src="3ilAppBase01/Logic/StaffAdditionControler.js"></script>
+    <script src="3ilAppBase01/Logic/StaffAdditionLogic.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskconfirmtionController.js"></script>
+    <script src="3ilAppBase01/Logic/HelpDeskconfirmtionLogic.js"></script>
+    <script src="3ilAppBase01/Logic/CommunicationController.js"></script>
+    <script src="3ilAppBase01/Logic/CommunicationLogic.js"></script>
+    <script src="3ilAppBase01/Logic/MarksController.js"></script>
+    <script src="3ilAppBase01/Logic/MarksLogic.js"></script>
+    <script src="3ilAppBase01/Logic/Attendance.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/Attendance.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/StaffAttendance.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/StaffAttendance.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/UpdateMarksSubjectWiseController.js"></script>
+    <script src="3ilAppBase01/Logic/UpdateMarksSubjectWiseLogic.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/ExperienceController.js"></script>
+    <!--<script src="3ilAppBase01/Logic/CalenderSettingController.js"></script>
+    <script src="3ilAppBase01/Logic/CalenderSettingLogic.js"></script>-->
+    <script src="3ilAppBase01/Logic/ChildController.js"></script>
+    <script src="3ilAppBase01/Logic/ChildFamilyDetailsController.js"></script>
+    <script src="3ilAppBase01/Logic/AppointmentController.js"></script>
+    <script src="3ilAppBase01/Logic/ChildRegisterController.js"></script>
+    <!--<script src="3ilAppBase01/Logic/navController.js"></script>-->
+    <script src="3ilAppBase01/Logic/ChildrensListController.js"></script>
+    <script src="3ilAppBase01/Logic/ThrillAppBasePersonLogic.js"></script>
+    <script src="3ilAppBase01/Logic/ChildrenListLogic.js"></script>
+    <script src="3ilAppBase01/Logic/ChildFamilyDetailslogic.js"></script>
+    <script src="3ilAppBase01/Config/config.js"></script>
+    <script src="3ilAppBase01/logic/ChilRegisterlogic.js"></script>
+    <script src="3ilAppBase01/Logic/Team.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/Team.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/Team.Query.js"></script>
+    <script src="3ilAppBase01/Logic/TeamList.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/TeamRole.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/TeamRole.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/TeamRole.Query.js"></script>
+    <script src="3ilAppBase01/Logic/TeamRoleList.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/TeamTeamMember.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/TeamTeamMember.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/TeamTeamMember.Query.js"></script>
+    <!--   <script src="3ilAppBase01/Logic/TeamTeamMemberList.Controller.js"></script>-->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-sanitize.min.js"></script>
+    
+    
+    
+    
+    <!-- <script src="https://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.js"></script> -->
+    <script src="3ilAppBase01/Web/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+    <!--<script src="3ilAppBase01/Logic/SingleGeoLocationController.js"></script>-->
+    <script src="3ilAppBase01/Web/assets/js/jinqjs.min.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Designation.Logic.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Designation.Controller.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/DesignationList.Controller.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Designation.Query.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Specialization.Controller.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Specialization.Logic.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/Specialization.Query.js"></script>
+    <script type="text/javascript" src="3ilAppBase01/Logic/SpecializationList.Controller.js"></script>
+    <!--<script src="assets/logic/PatientDetailsController.js"></script>-->
+    <!--CalendarNotifications Logic Module Scripts -->
+    <script src="CalendarNotifications/Web/js/jquery.js"></script>
+    <script src="CalendarNotifications/Web/js/toaster.js"></script>
+    <link href='CalendarNotifications/Web/css/fullcalendar.css' rel='stylesheet' type="text/css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/autocomplete.css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/toaster.css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/token-input.css" />
+    <link href="CalendarNotifications/Web/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="CalendarNotifications/Web/mfb/dist/mfb.css" rel="stylesheet">
+    <link href="CalendarNotifications/Web/css/angular.circular.timepicker.css" rel="stylesheet">
+    <!-- build:css mfb.css -->
+    <!-- endbuild -->
+    <script src="CalendarNotifications/Web/js/angularjs-datetime-picker.js"></script>
+    <script src="CalendarNotifications/Web/js/toaster.min.js"></script>
+    <script src="CalendarNotifications/Web/js/autocomplete.js"></script>
+    <script src="CalendarNotifications/Web/js/moment.min.js"></script>
+    <script src="CalendarNotifications/Web/js/angular.circular.timepicker.js"></script>
+    <script src="CalendarNotifications/Web/js/jquery.tokeninput.js"></script>
+    <script src="CalendarNotifications/Web/js/fullcalendar.min.js"></script>
+    <!--
+    <script src="CalendarNotifications/Web/js/bootstrapmodal.min.js"></script>
+-->
+    <!--CalendarNotifications FrameworkLibrary Module Scripts -->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Config/config.js"></script>
+    <!--CalendarNotifications SystemLibrary Module Scripts -->
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type='text/javascript' src="SystemLibrary/Chart.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/Chart.js"></script>
+    <script type='text/javascript' src="SystemLibrary/angular-chart.min.js"></script>
+    <!--CalendarNotifications Configuration Module Scripts -->
+    <script type="text/javascript" src="CalendarNotifications/Config/config.js"></script>
+    <script type="text/javascript" src="WebClient.Config.js"></script>
+    <script type="text/javascript" src="CalendarNotifications/Logic/CNNQueries.js"></script>
+    <script src="CalendarNotifications/Logic/Authentication.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/Authentication.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/DashBoard.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/DashBoard.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/DashBoardUser.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CNUserProfile.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CNUserProfile.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/NotificationSettings.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/NotificationSettings.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateCalendar.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateCalendar.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditCalendar.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditCalendar.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateEvent.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateEvent.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditEvent.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditEvent.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateTask.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateTask.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditTask.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditTask.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EventResponse.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EventResponse.Controller.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <!--    <script src="Person/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>-->
+    <script src="3ilAppBase01/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/pages/form-elements.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/pages/form-select2.js"></script>
+    <script src="3ilAppBase01/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="3ilAppBase01/Web/assets/js/modern.min.js"></script>
+    <!-- person -->
+     <script type="text/javascript" src="Person/Logic/PersonCurricularActivity.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBasicInfo.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBasicInfo.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDemographics.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDemographics.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBank.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBank.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonRelative.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonRelative.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonList.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonList.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonEducation.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonEducation.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonIdentity.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonIdentity.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVisa.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVisa.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonWorkExperience.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonWorkExperience.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonHobby.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonHobby.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonReligion.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonReligion.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonAward.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonAward.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSport.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSport.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSportAwards.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSportAwards.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonInsurance.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonInsurance.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDisease.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDisease.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLanguageProficiency.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLanguageProficiency.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLivingPlace.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLivingPlace.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonMaritalStatus.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonMaritalStatus.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVaccination.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVaccination.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonQueries.js"></script>
+    <script type="text/javascript" src="Person/Config/config.js"></script>
+    <!-- Contacts-->
+    <!--
+    <script src="Contact/Logic/Contact.Controller.js"></script>
+    <script src="Contact/Logic/Contact.Logic.js"></script>
+    <script type="text/javascript" src="Contact/Config/config.js"></script>
+    <script type="text/javascript" src="Contact/Logic/ContactQueries.js"></script>
+    <script src="Contact/Logic/ContactList.Controller.js"></script>
+    <script src="Contact/Logic/ContactList.Logic.js"></script>-->
+    <script src="Contact/Config/config.web.js"></script>
+    <script src="Contact/Logic/Contact.Logic.js"></script>
+    <script src="Contact/Logic/Contact.Controller.js"></script>
+    <script src="Contact/Logic/Contact.Query.js"></script>
+    <script src="Contact/Logic/ContactContactItem.Controller.js"></script>
+    <script src="Contact/Logic/ContactContactItem.Logic.js"></script>
+    <script src="Contact/Logic/ContactContactItem.Query.js"></script>
+    <script src="Contact/Logic/ContactContactItemList.Controller.js"></script>
+    <script src="Contact/Logic/ContactType.Controller.js"></script>
+    <script src="Contact/Logic/ContactType.Logic.js"></script>
+    <script src="Contact/Logic/ContactType.Query.js"></script>
+    <script src="Contact/Logic/ContactTypeList.Controller.js"></script>
+    <!---->
+    <!--
+ 
+    <script type="text/javascript" src="Contact/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Contact/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+ -->
+    <!-- Contacts-->
+    <!--<script type="text/javascript" src="Location/app.js"></script>-->
+    <script type="text/javascript" src="Location/Logic/Address.Controller.js"></script>
+    <script type="text/javascript" src="Location/Logic/Address.Logic.js"></script>
+    <script type="text/javascript" src="Location/Logic/AddressList.Controller.js"></script>
+    <script type="text/javascript" src="Location/Logic/AddressList.Logic.js"></script>
+    <script type="text/javascript" src="Location/Logic/Location.Controller.js"></script>
+    <script type="text/javascript" src="Location/Logic/Location.Logic.js"></script>
+    <script type="text/javascript" src="Location/Logic/Location.Queries.js"></script>
+    <script type="text/javascript" src="Location/Logic/LocationList.Controller.js"></script>
+    <script type="text/javascript" src="Location/Logic/LocationList.Logic.js"></script>
+    <script type="text/javascript" src="Location/Config/config.web.js"></script>
+    <!--
+    <script src="Location/Logic/Address.Controller.js"></script>
+    <script src="Location/Logic/Address.Logic.js"></script>
+    <script src="Location/Logic/Location.Controller.js"></script>
+    <script src="Location/Logic/Location.Logic.js"></script>
+    <script src="Location/Logic/Location.Queries.js"></script>
+    <script src="Location/Config/config.web.js"></script>
+    <script src="Location/Logic/AddressList.Controller.js"></script>
+    <script src="Location/Logic/AddressList.Logic.js"></script>
+    <script src="Location/Logic/LocationList.Controller.js"></script>
+    <script src="Location/Logic/LocationList.Logic.js"></script>-->
+    <!--Daily Routine-->
+    <script type="text/javascript" src="DailyRoutine/app.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Config/config.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Logic/Daily.Controller.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Logic/Daily.Logic.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Logic/NewDaily.Controller.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Logic/Assign.Controller.js"></script>
+    <script type="text/javascript" src="DailyRoutine/Logic/Assign.Logic.js"></script>
+    <script type="text/javascript" src="DailyRoutine/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <script type="text/javascript" src="DailyRoutine/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <!-- Organization-->
+    <script src="Organization/Config/config.js"></script>
+    <script src="Organization/Logic/OrganizationList.Controller.js"></script>
+    <script src="Organization/Logic/OrganizationQueries.js"></script>
+    <script src="Organization/Logic/OrganizationList.Logic.js"></script>
+    <script src="Organization/Logic/SubOrganizationType.Logic.js"></script>
+    <script src="Organization/Logic/SubOrganizationType.Controller.js"></script>
+    <!-- <script src="Organization/Logic/BranchTypeList.Logic.js"></script> -->
+    <!-- <script src="Organization/Logic/BranchTypeList.Controller.js"></script> -->
+    <script src="Organization/Logic/SubOrganizationTypeList.Logic.js"></script>
+    <script src="Organization/Logic/SubOrganizationTypeList.Controller.js"></script>
+    <script src="Organization/Logic/Organization.Logic.js"></script>
+    <script src="Organization/Logic/Organization.Controller.js"></script>
+    <script src="Organization/Logic/Registration.Logic.js"></script>
+    <script src="Organization/Logic/Registration.Controller.js"></script>
+    <script src="Organization/Logic/Department.Logic.js"></script>
+    <script src="Organization/Logic/Department.Controller.js"></script>
+    <script src="Organization/Logic/Certification.Logic.js"></script>
+    <script src="Organization/Logic/Certification.Controller.js"></script>
+    <script type="text/javascript" src="Organization/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Organization/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <!-- Security---->
+    <script type="text/javascript" src="Security/Config/config.js"></script>
+    <script type="text/javascript" src="Security/Logic/Registration.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Registration.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Storage.js"></script>
+    <script type="text/javascript" src="Security/Logic/Login.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Login.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Roles.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Roles.Logic.js"></script>
+    <!-- <script type="text/javascript" src="Security/Logic/SecurityQueries.js"></script>
+    
+    <script type="text/javascript" src="Security/Logic/User.Controller.Js"></script>
+    <script type="text/javascript" src="Security/Logic/User.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/UserRole.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/UserRole.Logic.js"></script>-->
+    <script type="text/javascript" src="Security/Logic/ChangePassword.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/ChangePassword.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/ForgotPassword.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/ForgotPassword.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Email.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Email.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Logic.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
+    <!--<
+
+   
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Storage.js"></script>
+    <script type="text/javascript" src="Security/Logic/Admin.Controller.js"></script>
+     <script type="text/javascript" src="Security/Logic/Storage.js"></script>-->
+    <!--Assignment-->
+    <script type="text/javascript" src="Assignment/Config/config.js"></script>
+    <script type="text/javascript" src="Assignment/Logic/Assignment.Controller.js"></script>
+    <script type="text/javascript" src="Assignment/Logic/AssignmentList.Controller.js"></script>
+    <script type="text/javascript" src="Assignment/Logic/Assignment.Logic.js"></script>
+    <!--academic-->
+    <script type="text/javascript" src="Academic/Config/config.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Board.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Board.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Board.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/BoardList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Cours.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Cours.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Cours.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/CoursList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ElectiveGroup.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ElectiveGroup.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ElectiveGroup.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ElectiveGroupList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamScheduleList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Group.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Group.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Group.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/GroupList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Subject.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Subject.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Subject.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/AcademicYear.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/AcademicYear.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Grade.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Grade.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Grade.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponentList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRangeList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Term.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Term.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Term.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/TermList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/Examination.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationType.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationType.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationType.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExaminationTypeList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamSchedule.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/ExamScheduleList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponent.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectComponentList.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Controller.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Logic.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRange.Query.js"></script>
+    <script type="text/javascript" src="Academic/Logic/SubjectMarksRangeList.Controller.js"></script>-->
+    <script src="3ilAppBase01/Logic/StudentController.js"></script>
+    <script src="3ilAppBase01/Logic/StudentlistController.js"></script>
+    <script src="3ilAppBase01/Logic/StudentlistLogic.js"></script>
+    <script src="3ilAppBase01/Logic/StudentAdditionController.js"></script>
+    <script src="3ilAppBase01/Logic/StudentAdditionLogic.js"></script>
+    <script src="3ilAppBase01/Logic/enrollmentNumber.js"></script>
+    <script src="3ilAppBase01/Logic/StudentEnrollment.js"></script>
+    <script src="3ilAppBase01/Logic/StudentEnrollmentPastEducationController.js"></script>
+    <script src="3ilAppBase01/Logic/StudentEnrollmentAddressController.js"></script>
+    <script src="3ilAppBase01/Logic/StudentEnrollmentPersonRelativeController.js"></script>
+    <script src="3ilAppBase01/Logic/EnrollmentListController.js"></script>
+    <script src="3ilAppBase01/Logic/PersonEducation.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonRelative.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonBank.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonAward.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/AddressController.js"></script>
+    <script src="3ilAppBase01/Logic/PersonDemographics.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonDisease.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonVaccination.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/PersonInsurance.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/StaffController.js"></script>
+    <!-- Academic-->
+    <!-- FEE -->
+    <script type="text/javascript" src="Fee/Logic/InstallmentPlans.Controller.js"></script>
+    <script type="text/javascript" src="Fee/Logic/InstallmentPlans.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/InstallmentPlans.Query.js"></script>
+    <script type="text/javascript" src="Fee/Logic/ServiceCategory.Controller.js"></script>
+    <script type="text/javascript" src="Fee/Logic/ServiceCategory.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/ServiceCategory.Query.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Services.Controller.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Services.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Services.Query.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Tax.Controller.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Tax.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/Tax.Query.js"></script>
+    <script type="text/javascript" src="Fee/Logic/AddDetailController.js"></script>
+    <script type="text/javascript" src="Fee/Logic/AddDetail.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/FeeController.js"></script>
+    <script type="text/javascript" src="Fee/Logic/FeedDetailController.js"></script>
+    <script type="text/javascript" src="Fee/Logic/FlexibleStructureController.js"></script>
+    <script type="text/javascript" src="Fee/Logic/FlexibleStructure.Logic.js"></script>
+    <script type="text/javascript" src="Fee/Logic/PayController.js"></script>
+    <!--Institute-->
+    <script type="text/javascript" src="Institute/Logic/InstituteMain.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteBatch.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteBatch.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteBoard.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteBoard.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteCourse.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteCourse.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteGroup.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteGroup.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteElectiveGroup.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteElectiveGroup.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteTerm.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteTerm.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteExaminationType.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteExaminationType.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteExamination.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteExamination.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteSubject.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteSubject.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteList.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/Institute.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/Institute.Logic.js"></script>
+    <script type="text/javascript" src="Institute/Logic/Institute.Queries.js"></script>
+    <script type="text/javascript" src="Institute/Config/config.js"></script>
+    <script type="text/javascript" src="Institute/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <script type="text/javascript" src="Institute/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Institute/FirstTimeSetup/FirstTimeSetup.Mobile.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteLeave.Controller.js"></script>
+    <script type="text/javascript" src="Institute/Logic/InstituteLeave.Logic.js"></script>
+
+
+    <!--End Institute-->
+    <!-- Student-LeaveManagement -->
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Config/config.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequest.Controller.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequestList.Controller.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequest.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequest.Query.js">
+    </script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveReason.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveReason.Query.js">
+    </script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequestMode.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequestMode.Query.js">
+    </script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequestReceivedBy.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StudentLeaves/Logic/StudentLeaveRequestReceivedBy.Query.js">
+    </script>
+    
+    
+    <!--StaffLeaves-->
+
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Config/config.js"></script>
+     <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/LeaveSettings.Controller.js"></script>
+     <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/LeaveSettings.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/ApplyLeave.Controller.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/ApplyLeave.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/LeaveRequest.Controller.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/LeaveRequest.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/SubordinateLeave.Controller.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/SubordinateLeave.Logic.js"></script>
+    <script type="text/javascript" src="LeaveManagement/StaffLeaves/Logic/SubordinateEmail.Controller.js"></script>
+
+
+    <!-- Settings-ProfileSettings -->
+    <script src="3ilAppBase01/Logic/ProfileSettings.Controller.js"></script>
+    <script src="3ilAppBase01/Logic/ProfileSettings.Logic.js"></script>
+    <script src="3ilAppBase01/Logic/ProfileSettings.Query.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js">
+    </script>
+    <script src="SystemLibrary/ng-cordova.min.js"></script>
+    <!--  pagination -->
+    <script src="SystemLibrary/dirPagination.js"></script>
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/angularjs-datetime-picker.css" /> </body>
+
+    
+    
+    
+</html>

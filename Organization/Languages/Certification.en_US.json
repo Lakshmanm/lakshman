@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "OrganizationCertification": "Organization Certification",
+        "CertificationName": "Certification Name",
+        "CertificationType": "Certification Type",
+        "ValidFrom": " Valid From",
+        "ValidTo":"Valid To",
+        "Submit":"Submit",
+        "CertificationName":"Certification Name",
+        "CertificationType":"Certification Type",
+        "ValidFrom":"Valid From",
+        "ValidTo":"Valid To",
+        "Edit":"Edit",
+        "Delete":"Delete"
+
+
+    }
+}

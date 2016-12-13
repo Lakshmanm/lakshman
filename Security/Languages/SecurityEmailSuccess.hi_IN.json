@@ -1,0 +1,13 @@
+
+
+{
+    "labels": {
+        "Success":"सफलता",
+        "EmailSendSuccessfully": "ईमेल सफलतापूर्वक भेजें"
+       
+           },
+    "errors": {
+        
+        }
+    
+}

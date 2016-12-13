@@ -1,0 +1,145 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Fee</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<div class="container-fluid container-fullw bg-white">
+
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+
+<!--  <div class="col-md-3">
+                 
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteKey.$dirty && LeaveForm.InstituteKey.$invalid, 'has-success':LeaveForm.InstituteKey.$valid}">
+               
+
+                        <label>Institute <span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="feedetail.InstituteKey" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-change="addInstitute(feedetail.InstituteKey)" name="InstituteKey" ng-required="true">
+                                        <option value="" >-select-</option>
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteKey.$invalid && LeaveForm.InstituteKey.$error.required ">Institute  is required.</span>
+                        </span>
+                    </div>
+
+                </div> -->
+                
+    <uib-accordion close-others="true" class="accordion">
+        <!--   <uib-accordion-group heading="Basic Information" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" -->
+        <uib-accordion-group heading="" is-open="true" is-disabled="false" ng-click="module={};module.basicInfo.flag = !module.basicInfo.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cogs" style="margin-right:10px; color:#337ab7"></i>Service Category</h5> </uib-accordion-heading>
+            <div ng-if="module.basicInfo.flag">
+                <service-Category></service-Category>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="" is-disabled="status.isFirstDisabled" ng-click="module={};module.address.flag = !module.address.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-compress" style="margin-right:10px; color:#337ab7"></i>Tax</h5> </uib-accordion-heading>
+            <div ng-if="module.address.flag">
+                <tax></tax>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="" ng-click="module={};module.education.flag = !module.education.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cog" style="margin-right:10px; color:#337ab7"></i>Services</h5> </uib-accordion-heading>
+            <div ng-if="module.education.flag">
+                <services></services>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Installment Plans" is-disabled="status.isFirstDisabled" ng-click="module={};module.family.flag = !module.family.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-arrows" style="margin-right:10px; color:#337ab7"></i>Installment Plans</h5> </uib-accordion-heading>
+            <div ng-if="module.family.flag">
+                <installments></installments>
+            </div>
+        </uib-accordion-group>
+    </uib-accordion>
+</div>
+<!--
+
+    
+<html>
+<head>
+ 
+</head>
+<body>
+
+<button class="accordion" ng-click="module.board.flag = !module.board.flag">Board</button>
+    <div ng-show="module.board.flag">
+      <board></board>
+    </div>
+
+   <button class="accordion" ng-click="module.course.flag = !module.course.flag">Course</button>
+    <div ng-show="module.course.flag">
+     <course></course>
+    </div>
+  <button class="accordion" ng-click="module.electiveGroup.flag = !module.electiveGroup.flag">Elective Group</button>
+    <div ng-show="module.electiveGroup.flag">
+     <elective-Group></elective-Group>
+    </div>
+
+ <button class="accordion" ng-click="module.examinationType.flag = !module.examinationType.flag">Examination Type</button>
+    <div ng-show="module.examinationType.flag">
+     <examination-Type></examination-Type>
+    </div>
+
+
+<button class="accordion" ng-click="module.subject.flag = !module.subject.flag">Subject</button>
+    <div ng-show="module.subject.flag">
+     <subject></subject>
+    </div>
+
+<button class="accordion" ng-click="module.examination.flag = !module.examination.flag">Examination</button>
+    <div ng-show="module.examination.flag">
+     <examination></examination>
+    </div>
+
+<button class="accordion" ng-click="module.examSchedule.flag = !module.examSchedule.flag">Exam Schedule</button>
+    <div ng-show="module.examSchedule.flag">
+     <exam-Schedule></exam-Schedule>
+    </div>
+    <button class="accordion" ng-click="module.group.flag = !module.group.flag">Group</button>
+    <div ng-show="module.group.flag">
+     <group></group>
+    </div>
+ <button class="accordion" ng-click="module.subjectComponent.flag = !module.subjectComponent.flag">Subject Component</button>
+    <div ng-show="module.subjectComponent.flag">
+     <subject-Component></subject-Component>
+    </div>
+ <button class="accordion" ng-click="module.subjectMarksRange.flag = !module.subjectMarksRange.flag">Subject Marks Range</button>
+    <div ng-show="module.subjectMarksRange.flag">
+     <subject-Marks-Range></subject-Marks-Range>
+    </div>
+ <button class="accordion" ng-click="module.term.flag = !module.term.flag">Term</button>
+    <div ng-show="module.term.flag">
+     <term></term>
+    </div>
+
+
+
+
+</body>
+</html>
+    
+ 
+
+<style>
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    button.accordion.active,
+    button.accordion:hover {
+        background-color: #ddd;
+    }
+</style>

@@ -1,0 +1,15 @@
+{
+    "messages": {
+        "locationSaved": "Location Details Saved Successfully",
+        "locationUpdated": "Location Details Updated Successfully",
+        "locationDeleted": "Location Details Deleted Successfully",
+        "addressSaved": "Address Details Saved Successfully",
+        "addressUpdated": "Address Details Updated Successfully",
+        "addressDeleted": "Address Details Deleted Successfully" 
+
+        
+    },
+    "errors": {
+
+    }
+}

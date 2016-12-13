@@ -1,0 +1,25 @@
+{
+    "labels": {
+        "subjectComponentTitle": "Subject Component Title",
+        "subjectTitle": "Subject Title",
+        "termTitle": "Term Title",
+        "courseTitle": "Course Title",
+        "groupTitle": "Group Title",
+        "boardTitle": "Board Title",
+        "minimumSubjects": "Minimum Subjects",
+        "maximumSubjects": "IMaximum Subjects",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "subject": "Subject",
+        "update": "Update",
+        "examinationType": "Examination Type",
+        "subjectComponentList": "Subject Component List"
+
+
+
+    },
+    "errors": {
+
+    }
+}

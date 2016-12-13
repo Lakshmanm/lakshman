@@ -1,0 +1,19 @@
+{
+    "labels": {
+        
+        "sportName": "Sport Name",
+        "curricularActivityType": "Curricular ActivityType",
+         "sportType":"sportType",
+         "proficiency":"proficiency",
+         "sportType":"sportType",
+         "highestLevelPlay":"Highest LevelPlay",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "sports": "Sports"
+
+    },
+    "errors": {
+
+    }
+}

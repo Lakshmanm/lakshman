@@ -1,0 +1,57 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: studentLeaveRequestList.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="studentLeaveRequest List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="list studentLeaveRequest_table">
+					 <div class="row item" dir-paginate="entitystudentLeaveRequest in collectionstudentLeaveRequest | orderBy:sortColumn: reverseSort | orderBy:sortKey: reverse | itemsPerPage:pageSize">
+						 <div class="col col-80">
+
+							 {{ entitystudentLeaveRequest.startDateTime }}
+							 &nbsp;
+							 {{ entitystudentLeaveRequest.endDateTime }}
+							 &nbsp;
+							 {{ entitystudentLeaveRequest.noOfDays }}
+							 &nbsp;
+							 {{ entitystudentLeaveRequest.remarks }}
+							 &nbsp;
+							 {{ entitystudentLeaveRequest.Status }}
+							 &nbsp;
+						 </div>
+						 <div class="col col-10">
+							 <a  ng-click="" href="#/app/editstudentLeaveRequest/{{entitystudentLeaveRequest.studentLeaveRequestKey}}"><span  class="new_icon ion-edit"></span></a>
+						 </div>
+						 <div class="col col-10">
+							 <a ng-click="deletestudentLeaveRequest(entitystudentLeaveRequest.studentLeaveRequestKey)"><span class="new_icon ion-trash-a"></span></a>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

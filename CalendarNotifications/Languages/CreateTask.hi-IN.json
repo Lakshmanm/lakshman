@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "TaskTitle": "कार्य शीर्षक",
+        "TaskDescription": "कार्य विवरण",
+        "StartDateTime": "दिनांक समय शुरू",
+        "EndDateTime": "अंत दिनांक समय",
+        "Calender": "कैलेंडर ",
+        "Status": "स्थिति",
+        "Priority": "प्राथमिकता",
+        "Save": "बचाना",
+        "Cancel": "रद्द करना"
+    },
+    "errors": {
+
+    }
+}

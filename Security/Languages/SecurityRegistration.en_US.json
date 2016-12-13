@@ -1,0 +1,51 @@
+{
+    "labels": {
+        "SignUp": "Sign-Up"
+        , "BasicInfo": "Basic Info"
+        , "Address": "Address"
+        , "FirstName": "First Name"
+        , "MiddleName": "Middle Name"
+        , "LastName": "Last Name"
+        , "Gender": "Gender"
+        , "Female": "Female"
+        , "Male": "Male"
+        , "DateOfBirth": "Date Of Birth"
+        , "MobileNumber": "Mobile Number"
+        , "PrimaryEmailAddress": "Primary Email"
+        , "SecondaryEmailAddress": "Secondary Email"
+        , "Captcha": "Captcha"
+        , "SaveContinue": "Save&Continue",
+
+
+
+        "SignUp": "Sign-Up"
+        , "BasicInfo": "BasicInfo"
+        , "Address": "Address"
+        , "Username": "User Name"
+        , "CheckAvailability": "Check Availability"
+        , "Password": "Password"
+        , "ReEnterPassword": "Re-enter Password"
+        , "DoorNo": "Door No "
+        , "Addressline1": "Addressline 1"
+        , "Addressline2": "Addressline 2"
+        , "CountryID": "Country"
+        , "StateID": "State"
+        , "DistrictID": "District"
+        , "MandalID": "Mandal"
+        , "VillageID": "Village"
+        , "ZipCode": "Pincode"
+        , "QuestionaireId": "Choose security Question"
+        , "HintAnswer": "Hint Answer"
+        , "Submit": "Submit",
+
+        "Success": "Success"
+        , "RegistrationSuccessful": "Registration Successful"
+        , "Message": "An Email has been seen to your registered Email Address.Kindly check your inbox and proceed further."
+        , "Ok": "Ok"
+
+    }
+    , "errors": {
+
+    }
+
+}

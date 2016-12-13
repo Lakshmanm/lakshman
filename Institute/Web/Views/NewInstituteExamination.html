@@ -1,0 +1,80 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExamination.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="examinationForm" novalidate>
+            <div class="row">
+              
+            </div>
+        </form>
+
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblExaminationList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsExamination.examinationTitle}}</th>
+                                    <th></th>
+                                   <!-- <th>Edit</th>
+                                    <th>Delete</th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityExamination in examinationCollection">
+                                    <td>{{ entityExamination.examinationTitle }}</td>
+                                     <td> 
+                            <input type="checkbox" class="checkbox" id="{{ entityExamination.examinationKey }}" ng-model="entityExamination.examinationCheck" ng-true="1"  ng-false="null" name="isElective">
+                            <label for="{{ entityExamination.examinationKey }}">              
+                                            </label>
+                                    </td>
+                                    
+                                     
+                                    
+                                         
+ 
+                                    
+                                    <!--<td><a ng-click="editExamination(entityExamination.examinationKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteExamination(entityExamination.examinationKey)"><i class="fa fa-trash"></i></a></td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                       <center>  <button class="btn btn-wide btn-primary" ng-if="savebtn" ng-click=saveExamination(examinationCollection)>Save</button> </center>
+                    </div>
+                </div>

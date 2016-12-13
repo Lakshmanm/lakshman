@@ -1,0 +1,292 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Fee</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white" ng-controller="feeDetailController">
+    <form name="LeaveForm" novalidate>
+       
+       
+       
+        <div class="row">
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+
+ <div class="col-md-3">
+                 
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteKey.$dirty && LeaveForm.InstituteKey.$invalid, 'has-success':LeaveForm.InstituteKey.$valid}">
+               
+
+                        <label>Institute <span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="feedetail.InstituteKey" ng-disabled="true" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-change="getBoards()" name="InstituteKey" ng-required="true">
+                                        <option value="" >-select-</option>
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteKey.$invalid && LeaveForm.InstituteKey.$error.required ">Institute  is required.</span>
+                        </span>
+                    </div>
+
+                </div>
+          
+
+
+  <div class="col-md-3">
+                               <div class="form-group" ng-class="{'has-error':LeaveForm.AcademicYearName.$dirty && LeaveForm.AcademicYearName.$invalid, 'has-success':LeaveForm.AcademicYearName.$valid}">
+              
+                        <label class="control-label">
+                          Academic Year<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="AcademicYearName" ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearCollection" ng-model="feedetail.AcademicYearKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.AcademicYearName.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.AcademicYearName.$invalid && LeaveForm.AcademicYearName.$error.required ">Academic Year is required.</span>
+                        </span>
+                    </div>
+
+         </div>
+          <div class="col-md-3">
+                   
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteBoardKey.$dirty && LeaveForm.InstituteBoardKey.$invalid, 'has-success':LeaveForm.InstituteBoardKey.$valid}">
+               
+                        <label class="control-label">
+                            Type Of Board<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" ng-options="Board.InstituteBoardKey as Board.BoardTitle for Board in boardCollection" name="InstituteBoardKey" ng-change="getGroup()" ng-model="feedetail.BoardKey" ng-required="true">
+                                          <option value=""  selected>---Select---</option>  
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteBoardKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteBoardKey.$invalid && LeaveForm.InstituteBoardKey.$error.required ">Board is required.</span>
+                        </span>
+                    </div>
+
+              
+            </div>
+              <div class="col-md-3">
+                  
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteGroupKey.$dirty && LeaveForm.InstituteGroupKey.$invalid, 'has-success':LeaveForm.InstituteGroupKey.$valid}">
+              
+                        <label class="control-label">
+                            Group/Stream<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="InstituteGroupKey" ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupCollection" ng-model="feedetail.GroupKey" ng-change="getCourses()" ng-required="true">
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteGroupKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteGroupKey.$invalid && LeaveForm.InstituteGroupKey.$error.required ">Group/Stream is required.</span>
+                        </span>
+                    </div>
+              
+
+            </div>
+            </div>
+            <div class="row">
+  <div class="col-md-3">
+                
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteCourseKey.$dirty && LeaveForm.InstituteCourseKey.$invalid, 'has-success':LeaveForm.InstituteCourseKey.$valid}">
+              
+                        <label class="control-label">
+                            Class/Course<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="InstituteCourseKey" ng-options="course.InstituteCourseKey as course.CourseTitle for course in coursCollection" ng-model="feedetail.CourseKey" ng-change="getBatches()" ng-required="true">
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select></span>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteCourseKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteCourseKey.$invalid && LeaveForm.InstituteCourseKey.$error.required ">Class/Course is required.</span>
+                        </span>
+                    </div>
+            
+            </div>
+            
+                 <div class="col-md-3">
+                 
+            <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteBatchKey.$dirty && LeaveForm.InstituteBatchKey.$invalid, 'has-success':LeaveForm.InstituteBatchKey.$valid}">
+           
+                        <label class="control-label">
+                                            Batch/Section<span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                        <select class="form-control" name="InstituteBatchKey" ng-options="item.InstituteBatchKey as item.BatchName for item in Sections" ng-model="feedetail.BatchKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                        <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteBatchKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteBatchKey.$invalid && LeaveForm.InstituteBatchKey.$error.required ">Batch/Section is required.</span>
+                        </span>
+
+
+                    </div>
+
+                </div>
+          </div>
+
+
+
+
+    
+        <div class="col-md-12">
+            <center>
+                <button type="submit" class="btn btn-wide btn-primary" ng-click="LeaveForm.$valid && getAllStudents()" v-pressable>
+                            Search
+                        </button>
+
+
+            </center>
+
+        </div>
+    </form>
+    <div class="col-md-12">
+    </div>
+
+    <div class="col-md-12">
+
+        <div class="panel panel-white">
+            <div class="panel-body">
+
+
+                <table class="table table-hover" id="sample-table-1">
+                    <thead>
+                        <tr>
+                            <!-- <th>S.No</th> -->
+                            <th style="cursor: pointer" ng-click="sortData('firstname')">Student Name
+                                <div ng-class="getSortClass('firstname')"></div>
+                            </th>
+                            <th></th>
+                            <th>Admission Number</th>
+                            <th>Class/Course</th>
+                            <th>Section</th>
+                            <th>Roll Number</th>
+                            <th>Total Amount (in.Rs)</th>
+                            <th>Paid Amount(in.Rs)</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                   
+                        <tr dir-paginate="S in studentCollection | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+
+                            <!--  cc <td>{{p.id}}</td>-->
+                            <td>{{S.firstname}} {{S.LastName}}</td>
+                            <td>
+                                <ul class="nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span><i class="fa fa-cog"></i></span></a>
+                                        <ul class="dropdown-menu dropdown-list" role="menu">
+                                            <li role="presentation"><a ng-click="addFee(S.StudentKey);" href="javascript:void(0);"><i class="fa fa-edit"></i>Add Fee</a></li>
+
+                                            <li  role="presentation"><a ng-click="goflexibleStructure(S.StudentKey);" href="javascript:void(0);"><i class="fa fa-edit"></i>Flexible Structure</a></li>
+                                            <li role="presentation"><a ng-click="payFee(S.StudentKey);" href="javascript:void(0);"><i class="fa fa-edit"></i>Pay Fee</a></li>
+                                        </ul>
+                            </td>
+                            <td>{{S.AdmissionNumber}}</td>
+                            <td>{{S.CourseTitle}}</td>
+                            <td>{{S.BatchName}}</td>
+                            <td>{{S.StudentNumber}}</td>
+                            <td>{{S.OrderValue}}</td>
+                            <td>{{S.PaidAmount}}</td>
+
+                            <!--  <td>{{p.DateOfBirth | date :  "dd.MM.yyyy"}}</td>-->
+
+
+
+
+
+                        </tr>
+                        <tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+      <div class="col-md-2" ng-hide="((feelist | filter:search).length<=10)||((Stafflist | filter:search).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+
+    <!--
+       <div class="col-md-12">
+             <div>
+                 <table class="table table-hover" id="sample-table-1">
+                        <thead>
+                               <tr>
+                                <th>S.No</th>
+                                <th>StaffName</th>
+                                <th>Role</th>
+                                 <th>Designation</th>
+                                <th>Branch</th>
+                                  <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="p in Stafflistorgs">
+                                <td>{{p.id}}</td>
+                                <td>{{p.Firstname}}{{p.Middlename}}{{p.Lastname}}</td>
+                                <td>{{p.Role}}</td>
+                                 <td>{{p.Specialization}}</td> 
+                                 <td>{{p.BranchBelongsto}}</td> 
+                                <td>{{p.Department}}</td> 
+                               
+                                <td >
+                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                        <a href ng-click="edit(p)" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                        
+                                        <a href ng-click="deleteFamilyDetails(x.id)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                        <div class="btn-group" uib-dropdown>
+                                            <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                <li>
+                                                    <a href="#" > Edit </a>
+                                                    
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="#"> Remove </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                             
+                            </tr>
+                            <tbody>
+                    </table>
+                 
+                 
+                  
+                </div>
+            </div>
+            -->
+
+</div>
+<!-- end: USER PROFILE

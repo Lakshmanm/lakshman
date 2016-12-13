@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "height": "ऊंचाई",
+        "weight": "वजन",
+        "bmi": "बीएमआई",
+        "temperature": "तापमान",
+        "hemoglobin": "हीमोग्लोबिन",
+        "inspectionDate": "निरीक्षण की दिनांक",
+        "submit": "जमा करें",
+        "edit": "संपादित",
+        "delete": "मिटाना",
+        "demographics": "जनसांख्यिकी"
+    },
+    "errors": {
+
+    }
+}      

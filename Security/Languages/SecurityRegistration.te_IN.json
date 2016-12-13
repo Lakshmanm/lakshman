@@ -1,0 +1,49 @@
+{
+    "labels": {
+        "SignUp": "చేరడం"
+        , "BasicInfo": "ప్రాథమిక సమాచారం"
+        , "Address": "చిరునామా"
+        , "FirstName": "మొదటి పేరు"
+        , "MiddleName": "మధ్య పేరు"
+        , "LastName": "చివరి పేరు"
+        , "Gender": "జెండర్"
+        , "Female": "పురుషుడు"
+        , "Male": "మగ"
+        , "DateOfBirth": "పుట్టిన తేది"
+        , "MobileNumber": "మొబైల్ నంబర్"
+        , "PrimaryEmailAddress": "ప్రాథమిక మెయిలు"
+        , "SecondaryEmailAddress": "సెకండరీ ఇమెయిల్"
+        , "Captcha": "Captcha"
+        , "SaveContinue": "కొనసాగించు సేవ్",
+
+        "SignUp": "చేరడం"
+        , "BasicInfo": "ప్రాథమిక సమాచారం"
+        , "Address": "చిరునామా"
+        , "Username": "సభ్యనామం"
+        , "CheckAvailability": "లభ్యత చెక్"
+        , "Password": "పాస్వర్డ్"
+        , "ReEnterPassword": "తిరిగి ప్రవేశించాలని పాస్వర్డ్"
+        , "DoorNo": "డోర్ సంఖ్య "
+        , "Addressline1": "చిరునామా లైన్ 1"
+        , "Addressline2": "చిరునామా లైన్ 2"
+        , "CountryID": "దేశం"
+        , "StateID": "రాష్ట్రం"
+        , "DistrictID": "జిల్లా"
+        , "MandalID": "మండల"
+        , "VillageID": "విలేజ్"
+        , "ZipCode": "పిన్ కోడ్"
+        , "QuestionaireId": "ఎంచుకోండి భద్రత ప్రశ్న"
+        , "HintAnswer": "సూచన సమాధానం"
+        , "Submit": "సమర్పించండి",
+
+        "Success": "విజయం"
+        , "RegistrationSuccessful": "నమోదు విజయవంతమైంది"
+        , "Message": "ఒక ఇమెయిల్ మీ నమోదిత ఇమెయిల్ అడ్రస్ చూపెడుతున్నాయి. దయచేసి మీ ఇన్ బాక్స్ ను తనిఖీ మరియు మరింత ముందుకు."
+        , "Ok": "అలాగే"
+
+    }
+    , "errors": {
+
+    }
+
+}

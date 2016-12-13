@@ -1,0 +1,321 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Leave Management</h4>
+
+
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+
+
+<div class="container-fluid container-fullw bg-white">
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#/app/applyLeave">Apply Leave</a></li>
+        <li><a data-toggle="tab" href="#/app/leaveRequest">My Leave Request</a></li>
+        <li><a data-toggle="tab" href="#/app/subordinateLeaveRequest">My Subordinate Leave Request</a></li>
+
+    </ul>
+    <br>
+
+
+
+
+    <html>
+
+    <form name="leaveForm" novalidate>
+
+        <div id="main-wrapper">
+            <div class="container-fluid container-fullw bg-white">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4> {{labelsLeave.leaveRequestHeading}}  </h4>
+                    </div>
+
+
+                    <div class="row">
+
+
+
+
+                        <div class="form-group" ng-class="{'has-error':leaveForm.instituteTitle.$dirty && leaveForm.instituteTitle.$invalid, 'has-success':leaveForm.instituteTitle.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>
+                                    {{labelsLeave.instituteTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="institute.InstituteKey as institute.OrganizationName for institute in instituteList " ng-disabled="leaveInstitute"  ng-required="true" value="3" class="form-control " ng-change="getKey(entityBatch.InstituteKey)" ng-model="entityBatch.InstituteKey"
+                                    name="instituteTitle"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="leaveForm.instituteTitle.$dirty && leaveForm.instituteTitle.$invalid">    
+                                        
+                                        <p ng-show="leaveForm.instituteTitle.$invalid && leaveForm.instituteTitle.$error.required">Institute is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+            
+
+                        <div class="form-group" ng-class="{'has-error':leaveForm.startDateTime.$dirty && leaveForm.startDateTime.$invalid, 'has-success':leaveForm.startDateTime.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>{{labelsLeave.startDateTime}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                                    <input class="form-control date-picker" ng-change="getApprover(entityLeaveRequest.startDateTime)" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" ng-model="entityLeaveRequest.startDateTime" name="startDateTime" type="date" ng-required="true">
+                                
+                                    </span> <span class="error text-small block" ng-if="leaveForm.recognitionType.$dirty && leaveForm.recognitionType.$invalid">    
+                                        
+                                        <p ng-show="leaveForm.recognitionType.$invalid && leaveForm.recognitionType.$error.required">Start date is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':leaveForm.endDateTime.$dirty && leaveForm.endDateTime.$invalid, 'has-success':leaveForm.endDateTime.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>{{labelsLeave.endDateTime}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                    <input class="form-control date-picker" ng-change="getDate(entityLeaveRequest.startDateTime,entityLeaveRequest.endDateTime)" min="{{entityLeaveRequest.startDateTime | date:'yyyy-MM-dd'}}" ng-model="entityLeaveRequest.endDateTime" name="endDateTime" type="date"
+                                        ng-required="true">
+                                   
+                                 </span> <span class="error text-small block" ng-if="leaveForm.endDateTime.$dirty && leaveForm.endDateTime.$invalid">    
+                                        
+                                        <p ng-show="leaveForm.endDateTime.$invalid && leaveForm.endDateTime.$error.required">End date is required</p>
+                         <p ng-show="leaveForm.endDateTime.$invalid && leaveForm.endDateTime.$error.min">End date is not a valid date</p>
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" ng-class="{'has-error':leaveForm.noOfDays.$dirty && leaveForm.noOfDays.$invalid, 'has-success':leaveForm.noOfDays.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>{{labelsLeave.noOFDays}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                    <input class="form-control" id="input-Default" ng-model="entityLeaveRequest.noOfDays" name="noOfDays" type="text" ng-minlength="1" ng-maxlength="3" ng-required="true" ng-disabled="true">
+  </span> <span class="error text-small block" ng-if="leaveForm.noOfDays.$dirty && leaveForm.noOfDays.$invalid">    
+                                        
+                                        <p ng-show="leaveForm.noOfDays.$invalid && leaveForm.noOfDays.$error.required">No of days is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <span class="red"> {{approver}}</span>
+                    </div>
+
+                    <div class="row" ng-show="half">
+                        <div class="col-lg-3 col-md-6">
+
+                            <div class="form-group">
+                                <input type="checkbox" id="checkbox{{$index}}" ng-model="entityLeaveRequest.halfDay">
+                                <label for="checkbox{{$index}}"> {{labelsLeave.halfDay}}</label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <table class="table table-hover" id="sample-table-1">
+                <thead>
+                    <tr>
+                        <th>{{labelsLeave.leaveType}}
+
+                        </th>
+                        <th>{{labelsLeave.noOfLeave}}
+
+                        </th>
+
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="leave in leaveList">
+                        <td>
+
+
+                            <select ng-options="leave.leavetypekey as leave.leavetypetitle for leave in leaveTypeList" class="form-control" ng-change="getLeaveNumber(leave.leaveTypeKey,leaveBalanceList)" ng-model="leave.leaveTypeKey" name="leaveTypeTitle{{$index}}" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                            <div class="padding" ng-if="leaveForm['leaveTypeTitle'+$index].$touched || leaveForm.$submitted" style="color:red">
+                                <p ng-show="leaveForm['leaveTypeTitle'+$index].$error.required">Leave type title is required</p>
+                            </div>
+
+
+
+                        </td>
+
+                        <td>
+                            <input class="form-control" id="input-Default" ng-model="leave.leavesNumber" name="leavesNumber{{$index}}" type="number" ng-minlength="1" ng-maxlength="3" ng-change="getLeaveDays(leave.leaveTypeKey,leave.leavesNumber,leaveList,entityLeaveRequest.noOfDays)"
+                                ng-required="true">
+                            <div class="padding" ng-if="leaveForm['leavesNumber'+$index].$touched || leaveForm.$submitted" style="color:red">
+                                <p ng-show="leaveForm['leavesNumber'+$index].$error.required">Leave number is required</p>
+
+
+                            </div>
+
+                        </td>
+
+                        <span class="red"> {{avaliableLeave}}</span><br>
+                        <span class="red"> {{message}}</span>
+
+
+
+
+
+
+                        <td> <button ng-click="removeg(leaveList,$index)" name="remove{{$index}}" value="remove">Remove</button> </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+
+
+                        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="DailyRoutine/Web/assets/images/Add.PNG" height="18px">
+                        <a ng-click="addNewPeriod()">AddNew</a>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!--
+    <div id="main-wrapper">
+    <div class="panel-white">-->
+
+
+            <div class="row">
+                <div class="form-group" ng-class="{'has-error':leaveForm.reason.$dirty && leaveForm.reason.$invalid, 'has-success':leaveForm.reason.$valid}">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel-body">
+                            <label>{{labelsLeave.reason}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                                    <textarea class="form-control" ng-model="entityLeaveRequest.reasonForLeave" name="reason" type="text"  ng-minlength="3" ng-maxlength="50" ng-required="true"> </textarea>
+                                                  
+               </span> <span class="error text-small block" ng-if="leaveForm.reason.$dirty && leaveForm.reason.$invalid">    
+                                        
+                                        <p ng-show="leaveForm.reason.$invalid && leaveForm.reason.$error.required">Reason is required</p>
+                      <p ng-show="leaveForm.reason.$error.minlength">Reason should be minimum of 2 characters</p>
+                        <p ng-show="leaveForm.reason.$error.maxlength">Reason should be maximum of 50 characters</p> 
+                                    
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsLeave.folderKey}}</label>
+                        <input type="file" name="myFile" ng-change="getFileList(entityLeaveRequest.documents)" id="myFile" ng-model="entityLeaveRequest.documents" multiple base-sixty-four-input>
+                         <table>
+                               
+                                <tbody>
+                                  <tr  ng-repeat="file in fileList" >
+                               <td ><label>{{ file.filename }} </label></td>                                                      </tr>
+                  </tbody>
+                            </table>
+                    </div>
+               
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel-body">
+                        <center>
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-disabled="leaveForm.$invalid" ng-click="leaveForm.$valid && addLeave(entityLeaveRequest,leaveList,leaveBalanceList)" v-pressable>{{labelsLeave.submit}}</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+    </form>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <input type="text" placeholder="search by text" class="form-control" name="BranchName" ng-model="branchSearch">
+        </div>
+    </div>
+
+
+    <table style="font-size:small" class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="cursor: pointer" ng-click="sortData('leaveType')">{{labelsLeave.leaveType}}
+                    <div ng-class="getSortClass('leaveType')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('available')">{{labelsLeave.available}}
+                    <div ng-class="getSortClass('available')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('used')">{{labelsLeave.used}}
+                    <div ng-class="getSortClass('used')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('balance')">{{labelsLeave.balance}}
+                    <div ng-class="getSortClass('balance')"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr dir-paginate="role in leaveBalanceList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+                <td>{{role.leavetypetitle}}</td>
+                <td>{{role.allocatedLeave}}</td>
+                <td>{{role.usedleaves}}</td>
+                <td>{{role.availableLeave}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="col-md-2" ng-hide="((leaveBalanceList | filter:search).length<=10)||((leaveBalanceList | filter:search).length==undefined)">
+        <div ng-init="pageSize=10 ">
+            <label for="search">Records per page:</label>
+            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-12" style="text-align:left">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+
+    </html>
+    </div>
+</div>

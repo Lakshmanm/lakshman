@@ -1,0 +1,254 @@
+{
+  childId: 1,
+  firstName: 'Harish',
+  middleName: '',
+  lastName: '',
+  contactNo: '9618492447',
+  dateOfBirth: '2015-05-05',
+  age: 1,
+  gender: 'male',
+  cityOrTown: 'vizag',
+  religion: 'Hindu',
+  nationality: 'Indian',
+  aadhaarNumber: '265385644663',
+  contacts: [
+    {
+      contactTypeId: 1,
+      contactType: 'email',
+      contact: 'hari@gmail.com'
+    }
+  ],
+  image: '3ilAppBase01/Web/assets/images/child2.jpg',
+  addressLine1: '',
+  addressLine2: '',
+  districtId:1,
+  district: 'AP',
+  stateId:1,
+  state: 'Indian',
+  pinCode: '530026',
+  familyDetails: [
+    {
+      familyDetailsId: 1,
+      firstName: 'prasad',
+      middleName: '',
+      lastName: 'karri',
+      contact: '9172143210',
+      relationTypeId:1,
+      relationType: 'Father'
+    },
+    {
+      familyDetailsId: 2,
+      firstName: 'sravathi',
+      middleName: '',
+      lastName: 'karri',
+      contact: '9225963782',
+      relationTypeId:2,
+      relation: 'Mother'
+    }
+  ],
+  familyHistory: [
+    {
+      conditionTypeId:1,    
+      conditionType: 'Cancer',
+      relationSideTypeId:1,
+      relationSideType: 'Mother Side',
+      comments: ''
+    }
+  ],
+  surgicalHistory: [
+    {
+      surgeryTypeId:1,    
+      surgeryType: 'Knee Surgery',
+      comments: '',
+      file: '',
+      dateOfSurgery: '2016-01-01'
+    }
+  ],
+  allergies: [
+    {
+      allergyTypeId:1,
+      allergyType: 'Skin Allegrgy',
+      fromType: 'Days',
+      fromCount: '20',
+      comments: ''
+    }
+  ],
+  immunizationVaccinationHistory: [
+    {
+      immunizationTypeId:1,    
+      immunizationType: 'Hep B',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+      dueDate: '2016-04-02',
+      givenOn: '2015-12-12',
+      givenBy: 'Dr.Krishna',
+      batchNumber: '5344544345'
+    },
+    {
+      immunizationTypeId:2,    
+      immunizationType: 'OPV',
+     ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+      dueDate: '2016-04-02',
+      givenOn: '2015-12-12',
+      givenBy: 'Dr.Krishna',
+      batchNumber: '5344544345'
+    }
+  ],
+  screenings: [
+    {
+      screeningId: 1,
+      vitals: {
+        height: {
+          value1: '58cms',
+          value2: ''
+        },
+        weight: {
+          value1: '8kgs',
+          value2: ''
+        },
+        mUAC: {
+          value1: '',
+          value2: ''
+        },
+        headCircumferrence: {
+          value1: '45.25',
+          value2: ''
+        },
+        temperature: {
+          value1: '90 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '9 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep B',
+          dose: '1',
+          ageOfChild: '',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-04-02',
+          givenBy: 'Dr.kirshna',
+          batchNumber: '3322212121'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV',
+          dose: '1',
+          ageOfChild: '',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-04-02',
+          givenBy: 'Dr.Riya',
+          batchNumber: '3322212121'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'itching of eyes',
+          comments: ''
+        },
+        {
+          symptonId: 2,
+          sympton: 'itching of eyes 2',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        },
+        {
+          investigationId: 2,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Urine',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: ''
+        },
+        {
+          diagnosisId: 2,
+          healthCondition: ''
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Anidal',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: true
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: 'DeCold',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: true,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: '',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    }
+  ]
+}

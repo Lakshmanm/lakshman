@@ -1,0 +1,97 @@
+<div>
+
+<div class="container" style="padding:20px; background-color:#fff; float:left;">
+    <h3 style="padding-left:30px;">{{profileLables.ProfileSettings}}</h3>
+    <div class="profile_form">
+
+        <div class="alert alert-success" ng-show="showSuccessAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
+        <div class="alert alert-warning" ng-show="showErrorAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×</button> {{errorTextAlert}}</div>
+    </div>
+
+    <div class="profile_form" style="padding:10px 40px;">
+        <form id="myForm" name="profileForm">
+            <div class="row">
+                <!--<p class="required" style="padding-left:15px;">* Required</p> -->
+                <div class="col-md-3">
+                    <label for="firstname"><span>*</span>{{profileLables.FirstName}}</label>
+                    <input id="firstname" autocomplete="off" name="firstname" required type="text" ng-model="userProfile.firstName" />
+                    <input type="hidden" ng-model="personalp.personID" />
+                </div>
+                <div class="col-md-3">
+                    <label for="lastname"><span>*</span>{{profileLables.LastName}}</label>
+                    <input id="lastname" autocomplete="off" name="lastname" type="text" ng-model="userProfile.lastName" required />
+                </div>
+                <div class="col-md-3">
+                    <label for="dateofbirth"><span>*</span>{{profileLables.DateOfBirth}}</label>
+                    <input id="dateofbirth" autocomplete="off" name="dateofbirth" type="date" ng-model="userProfile.dateOfBirth" required />
+                </div>
+                <div class="col-md-3">
+                    <label for="gender"><span>*</span>{{profileLables.Gender}}</label>
+                    <span ng-repeat="x in gender ">
+                    <input id="gender"  name="gender" type="radio" ng-model="userProfile.gender" required value="{{x.GenderID}}" name="gender" />&nbsp;&nbsp;&nbsp;{{x.GenderName}}
+                </span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="phone"><span>*</span>{{profileLables.Phone}}</label>
+                    <input id="phone" name="phone" class="number-only" type="text" required ng-model="userProfile.phone" maxlength="10" />
+
+                </div>
+                <div class="col-md-3">
+                    <label for="bloodgroup"><span>*</span>{{profileLables.BloodGroup}}</label>
+                    <select id="bloodgroup" name="dateofbirth" ng-options="blood.BloodGroupID as blood.Title for blood in bloodGroup " ng-model="userProfile.bloodGroup" required></select>
+                </div>
+                <div class="col-md-3">
+                    <label for="email"><span>*</span>{{profileLables.Email}}</label>
+                    <input id="email" autocomplete="off" name="email" type="email" ng-model="userProfile.email" required />
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="newpassword">{{profileLables.NewPassword}}</label>
+                    <input id="newpassword" autocomplete="off" name="newpassword" type="password" ng-model="userProfile.newPassword" />
+                </div>
+                <div class="col-md-3">
+                    <label for="confirmpassword">{{profileLables.ConfirmPassword}}</label>
+                    <input id="confirmpassword" autocomplete="off" name="confirmpassword" type="password" ng-model="userProfile.confirmPassword" />
+                </div>
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12" ng-bind="messageerror">
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <br/>
+                <div class="col-md-5">
+
+                    <button class="btn btn-primary button" type="submit" name="Update" ng-click="profileForm.$valid && userProfileUpdate(userProfile)">{{profileLables.Submit}}</button>
+
+                    <button class="btn btn-warning button" ng-click="cancel()">{{profileLables.Cancel}}</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+     
+</div>
+
+
+
+<!-- Page Content -->

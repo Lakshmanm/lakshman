@@ -1,0 +1,34 @@
+{
+    "labels": {
+        "examinationDate": "Examination Date",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "submit": "Submit",
+        "termTitle": "Term Title",
+        "courseTitle": "Course Title",
+        "groupTitle": "Group Title",
+        "boardTitle": "Board Title",
+        "examScheduleHeading": "Exam Schedule",
+        "examScheduleList": "Exam Schedule List",
+        "edit": "Edit",
+        "delete": "Delete",
+        "subject":"Subject",
+        "subjectTitle": "Subject",
+        "save":"Save",
+        "examination": "Examination",
+       "examinationType": "Examination Type",
+        "update": "Update",
+        "term": "Term",
+        "organization": "Organization",
+        "StartHours":"Start Hours",
+        "EndHours":"End Hours",
+        "EndMinutes":"End Minutes",
+        "StartMinutes":"Start Minutes"
+
+
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,262 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Work Experience
+ Type		    	: html 
+ Description		: html page for person Work Experience 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 13-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+<form name="workExperienceForm" novalidate>
+    <div class="col-lg-12">
+   
+    <div class="row">
+       <div class="col-lg-4 col-md-6">
+
+       <div class="form-group" ng-class="{'has-error':workExperienceForm.title.$dirty && workExperienceForm.title.$invalid, 'has-success':workExperienceForm.title.$valid}">
+            <label>{{workExperience.title}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+            <input class="form-control " ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" type="text" ng-model="workexperience.workExperienceName" name="title" required>
+
+             <span class="error text-small block" ng-if="workExperienceForm.title.$dirty && workExperienceForm.title.$invalid" style="color:red">  
+                <p ng-show="workExperienceForm.title.$invalid && workExperienceForm.title.$error.required"> Title is mandatory</p>
+                <p ng-show="workExperienceForm.title.$error.minlength">Title should be minimum of 3 characters</p>
+ <p ng-show="workExperienceForm.title.$error.maxlength">Title should be maximum of 30 characters</p> 
+ <p ng-show="workExperienceForm.title.$error.pattern">Title accept only alphabetic characters</p>
+            </span>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+       <div class="form-group" ng-class="{'has-error':workExperienceForm.orgName.$dirty && workExperienceForm.orgName.$invalid, 'has-success':workExperienceForm.orgName.$valid}">
+            <label>{{workExperience.organizationName}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+            <input class="form-control " type="text" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="workexperience.organizationName" name="orgName" required>
+
+            <span class="error text-small block" ng-if="workExperienceForm.orgName.$dirty && workExperienceForm.orgName.$invalid" style="color:red">  
+                <p ng-show="workExperienceForm.orgName.$invalid && workExperienceForm.title.$error.required"> Organization name is mandatory</p>
+  <p ng-show="workExperienceForm.orgName.$error.minlength">Organization Name should be minimum of 3 characters</p>
+ <p ng-show="workExperienceForm.orgName.$error.maxlength">Organization Name should be maximum of 30 characters</p> 
+ <p ng-show="workExperienceForm.orgName.$error.pattern">Organization Name accept only alphabetic characters</p>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="form-group" ng-class="{'has-error':workExperienceForm.designation.$dirty && workExperienceForm.designation.$invalid, 'has-success':workExperienceForm.designation.$valid}">
+            <label>{{workExperience.designation}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+            <select class="form-control" style="width: 100%" ng-options="designation.designationId as designation.designationName for designation in designationList" ng-model="workexperience.designationId" name="designation" required>
+                <option value="">--Select--</option>
+            </select>
+
+           <span class="error text-small block" ng-if="workExperienceForm.designation.$dirty && workExperienceForm.gradeObtained.$invalid" style="color:red">  
+                <p ng-show="workExperienceForm.designation.$invalid && workExperienceForm.designation.$error.required"> Country is mandatory</p>
+
+            </span>
+        </div>
+    </div>
+    </div>
+          <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+           <div class="form-group" ng-class="{'has-error':workExperienceForm.startDate.$dirty && workExperienceForm.startDate.$invalid, 'has-success':workExperienceForm.startDate.$valid}">
+                <label>{{workExperience.startDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+               <input class="form-control " type="date" ng-model="workexperience.startDate" name="startDate" required></span>
+
+               <span class="error text-small block" ng-if="workExperienceForm.startDate.$dirty && workExperienceForm.startDate.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.startDate.$invalid && workExperienceForm.startDate.$error.required"> Start date is mandatory</p>
+
+                </span>
+
+            </div>
+        </div>
+
+    
+<div class="col-lg-4 col-md-6">
+ <div class="form-group" ng-class="{'has-error':workExperienceForm.endDate.$dirty && workExperienceForm.endDate.$invalid, 'has-success':workExperienceForm.endDate.$valid}">
+                                    <label class="control-label"> {{workExperience.endDate}} <span class="symbol required"></span> </label>
+                                    <!--   <input type="date" name="DOB" class="form-control" ng-model="Staff.DateOfBirth" required />-->
+                                    <input class="form-control date-picker" ng-model="workexperience.endDate" name="endDate" type="date" min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" required> <span class="error text-small block" ng-if="(educationForm.endDate.$dirty ||educationForm.$submitted) && educationForm.DOB.$invalid">    
+                                        <p ng-show="educationForm.endDate.$invalid && educationForm.endDate.$error.required" style="color:#a94442">End Date is required</p>                                        
+                                  </span> </div>
+
+</div>
+                  <div class="col-lg-4 col-md-6">
+          <div class="form-group" ng-class="{'has-error':workExperienceForm.subject.$dirty && workExperienceForm.subject.$invalid, 'has-success':workExperienceForm.subject.$valid}">
+                <label>{{workExperience.subjects}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <select class="form-control" style="width: 100%" ng-options="subject.subjectKey as subject.subjectTitle for subject in subjectCollection" ng-model="workexperience.subjectKey" name="subject" required>
+
+                    <option value="">--Select--</option>
+
+
+              </select></span>
+
+               <span class="error text-small block" ng-if="workExperienceForm.subject.$dirty && workExperienceForm.subject.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.subject.$invalid && workExperienceForm.subject.$error.required"> Subject is mandatory</p>
+
+                </span>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="form-group" ng-class="{'has-error':workExperienceForm.occupation.$dirty && workExperienceForm.occupation.$invalid, 'has-success':workExperienceForm.occupation.$valid}">
+                <label>{{workExperience.occupation}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <select class="form-control" style="width: 100%" ng-options="occupationType.occupationId as occupationType.occupationName for occupationType in occupationList" ng-model="workexperience.occupationId" name="occupation" required>
+
+                    <option value="">--Select--</option>
+
+
+              </select></span>
+
+               <span class="error text-small block" ng-if="workExperienceForm.occupation.$dirty && workExperienceForm.occupation.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.occupation.$invalid && workExperienceForm.designation.$error.required"> Occupation is mandatory</p>
+
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+         <div class="form-group" ng-class="{'has-error':workExperienceForm.geoLocation.$dirty && workExperienceForm.geoLocation.$invalid, 'has-success':workExperienceForm.geoLocation.$valid}">
+                <label>{{workExperience.location}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+             <input type="text" ng-model="workExperienceLocation.geoLocation" name="geoLocation" class="form-control" ng-autocomplete options="options" details="details" required /></span>
+               <span class="error text-small block" ng-if="workExperienceForm.geoLocation.$dirty && workExperienceForm.geoLocation.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.geoLocation.$invalid && workExperienceForm.designation.$error.required">Locatin is required</p>
+<p ng-show="workExperienceForm.geoLocation.$error.minlength">Location Name should be minimum of 3 characters</p>
+ <p ng-show="workExperienceForm.geoLocation.$error.maxlength">Location Name should be maximum of 50 characters</p> 
+                </span>
+                <!--<input class="form-control" ng-model="basic.placeOfBirth" type="text" />-->
+            </div>
+        </div>
+        
+            
+        <div class="col-lg-4 col-md-6">
+          <div class="form-group" ng-class="{'has-error':workExperienceForm.totalYears.$dirty && workExperienceForm.totalYears.$invalid, 'has-success':workExperienceForm.totalYears.$valid}">
+                <label>{{workExperience.totalYears}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                <input class="form-control " type="text" ng-pattern="/^[0-9]/" ng-minlength="1" ng-maxlength="2" ng-model="workexperience.totalYears" name="totalYears" required>
+
+               <span class="error text-small block" ng-if="educationForm.totalYears.$dirty && educationForm.totalYears.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.totalYears.$invalid && workExperienceForm.designation.$error.required">Year  is required</p>
+                             <p ng-show="workExperienceForm.totalYears.$error.pattern">Year  accepts only Numbers</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="form-group" ng-class="{'has-error':workExperienceForm.TeachingExperience.$dirty && workExperienceForm.TeachingExperience.$invalid, 'has-success':workExperienceForm.TeachingExperience.$valid}">
+                <label>{{workExperience.teachingExperience}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                <input class="form-control " type="text" name="TeachingExperience" ng-pattern="/^[0-9]/" ng-minlength="1" ng-maxlength="4" ng-model="workexperience.teachingExperience" name="TeachingExperience" required>
+                <span class="error text-small block" ng-if="workExperienceForm.TeachingExperience.$dirty && workExperienceForm.TeachingExperience.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.TeachingExperience.$invalid && workExperienceForm.designation.$error.required">Teaching experience is mandatory.</p>
+  <p ng-show="workExperienceForm.TeachingExperience
+  .$error.pattern">Teaching experience  accepts only Numbers</p>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+           <div class="form-group" ng-class="{'has-error':workExperienceForm.otherExperience.$dirty && workExperienceForm.otherExperience.$invalid, 'has-success':workExperienceForm.otherExperience.$valid}">
+         <label>{{workExperience.otherExperience}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                <textarea class="form-control " type="text" ng-pattern="/^[0-9]/" ng-minlength="1" ng-maxlength="4" ng-model="workexperience.otherExperience" name="otherExperience" required></textarea>
+
+               <span class="error text-small block" ng-if="workExperienceForm.otherExperience.$dirty && workExperienceForm.otherExperience.$invalid" style="color:red">  
+                    <p ng-show="workExperienceForm.other.$invalid && workExperienceForm.otherExperience.$error.required"> Experience is mandatory</p>
+ <p ng-show="workExperienceForm.otherExperience
+  .$error.pattern">Year  accepts only Numbers</p>
+                </span>
+
+            </div>
+        </div>
+
+    </div>
+  
+
+    <div class="row">
+        <div style="text-align:center">
+         <!--    <button type="submit" ng-click="workExperienceForm.$valid&&saveWorkExperience()" class="btn btn-primary">{{workExperience.submit}}</button> -->
+<button type="button" class="btn btn-wide btn-primary" ng-disabled="workExperienceForm.$invalid" ng-click="workExperienceForm.$valid && saveWorkExperience()" v-pressable>{{workExperience.submit}}</button>
+
+
+        </div>
+    </div>
+</form>
+</div>
+</div>
+    <br/>
+    <div class="row">
+
+        <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>{{workExperience.organizationName}}</th>
+                    <th>{{workExperience.designation}}</th>
+                    <th>{{workExperience.occupation}}</th>
+                    <th>{{workExperience.edit}}</th>
+                    <th>{{workExperience.delete}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="workexp in workexperienceList">
+                    <td>{{workexp.organizationName}}</td>
+                    <td>{{workexp.designationName}}</td>
+                    <td>{{workexp.occupationName}}</td>
+                    <!-- 
+                                 <td>
+                                    <a ng-click="saveWorkExperience(workexperience.workExperienceId)"><i class="fa fa-pencil"></i></a>
+                                </td>
+ -->
+                    <td>
+                        <a ng-click="getWorkExperienceById(workexp.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td><a ng-click="deleteWorkExperience(workexp.referenceKey)" ><i class="fa fa-trash"></i></a></td>
+
+
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+

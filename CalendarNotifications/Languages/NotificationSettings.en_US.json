@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "NotificationSettings": "Notification Settings",
+        "Header": "Choose how you would like to be kept up-to-date",
+        "Sms": "Sms",
+        "Email": "Email",
+        "Save": "Save",
+        "Cancel": "Cancel"
+
+    },
+    "errors": {
+
+    }
+}

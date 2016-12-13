@@ -1,0 +1,62 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: TeamRoleList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h4>{{labelsTeamRoleList.teamRoleHeading}}</h4></div>
+     <div class="col-md-3">
+                    <div class="form-group">
+                      
+                            <!-- <image class="form-control" ></image>  -->
+                             <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG"  height="18px">  
+                            <a ng-href="#/app/newTeamRole">Add Role</a>
+                        </div>
+                    </div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblTeamRoleList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th ng-click="sortData('teamroletitle')">{{labelsTeamRoleList.teamRoleTitle}} <div ng-class="getSortClass('teamroletitle')"></div></th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityTeamRole in teamRoleCollection | orderBy:sortColumn:reverseSort">
+							 <td>{{ entityTeamRole.teamroletitle }}</td>
+							 <td><a ng-click="" href="#/app/editTeamRole/{{entityTeamRole.teamrolekey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteTeamRole(entityTeamRole.teamrolekey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

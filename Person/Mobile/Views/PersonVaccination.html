@@ -1,0 +1,126 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Vaccination
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Kiranmai Labhala
+ Created Date       : 21-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+S.No  Ver    Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+   
+            <form name="vaccinationForm" novalidate>
+        <div class="list">
+            <h2>{{vaccinationLables.Vaccination}}</h2>
+             <label class="item item-input item-stacked-label">
+    <label>{{vaccinationLables.VaccinationName}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="vaccination.vaccinationName" name="title" required>
+
+                <span class="padding" ng-if="vaccinationForm.title.$touched || vaccinationForm.$submitted" style="color:red">
+                    <p ng-show="vaccinationForm.title.$error.required ">Title is mandatory.</p>
+
+
+                </span>
+           </label>
+       <label class="item item-input item-stacked-label">
+                <label>{{vaccinationLables.MedicineType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="vaccination.medicineTypeId as vaccination.medicineTypeName for vaccination in medicineTypeList" ng-model="vaccination.medicineTypeId" name="medicineType" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+
+                <span class="padding" ng-if="vaccinationForm.medicineType.$touched || vaccinationForm.$submitted" style="color:red">
+                    <p ng-show="vaccinationForm.medicineType.$error.required ">Medicine type is mandatory.</p>
+
+
+                </span>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{vaccinationLables.VaccinationType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="vaccination.vaccinationTypeId as vaccination.vaccinationTypeName for vaccination in vaccinationTypeList" ng-model="vaccination.vaccinationTypeId" name="vaccinationType" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+        <span style="color:red" ng-show="vaccinationForm.vaccinationType.$touched && vaccinationForm.vaccinationType.$invalid"> Vaccination type is mandatory.</span>
+                <span class="padding" ng-if="vaccinationForm.vaccinationType.$touched || vaccinationForm.$submitted" style="color:red">
+                    <p ng-show="vaccinationForm.vaccinationType.$error.required ">Vaccination type is mandatory.</p>
+
+
+                </span>
+</label>
+        <label class="item item-input item-stacked-label">
+                <label>{{vaccinationLables.InspectionDate}}<span style="color:red">*</span></label>
+
+                <input class="form-control " type="date" ng-model="vaccination.inspectionDate" name="inspectionDate" required>
+
+                <span class="padding" ng-if="vaccinationForm.inspectionDate.$touched || vaccinationForm.$submitted" style="color:red">
+                    <p ng-show="vaccinationForm.inspectionDate.$error.required ">Inspection date is mandatory.</p>
+
+
+                </span>
+         </label>
+         <label class="item item-input item-stacked-label">
+                <label>{{vaccinationLables.Remarks}}</label>
+
+                <textarea id="console" ng-model="vaccination.remarks" class="form-control" rows="3"></textarea>
+
+            </label>
+
+
+<label class="item item-input item-stacked-label">
+            <button type="submit" ng-click="vaccinationForm.$valid&&saveVaccination()" class="btn btn-primary">{{vaccinationLables.Submit}}</button>
+        </label>
+    <label class="item item-input item-stacked-label">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+
+            <thead>
+                <tr>
+                    <th>{{vaccinationLables.VaccinationName}}</th>
+                    <th>{{vaccinationLables.MedicineType}}</th>
+                    <th>{{vaccinationLables.VaccinationType}}</th>
+                    <th>{{vaccinationLables.edit}}</th>
+                    <th>{{vaccinationLables.delete}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vaccination in vaccinationList">
+                    <td>{{vaccination.vaccinationName}}</td>
+                    <td>{{vaccination.medicineTypeName}}</td>
+                    <td>{{vaccination.vaccinationTypeName}}</td>
+                    <td>
+                        <a ng-click="getVaccinationById(vaccination.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td>
+                        <a ng-click="deleteVaccinationById(vaccination.referenceKey)"><i class="fa fa-trash"></i></a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </label>
+
+</div>
+</form>

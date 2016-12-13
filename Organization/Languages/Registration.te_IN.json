@@ -1,0 +1,22 @@
+{
+    "labels": {
+       "RegistrationType": "నమోదు టైప్",
+        "ValidFrom": "నుండి చెల్లుబాటు అయ్యే",
+        "ValidTo": "సమ్మతమైన",
+        "RegistrationDetails":"నమోదు వివరాలు",
+        "Submit": "సమర్పించండి",
+        "Update": "నవీకరణ",
+        "RegistrationBasicInfo1": "నమోదు ప్రాథమిక సమాచారం",
+        "RegistrationType": "నమోదు టైప్",
+        "ValidFrom": "నుండి చెల్లుబాటు అయ్యే",
+        "ValidTo": "సమ్మతమైన",
+        "Edit": "మార్చు",
+        "Delete": "తొలగించు",
+        "RegistrationList": "నమోదు జాబితా"
+
+
+    },
+    "errors": {
+
+    }
+}

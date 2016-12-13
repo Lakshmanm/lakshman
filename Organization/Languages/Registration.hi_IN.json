@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "RegistrationType": "पंजीकरण प्रकार",
+        "ValidFrom": "से मान्य",
+        "ValidTo": "इस तक मान्य",
+        "RegistrationDetails":"पंजीकरण के विवरण",
+        "Submit": "जमा करें",
+        "Update": "अपडेट",
+        "RegistrationBasicInfo1": "पंजीकरण बुनियादी जानकारी",
+        "RegistrationType": "पंजीकरण प्रकार",
+        "ValidFrom": "से मान्य",
+        "ValidTo":"इस तक मान्य",
+        "Edit": "संपादित करें",
+        "Delete": "मिटाना",
+        "RegistrationList": "पंजीकरण सूची"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "insuranceName": "बीमा का नाम",
+        "insuranceNumber": "बीमा संख्या",
+        "insuranceType": "बीमा के प्रकार",
+        "startDate": "आरंभ करने की तिथि",
+        "endDate": "अंतिम तिथि",
+        "insuranceCompany": "बीमा कंपनी",
+        "coverageDetails": "कवरेज विवरण",
+        "nominee":"पद के उम्मीदवार",
+        "submit": "जमा करें",
+         "edit": "संपादित करें",
+        "delete": "मिटाना",
+        "insurance": "बीमा"
+
+    },
+    "errors": {
+
+    }
+}

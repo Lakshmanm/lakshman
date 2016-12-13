@@ -1,0 +1,80 @@
+<div class="container-fluid container-fullw bg-white">
+    <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Account Settings</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+    
+    <form  name="personForm" role="dgdg" id="form">
+      
+        <div class="row">
+            
+                 <div class="user-image">
+                                <div class="thumbnail margin-bottom-5">
+                    <img ng-src="{{studentProfilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="document.getElementById('ID_profilePic').click()">
+                        <!---->
+                        <!-- imageonload -->
+                        <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="person.profilePic" base-sixty-four-input /> 
+</div>
+                        </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+              
+                                    <label class="control-label"> 
+                                                Organization Name
+                                               
+                                            </label>
+
+                                    <input type="text" ng-disabled="true" class="form-control" name="organization" ng-minlength="2" ng-maxlength="35" ng-model="person.OrganizationName" >
+                                    
+                                 
+                                
+
+                             
+                </div>
+                     <div class="col-md-3">
+          
+                                
+                                    <label class="control-label"> 
+                                                First Name
+                                               
+                                            </label>
+
+                                    <input type="text" class="form-control" name="FirstnameAdd" ng-minlength="2" ng-maxlength="35" ng-model="person.FirstName" ng-disabled="true">
+                                  
+                                 
+                                  
+
+                              
+                </div>
+                     <div class="col-md-3">
+            
+                              
+                                    <label class="control-label"> Last Name </label>
+                                    <input type="text" class="form-control" name="Lastname" ng-model="person.LastName" ng-minlength="2" ng-maxlength="35" ng-disabled="true">
+                                  
+                </div>
+                     <div class="col-md-3">
+            
+             <div class="personForm-group" ng-class="{'has-error':personForm.Mobile.$dirty && personForm.Mobile.$invalid, 'has-success':personForm.Mobile.$valid}">
+                                    <label class="control-label"> Mobile Number<span class="symbol required"></span> </label>
+                                    <input type="text" class="form-control" ng-pattern="/^[0-9]{1,10}$/" name="Mobile" ng-model="person.PrimaryMobileNumber" required>
+ <span class="error text-small block" ng-if="personForm.Mobile.$dirty && personForm.Mobile.$invalid" style="color:red">          
+                                        <p ng-show="personForm.Mobile.$invalid && personForm.Mobile.$error.required" style="color:#a94442">Mobile number is required</p>
+                       <p ng-show="personForm.Mobile.$error.pattern" style="color:#a94442">Invalid mobile number</p>
+                                  </span> 
+
+                                     </div>
+                </div>
+         
+ 
+            
+       </div>     
+        </div>
+        <div class="row" align="center">
+          <button type="button" ng-click="personUpdateBasicInfo()"  class="btn btn-wide btn-primary" v-pressable> Update </button></div>
+    
+    </form>
+</div>

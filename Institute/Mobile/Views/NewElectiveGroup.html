@@ -1,0 +1,68 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewElectiveGroup.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="ElectiveGroup List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsElectiveGroupList.electiveGroupHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsElectiveGroup.electiveGroupTitle}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.electiveGroupTitle" name="electiveGroupTitle" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsElectiveGroup.termKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityElectiveGroup.termKey" name="termKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsElectiveGroup.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityElectiveGroup.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsElectiveGroup.minimumSubjects}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.minimumSubjects" name="minimumSubjects" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsElectiveGroup.maximumSubjects}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityElectiveGroup.maximumSubjects" name="maximumSubjects" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addelectiveGroup()">{{labelselectiveGroup.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

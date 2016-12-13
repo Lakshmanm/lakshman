@@ -1,0 +1,192 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Relative
+ Type		    	: html 
+ Description		: html page for person Relative 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 06-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+
+<form name="activitiesForm" >
+
+    <div class="col-lg-12">
+   <fieldset ng-disabled="details">  
+
+   
+
+    <div class="row">
+     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':activitiesForm.activityType.$dirty && activitiesForm.activityType.$invalid, 'has-success':activitiesForm.activityType.$valid}">
+             <label>{{activityLabels.activityType}} <span class="symbol required"></span> </label> <span class="clip-select">
+                          <select class="form-control" style="width: 100%" ng-options="type.cirricularActivityTypeID as type.cirricularActivityTypeName for type in activityTypeList" ng-change="getActivity(activity.cirricularActivityTypeID)" ng-model="activity.cirricularActivityTypeID" name="activityType" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+                          <span class="error text-small block" ng-if="activitiesForm.activityType.$dirty && activitiesForm.activityType.$invalid" style="color:red">    
+                 <p ng-show="activitiesForm.activityType.$invalid && activitiesForm.activityType.$error.required">Curricular Activity Type is required</p></span>
+                        
+                </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-6">
+            <div class="form-group" ng-class="{'has-error':activitiesForm.curricularActivity.$dirty && activitiesForm.curricularActivity.$invalid, 'has-success':activitiesForm.curricularActivity.$valid}">
+                <label>{{activityLabels.curricularActivity}}<span class="symbol required"></span> </label> <span class="clip-select">
+              
+                <select class="form-control" style="width: 100%" ng-options="activity.sportTypeId as activity.sportTypeName for activity in activityList" ng-model="activity.sportTypeId" name="curricularActivity" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="activitiesForm.curricularActivity.$dirty && activitiesForm.curricularActivity.$invalid" style="color:red">    
+                 <p ng-show="activitiesForm.curricularActivity.$invalid && activitiesForm.curricularActivity.$error.required">Curricular Activity is required</p></span>
+           
+        </div>
+    </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="form-group" ng-class="{'has-error':activitiesForm.proficiency.$dirty && activitiesForm.proficiency.$invalid, 'has-success':activitiesForm.proficiency.$valid}">
+                <label>{{activityLabels.proficiency}}<span class="symbol required"></span> </label> <span class="clip-select">
+              
+                <select class="form-control" style="width: 100%"  ng-options="proficiency.proficiencyId as proficiency.proficiencyName for proficiency in proficiencyList" ng-model="activity.proficiencyId" name="proficiency" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="activitiesForm.proficiency.$dirty && activitiesForm.proficiency.$invalid" style="color:red">    
+                 <p ng-show="activitiesForm.proficiency.$invalid && activitiesForm.proficiency.$error.required">Proficiency is required</p></span>
+           
+        </div>
+    </div>
+
+
+      
+    </div>
+   <div class="row">
+     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':activitiesForm.highestLevel.$dirty && activitiesForm.highestLevel.$invalid, 'has-success':activitiesForm.highestLevel.$valid}">
+             <label>{{activityLabels.highestLevel}} <span class="symbol required"></span> </label> <span class="clip-select">
+                       
+                <select class="form-control" style="width: 100%"  ng-options="play.highestLevelPlayId as play.highestLevelPlayName for play in playList" ng-model="activity.highestLevelPlayId" name="highestLevel" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="activitiesForm.highestLevel.$dirty && activitiesForm.highestLevel.$invalid" style="color:red">    
+                 <p ng-show="activitiesForm.highestLevel.$invalid && activitiesForm.highestLevel.$error.required">Highest level play is required</p></span>
+                         </div>
+                </div>
+       
+        <div class="col-lg-8 col-md-6">
+         <div class="form-group" ng-class="{'has-error':activitiesForm.additionalInformation.$dirty && activitiesForm.additionalInformation.$invalid, 'has-success':activitiesForm.additionalInformation.$valid}">
+                                    <label class="control-label">{{activityLabels.additionalInformation}} <span class="symbol required"></span></label>
+             <textarea type="text" class="form-control" placeholder="" ng-model="activity.additionalInformation" name="additionalInformation"  required> </textarea>
+             <span class="error text-small block" ng-if="(activitiesForm.additionalInformation.$dirty ||activitiesForm.$submitted) && activitiesForm.additionalInformation.$invalid">    
+                                       
+                                        <p ng-show="activitiesForm.additionalInformation.$invalid && activitiesForm.additionalInformation.$error.required" style="color:#a94442">Additional Information id is required</p>
+                     
+                                    
+                                    </span> </div>
+       </div>
+
+        </div> 
+        
+          
+       </fieldset> 
+
+    <div class="row">
+        <div style="text-align:center">
+          <!--   <button type="submit" ng-click="activitiesForm.$valid&&saveRelative()" class="btn btn-primary">{{relativeLabels.submit}}</button> -->
+<button type="button"  ng-hide="curricular" class="btn btn-wide btn-primary" ng-disabled="activitiesForm.$invalid" ng-click="activitiesForm.$valid && saveActivity()" v-pressable>{{activityLabels.submit}}</button>
+
+
+        </div>
+    </div>
+
+
+</form>
+
+
+
+
+ 
+  
+
+  <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                  
+
+<table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                   <th>{{activityLabels.curricularActivity}}</th>
+                                <th>{{activityLabels.proficiency}}</th>
+                                <th>{{activityLabels.highestLevel}}</th>
+                                <th>{{activityLabels.edit}}</th>
+                                <th ng-hide="curricular">{{activityLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="activity in activityCollection">
+                                <td>{{activity.sportTypeName}}</td>
+                                <td>{{activity.proficiencyName}}</td>
+                                <td>{{activity.highestLevelPlayName}}</td>
+
+
+
+                                <td>
+                                    <a ng-click="editActivity(activity.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td  ng-hide="curricular"><a ng-click="deleteActivity(activity.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    
+                </div>
+            </div>
+        </div>
+ 
+</div>
+</div>

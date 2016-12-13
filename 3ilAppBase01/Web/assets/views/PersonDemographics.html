@@ -1,0 +1,190 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Demographics
+ Type		    	: html 
+ Description		: html page for person demographics 
+ References		    :
+ Author	    		: Satyanarayana Tippani
+ Created Date       : 11-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <div class="col-lg-12">
+          
+        <form name="demographicsForm" novalidate>
+<fieldset ng-disabled="details"> 
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':demographicsForm.height.$dirty && demographicsForm.height.$invalid, 'has-success':demographicsForm.height.$valid}">
+                        <label>{{demographicLabels.height}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="height" ng-maxlength="7" ng-minlength="1"  ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" placeholder="{{ height }}" ng-model="demographic.height" type="number" required></span>
+                        <span class="error text-small block" ng-if="demographicsForm.height.$dirty && demographicsForm.height.$invalid" style="color:red">    
+                              <p ng-show="demographicsForm.height.$invalid && demographicsForm.height.$error.required">Height is required</p>
+                      <p ng-show="demographicsForm.height.$error.minlength">Height should be minimum of 3 characters</p>
+                        <p ng-show="demographicsForm.height.$error.maxlength">Height should be maximum of 30 characters</p> 
+                         <p ng-show="demographicsForm.height.$error.pattern">Height accept only Numbers & Decimal Numbers </p>
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                     <div class="form-group" ng-class="{'has-error':demographicsForm.weight.$dirty && demographicsForm.weight.$invalid, 'has-success':demographicsForm.weight.$valid}">
+                        <label>{{demographicLabels.weight}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="weight" ng-maxlength="7" ng-minlength="1"  ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" placeholder="{{ weight }}" ng-model="demographic.weight" ng-change="bmi()" type="number" required></span>
+                        <span class="error text-small block" ng-if="demographicsForm.weight.$dirty && demographicsForm.weight.$invalid" style="color:red">    
+                              <p ng-show="demographicsForm.weight.$invalid && demographicsForm.weight.$error.required">weight is required</p>
+                      <p ng-show="demographicsForm.weight.$error.minlength">weight should be minimum of 3 characters</p>
+                        <p ng-show="demographicsForm.weight.$error.maxlength">weight should be maximum of 30 characters</p> 
+                              <p ng-show="demographicsForm.weight.$error.pattern">weight accept only Numbers & Decimal Numbers </p>
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                   <div>
+                        <label>{{demographicLabels.bmi}}</label>
+                        <input class="form-control" name="bmi"  ng-maxlength="10" ng-minlength="1"  ng-model="demographic.bmi" type="text">
+                        <div class="padding" ng-if="demographicsForm.bmi.$touched || demographicsForm.$submitted" style="color:red">
+              <p ng-show="demographicsForm.bmi.$error.minlength || demographicsForm.bmi.$error.minlength"> bmi should be minimum of 1 characters</p>
+              <p ng-show="demographicsForm.bmi.$error.maxlength || demographicsForm.bmi.$error.maxlength">  bmi  should be maxmum of 10 characters</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="form-group" ng-class="{'has-error':demographicsForm.temperature.$dirty && demographicsForm.temperature.$invalid, 'has-success':demographicsForm.temperature.$valid}">
+                        <label>{{demographicLabels.temperature}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="temperature" ng-maxlength="10" ng-minlength="1"  ng-pattern="/^[0-9]/" placeholder="{{ temperature }}" ng-model="demographic.temperature" type="number" required></span>
+                       <span class="error text-small block" ng-if="demographicsForm.temperature.$dirty && demographicsForm.temperature.$invalid" style="color:red">    
+                              <p ng-show="demographicsForm.temperature.$invalid && demographicsForm.temperature.$error.required">Temperature is required</p>
+                      <p ng-show="demographicsForm.temperature.$error.minlength">Temperature should be minimum of 3 characters</p>
+                        <p ng-show="demographicsForm.temperature.$error.maxlength">Temperature should be maximum of 30 characters</p> 
+                     <p ng-show="demographicsForm.weight.$error.pattern">Temperature accept only Numbers </p>      
+                        </span> 
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                   <div class="form-group" ng-class="{'has-error':demographicsForm.hemoglobin.$dirty && demographicsForm.hemoglobin.$invalid, 'has-success':demographicsForm.hemoglobin.$valid}">
+                        <label>{{demographicLabels.hemoglobin}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" name="hemoglobin" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-maxlength="10" ng-minlength="1"  ng-model="demographic.hemoglobin" type="number" required></span>
+                       <span class="error text-small block" ng-if="demographicsForm.hemoglobin.$dirty && demographicsForm.hemoglobin.$invalid" style="color:red">    
+                              <p ng-show="demographicsForm.hemoglobin.$invalid && demographicsForm.hemoglobin.$error.required">Hemoglobin is required</p>
+                      <p ng-show="demographicsForm.hemoglobin.$error.minlength">Hemoglobin should be minimum of 1 characters</p>
+                        <p ng-show="demographicsForm.hemoglobin.$error.maxlength">Hemoglobin should be maximum of 10 characters</p> 
+                           
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':demographicsForm.inspectionDate.$dirty && demographicsForm.inspectionDate.$invalid, 'has-success':demographicsForm.inspectionDate.$valid}">
+                        <label>{{demographicLabels.inspectionDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control date-picker" name="inspectionDate" ng-model="demographic.inspectionDate" type="date" required></span>
+                       <span class="error text-small block" ng-if="demographicsForm.inspectionDate.$dirty && demographicsForm.inspectionDate.$invalid" style="color:red">    
+                              <p ng-show="demographicsForm.inspectionDate.$invalid && demographicsForm.inspectionDate.$error.required">InspectionDate is required</p>
+                     
+                           
+                        </span> 
+                    </div>
+                </div>
+
+            </div>
+            
+             
+        <div class="row"> 
+       <div class="col-lg-4 col-md-6">
+                    <div class="form-group">
+                        <label>{{demographicLabels.folder}}<span class="symbol required"></span></label>
+                        <input type="file" name="myFile" ng-change="getFile()" id="myFile" ng-model="demographic.documents" base-sixty-four-input>
+                        
+           </div>
+           
+             <label ng-show="fileName">{{filename}}</label>
+                </div>
+       </div>
+       </fieldset>
+
+            <div class="row">
+                <div style="text-align:center">
+                  <!--   <button type="submit" class="btn btn-primary" ng-click="demographicsForm.$valid&&saveDemographic()">{{demographicLabels.submit}}</button> -->
+
+                  <button type="button" ng-hide="demo" class="btn btn-wide btn-primary" ng-disabled="demographicsForm.$invalid" ng-click="demographicsForm.$valid && saveDemographic()" v-pressable>{{demographicLabels.submit}}</button>
+
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                              <th>{{demographicLabels.inspectionDate}}</th>
+                                <th>{{demographicLabels.height}}</th>
+                                <th>{{demographicLabels.weight}}</th>
+                                <th>{{demographicLabels.bmi}}</th>
+                                <th>{{demographicLabels.temperature}}</th>
+                                <th>{{demographicLabels.hemoglobin}}</th>
+                                <th>{{demographicLabels.edit}}</th>
+                                <th ng-hide="demo">{{demographicLabels.delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="demographic in demographicList">
+                              <td>{{demographic.inspectionDate|date}}</td>
+                                <td>{{demographic.height}}</td>
+                                <td>{{demographic.weight}}</td>
+                                <td>{{demographic.bmi}}</td>
+                                <td>{{demographic.temperature}}</td>
+                                <td>{{demographic.hemoglobin}}</td>
+                                  <td>
+                                    <a ng-click="getDemographic(demographic.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td ng-hide="demo"><a ng-click="deleteDemographic(demographic.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

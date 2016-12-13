@@ -1,0 +1,147 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Hobby
+ Type		    	: html
+ Description		: html page for person dhobby 
+ References		    :
+ Author	    		: Phaneendra Vaddiparthy
+ Created Date       : 14-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<form name="hobbyForm" novalidate>
+    <div class="row">
+        <div class="col-lg-12">
+        <h2>{{hobbyLabels.hobby}}</h2></div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{hobbyLabels.hobbyName}}<span style="color:red">*</span></label>
+                <input class="form-control" type="text" ng-model="hobby.hobbyName" name="title" required>
+                <div class="padding" ng-if="hobbyForm.title.$touched || hobbyForm.$submitted" style="color:red">
+                    <p ng-show="hobbyForm.title.$error.required">Title is required</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{hobbyLabels.hobbyType}}<span style="color:red">*</span></label>
+                <select class="form-control" name="hobbyTypeID" style="width: 100%" ng-options="hobbyType.hobbyTypeId as hobbyType.hobbyTypeName for hobbyType in hobbyTypeList" ng-model="hobby.hobbyTypeId" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="hobbyForm.hobbyTypeId.$touched || hobbyForm.$submitted" style="color:red">
+                    <p ng-show="hobbyForm.hobbyTypeId.$error.required ">Hobby type is required</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{hobbyLabels.proficiency}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="prof.proficiencyId as prof.proficiencyName for prof in proficiencyList" ng-model="hobby.proficiencyId" name="proficiency" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="hobbyForm.proficiency.$touched || hobbyForm.$submitted" style="color:red">
+                    <p ng-show="hobbyForm.proficiency.$error.required ">Proficiency is required</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-6">
+            <div class="panel-body">
+                <label>{{hobbyLabels.details}}</label>
+                <textarea id="console" class="form-control" ng-model="hobby.details" class="form-control" rows="3" name="details"></textarea>
+                <div class="padding" ng-if="hobbyForm.details.$touched || hobbyForm.$submitted" style="color:red">
+                    <p ng-show="hobbyForm.details.$error.required ">Details is required</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="hobbyForm.$valid&&saveHobby()" class="btn btn-primary">{{hobbyLabels.submit}}</button>
+        </div>
+    </div>
+
+    <br/>
+    <div class="row">
+        <div style="width:20%">
+
+
+            <div class="form-group">
+
+            </div>
+
+
+        </div>
+
+                <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>{{hobbyLabels.hobbyName}}</th>
+                    <th>{{hobbyLabels.hobbyType}}</th>
+
+                    <th>{{hobbyLabels.proficiency}}</th>
+                    <th>{{hobbyLabels.edit}}</th>
+                    <th>{{hobbyLabels.delete}}</th>
+
+
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="hobby in hobbyList">
+                    <td>{{hobby.hobbyName}}</td>
+                    <td>{{hobby.hobbyTypeName}}</td>
+
+                                        <td>{{hobby.proficiencyName}}</td>
+
+                    <td>
+                        <a ng-click="editHobby(hobby.referenceKey)"><span title="edit"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td><a ng-click="deleteHobby(hobby.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <!-- <div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+    </div>
+
+</form>

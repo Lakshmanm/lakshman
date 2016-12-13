@@ -1,0 +1,80 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExamSchedule.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="ExamSchedule List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsExamScheduleList.examScheduleHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsExamSchedule.subjectKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExamSchedule.subjectKey" name="subjectKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsExamSchedule.examinationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExamSchedule.examinationKey" name="examinationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsExamSchedule.examinationDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityExamSchedule.examinationDate" name="examinationDate" type="date"> 
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsExamSchedule.startDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityExamSchedule.startDate" name="startDate" type="date"> 
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsExamSchedule.endDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityExamSchedule.endDate" name="endDate" type="date"> 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsExamSchedule.termKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExamSchedule.termKey" name="termKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsExamSchedule.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityExamSchedule.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addexamSchedule()">{{labelsexamSchedule.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

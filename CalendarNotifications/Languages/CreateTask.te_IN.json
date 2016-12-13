@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "TaskTitle": "పని శీర్షిక",
+        "TaskDescription": "పని వివరణ",
+        "StartDateTime": "తేదీ సమయం ప్రారంభం",
+        "EndDateTime": "ముగింపు తేదీ సమయం",
+        "Calender": "క్యాలెండర్",
+        "Status": "స్థి తి ",
+        "Priority": "ప్రాధాన్యత",
+        "Save": "సేవ్",
+        "Cancel": "రద్దు"
+    },
+    "errors": {
+
+    }
+}

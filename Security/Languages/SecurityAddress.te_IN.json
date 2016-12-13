@@ -1,0 +1,29 @@
+
+
+{
+    "labels": {
+         "SignUp": "చేరడం",
+         "BasicInfo": "ప్రాథమిక సమాచారం",
+        "Address": "చిరునామా",
+         "UserName": "సభ్యనామం",
+         "CheckAvailability": "లభ్యత చెక్",
+         "Password": "పాస్వర్డ్",
+         "ReEnterPassword": "తిరిగి ప్రవేశించాలని పాస్వర్డ్",
+         "DoorNo": "డోర్ సంఖ్య ",
+        "Street1": "వీధి1",
+        "Street2": "వీధి2",
+        "Country": "దేశం",
+        "State": "రాష్ట్రం",
+        "District": "జిల్లా",
+        "Mandal": "మండల",
+        "Village": "విలేజ్",
+        "Pincode": "పిన్ కోడ్",
+        "SecurityQuestion": "ఎంచుకోండి భద్రత ప్రశ్న",
+        "HintAnswer": "సూచన సమాధానం",
+         "Submit": "సమర్పించండి"
+           },
+    "errors": {
+        
+        }
+    
+}

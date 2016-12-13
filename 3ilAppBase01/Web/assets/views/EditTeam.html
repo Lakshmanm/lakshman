@@ -1,0 +1,108 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: EditTeam.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+heading="{{labelsTeam.teamHeading}}"
+//*****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+         <form name="TeamForm" novalidate>
+   <!-- <uib-accordion close-others="oneAtATime">-->
+        
+                           <!-- <uib-accordion-group  is-open="true" is-disabled="status.isFirstDisabled">-->
+        <div class="row">
+            
+            <div class="col-lg-12">
+                <h4> {{labelsTeam.editTeamHeading}}  </h4>
+            </div>
+			 <div class="row">
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeam.teamTitle}}</label>
+					 <input class="form-control" id="input-Default" ng-model="entityTeam.teamTitle" name="teamTitle" type="text" ng-minlength = "4" ng-maxlength = "80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" > 
+                      <div class="padding" ng-if="TeamForm.teamTitle.$touched || TeamForm.$submitted" style="color:red">
+                      <p ng-show="TeamForm.teamTitle.$error.required">Team title  is required</p>
+                      <p ng-show="TeamForm.teamTitle.$error.minlength">Team title  is too short</p>
+                        <p ng-show="TeamForm.teamTitle.$error.maxlength">Team title  is too Long</p>
+<p ng-show="TeamForm.teamTitle.$error.pattern">Enter Only Alphabets</p>
+                        </div>
+				 </div>
+			 </div>
+			
+             <div  class="col-lg-3 col-md-6">
+                      
+                    <div class="user-image">
+                                    <div class="thumbnail margin-bottom-5">
+                                      
+                                        <img ng-src="{{profilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="document.getElementById('ID_profilePic').click()">
+
+                                        <img ng-src="{{profilePic2}}">
+                                        <!-- imageonload -->
+                                        <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="entityTeam.teamLogoKey" base-sixty-four-input />
+
+                                       
+                                    </div>
+                                </div>
+                    </div>
+            </div>
+			
+              <div class="row">
+			 <div class="col-lg-3 col-md-12">
+				 <div class="panel-body">
+					 <label>{{labelsTeam.teamDescription}}</label>
+                     <textarea class="form-control" id="input-Default" ng-model="entityTeam.teamDescription" name="teamDescription" type="text" ng-minlength = "4" ng-maxlength = "80" ></textarea> 
+				 </div>
+			 </div>
+            </div>
+                    <div class="row">
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeam.associatedOrganizationKey}}</label>
+                 
+                     
+					 <select value="3" class="form-control "  ng-options="branches.referenceKey as branches.organizationName for branches in  allBranches" ng-model="entityTeam.AssociatedOrganizationKey" name="AssociatedOrganizationKey" > 
+						 <option value="">--Select--</option>
+					 </select>
+				 </div>
+			 </div>
+            </div>
+			 <div class="row"><div class="col-md-3">
+				 <div class="panel-body">
+					 <button type="submit" class="btn btn-wide btn-primary" ng-click="TeamForm.$valid && updateTeam()" v-pressable>{{labelsTeam.update}}</button>
+				 </div>
+			 </div>
+		 </div>
+             </div>
+           
+	<!-- </uib-accordion-group>
+        -->
+        
+        <!-- </uib-accordion>-->
+        </form>
+		
+
+  <team-Member></team-Member>
+                 
+	
+	 </div>
+	 </div>

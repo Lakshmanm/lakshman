@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!-- The ng-app directive initializes an AngularJS application. -->
+<html ng-app="ThrillCNN">
+
+<head>
+    <!-- Title -->
+    <title>CalendarNotifications</title>
+    <!-- Import Angular Source -->
+    <script type="text/javascript" src="SystemLibrary/angular.js"></script>
+    <script type="text/javascript" src="SystemLibrary/angular-ui-router.min.js"></script>
+    <!-- The <meta> tag provides metadata about the HTML document. -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    <link href='CalendarNotifications/Web/css/fullcalendar.css' rel='stylesheet' type="text/css" />
+    <link href='CalendarNotifications/Web/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href='CalendarNotifications/Web/css/font-awesome.css' rel='stylesheet' type="text/css" />
+    <link href="CalendarNotifications/Web/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="CalendarNotifications/Web/css/bootstrapmodal.css" rel="stylesheet" type="text/css" />
+    <!--    <link href="CalendarNotifications/Web/css/bootstrap.no-icons.min.css" rel="stylesheet" type="text/css" /> -->
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/angularjs-datetime-picker.css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/autocomplete.css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/toaster.css" />
+    <link rel="stylesheet" href="CalendarNotifications/Web/css/token-input.css" />
+    <script src="CalendarNotifications/Web/js/angularjs-datetime-picker.js"></script>
+    <script src="CalendarNotifications/Web/js/jquery.js"></script>
+    <script src="CalendarNotifications/Web/js/toaster.js"></script>
+    <script src="CalendarNotifications/Web/js/toaster.min.js"></script>
+    <script src="CalendarNotifications/Web/js/autocomplete.js"></script>
+    <script src="CalendarNotifications/Web/js/moment.min.js"></script>
+    <script src="CalendarNotifications/Web/js/jquery.tokeninput.js"></script>
+    <script src="CalendarNotifications/Web/js/fullcalendar.min.js"></script>
+    <script src="CalendarNotifications/Web/js/bootstrapmodal.min.js"></script>
+    <!-- build:js modernizr.touch.js -->
+    <!--   <script src="CalendarNotifications/Web/mfb/dist/lib/modernizr.touch.js"></script> 
+    <script src="CalendarNotifications/Web/mfb/dist/lib/mfb.js"></script> -->
+    <!-- endbuild -->
+    <link href="CalendarNotifications/Web/mfb/demo/index.css" rel="stylesheet">
+    <!-- build:css mfb.css -->
+    <link href="CalendarNotifications/Web/mfb/dist/mfb.css" rel="stylesheet">
+    <!-- endbuild -->
+    <link href="CalendarNotifications/Web/css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- Contact CSS-->
+    <link href="Contact/Web/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="Contact/Web/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="Contact/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="Contact/Web/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Contact/Web/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="Contact/Web/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="Contact/Web/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+    <script src="Contact/Web/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="Contact/Web/assets/plugins/datatables/js/datatables.min.js"></script>
+    <!-- End-->
+    <!-- Location --->
+    <link href="Location/Web/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="Location/Web/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="Location/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="Location/Web/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Location/Web/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="Location/Web/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="Location/Web/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+    <script src="Location/Web/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="Location/Web/assets/plugins/datatables/js/datatables.min.js"></script>
+    <!---->
+    <!-- Org---->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <link href="Organization/Web/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="Organization/Web/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="Organization/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="Organization/Web/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Organization/Web/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="Organization/Web/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="Organization/Web/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+    <script src="Organization/Web/assets/plugins/node-uuid-master/angular-uuid.js"></script>
+    <script src="Organization/Web/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="Organization/Web/assets/plugins/datatables/js/datatables.min.js"></script>
+    <!------>
+    <!-- Person----->
+    <link href="Person/Web/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="Person/Web/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="Person/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="Person/Web/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Person/Web/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="Person/Web/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="Person/Web/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+    <script src="Person/Web/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="Person/Web/assets/plugins/datatables/js/datatables.min.js"></script>
+    <!----------------->
+    <!------Security-------------->
+    <link href="Security/Web/assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="Security/Web/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="Security/Web/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/summernote-master/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/bootstrap-colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Styles -->
+    <link href="Security/Web/assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="Security/Web/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="Security/Web/assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    <script src="Security/Web/assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+    <script src="Security/Web/assets/plugins/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="Security/Web/assets/plugins/datatables/js/datatables.min.js"></script>
+    <!----------------------->
+</head>
+
+<body>
+    <!--header-->
+    <div class="navbar-fixed" id="header-login">
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo"><img class="img-responsive" src="CalendarNotifications/Web/img/Logo.png" alt="Calender Notification"></a>
+                <div id="login-data" class="right">
+                    <div class="top_nav_btn_cont"> <a href="#/DashBoard" title="Home"><i class="fa fa-home"></i></a>
+                        <!-- <a href="#/CNUserProfile" title="Profile"> <i class="fa fa-user"></i></a> -->
+                        <a href="#/NotificationSettings" title="Notifications"> <i class="fa fa-bell"></i></a>
+                        <a href="http://calendar.traffix.in:3110" title="Log out"> <i class="fa fa-sign-out"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--header-->
+    <!--Toaster-->
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+    <!--Toaster-->
+    <div>
+        <!-- The ui-view directive tells $state where to place your templates. -->
+        <div ui-view> </div>
+        <div class="page-footer">
+            <p class="no-s"></p>
+            <div style="position:fixed; bottom:-10px; right:15px;">
+                <p style="color:#fff; line-height:44px; float:left; margin-right:10px;">Copyright © 2016.All rights reserved.</p> <img style="float:right;" src="3ilAppBase01/web/assets/images/footer_logo.png"></div>
+        </div>
+    </div>
+    <!--CalendarNotifications Logic Module Scripts -->
+    <script type="text/javascript" src="CalendarNotifications/app.js"></script>
+    <script src="CalendarNotifications/Logic/Authentication.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/Authentication.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/DashBoard.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/DashBoard.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CNUserProfile.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CNUserProfile.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/NotificationSettings.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/NotificationSettings.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateCalendar.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateCalendar.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditCalendar.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditCalendar.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateEvent.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateEvent.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditEvent.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditEvent.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/CreateTask.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/CreateTask.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EditTask.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EditTask.Controller.js"></script>
+    <script src="CalendarNotifications/Logic/EventResponse.Logic.js"></script>
+    <script src="CalendarNotifications/Logic/EventResponse.Controller.js"></script>
+    <script type="text/javascript" src="CalendarNotifications/Logic/CNNQueries.js"></script>
+    <!--CalendarNotifications FrameworkLibrary Module Scripts -->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Config/config.js"></script>
+    <!--CalendarNotifications SystemLibrary Module Scripts -->
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <!--CalendarNotifications Configuration Module Scripts -->
+    <script type="text/javascript" src="CalendarNotifications/Config/config.js"></script>
+    <script type="text/javascript" src="WebClient.Config.js"></script>
+    <!-- ng-cordova -->
+    <!--Contact Scripts -->
+    <script type="text/javascript" src="Contact/app.js"></script>
+    <script src="Contact/Logic/Contact.Logic.js"></script>
+    <script src="Contact/Logic/Contact.Controller.js"></script>
+    <script src="Contact/Logic/ContactList.Logic.js"></script>
+    <script type="text/javascript" src="Contact/Logic/ContactList.Controller.js"></script>
+    <script type="text/javascript" src="Contact/Logic/ContactQueries.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="Contact/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Contact/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <!--<script type='text/javascript' src="Contact/Logic/DeviceManagement.js"></script>-->
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="WebClient.Config.js"></script>
+    <script type="text/javascript" src="Contact/Config/config.js"></script>
+    <!-- Javascripts -->
+    <script src="Contact/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Contact/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="Contact/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="Contact/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Contact/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Contact/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="Contact/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="Contact/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="Contact/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="Contact/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="Contact/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="Contact/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="Contact/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="Contact/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="Contact/Web/assets/js/pages/form-elements.js"></script>
+    <script src="Contact/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="Contact/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <!-- <script src="Contact/Web/assets/plugins/toastr/toastr.min.js"></script> -->
+    <script src="Contact/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="Contact/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="Contact/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="Contact/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="Contact/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="Contact/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="Contact/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="Contact/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="Contact/Web/assets/js/pages/form-select2.js"></script>
+    <script src="Contact/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="Contact/Web/assets/js/modern.min.js"></script>
+    <!----->
+    <!--Location Scripts -->
+    <script type="text/javascript" src="Location/app.js"></script>
+    <script src="Location/Logic/Location.Logic.js"></script>
+    <script src="Location/Logic/Location.Controller.js"></script>
+    <script src="Location/Logic/LocationList.Logic.js"></script>
+    <script src="Location/Logic/LocationList.Controller.js"></script>
+    <script type="text/javascript" src="Location/Logic/Location.Logic.js"></script>
+    <script type="text/javascript" src="Location/Logic/Location.Queries.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="Location/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Location/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <!--<script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>-->
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <!--<script type='text/javascript' src="Location/Logic/DeviceManagement.js"></script>-->
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="WebClient.config.js"></script>
+    <script type="text/javascript" src="Location/Config/config.js"></script>
+    <!-- Javascripts -->
+    <script src="Location/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Location/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="Location/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="Location/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Location/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Location/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="Location/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="Location/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="Location/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="Location/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="Location/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="Location/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="Location/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="Location/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="Location/Web/assets/js/pages/form-elements.js"></script>
+    <script src="Location/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="Location/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <!-- <script src="Location/Web/assets/plugins/toastr/toastr.min.js"></script> -->
+    <script src="Location/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="Location/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="Location/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="Location/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="Location/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="Location/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="Location/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="Location/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="Location/Web/assets/js/pages/form-select2.js"></script>
+    <script src="Location/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="Location/Web/assets/js/modern.min.js"></script>
+    <!------>
+    <!--Organization Scripts -->
+    <script type="text/javascript" src="Organization/app.js"></script>
+    <script src="Organization/Logic/OrganizationList.Logic.js"></script>
+    <script src="Organization/Logic/OrganizationList.Controller.js"></script>
+    <script src="Organization/Logic/Organization.Logic.js"></script>
+    <script src="Organization/Logic/Organization.Controller.js"></script>
+    <!--Registration Module Scripts -->
+    <script src="Organization/Logic/Registration.Logic.js"></script>
+    <script src="Organization/Logic/Registration.Controller.js"></script>
+    <script src="Organization/Logic/Department.Logic.js"></script>
+    <script src="Organization/Logic/Department.Controller.js"></script>
+    <script src="Organization/Logic/Certification.Logic.js"></script>
+    <script src="Organization/Logic/Certification.Controller.js"></script>
+    <script type="text/javascript" src="Organization/Logic/OrganizationListQueries.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="Organization/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Organization/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <!-- <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>-->
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <!--<script type='text/javascript' src="Organization/Logic/DeviceManagement.js"></script>-->
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Config/config.js"></script>
+    <script type="text/javascript" src="WebClient.config.js"></script>
+    <script type="text/javascript" src="Organization/Config/config.js"></script>
+    <!-- Javascripts -->
+    <script src="Organization/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Organization/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="Organization/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="Organization/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Organization/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Organization/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="Organization/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="Organization/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="Organization/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="Organization/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="Organization/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="Organization/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="Organization/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="Organization/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="Organization/Web/assets/js/pages/form-elements.js"></script>
+    <script src="Organization/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="Organization/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <!-- <script src="Organization/Web/assets/plugins/toastr/toastr.min.js"></script> -->
+    <script src="Organization/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="Organization/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="Organization/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="Organization/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="Organization/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="Organization/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="Organization/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="Organization/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="Organization/Web/assets/js/pages/form-select2.js"></script>
+    <script src="Organization/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="Organization/Web/assets/js/modern.min.js"></script>
+    <!---------------------------->
+    <!----Person----->
+    <script type="text/javascript" src="Person/app.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBasicInfo.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBasicInfo.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDemographics.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDemographics.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBank.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonBank.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonRelative.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonRelative.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonList.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonList.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonEducation.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonEducation.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonIdentity.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonIdentity.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVisa.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVisa.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonWorkExperience.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonWorkExperience.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonHobby.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonHobby.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonReligion.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonReligion.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonAward.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonAward.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSport.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSport.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSportAwards.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonSportAwards.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonInsurance.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonInsurance.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDisease.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonDisease.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLanguageProficiency.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLanguageProficiency.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLivingPlace.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonLivingPlace.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonMaritalStatus.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonMaritalStatus.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVaccination.Controller.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonVaccination.Logic.js"></script>
+    <script type="text/javascript" src="Person/Logic/PersonQueries.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="Person/FirstTimeSetup/FirstTimeSetup.Queries.js"></script>
+    <script type="text/javascript" src="Person/FirstTimeSetup/FirstTimeSetup.Web.js"></script>
+    <!--First time setup Scripts-->
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="WebClient.Config.js"></script>
+    <script type="text/javascript" src="Person/Config/config.js"></script>
+    <script src="Person/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Person/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="Person/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="Person/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Person/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Person/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="Person/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="Person/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="Person/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="Person/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="Person/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="Person/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="Person/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="Person/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="Person/Web/assets/js/pages/form-elements.js"></script>
+    <script src="Person/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="Person/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <script src="Person/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="Person/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="Person/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="Person/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="Person/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="Person/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="Person/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="Person/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="Person/Web/assets/js/pages/form-select2.js"></script>
+    <script src="Person/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="Person/Web/assets/js/modern.min.js"></script>
+    <script src="SystemLibrary/ng-cordova.min.js"></script>
+    <script src="SystemLibrary/ng-cordova.min.js"></script>
+    <script src="SystemLibrary/angular-base64-upload.js"></script>
+    <!---------------------------->
+    <!--Security Scripts -->
+    <script type="text/javascript" src="Security/app.js"></script>
+    <script type="text/javascript" src="Security/Logic/SecurityQueries.js"></script>
+    <script type="text/javascript" src="Security/Logic/Roles.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Roles.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/User.Controller.Js"></script>
+    <script type="text/javascript" src="Security/Logic/User.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/UserRole.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/UserRole.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Login.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Login.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Registration.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Registration.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/ChangePassword.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/ChangePassword.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/ForgotPassword.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/ForgotPassword.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Email.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Email.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/VerifyMail.Logic.js"></script>
+    <script type="text/javascript" src="Security/Logic/Storage.js"></script>
+    <script type="text/javascript" src="Security/Logic/Admin.Controller.js"></script>
+    <script type="text/javascript" src="Security/Logic/Storage.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/logger.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Logger/AppLogger.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/aes.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Crypto/mdo-angular-cryptography.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Camera/Camera.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/Location.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-event.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/ui-map.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Location/googlemaps.js"></script>
+    <script type='text/javascript' src="FrameworkLibrary/Network/Network.js"></script>
+    <script type='text/javascript' src="SystemLibrary/re-tree.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ngStorage.min.js"></script>
+    <script type='text/javascript' src="SystemLibrary/ng-device-detector.js"></script>
+    <script type="text/javascript" src="FrameworkLibrary/Data/DataServices.js"></script>
+    <script type="text/javascript" src="WebClient.Config.js"></script>
+    <script type="text/javascript" src="Security/Config/config.js"></script>
+    <!-- Javascripts -->
+    <script src="Security/Web/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="Security/Web/assets/plugins/pace-master/pace.min.js"></script>
+    <script src="Security/Web/assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="Security/Web/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Security/Web/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="Security/Web/assets/plugins/switchery/switchery.min.js"></script>
+    <script src="Security/Web/assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="Security/Web/assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+    <script src="Security/Web/assets/plugins/offcanvasmenueffects/js/main.js"></script>
+    <script src="Security/Web/assets/plugins/waves/waves.min.js"></script>
+    <script src="Security/Web/assets/plugins/3d-bold-navigation/js/main.js"></script>
+    <script src="Security/Web/assets/plugins/summernote-master/summernote.min.js"></script>
+    <script src="Security/Web/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="Security/Web/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="Security/Web/assets/js/pages/form-elements.js"></script>
+    <script src="Security/Web/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="Security/Web/assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
+    <!-- <script src="Employee/Web/assets/plugins/toastr/toastr.min.js"></script> -->
+    <script src="Security/Web/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script src="Security/Web/assets/plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="Security/Web/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="Security/Web/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="Security/Web/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="Security/Web/assets/plugins/curvedlines/curvedLines.js"></script>
+    <script src="Security/Web/assets/plugins/metrojs/MetroJs.min.js"></script>
+    <script src="Security/Web/assets/plugins/select2/js/select2.min.js"></script>
+    <script src="Security/Web/assets/js/pages/form-select2.js"></script>
+    <script src="Security/Web/assets/plugins/dropzone/dropzone.min.js"></script>
+    <script src="Security/Web/assets/js/modern.min.js"></script>
+    <script src="SystemLibrary/ng-cordova.min.js"></script>
+</body>
+
+</html>

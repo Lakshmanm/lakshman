@@ -1,0 +1,138 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Relative
+ Type		    	: html 
+ Description		: html page for person Relative 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 06-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<form name="relativeForm" novalidate>
+    <div class="col-lg-12">
+        <h2>{{relativeLabels.relative}}</h2></div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{relativeLabels.name}}<span style="color:red">*</span>
+                </label>
+                <input class="form-control " type="text" ng-model="relativePerson.firstName" name="title" required>
+
+                <div class="padding" ng-if="relativeForm.title.$touched || relativeForm.$submitted" style="color:red">
+                    <p ng-show="relativeForm.title.$error.required "> Name is mandatory</p>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{relativeLabels.relationType}}<span style="color:red">*</span>
+                </label>
+                <select class="form-control" style="width: 100%" ng-options="relation.relationTypeId as relation.relationTypeName for relation in relationTypes" ng-model="relative.relationTypeId" name="designation" required>
+
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+
+                <div class="padding" ng-if="relativeForm.designation.$touched || relativeForm.$submitted" style="color:red">
+                    <p ng-show="relativeForm.designation.$error.required "> Relative type is mandatory</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="relative.isGaurdian"> {{relativeLabels.isGaurdian}}
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="relativeForm.$valid&&saveRelative()" class="btn btn-primary">{{relativeLabels.submit}}</button>
+
+        </div>
+    </div>
+
+    <br/>
+
+
+
+
+    <div class="panel-white">
+        <div class="col-lg-12">
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{relativeLabels.name}}</th>
+                                <th>{{relativeLabels.relationType}}</th>
+                                <th>{{relativeLabels.isGaurdian}}</th>
+                                <th>{{relativeLabels.edit}}</th>
+                                <th>{{relativeLabels.delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="relative in relatives">
+                                <td>{{relative.relativeName}}</td>
+                                <td>{{relative.relationTypeName}}</td>
+                                <td>{{relative.isGaurdian.data[0] ==1?'Yes':'No'}}</td>
+
+
+
+                                <td>
+                                    <a ng-click="getRelative(relative.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRelative(relative.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

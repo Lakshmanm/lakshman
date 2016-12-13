@@ -1,0 +1,209 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewStudentLeaveRequest.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Profile Settings</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+  
+       <form name="LeaveForm" novalidate>
+        <div class="row">
+         
+            <div class="col-md-3">
+              
+                     <div class="form-group" ng-class="{'has-error':LeaveForm.Region.$dirty && LeaveForm.Region.$invalid, 'has-success':LeaveForm.Region.$valid}">
+                    <label class="control-label">
+                          Region<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select class="js-states form-control" style="width: 100%" ng-options="item.RegionKey as item.RegionTitle for item in regionCollection" ng-required="true" ng-model="settings.RegionKey" name="Region">
+                                        <option value="" >-Select-</option>
+                                        </select></span>
+               <span class="error text-small block" ng-if="LeaveForm.Region.$dirty && LeaveForm.Region.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Region.$invalid && LeaveForm.Region.$error.required">Region is required</p></span>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.TimeZone.$dirty && LeaveForm.TimeZone.$invalid, 'has-success':LeaveForm.TimeZone.$valid}">
+                    <label class="control-label">
+                          Time Zone<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select class="form-control" name="TimeZone" ng-options="academic.TimeZoneKey as academic.TimeZoneTitle for academic in timeZonesCollection" ng-model="settings.TimeZoneKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select></span>
+
+                 <span class="error text-small block" ng-if="LeaveForm.TimeZone.$dirty && LeaveForm.TimeZone.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.TimeZone.$invalid && LeaveForm.TimeZone.$error.required">TimeZone is required</p></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.TimeFormat.$dirty && LeaveForm.TimeFormat.$invalid, 'has-success':LeaveForm.TimeFormat.$valid}">
+                    <label class="control-label">
+                            Time Format<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select class="form-control" ng-options="Board.TimeFormatKey as Board.TimeFormatTitle for Board in timeFormatsCollection" name="TimeFormat" ng-model="settings.TimeFormatKey" ng-required="true">
+                                          <option value=""  selected>---Select---</option>  
+                                        </select></span>
+                   <span class="error text-small block" ng-if="LeaveForm.TimeFormat.$dirty && LeaveForm.TimeFormat.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.TimeFormat.$invalid && LeaveForm.TimeFormat.$error.required">TimeFormat is required</p></span>
+                </div>
+                </div>
+   <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.DateFormat.$dirty && LeaveForm.DateFormat.$invalid, 'has-success':LeaveForm.DateFormat.$valid}">
+                    <label class="control-label">
+                            Date Format<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select class="form-control" name="DateFormat" ng-options="group.DateFormatKey as group.DateFormatTitle for group in dateFormatsCollection" ng-model="settings.DateFormatKey" ng-required="true">
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                    </span>
+                   <span class="error text-small block" ng-if="LeaveForm.DateFormat.$dirty && LeaveForm.DateFormat.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.DateFormat.$invalid && LeaveForm.DateFormat.$error.required">Date Format is required</p></span>
+                </div>
+            </div>
+            </div>
+
+         
+    
+        <div class="row">
+
+            <div class="col-md-3">
+              <div class="form-group" ng-class="{'has-error':LeaveForm.Language.$dirty && LeaveForm.Language.$invalid, 'has-success':LeaveForm.Language.$valid}">
+                    <label class="control-label">
+                            Language<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select class="form-control" name="Language" ng-options="course.LanguageID as course.LanguageName for course in languagesCollection" ng-model="settings.LanguageID" ng-required="true">
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                   </span>
+                   <span class="error text-small block" ng-if="LeaveForm.Language.$dirty && LeaveForm.Language.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Language.$invalid && LeaveForm.Language.$error.required">Language is required</p></span>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.Height.$dirty && LeaveForm.Height.$invalid, 'has-success':LeaveForm.Height.$valid}">
+                    <label class="control-label">
+                                           Height <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                    <select class="form-control" name="Height" ng-options="item.HeightKey as item.HeightTitle for item in heightsCollection" ng-model="settings.HeightKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                   </span>
+                   <span class="error text-small block" ng-if="LeaveForm.Height.$dirty && LeaveForm.Height.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Height.$invalid && LeaveForm.Height.$error.required">Height is required</p></span>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+               <div class="form-group" ng-class="{'has-error':LeaveForm.Weight.$dirty && LeaveForm.Weight.$invalid, 'has-success':LeaveForm.Weight.$valid}">
+                    <label class="control-label">
+                                           Weight <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                    <select class="form-control" name="Weight" ng-options="item.WeightKey as item.WeightTitle for item in weightsCollection" ng-model="settings.WeightKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                   </span>
+                   <span class="error text-small block" ng-if="LeaveForm.Weight.$dirty && LeaveForm.Weight.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Weight.$invalid && LeaveForm.Weight.$error.required">Weight is required</p></span>
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+               <div class="form-group" ng-class="{'has-error':LeaveForm.Temperature.$dirty && LeaveForm.Temperature.$invalid, 'has-success':LeaveForm.Temperature.$valid}">
+                    <label class="control-label">
+                                           Temperature<span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                    <select class="form-control" name="Temperature" ng-options="item.TemperatureKey as item.TemperatureTitle for item in temperaturesCollection" ng-model="settings.TemperatureKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                    </span>
+                   <span class="error text-small block" ng-if="LeaveForm.Temperature.$dirty && LeaveForm.Temperature.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Temperature.$invalid && LeaveForm.Temperature.$error.required">Temperature is required</p></span>
+
+                </div>
+
+            </div>
+        </div>
+     
+      
+        <div class="row">
+            
+            <div class="col-md-3">
+               <div class="form-group" ng-class="{'has-error':LeaveForm.Currency.$dirty && LeaveForm.Currency.$invalid, 'has-success':LeaveForm.Currency.$valid}">
+                    <label class="control-label">
+                                           Currency <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                    <select class="form-control" name="Currency" ng-options="item.CurrencyKey as item.CurrencyTitle for item in currenciesCollection" ng-model="settings.CurrencyKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                   </span>
+                   <span class="error text-small block" ng-if="LeaveForm.Currency.$dirty && LeaveForm.Currency.$invalid" class="validationMessage">    
+                        <p ng-show="LeaveForm.Currency.$invalid && LeaveForm.Currency.$error.required">Currency is required</p></span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-12">
+            <center>
+                <button type="submit" class="btn btn-wide btn-primary" ng-disabled="LeaveForm.$invalid" ng-show="shoSave" ng-click="LeaveForm.$valid && saveSettings()" v-pressable>
+                            Save
+                        </button>
+
+
+                <button type="submit" ng-disabled="LeaveForm.$invalid" class="btn btn-wide btn-primary" ng-show="shoUpdate" ng-click="LeaveForm.$valid && updateSettings()" v-pressable>
+                            Update
+                        </button>
+
+
+            </center>
+        </div>
+        
+    </form>
+
+</div>

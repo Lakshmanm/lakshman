@@ -1,0 +1,47 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: boardList.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="board List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="list board_table">
+					 <div class="row item" dir-paginate="entityboard in collectionboard | orderBy:sortColumn: reverseSort | orderBy:sortKey: reverse | itemsPerPage:pageSize">
+						 <div class="col col-80">
+
+						 </div>
+						 <div class="col col-10">
+							 <a  ng-click="" href="#/app/editboard/{{entityboard.boardKey}}"><span  class="new_icon ion-edit"></span></a>
+						 </div>
+						 <div class="col col-10">
+							 <a ng-click="deleteboard(entityboard.boardKey)"><span class="new_icon ion-trash-a"></span></a>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

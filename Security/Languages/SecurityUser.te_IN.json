@@ -1,0 +1,22 @@
+
+
+{
+    "labels": {
+        "User": "వాడుకరి",
+        "UserName": "వాడుకరి పేరు",
+        "Password": "పాస్వర్డ్",
+         "First Name": "మొదటి పేరు",
+         "LastName": "చివరి పేరు",
+         "EmailId": "ఇమెయిల్ ID",
+         "MobileNumber": "మొబైల్ నంబర్",
+         "IsActive": "సక్రియంగా ఉన్నప్పుడు",
+        "Save": "సేవ్",
+        "Update": "నవీకరణ",
+        "Edit": "మార్చు"
+       
+           },
+    "errors": {
+        
+        }
+    
+}

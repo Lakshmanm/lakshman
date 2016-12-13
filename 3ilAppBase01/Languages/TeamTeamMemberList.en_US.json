@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "startDate": "Start Date",
+		 "endDate":"End Date",
+         "submit": "Submit",
+		 "delete":"Delete",
+		 "teamMemberListTitle":"Team Member List",
+        "teamKey":"Team Title",
+        "personKey":"Person",
+        "teamRoleKey":"Team Role Title"
+
+    }
+}

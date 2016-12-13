@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "name": "नाम",
+        "relationType": "संबंधी",
+        "isGaurdian": "संरक्षक है",
+        "submit": "जमा करें",
+        "edit": "संपादित",
+        "delete": "मिटाना",
+        "relative": "संबंधी"
+
+    },
+    "errors": {
+
+    }
+}

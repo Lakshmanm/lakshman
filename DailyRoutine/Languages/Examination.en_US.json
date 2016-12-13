@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "examinationTitle": "Examination Title",
+        "examinationList": "Examination List",
+        "examinationType": "Examination Type",
+        "instanceOrganizationKey": "Instance OrganizationKey",
+        "edit": "Edit",
+        "delete": "Delete",
+        "update": "Update",
+        "organization": "Organization",
+        "save": "Save"
+
+
+
+    },
+    "errors": {
+
+    }
+}

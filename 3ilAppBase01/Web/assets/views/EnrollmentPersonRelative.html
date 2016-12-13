@@ -1,0 +1,181 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Education
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Phani
+ Created Date       : 11-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+   <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#/app/start">Start</a></li>
+        <li><a data-toggle="tab" href="#/app/enrolmentBasicInfo">Basic Info</a></li>
+        <li><a data-toggle="tab" href="#/app/enrollmentNumber/EnrollmentKey/:EnrollmentKey/PersonKey/:PersonKey">Enrollment No</a></li>
+        <li><a data-toggle="tab" href="#/app/entrollmentaddress">Address</a></li>
+        <li class="active"><a data-toggle="tab" href="#/app/guardian">Guardian</a></li>
+        <li><a data-toggle="tab" href="#/app/enrolmentEducation">Past Education</a></li>
+        <li><a data-toggle="tab" href="#/app/complete">Complete</a></li>
+
+    </ul>
+   <div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+
+<form name="relativeForm" >
+  
+    
+    <div class="row">
+
+     <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':relativeForm.title.$dirty && relativeForm.title.$invalid, 'has-success':relativeForm.title.$valid}">
+             <label>{{relativeLabels.name}} <span class="symbol required"></span> </label> <span class="clip-select">
+          <input class="form-control" type="text" name="title" ng-model="relativePerson.FirstName" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                         <span class="error text-small block" ng-if="relativeForm.title.$dirty && relativeForm.title.$invalid" style="color:red">    
+                              <p ng-show="relativeForm.title.$invalid && relativeForm.title.$error.required">Title is required</p>
+                      <p ng-show="relativeForm.title.$error.minlength">Name be minimum of 3 characters</p>
+                        <p ng-show="relativeForm.title.$error.maxlength">Namebe maximum of 30 characters</p> 
+                            <p ng-show="relativeForm.title.$error.pattern">Name accept only alphabetic characters</p>
+                        </span> </div>
+                </div>
+
+
+
+        <div class="col-lg-4 col-md-6">
+            <div class="form-group" ng-class="{'has-error':relativeForm.relationTyes.$dirty && relativeForm.relationTyes.$invalid, 'has-success':relativeForm.relationTyes.$valid}">
+                <label>{{relativeLabels.relationType}}<span class="symbol required"></span> </label> <span class="clip-select">
+         
+                <select class="form-control" style="width: 100%" ng-options="relation.relationTypeId as relation.relationTypeName for relation in relationTypes" ng-model="relative.relationTypeId" name="relationTyes" required>
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="relativeForm.relationTyes.$dirty && relativeForm.relationTyes.$invalid" style="color:red">    
+                 <p ng-show="relativeForm.relationTyes.$invalid && relativeForm.relationTyes.$error.required">Relation Type is required</p>
+           </span>
+        </div>
+    </div>
+</div>
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+
+                <div class="checkbox">
+
+                <input type="checkbox" id="checkbox1" ng-model="relative.isGaurdian">
+<label for="checkbox1">{{relativeLabels.isGaurdian}}</label> 
+                    <!-- <label>
+                        <input type="checkbox" ng-model="relative.isGaurdian"> {{relativeLabels.isGaurdian}}
+                    </label> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="text-align:center">
+          <!--   <button type="submit" ng-click="relativeForm.$valid&&saveRelative()" class="btn btn-primary">{{relativeLabels.submit}}</button> -->
+<button type="button" class="btn btn-wide btn-primary" ng-disabled="relativeForm.$invalid" ng-click="relativeForm.$valid && saveRelative()" v-pressable>{{relativeLabels.submit}}</button>
+
+
+        </div>
+    </div>
+
+    <br/>
+</form>
+
+</div>
+
+
+   
+      
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                    <!-- <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{relativeLabels.name}}</th>
+                                <th>{{relativeLabels.relationType}}</th>
+                                <th>{{relativeLabels.isGaurdian}}</th>
+                                <th>{{relativeLabels.edit}}</th>
+                                <th>{{relativeLabels.delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="relative in relatives">
+                                <td>{{relative.relativeName}}</td>
+                                <td>{{relative.relationTypeName}}</td>
+                                <td>{{relative.isGaurdian.data[0] ==1?'Yes':'No'}}</td>
+
+
+
+                                <td>
+                                    <a ng-click="getRelative(relative.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRelative(relative.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table> -->
+
+<table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                   <th>{{relativeLabels.name}}</th>
+                                <th>{{relativeLabels.relationType}}</th>
+                                <th>{{relativeLabels.isGaurdian}}</th>
+                                <th>{{relativeLabels.edit}}</th>
+                                <th>{{relativeLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="relative in relatives">
+                                <td>{{relative.relativeName}}</td>
+                                <td>{{relative.relationTypeName}}</td>
+                                <td>{{relative.isGaurdian.data[0] ==1?'Yes':'No'}}</td>
+
+
+
+                                <td>
+                                    <a ng-click="getRelative(relative.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRelative(relative.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    
+                </div>
+            </div>
+        </div>
+</div>
+</div>

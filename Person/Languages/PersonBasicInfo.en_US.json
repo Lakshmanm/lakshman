@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "firstName": "First Name",
+        "middleName": "Middle Name",
+        "lastName": "Last Name",
+        "dateOfBirth": "Date of Birth",
+        "placeOfBirth": "Place of Birth",
+        "gender": "Gender",
+        "identificationMarks": "Identification Marks",
+        "languages": "Languages",
+        "bloodGroup": "Blood Group",
+        "submit": "Submit",
+        "basicInfo": "Basic Info"
+    },
+    "errors": {
+
+    }
+}

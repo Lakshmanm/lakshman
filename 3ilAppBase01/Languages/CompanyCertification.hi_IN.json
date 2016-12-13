@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "certificationTitle": "Certification Title",
+        "validFrom": "Valid From",
+        "validTo": "Valid To",
+        "endDate": "End Date",
+        "certificationDetails": "Certification Details",
+        "submit": "Submit",
+        "delete": "delete",
+        "certificationHeading": "certification"
+
+    },
+    "errors": {
+
+    }
+
+}

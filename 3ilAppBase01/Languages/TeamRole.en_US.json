@@ -1,0 +1,10 @@
+{
+    "lables": {
+       "teamRoleTitle":"Team Role Title",
+        "organizationKey":"Organization Key",
+        "submit": "Save",
+        "update":"Update",
+        "teamRoleHeading":"New Team Role"  , 
+        "editTeamRoleHeading":"Edit Team Role"
+    }
+}

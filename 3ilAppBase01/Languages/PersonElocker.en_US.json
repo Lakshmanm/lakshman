@@ -1,0 +1,16 @@
+
+{
+    "labels": {
+        "document": "Select Type Of Document",
+        "folder": "Attach Documents",
+        "documentList": "Type Of Document",
+        "fileName": "File Name",
+       
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

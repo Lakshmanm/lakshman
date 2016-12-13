@@ -1,0 +1,147 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Relative
+ Type		    	: html 
+ Description		: html page for person Relative 
+ References		    :
+ Author	    		: SreeLakshmi Chinnala
+ Created Date       : 06-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+
+
+
+<form name="elockerForm" >
+    <div class="col-lg-12">
+    <fieldset ng-disabled="details"> 
+   <div class="row">
+       
+        <div class="col-lg-4 col-md-6">
+            <div class="form-group" ng-class="{'has-error':elockerForm.document.$dirty && elockerForm.document.$invalid, 'has-success':elockerForm.document.$valid}">
+                <label>{{elockerLabels.document}}<span class="symbol required"></span> </label> <span class="clip-select">
+              
+                <select class="form-control" style="width: 100%" ng-options="document.IdentityTypeID as document.IdentityTypeName for document in documentTypes" ng-model="elocker.identityTypeID" name="document" required>
+
+
+                   <option value="">--Select--</option>
+                </select></span>
+              <span class="error text-small block" ng-if="elockerForm.document.$dirty && elockerForm.document.$invalid" style="color:red">    
+                 <p ng-show="elockerForm.document.$invalid && elockerForm.document.$error.required">Document Type is required</p></span>
+           
+        </div>
+    </div>
+       
+        <div class="row"> 
+       <div class="col-lg-4 col-md-6">
+                    <div class="form-group">
+                        <label>{{elockerLabels.folder}}<span class="symbol required"></span></label>
+                        <input type="file" name="myFile" ng-change="getName(elocker.documents)" id="myFile" ng-model="elocker.documents" base-sixty-four-input> </div>
+           
+             <label>{{filename}}</label>
+                </div>
+       </div>
+       
+       
+
+        </div> 
+       
+
+</fieldset>
+
+        </div> 
+        
+          
+        
+
+    <div class="row">
+        <div style="text-align:center">
+          <!--   <button type="submit" ng-click="elockerForm.$valid&&saveRelative()" class="btn btn-primary">{{referenceLabels.submit}}</button> -->
+<button type="button" ng-hide="elocker" class="btn btn-wide btn-primary" ng-disabled="elockerForm.$invalid" ng-click="elockerForm.$valid && saveElocker()" v-pressable>{{elockerLabels.submit}}</button>
+
+
+        </div>
+    </div>
+
+
+</form>
+
+
+
+
+ 
+  
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+
+                  
+
+<table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                   <th>{{elockerLabels.documentList}}</th>
+                                <th>{{elockerLabels.fileName}}</th>
+                               
+                                <th>{{elockerLabels.edit}}</th>
+                                <th ng-hide="elocker">{{elockerLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="document in documentList">
+                                <td>{{document.identityTypeName}}</td>
+                                <td ><a href="#"  download ng-click="getFileDetails(document.n3DMSFileKey)">{{document.FileName}}</a></td>
+                                    
+                                    
+                               
+
+
+
+                                <td>
+                                    <a ng-click="getDocument(document.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td ng-hide="elocker"><a ng-click="deleteDocument(document.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                    
+                </div>
+            </div>
+        </div>
+ 
+</div>
+</div>

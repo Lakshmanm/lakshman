@@ -1,0 +1,44 @@
+{
+    "labels": {
+        
+        "EventTitle": "Appointment Title",
+        "StartDateTime": "Start DateTime",
+        "EndDateTime": "End DateTime",
+        "Reminder": "Reminder",
+        "ReminderType": "Reminder Type",
+        "Calender": "Calendar",
+        "RecurrencePattern": "Recurrence Pattern",
+        "RecurrencePattern1": "Recurrence Pattern1",
+        "RepeatsEvery": "Repeats Every",
+        "days(s)": "days(s)",
+        "Oneveryweekday": "One every weekday",
+        "RecurrencePattern2": "Recurrence Pattern2",
+        "Week(s):": "Week(s)",
+        "Monday": "Monday",
+        "Tuesday": "Tuesday",
+        "Wednesday": "Wednesday",
+        "Thursday": "Thursday",
+        "Friday": "Friday",
+        "Saturday": "Saturday",
+        "Sunday": "Sunday",
+        "RecurrencePattern3": "Recurrence Pattern3",
+        "Day": "Day",
+        "ofevery": "of every",
+        "months(s)":"months(s)",
+        "months":"months",
+        "The":"The",
+        "Daily": "Daily",
+        "Weekly": "Weekly",
+        "Monthly": "Monthly",
+        "Location": "Location",
+        "Attendee": "Patient",
+        "Description": "Description",
+        "SendiCalender": "Send iCalender invite to all attendees.",
+        "Save": "Save",
+        "Cancel": "Cancel"
+         
+    },
+    "errors": {
+
+    }
+}

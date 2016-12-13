@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "designationTitle": "Designation Title",
+        "designationDetails": "Designation Details",
+        "designationList": "Designation List",
+        "designationHeading": "Designation",
+        "edit": "Edit",
+        "delete": "Delete"     
+
+    },
+    "errors": {
+
+    }
+}
+

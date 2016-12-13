@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "LanguageProficiency": "బాషా నైపుణ్యత",
+        "Language": "బాషా",
+        "LanguageProficiency": "బాషా నైపుణ్యత",
+        "Submit": "సమర్పించండి",
+        "Language":"బాషా",
+        "Read":"చదవండి",
+        "Write":"వ్రాయడానికి",
+        "Speak":"మాట్లాడు",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి"
+    },
+    "errors": {
+
+    }
+}

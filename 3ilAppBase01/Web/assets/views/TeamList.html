@@ -1,0 +1,65 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: TeamList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h4>{{labelsTeam.teamHeading}}</h4></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                 <div class="col-md-3">
+                    <div class="form-group">
+                      
+                            <!-- <image class="form-control" ></image>  -->
+                             <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG"  height="18px">  
+                            <a ng-href="#/app/newTeam">Add Team</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+				 <table id="tblTeamList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th style="cursor: pointer" ng-click="sortData('teamtitle')" >{{labelsTeam.teamTitle}} <div ng-class="getSortClass('teamtitle')"></div></th>
+							<!-- <th style="cursor: pointer" ng-click="sortData('teamdescription')">{{labelsTeam.teamDescription}}<div ng-class="getSortClass('teamdescription')"></div></th>-->
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityTeam in teamCollection | orderBy:sortColumn:reverseSort">
+							 <td>{{ entityTeam.teamtitle }}</td>
+							 <!--<td>{{ entityTeam.teamdescription }}</td>-->
+							 <td><a ng-click="" href="#/app/editTeam/{{entityTeam.teamkey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteTeam(entityTeam.teamkey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

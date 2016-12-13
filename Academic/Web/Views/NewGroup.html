@@ -1,0 +1,87 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewGroup.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="groupForm" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{'has-error':groupForm.boardTitle.$dirty && groupForm.boardTitle.$invalid, 'has-success':groupForm.boardTitle.$valid}">
+                        <label>{{labelsGroup.boardTitle}} <span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control " ng-model="entityGroup.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span class="error text-small block" ng-if="groupForm.$submitted &&  groupForm.boardTitle.$dirty && groupForm.boardTitle.$invalid">
+                        <p ng-show="groupForm.boardTitle.$error.required">Board title is required</p> </span> </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{'has-error':groupForm.groupTitle.$dirty && groupForm.groupTitle.$invalid, 'has-success':groupForm.groupTitle.$valid}">
+                        <label>{{labelsGroup.groupTitle}} <span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityGroup.groupTitle" name="groupTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[ A-Za-z0-9_@./#&+-]*$/" ng-required="true"> <span ng-if=" groupForm.groupTitle.$dirty && groupForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-if="groupForm.groupTitle.$error.required">Group title  is required</p> <p ng-show="groupForm.groupTitle.$error.minlength">Group title minimum length is 3 characters</p> <p ng-show="groupForm.groupTitle.$error.maxlength">Group title maximum length is 80 characters</p> <p ng-show="groupForm.groupTitle.$error.pattern">Alphabets only</p> </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="panel-body">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-show="save" ng-click="groupForm.$valid&&addGroup()">{{labelsGroup.submit}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-show="update" ng-click="groupForm.$valid&&updateGroup()">{{labelsGroup.update}}</button>
+                                    <div> </div>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblGroupList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsGroup.groupTitle}}</th>
+                                    <th>{{labelsGroup.boardTitle}}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityGroup in groupCollection">
+                                    <td>{{ entityGroup.groupTitle }}</td>
+                                    <td>{{ entityGroup.boardTitle }}</td>
+                                    <td><a ng-click="editGroup(entityGroup.groupKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteGroup(entityGroup.groupKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+        </div>
+        </div>

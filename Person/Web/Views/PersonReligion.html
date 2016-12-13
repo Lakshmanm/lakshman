@@ -1,0 +1,147 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Religion
+ Type		    	: HTML
+ Description		: html page for person Identity 
+ References		    :
+ Author	    		: Phaneendra Vaddiparthy
+ Created Date       : 11-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<form name="religionform" novalidate>
+
+    <div class="col-lg-12">
+        <h2>{{religionLabels.religion}}</h2></div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{religionLabels.nationality}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="nation.nationalityId as nation.nationalityName for nation in nationalityList" ng-model="religion.nationalityId" name="nationalityId" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="religionform.nationalityId.$touched || religionform.$submitted" style="color:red" required>
+                    <p ng-show="religionform.nationalityId.$error.required ">Nationality is required</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{religionLabels.socialGroup}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="social.socialGroupId as social.socialGroupName for social in socialGroupList" ng-model="religion.socialGroupId" name="socialGroupId" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="religionform.socialGroupId.$touched || religionform.$submitted" style="color:red" required>
+                    <p ng-show="religionform.socialGroupId.$error.required ">Social Group is required</p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{religionLabels.religionType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="rel.religionTypeId as rel.religionTypeName for rel in religionTypeList" ng-model="religion.religionTypeId" name="religionTypeId" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="religionform.religionTypeId.$touched || religionform.$submitted" style="color:red" required>
+                    <p ng-show="religionform.religionTypeId.$error.required ">Religion is required</p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="religionform.$valid&&saveReligion()" class="btn btn-primary">{{religionLabels.submit}}</button>
+        </div>
+    </div>
+
+</form>
+<div class="row">
+
+    <div style="width:20%">
+
+
+        <div class="form-group">
+
+        </div>
+    </div>
+                <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{religionLabels.nationality}}</th>
+
+                <th>{{religionLabels.socialGroup}}</th>
+                <th>{{religionLabels.religionType}}</th>
+                <th>{{religionLabels.edit}}</th>
+                <th>{{religionLabels.delete}}</th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="religion in religionList">
+
+                <td>{{religion.nationalityName}}</td>
+                <td>{{religion.socialGroupName}}</td>
+                <td>{{religion.religionTypeName}}</td>
+
+
+
+                <!-- <a ng-click="editEducation(education.EducationId)"><span title="edit" class="glyphicon glyphicon-edit"></span></a> &nbsp;&nbsp;
+                    <a ng-click="deleteEducation(education.educationID)" confirmation-needed="Really Delete?"><span title="delete" class="glyphicon glyphicon-remove"></span></a> -->
+
+
+                <td>
+                    <a ng-click="editReligion(religion.referenceKey)"><i class="fa fa-pencil"></i></a>
+                </td>
+                <td><a ng-click="deleteReligion(religion.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+
+
+            </tr>
+        </tbody>
+    </table>
+    <!--  <div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+
+</div>

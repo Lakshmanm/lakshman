@@ -1,0 +1,45 @@
+<body style="" class="login-bg">
+
+    <div class="login-bg">
+        <div id="login" style="margin-top:10%">
+            <h4 style="color:#fff;">{{loginLables.WelcomeNote}}</h4>
+            <spna ng-bind="error"></spna>
+            <form name="loginform" ng-submit="login()" role="form">
+                <fieldset style="background-color:#fff; border:none; border-radius:4px;">
+                    <p>
+                        <input style="width:100%" type="text" id="inputEmail" class="form-control" placeholder="Email ID" required autofocus ng-model="user.username">
+                    </p>
+                    <p>
+                        <input type="password" style="width:100%" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
+                    </p>
+
+                    <p>
+
+                        <button type="submit" value="Login" class="btnstyle" >{{loginLables.Login}}</button>
+                    </p>
+
+                    <p> <span id="handsym" ng-click="forgotPassword();" style="font-size:14px;">{{loginLables.ForgotPassword}}?</span></p>
+                </fieldset>
+            </form>
+        </div>
+        <div id="forgot" style="display:none; margin-top:12%;">
+            <h4 style="margin-top:-30px; color:#fff;">{{loginLables.ForgotPassword}}</h4>
+            <form name="form" ng-submit="forgotPasswordEmail()" role="form" style=" background-color:#fff;">
+
+                <fieldset>
+                    <p ng-bind="Message"></p>
+                    <p>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Email ID" required autofocus ng-model="user.forgotPasswordEmail">
+                    </p>
+
+                    <p>
+
+                        <button type="submit" value="" class="btnstyle" ng-submit="forgotPasswordEmail()" style="background-color:#e89752;width:100%">{{loginLables.Submit}}</button>
+                    </p>
+                    <p> <span id="handsym" ng-click="goToLogin();">{{loginLables.BackToLogin}} </span></p>
+                </fieldset>
+            </form>
+
+        </div>
+
+    </div>

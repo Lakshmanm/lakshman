@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "OrganizationCertification": "संगठन प्रमाणन",
+        "CertificationName": "सर्टिफिकट",
+        "CertificationType": " प्रमाण पट्र ",
+        "ValidFrom": " से मान्य",
+        "ValidTo":"इस तक मान्य",
+        "Submit":"जमा करें",
+        "CertificationName":"सर्टिफिकट",
+        "CertificationType":"प्रमाण पट्र",
+        "ValidFrom":"से मान्य",
+        "ValidTo":"इस तक मान्य",
+        "Edit":"संपादित करें",
+        "Delete":"मिटाना"
+
+
+    }
+}

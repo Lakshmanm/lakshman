@@ -1,0 +1,196 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Disease
+ Type               : html 
+ Description        : html page for person demographics 
+ References         :
+ Author             :DurgaPrasad
+ Created Date       : 20-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <form name="diseaseForm" novalidate>
+        <fieldset ng-disabled="details"> 
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                        <div class="panel-body">
+                    <div class="form-group" ng-class="{'has-error':diseaseForm.diseaseTypeID.$dirty && diseaseForm.diseaseTypeID.$invalid, 'has-success':diseaseForm.diseaseTypeID.$valid}">
+                        <label>{{diseaseLabels.diseaseType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" style="width:100%" ng-options="diseaseType.diseaseTypeId as diseaseType.diseaseTypeName for diseaseType in diseaseTypeList" ng-model="disease.diseaseTypeId" name="diseaseTypeID" required>
+                            <option value="">--Select--</option>
+                        </select></span> <span class="error text-small block" ng-if="diseaseForm.diseaseTypeID.$dirty && diseaseForm.diseaseTypeID.$invalid" style="color:red">   
+                  <p ng-show="diseaseForm.diseaseTypeID.$invalid && diseaseForm.diseaseTypeID.$error.required">Disease type is required</p>
+
+                        </span> </div>
+                </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                        <div class="panel-body">
+                    <div class="form-group" ng-class="{'has-error':diseaseForm.identifiedDate.$dirty && diseaseForm.identifiedDate.$invalid, 'has-success':diseaseForm.identifiedDate.$valid}">
+                        <label>{{diseaseLabels.identifiedDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" type="date" name="identifiedDate" ng-model="disease.identifiedDate" required></span> <span class="error text-small block" ng-if="diseaseForm.identifiedDate.$dirty && diseaseForm.identifiedDate.$invalid" style="color:red">   
+                  <p ng-show="diseaseForm.identifiedDate.$invalid && diseaseForm.identifiedDate.$error.required">Identified Date is required</p>
+
+                        </span> </div>
+                </div>
+</div>
+    <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{diseaseLabels.hospitalName}}</label>
+                        <input class="form-control" type="text" ng-minlength="3" ng-maxlength="30" name="hospital" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="disease.hospitalName"> <span class="error text-small block" ng-if="diseaseForm.hospital.$dirty && diseaseForm.hospital.$invalid" style="color:red">   
+           <p ng-show="diseaseForm.hospital.$error.minlength">Hospital should be minimum of 3 characters</p>
+                        <p ng-show="diseaseForm.hospital.$error.maxlength">Hospital should be maximum of 30 characters</p> 
+                          <p ng-show="diseaseForm.hospital.$error.pattern">Hospital accept only alphabetic characters</p>
+                        </span> </div>
+                </div>
+
+              
+            </div>
+            <!--   <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                            
+
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox1" ng-model="disease.isHospitalized">
+<label for="checkbox1">{{diseaseLabels.isHospitalized}}</label>    
+                        </div>
+                    </div>
+                </div> -->
+            <div class="row">
+              <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox1" ng-model="disease.isHospitalized">
+                            <label for="checkbox1">{{diseaseLabels.isHospitalized}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                <div class="panel-body">
+                    <label>{{diseaseLabels.curedDate}}</label>
+                    <input class="form-control" type="date" name="curedDate" ng-model="disease.curedDate"> </div>
+            </div>
+
+   <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox2" name="LifeThreatDisease" ng-model="disease.isLifeThreatDisease">
+                            <label for="checkbox2">{{diseaseLabels.isLifeThreatDisease}}</label>
+                        </div>
+                        <!--<input type="checkbox" class="form-control" ng-model="disease.isItLifeThreatDisease">
+<label>Is LifeThreat Disease<span style="color:red">*</span></label>-->
+                    </div>
+                </div>
+
+
+             
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel-body">
+                        <label>{{diseaseLabels.diseaseDetails}}</label>
+                        <textarea id="console" class="form-control" name="diseaseDetails" ng-model="disease.details" class="form-control" rows="3"></textarea> <span class="error text-small block" ng-if="diseaseForm.diseaseDetails.$dirty && diseaseForm.diseaseDetails.$invalid" style="color:red">
+           <p ng-show="diseaseForm.diseaseDetails.$error.minlength">Disease Details should be minimum of 3 characters</p>
+ <p ng-show="diseaseForm.diseaseDetails.$error.maxlength">Disease Details should be maximum of 100 characters</p>                  
+                </span> </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel-body">
+                        <label>{{diseaseLabels.remarks}}</label>
+                        <textarea id="console" class="form-control" ng-minlength="3" ng-maxlength="100" ng-model="disease.remarks" class="form-control" name="remarks" rows="3"></textarea> <span class="error text-small block" ng-if="diseaseForm.remarks.$dirty && diseaseForm.remarks.$invalid" style="color:red" required>    
+<p ng-show="diseaseForm.remarks.$error.minlength">Remarks should be minimum of 3 characters</p>
+ <p ng-show="diseaseForm.remarks.$error.maxlength">Remarks should be maximum of 100 characters</p> 
+               
+</span> </div>
+                </div>
+            </div>
+            </fieldset>
+            <div class="row">
+                <div style="text-align:center">
+                    <!-- <button type="submit" ng-click="diseaseForm.$valid&&saveDisease()" class="btn btn-primary">{{diseaseLabels.submit}}</button> -->
+                    <button type="button" ng-hide="disease" class="btn btn-wide btn-primary" ng-disabled="diseaseForm.$invalid" ng-click="diseaseForm.$valid && saveDisease()" v-pressable>{{diseaseLabels.submit}}</button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="row">
+            <!-- <div style="width:20%">
+        }
+        }
+
+
+<div class="form-group">
+
+<input type="text" ng-model="diseaseSearch" class="form-control" placeholder="Search">
+</div>
+
+
+</div>-->
+            <table id="example" class="table table-stripped" cellspacing=" 0 " width="100% ">
+                <thead>
+                    <tr>
+                     <th>{{diseaseLabels.identifiedDate}}</th>
+                        <th>{{diseaseLabels.diseaseType}}</th>
+
+                        <th>{{diseaseLabels.isHospitalized}}</th>
+                      
+                     
+                        <th>{{diseaseLabels.edit}}</th>
+                        <th ng-hide="disease">{{diseaseLabels.delete}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="disease in diseaseList ">
+<td>{{disease.identifiedDate|date:"MM/dd/yyyy "}}</td>
+                        <td>{{disease.diseaseTypeName}}</td>
+                        <td>{{(disease.isHospitalized=='true')?'Yes':'No'}}</td>
+                       
+                       
+
+                        <td>
+                            <a ng-click="getDisease(disease.referenceKey) "><i class="fa fa-pencil "></i></a>
+
+                        </td>
+                        <td ng-hide="disease">
+
+                            <a ng-click="deleteDisease(disease.referenceKey) "><i class="fa fa-trash "></i></a>
+
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">CHILD SEARCH</h4>
+
+</div>
+
+<div class="container-fluid container-fullw">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+
+
+
+
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Enter Child Name
+                                    </label>
+                                   
+                                </div>
+                            </div>
+
+                          <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                       <!-- <input type="text" placeholder="Search by Department Name" class="form-control" name="DepartmentName" ng-model="search">-->
+                                        <input type="text" class="form-control" placeholder="Enter Children NAme" ng-model="search">
+                                    </label>
+                                  <!--  <input type="text" class="form-control" ng-model="patientDetails.MotherName">
+-->
+
+                                </div>
+                            </div>
+
+                             <div class="col-md-4">
+                                <div class="form-group">
+                                    <!--<label class="control-label">
+                                        <input type="text" class="form-control" ng-model="patientDetails.name">
+                                    </label>-->
+                                  <!--  <input type="text" class="form-control" ng-model="patientDetails.MotherName">
+-->
+
+                                </div>
+                            </div>
+                              <!--<div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Mobile Number
+                                    </label>
+                                    <input type="text" class="form-control" ng-model="patientDetails.mobileNumber">
+
+
+                                </div>
+                            </div>
+-->
+
+
+
+
+                        </div>
+                    </div>
+
+                 <!--   <div class="col-md-12">
+                        <center>
+                            <button type="button" ng-click="search()" class="btn btn-wide btn-primary" ng-model="find" v-pressable>
+                                Search
+                            </button>
+
+                        </center>
+
+
+                    </div>-->
+                   
+                    <table class="table table-hover" id="sample-table-1">
+
+                        <thead>
+                            <tr>
+                                <th style="cursor: pointer" ng-click="sortData('firstname')">Child Name<div ng-class="getSortClass('firstname')"></div> </th>
+                                 <th>Gender</th>
+                                <th>Date Of Birth</th>
+                               <!-- <th>Mother Name</th>
+                                <th>ContactNo</th>
+                                <th>Age</th>
+                                <th>Last Visit</th>-->
+                                <th>Action</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr dir-paginate="child in childerenlist| itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort" >
+
+                                <td>{{child.firstName}}</td>
+                                 <td>{{(child.genderId=='1')?'female':'male'}}</td>
+                                 <td>{{child.dateOfBirth| date :  "dd.MM.yyyy"}}</td>
+                                <!--<td>{{child.familyDetails[0].firstName}}</td>
+                                <td>{{child.familyDetails[1].firstName}}</td>
+                                <td>{{child.contactNo}}</td>
+                                <td>{{child.age}} </td>-->
+                              <!--  <td>12/05/2016</td>-->
+                                <td>
+                                    <span class="visible-md visible-lg hidden-sm hidden-xs">
+                                                <a ng-show="A" href="#/app/app/child/{{child.referenceKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Basic Information"><img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"></a>
+                                                   
+
+                                               <!-- <a ng-show="B" href="#/app/app/child/{{child.referenceKey}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="History"><img size="20px" alt="" src="3ilAppBase01/Web/assets/images/screenHistory.png"></a> 
+
+ 
+                                                <a ng-show="C" href="#/app/app/child/{{child.referenceKey}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Screening"><img alt="" src="3ilAppBase01/Web/assets/images/screening.png"></a>-->
+          <!--
+      
+ <a ng-show="D" ui-sref="app.medication" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Medication"><img alt="" src="3ilAppBase01/Web/assets/images/medicine.jpg"></a> 
+
+            
+                                               <a ng-show="E" ui-sref="app.investigation" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Investigation"><img alt="" height="30px" src="3ilAppBase01/Web/assets/images/investigation.png"></a> --></span>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                                           <div class="col-md-2"  ng-hide="(childerenlist | filter:search.length<=14">
+    <div ng-init="pageSize=10 ">
+<label for="search">Records per page:</label>
+<select min="1" max="100"  ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+</div>
+</div>
+                    <div class="col-lg-6 col-md-12" style="text-align:left">
+<dir-pagination-controls
+max-size="10"
+direction-links="true"
+boundary-links="true" >
+</dir-pagination-controls>
+</div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewSubjectMarksRange.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="subjectMarksRangeForm" novalidate>
+            <div class="row">
+                <!--
+            <div class="col-lg-12">
+                <h2> {{labelsSubjectMarksRange.subjectMarksRangeHeading}}  </h2>
+            </div> -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.boardTitle.$dirty && subjectMarksRangeForm.boardTitle.$invalid, 'has-success':subjectMarksRangeForm.boardTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entitySubjectMarksRange.boardKey)" ng-model="entitySubjectMarksRange.boardKey" name="boardTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span class="error text-small block" ng-if="subjectMarksRangeForm.boardTitle.$dirty && subjectMarksRangeForm.boardTitle.$invalid">
+                        <p ng-if=" subjectMarksRangeForm.boardTitle.$error.required ">Board title is required</p>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.groupTitle.$dirty && subjectMarksRangeForm.groupTitle.$invalid, 'has-success':subjectMarksRangeForm.groupTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3" class="form-control " ng-change="getGroupCourse(entitySubjectMarksRange.groupKey)" ng-model="entitySubjectMarksRange.groupKey" name="groupTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="subjectMarksRangeForm.groupTitle.$dirty && subjectMarksRangeForm.groupTitle.$invalid" class="error text-small block">
+                        <span ng-if="subjectMarksRangeForm.groupTitle.$invalid && subjectMarksRangeForm.groupTitle.$error.required ">Group title is required.</span>
+
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.courseTitle.$dirty && subjectMarksRangeForm.courseTitle.$invalid, 'has-success':subjectMarksRangeForm.courseTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.courseTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="course.courseKey as course.courseTitle for course in courseList " value="3" class="form-control " ng-change="getCourseTerm(entitySubjectMarksRange.courseKey)" ng-model="entitySubjectMarksRange.courseKey" name="courseTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="subjectMarksRangeForm.courseTitle.$dirty && subjectMarksRangeForm.courseTitle.$invalid" class="error text-small block">
+                        <p ng-show="subjectMarksRangeForm.courseTitle.$error.required ">Course title  is required</p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.termTitle.$dirty && subjectMarksRangeForm.termTitle.$invalid, 'has-success':subjectMarksRangeForm.termTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.termTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="term.termKey as term.termTitle for term in termList" value="3" class="form-control " ng-change="getTermSubject(entitySubjectMarksRange.termKey)" ng-model="entitySubjectMarksRange.termKey" name="termTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="subjectMarksRangeForm.termTitle.$dirty && subjectMarksRangeForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-show="subjectMarksRangeForm.termTitle.$error.required ">Term title  is required</p>
+                        </span>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.subjectTitle.$dirty && subjectMarksRangeForm.subjectTitle.$invalid, 'has-success':subjectMarksRangeForm.subjectTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.subject}}<span class="symbol required"></span></label>
+                        <select ng-options="subject.subjectKey as subject.subjectTitle for subject in subjectList" value="3" class="form-control " ng-model="entitySubjectMarksRange.subjectKey" name="subjectTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="subjectMarksRangeForm.subjectTitle.$dirty && subjectMarksRangeForm.subjectTitle.$invalid" class="error text-small block">
+                        <p ng-show=" subjectMarksRangeForm.subjectTitle.$error.required ">Subject title  is required</p>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.examinationTypeTitle.$dirty && subjectMarksRangeForm.examinationTypeTitle.$invalid, 'has-success':subjectMarksRangeForm.examinationTypeTitle.$valid}">
+                        <label>{{labelsSubjectMarksRange.examinationType}}<span class="symbol required"></span></label>
+                        <select ng-options="exam.examinationTypeKey as exam.examinationTypeTitle for exam in examinationTypeList" value="3" class="form-control " ng-model="entitySubjectMarksRange.examinationTypeKey" name="examinationTypeTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="subjectMarksRangeForm.examinationTypeTitle.$dirty && subjectMarksRangeForm.examinationTypeTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectMarksRangeForm.examinationTypeTitle.$invalid && subjectMarksRangeForm.examinationTypeTitle.$error.required ">ExaminationType title  is required</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.passMarks.$dirty && subjectMarksRangeForm.passMarks.$invalid, 'has-success':subjectMarksRangeForm.passMarks.$valid}">
+                        <label>{{labelsSubjectMarksRange.minimumMarks}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entitySubjectMarksRange.passMarks" name="passMarks" type="number" ng-min="2" ng-max="50" ng-required="true">
+                        <span ng-if="subjectMarksRangeForm.passMarks.$dirty && subjectMarksRangeForm.passMarks.$invalid" class="error text-small block">
+                        <p ng-if="subjectMarksRangeForm.passMarks.$error.required ">Pass Marks is required
+                        <p ng-if="subjectMarksRangeForm.passMarks.$error.min">Pass Marks is invalid</p>
+                        <p ng-if="subjectMarksRangeForm.passMarks.$error.max">Pass Marks is too long</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectMarksRangeForm.maxMarks.$dirty && subjectMarksRangeForm.maxMarks.$invalid, 'has-success':subjectMarksRangeForm.maxMarks.$valid}">
+                        <label>{{labelsSubjectMarksRange.maximumMarks}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entitySubjectMarksRange.maxMarks" name="maxMarks" type="number" ng-min="2" ng-max="100" ng-required="true">
+                        <span ng-if="subjectMarksRangeForm.maxMarks.$dirty && subjectMarksRangeForm.maxMarks.$invalid" class="error text-small block">
+                        <p ng-if="subjectMarksRangeForm.maxMarks.$error.required">Maximum Marks is required</p>
+                        <p ng-if="subjectMarksRangeForm.maxMarks.$error.min">Maximum Marks is invalid</p>
+                        <p ng-if="subjectMarksRangeForm.maxMarks.$error.max">Maximum Marks is too long</p>
+
+                        </span>
+                    </div>
+                </div>
+
+                <!--
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsSubjectMarksRange.organization}}</label>
+					 <select ng-options="exam.Id as exam.Title for exam in Organizations " value="3" class="form-control "  ng-model="entitySubjectMarksRange.instanceOrganizationKey" name="instanceOrganizationKey" > 
+						 <option value="">--Select--</option>
+					 </select>
+				 </div>
+			 </div>-->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-click="subjectMarksRangeForm.$valid&&addSubjectMarksRange()">{{labelsSubjectMarksRange.save}}</button>
+                                </div>
+
+
+                                <div ng-if="update">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-click="subjectMarksRangeForm.$valid&&updateSubjectMarksRange()">{{labelsSubjectMarksRange.update}}</button>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <table id="tblSubjectMarksRangeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th>{{labelsSubjectMarksRange.subjectTitle}}</th>
+                                <th>{{labelsSubjectMarksRange.examinationType}}</th>
+                                <th>{{labelsSubjectMarksRange.minimumMarks}}</th>
+                                <th>{{labelsSubjectMarksRange.maximumMarks}}</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entitySubjectMarksRange in subjectMarksRangeCollection">
+                                <td>{{ entitySubjectMarksRange.subjectTitle }}</td>
+                                <td>{{ entitySubjectMarksRange.examinationTypeTitle }}</td>
+                                <td>{{ entitySubjectMarksRange.passMarks }}</td>
+                                <td>{{ entitySubjectMarksRange.maxMarks }}</td>
+                                <td><a ng-click="editSubjectMarksRange(entitySubjectMarksRange.subjectMarksRangeKey)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click="deleteSubjectMarksRange(entitySubjectMarksRange.subjectMarksRangeKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

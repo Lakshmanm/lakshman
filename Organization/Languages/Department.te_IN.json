@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "DepartmentName": "శాఖ పేరు",
+        "ParentDepartment":"మాతృ శాఖ",
+        "ParentDepartmentName":"మాతృ శాఖ పేరు",
+         "Submit": "సమర్పించండి",
+        "Update": "నవీకరణ",
+        "DepartmentBasicInfo1": "శాఖ ప్రాథమిక సమాచారం",
+        "Edit": "మార్చు",
+        "Delete": "తొలగించు",
+        "DepartmentList": "డిపార్ట్మెంట్ జాబితా"
+
+    },
+    "errors": {
+
+    }
+}

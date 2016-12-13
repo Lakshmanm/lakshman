@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "title": "పేరు",
+        "organizationName": "సంస్థ పేరు",
+        "designation": "హోదా",
+        "occupation": "ఆక్రమణ",
+        "location": "నగర",
+         "totalYears": "మొత్తం ఇయర్స్",
+        "teachingExperience": "బోధన అనుభవం",
+        "otherExperience": "ఇతర అనుభవం",
+        "startDate": "ప్ర క్స్పీరియన్స్",
+        "endDate": "ఆఖరి తేది",
+         "submit": "సపింమర్చండి",
+         "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "workExperiences": "పని అనుభవాలు"
+     
+    },
+    "errors": {
+
+    }
+}

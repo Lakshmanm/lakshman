@@ -1,0 +1,14 @@
+{
+    "labels": {
+    	
+        "CalenderName": "कैलेंडर का नाम",
+        "CalenderColor": "कैलेंडर रंग",
+        "Description": "विवरण",
+        "Save": "बचाना",
+        "Cancel": "रद्द करना" 
+
+    },
+    "errors": {
+
+    }
+}

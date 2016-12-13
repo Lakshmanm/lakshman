@@ -1,0 +1,108 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : New Registration.HTML
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  Kiranmai Labhala
+ Created Date        :  13-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date:12-04-2016
+	     Modified By:		Description:  
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       14-April-2016         Sri Venkatesh.T          In "Type" section in header remove Javascript and Jquery and wirte HTML and write full name of the author with intial
+2         1.0       14-April-2016         Sri Venkatesh.T          Place Page header in the OrganizationList.html
+****************************************************************************/-->
+<form name="regform" novalidate>
+
+                <h2> {{RegistrationInfoLabels.RegistrationBasicInfo}}  </h2>
+                <div class="list">
+                <label class="item item-input item-stacked-label">
+
+            
+                        <label>{{RegistrationInfoLabels.RegistrationType}}<span style="color:red;">*</span></label>
+                        <select ng-options="RegistrationType.RegistrationTypeID as RegistrationType.RegistrationTypeName for RegistrationType in RegistrationTypeList" name="RegistrationTypeID" class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="regBasicInfo.RegistrationTypeID" ng-required="true">
+                     <option value="">--Select--</option>
+                     </select>
+                     <span class="padding" ng-if="regform.RegistrationTypeID.$touched || regform.$submitted" style="color:red">
+                    <p ng-show="regform.RegistrationTypeID.$error.required">Registration Type is required</p>
+                    </span>
+                    </label>
+                                    <label class="item item-input item-stacked-label">
+
+               
+                        <label>{{RegistrationInfoLabels.ValidFrom}}<span style="color:red;">*</span></label>
+                        <input class="form-control" id="input-Default" ng-model="regBasicInfo.ValidFrom" type="date" name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+                <span ng-if="regform.$submitted || regform.validFrom.$touched" style="color:red;"  >
+                    <p ng-show="regform.validFrom.$invalid && regform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+                    </label>
+                                    <label class="item item-input item-stacked-label">
+
+                   
+                        <label>{{RegistrationInfoLabels.ValidTo}}<span style="color:red;">*</span></label>
+                        <input class="form-control" id="input-Default" ng-model="regBasicInfo.ValidTo" type="date"  name="validTo"   ng-required="true"  ng-change='checkErr(reg.validFrom,reg.validTo)'/>
+                <span ng-if="regform.$submitted || regform.validTo.$touched" style="color:red;">
+                    <p ng-show="regform.validTo.$invalid && regform.validTo.$error.required">To date is required</p>
+                    <p>{{errMessage}}</p>
+                </span>
+                    </label>
+                                    <label class="item item-input item-stacked-label">
+
+                   
+                        <label>{{RegistrationInfoLabels.RegistrationDetails}}</label>
+                        <textarea class="form-control" id="input-Default" ng-model="regBasicInfo.RegistrationDetails" type="text">
+                        </textarea>
+                    </label>
+                                    <label class="item item-input item-stacked-label">
+
+                    
+                    <button type="submit" class="btn btn-default" ng-click="regform.$valid&&addRegistration()">{{RegistrationInfoLabels.Submit}}</button>
+                    </label>
+               
+                          <label class="item item-input item-stacked-label">
+
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{RegistrationInfoLabels.RegistrationType}}</th>
+                                <th>{{RegistrationInfoLabels.ValidFrom}}</th>
+                                <th>{{RegistrationInfoLabels.ValidTo}}</th>
+                                <th>{{RegistrationInfoLabels.Edit}}</th>
+                                <th>{{RegistrationInfoLabels.Delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="reg in regDetails">
+                                <td> {{ reg.RegistrationTypeName }}</td>
+                                <td> {{ reg.ValidFrom  | date:"MM/dd/yyyy" }} </td>
+                                <td> {{ reg.ValidTo |  date:"MM/dd/yyyy" }} </td>
+                                <td>
+                                    <a ng-click="editRegistration(reg.ReferenceKey)" href=""><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRegistration(reg.ReferenceKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    </label>
+    </div>
+                
+</form>
+
+
+<!-- Page Content -->

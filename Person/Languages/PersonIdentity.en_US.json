@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "identitytype": "Identity Type",
+        "identityNumber": "Identity Number ",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "identity": "Identity"
+    },
+    "errors": {
+
+    }
+}

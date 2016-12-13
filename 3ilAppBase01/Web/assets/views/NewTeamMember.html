@@ -1,0 +1,135 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewTeamMember.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+          <form name="MemberForm" novalidate >
+            
+                           <div class="col-md-12">  
+                                 <fieldset>
+                                <legend>
+                                  Team Members
+                                </legend>
+                                <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>S.no</th>
+                                        <th>Staff</th>
+                                        <th>Role</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="entityTeamMember in getAllTeamMembers">
+                                          <td>{{$index+1}}</td>
+                                        
+                                        
+                                          <!--<td>
+                                 
+                     <select ng-options="person.personkey as person.personname for person in  persons"  value="3" class="form-control "  ng-model="entityTeamMember.personKey" name="personKey{{$index}}"    ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select> 
+                      <div class="padding" ng-if="MemberForm.['personKey'+$index].$touched || MemberForm.$submitted" style="color:red">
+                      <p ng-show="MemberForm['personKey'+$index].$error.required">Staff  is required</p>
+                        </div>
+                             </td>-->
+                                                                    <td>
+                     <select ng-options="person.personkey as person.personname for person in  persons" value="3" class="form-control "  ng-model="entityTeamMember.personKey" name="personKey{{$index}}"  ng-required="true" > 
+						 <option value="">--Select--</option>
+					 </select> 
+                      <div class="padding" ng-if="MemberForm['personKey'+$index].$touched || MemberForm.$submitted" style="color:red">
+                      <p ng-show="MemberForm['personKey'+$index].$error.required">Staff is required</p>
+                        </div>
+                             </td>
+				
+                                        <td>
+                     <select ng-options="role.teamrolekey as role.teamroletitle for role in  roles" value="3" class="form-control "  ng-model="entityTeamMember.teamRoleKey" name="teamRoleKey{{$index}}" ng-required="true" > 
+						 <option value="">--Select--</option>
+					 </select> 
+                      <div class="padding" ng-if="MemberForm['teamRoleKey'+$index].$touched || MemberForm.$submitted" style="color:red">
+                      <p ng-show="MemberForm['teamRoleKey'+$index].$error.required">Role  is required</p>
+                        </div>
+                             </td>
+				
+			 <td>
+                 <input class="form-control date-picker"  ng-model="entityTeamMember.StartDate" name="StartDate{{$index}}" type="date" ng-required="true">
+                         <div class="padding" ng-if="MemberForm['StartDate'+$index].$touched || MemberForm.$submitted" style="color:red">
+                     <p ng-show="MemberForm['StartDate'+$index].$error.required">Start Date  is required</p>
+                      
+
+                        </div>                
+                                
+                                        
+            </td>
+                                        	
+			 <td>
+                 <input class="form-control date-picker"  ng-model="entityTeamMember.EndDate" name="EndDate{{$index}}" type="date" ng-required="true">
+                         <div class="padding" ng-if="MemberForm['EndDate'+$index].$touched || MemberForm.$submitted" style="color:red">
+                     <p ng-show="MemberForm['EndDate'+$index].$error.required">End Date  is required</p>
+                      
+
+                        </div>                
+                                        
+                                        </td>
+                                       <!-- <td> <input class="form-control date-picker"  ng-model="entityTeamMember.EndDate" name="EndDate{{$index}}" type="date">
+                                          <div class="padding" ng-if="MemberForm['EndDate'+$index].$touched || MemberForm.$submitted" style="color:red">
+                     <p ng-show="MemberForm['EndDate'+$index].$error.required">End Date  is required</p>
+                      
+
+                        </div>     
+                                        
+                                        </td>-->
+                                        
+                                        
+                                          <td>
+                                            <input type="button" ng-show="$index!=0"  class="btn btn-wide btn-primary" value="Remove" ng-click="deleteTeamMembers(entityTeamMember.teamMemberKey)" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope pull-right" src="3ilAppBase01/Web/assets/images/Add.PNG" ng-click="teamMembersAddNew()" height="25px">
+                                   
+                                    
+                                     <div class="col-md-12">
+                                         <div class="col-md-4">
+                                         </div>
+                                         <div class="col-md-8">
+                                      <button type="button" class="btn btn-wide btn-primary" ng-click="MemberForm.$valid && addTeamMembers()" v-pressable>
+                            Save
+                        </button>
+                                               </div>
+                                     </div>
+                                
+                                   </fieldset>    
+                                     
+                                
+                                
+                                    </div>
+        </form>
+                                                   			
+
+		 </div>
+	 </div>

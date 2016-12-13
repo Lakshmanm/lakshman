@@ -1,0 +1,105 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : Certification.HTML
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  Kiranmai
+ Created Date        :  14-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date:
+Modified By:
+Description:
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************/-->
+
+
+<form name="certificationform" novalidate>
+
+    <div class="list">
+
+        <h2>{{orgCertification.OrganizationCertification}} </h2>
+        <label class="item item-input item-stacked-label">
+            <label>{{orgCertification.CertificationName}} <span style="color:red;">*</span></label>
+
+            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.CertificationName" type="text" name="Title" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+            <span ng-if="certificationform.$submitted || certificationform.Title.$touched" style="color:red;">
+                    <p ng-show="certificationform.Title.$invalid && certificationform.Title.$error.required">Certification name is required</p>
+                    <p ng-show="certificationform.Title.$error.minlength">Certification  name is too short</p>
+                    <p ng-show="certificationform.Title.$error.pattern">Alphabets Only</p>
+                </span>
+        </label>
+        <label class="item item-input item-stacked-label">
+
+            <label>{{orgCertification.CertificationType}} </label>
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="orgCertificationInfo.CertificationBodyID" ng-options="certList.CertificationBodyTypeID as certList.CertificationBodyTypeName for certList in certLists">
+                <option value="">-select-</option>
+            </select>
+
+        </label>
+
+
+        <label class="item item-input item-stacked-label">
+
+            <label>{{orgCertification.ValidFrom}}<span style="color:red;">*</span></label>
+            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.ValidFrom" type="date" name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+            <span ng-if="certificationform.$submitted || certificationform.validFrom.$touched" style="color:red;">
+                    <p ng-show="certificationform.validFrom.$invalid && certificationform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+
+            <label>{{orgCertification.ValidTo}}<span style="color:red;">*</span></label>
+            <input class="form-control" id="input-Default" ng-model="orgCertificationInfo.ValidTo" type="date" name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+            <span ng-if="certificationform.$submitted || certificationform.validFrom.$touched" style="color:red;">
+                    <p ng-show="certificationform.validFrom.$invalid && certificationform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+
+            <button type="submit" class="btn btn-default" ng-click="certificationform.$valid&&addCertification()">{{orgCertification.Submit}}</button>
+
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>{{orgCertification.CertificationName}}</th>
+                        <th>{{orgCertification.CertificationType}}</th>
+                        <th>{{orgCertification.ValidFrom}}</th>
+                        <th>{{orgCertification.ValidTo}}</th>
+                        <th>{{orgCertification.Edit}}</th>
+                        <th>{{orgCertification.Delete}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="certificate in certifications">
+                        <td>{{certificate.CertificationName}}</td>
+                        <td>{{certificate.CertificationBodyTypeName}}</td>
+                        <td>{{certificate.ValidFrom|date:"MM/dd/yyyy"}}</td>
+                        <td>{{certificate.ValidTo|date:"MM/dd/yyyy"}}</td>
+                        <td><a ng-click="editCertification(certificate.ReferenceKey)"><i class="fa fa-pencil"></i>Edit</a></td>
+                        <td><a ng-click="deleteCertification(certificate.ReferenceKey)"><i class="fa fa-trash"></i>Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </label>
+
+    </div>
+</form>

@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "OrganizationCertification": "సంస్థ సర్టిఫికేషన్",
+        "CertificationName": " ధృవీకరణపత్రము",
+        "CertificationType": " ప్రమాణపత్రము",
+        "ValidFrom": " నుండి చెల్లుబాటు అయ్యే",
+        "ValidTo":"ధ్రువీకరించడానికి",
+        "Submit":"అప్పగింతపెట్టుట",
+        "CertificationName":"ధృవీకరణపత్రము",
+        "CertificationType":"ప్రమాణపత్రము",
+        "ValidFrom":"ుండి చెల్లుబాటు అయ్యే",
+        "ValidTo":"ధ్రువీకరించడానికి",
+        "Edit":"మార్చు",
+        "Delete":"తొలగించు"
+
+
+    }
+}

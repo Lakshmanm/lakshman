@@ -1,0 +1,15 @@
+
+{
+    "labels": {
+         "ChangePassword": "పాస్వర్డ్ మార్చండి",
+        "LogOut": "లాగ్ అవుట్",
+         "Admin": "అడ్మిన్",
+         "Dashboard": "డాష్బోర్డ్",
+         "Profile": "ప్రొఫైల్"
+        
+           },
+    "errors": {
+        
+        }
+    
+}

@@ -1,0 +1,44 @@
+{
+    "labels": {
+        
+        "EventTitle": "ఈవెంట్ శీర్షిక",
+        "StartDateTime": "తేదీసమయం మొదలు",
+        "EndDateTime": "ముగింపు తేదీసమయం",
+        "Reminder": "రిమైండర్",
+        "ReminderType": "రిమైండర్ రకం",
+        "Calender": "పంచాంగ",
+        "RecurrencePattern": "పునరావృత నమూనా",
+        "RecurrencePattern1": "పునరావృత నమూనా1",
+        "RepeatsEvery": "పునఃప్రసారాలు ప్రతి",
+        "days(s)": "రోజులు ( లు)",
+        "Oneveryweekday": "ఒక ప్రతి వారపు",
+        "RecurrencePattern2": "ఒక ప్రతి వారపు2",
+        "Week(s)on:": "వారాలు",
+        "Monday": "సోమవారం",
+        "Tuesday": "మంగళవారం",
+        "Wednesday": "బుధవారం",
+        "Thursday": "గురువారం",
+        "Friday": "శుక్రవారం",
+        "Saturday": "శనివారం",
+        "Sunday": "ఆదివారం",
+        "RecurrencePattern3": "ఒక ప్రతి వారపు3",
+        "Day": "రోజు",
+        "ofevery": "ప్రతి",
+        "months(s)":"నెలల ( లు)",
+        "months":"నెలల",
+        "The":"ది",
+        "Daily": "రోజువారీ",
+        "Weekly": "వీక్లీ",
+        "Monthly": "మంత్లీ",
+        "Location": "స్థానం",
+        "Attendee": "అనుచరునిగా",
+        "Description": "వివరణ",
+        "SendiCalender": "క్యాలెండర్ అన్ని హాజరైన ఆహ్వానించండి పంపండి.",
+        "Save": "సేవ్",
+        "Cancel": "రద్దు"
+         
+    },
+    "errors": {
+
+    }
+}

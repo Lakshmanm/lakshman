@@ -1,0 +1,178 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewElectiveGroup.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="electiveGroupForm" novalidate>
+            <div class="row">
+                <!-- <div class="col-lg-12">
+                <h2> {{labelsElectiveGroup.electiveGroupHeading}}  </h2>
+            </div> -->
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.planName.$dirty && electiveGroupForm.planName.$invalid, 'has-success':electiveGroupForm.planName.$valid}">
+
+                        <label>{{labelsElectiveGroup.planName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="plan.InstallmentPlanName" name="planName" type="text" ng-minlength="2" ng-maxlength="32" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true"></span>
+                        <span ng-if="electiveGroupForm.$submitted || electiveGroupForm.planName.$touched" class="validationMessage">
+                        <span ng-if="electiveGroupForm.planName.$invalid && electiveGroupForm.planName.$error.required ">Plan Name is required.</span>
+                        <span ng-if="electiveGroupForm.planName.$error.minlength">Plan Name is too small.</span>
+                        <span ng-if="electiveGroupForm.planName.$error.maxlength">Plan Name is too long.</span>
+                        <span ng-if="electiveGroupForm.planName.$error.pattern">Alphabets only.</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.tenure.$dirty && electiveGroupForm.tenure.$invalid, 'has-success':electiveGroupForm.tenure.$valid}">
+
+                        <label>{{labelsElectiveGroup.tenure}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="plan.Tenure" name="tenure" type="text" ng-minlength="1" ng-maxlength="80" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-required="true"></span>
+                        <span ng-if="electiveGroupForm.$submitted || electiveGroupForm.tenure.$touched" class="validationMessage">
+                        <span ng-if="electiveGroupForm.tenure.$invalid && electiveGroupForm.tenure.$error.required ">Tenure is required.</span>
+
+                        <span ng-if="electiveGroupForm.tenure.$error.pattern">Numericals only.</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.additionalCharages.$dirty && electiveGroupForm.additionalCharages.$invalid, 'has-success':electiveGroupForm.additionalCharages.$valid}">
+
+                        <label>{{labelsElectiveGroup.additionalCharages}}(in %.)<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="plan.AdditionalCharges" name="additionalCharages" type="text" ng-minlength="1" ng-change="chargeVal(plan.AdditionalCharges)" ng-maxlength="80" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-required="true"></span>
+                        <span ng-if="electiveGroupForm.$submitted || electiveGroupForm.additionalCharages.$touched" class="validationMessage">
+                        <span ng-if="electiveGroupForm.additionalCharages.$invalid && electiveGroupForm.additionalCharages.$error.required ">Additional Charge is required.</span>
+                        <span ng-if="electiveGroupForm.tenure.$error.pattern">Numericals only.</span>
+                        <label style="color:red">{{msg}}</label>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.proccessingfee.$dirty && electiveGroupForm.proccessingfee.$invalid, 'has-success':electiveGroupForm.proccessingfee.$valid}">
+
+                        <label>{{labelsElectiveGroup.proccessingfee}}(in ₹.)<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="plan.ProcessingFee" name="proccessingfee" type="text" ng-minlength="1" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-maxlength="5" ng-required="true"></span>
+                        <span ng-if="electiveGroupForm.$submitted || electiveGroupForm.proccessingfee.$touched" class="validationMessage">
+                        <span ng-if="electiveGroupForm.proccessingfee.$invalid && electiveGroupForm.proccessingfee.$error.required ">Processing Fee is required.</span>
+                        <span ng-if="electiveGroupForm.tenure.$error.pattern">Numericals only.</span>
+
+                        </span>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':electiveGroupForm.installmentgap.$dirty && electiveGroupForm.installmentgap.$invalid, 'has-success':electiveGroupForm.installmentgap.$valid}">
+
+                        <label>       {{labelsElectiveGroup.installmentgap}}(in Days.)<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="plan.InstallmentGap" name="installmentgap" type="text" ng-minlength="1" ng-maxlength="80" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-required="true"></span>
+                        <span ng-if="electiveGroupForm.$submitted || electiveGroupForm.installmentgap.$touched" class="validationMessage">
+                        <span ng-if="electiveGroupForm.installmentgap.$invalid && electiveGroupForm.installmentgap.$error.required ">ElectiveGroup title is required.</span>
+                        <span ng-if="electiveGroupForm.installmentgap.$error.pattern">Numericals only.</span>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsElectiveGroup.instanceOrganizationKey}}</label>
+					 <select ng-options="instance.instanceorganizationkey as instance.instanceorganizationtitle for instance in organizationList " value="3" class="form-control "  ng-model="entityElectiveGroup.instanceOrganizationKey" name="instanceOrganizationKey" > 
+						 <option value="">--Select--</option>
+					 </select>
+				 </div>
+			 </div> -->
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel-body">
+                        <div>
+                            <button type="submit" class="btn btn-wide btn-primary" ng-show="save" ng-click="electiveGroupForm.$valid&&savePlan()">{{labelsElectiveGroup.save}}</button>
+
+                        </div>
+
+
+                        <div ng-if="update">
+                            <button type="submit" class="btn btn-wide btn-primary" ng-show="update" ng-click="electiveGroupForm.$valid&&updatePlan()">{{labelsElectiveGroup.update}}</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+                    <table id="tblElectiveGroupList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th>{{labelsElectiveGroup.planName}}</th>
+                                <th>{{labelsElectiveGroup.tenure}}</th>
+                                <th>{{labelsElectiveGroup.additionalCharages}}(in %.)</th>
+                                <th>{{labelsElectiveGroup.proccessingfee}}(in Rs.)</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entityPlan in PlanCollection">
+                                <td>{{ entityPlan.InstallmentPlanName }}</td>
+                                <td>{{ entityPlan.Tenure }}</td>
+                                <td>{{ entityPlan.AdditionalCharges }}</td>
+                                <td>{{ entityPlan.ProcessingFee }}</td>
+                                <td><a ng-click="editPlan(entityPlan.InstallmentPlankey)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click="deletePlan(entityPlan.InstallmentPlankey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>

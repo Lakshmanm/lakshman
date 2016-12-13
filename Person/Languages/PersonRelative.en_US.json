@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "name": "Family Member Name",
+        "relationType": "Relative Type",
+        "isGaurdian": "Is Gaurdian ?",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "relative": "Relative",
+        "contact":"Contact Number",
+        "email":"Email Id"
+
+    },
+    "errors": {
+
+    }
+}

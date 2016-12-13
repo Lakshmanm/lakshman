@@ -1,0 +1,32 @@
+{
+    "messages": {
+        "designationSaved": "Designation Details Saved Successfully",
+        "designationUpdated": "Designation Details Updated Successfully",
+        "designationDeleted": "Designation Details Deleted Successfully",
+
+
+        "specializationSaved": "Specialization Details Saved Successfully",
+        "specializationUpdated": "Specialization Details Updated Successfully",
+        "specializationDeleted": "Specialization Details Deleted Successfully",
+
+        "departmentSaved": "Department Details Saved Successfully",
+        "departmentUpdated": "Department Details Updated Successfully",
+        "departmentDeleted": "Department Details Deleted Successfully",
+
+        "registrationSaved": "Registration Details Saved Successfully",
+        "registrationUpdated": "Registration Details Updated Successfully",
+        "registrationDeleted": "Registration Details Deleted Successfully",
+
+        "registrationTypeSaved": "RegistrationType Details Saved Successfully",
+        "registrationTypeUpdated": "RegistrationType Details Updated Successfully",
+        "registrationTypeDeleted": "RegistrationType Details Deleted Successfully"
+
+     
+
+
+
+    },
+    "errors": {
+
+    }
+}

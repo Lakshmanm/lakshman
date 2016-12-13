@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "LanguageProficiency": "Language Proficiency",
+        "Language": "Language",
+        "LanguageProficiency": "Language Proficiency",
+        "Submit": "Submit ",
+        "Language":"Language",
+        "Read":"Read",
+        "Write":"Write",
+        "Speak":"Speak",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

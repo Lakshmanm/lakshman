@@ -1,0 +1,12 @@
+{
+    "labels": {
+        "Country": "దేశం",
+        "State": "రాష్ట్రం",
+        "District": "జిల్లా",
+        "Mandal": "మండల",
+        "Village": "గ్రామం",
+        "Submit": "సమర్పించండి",
+        "Location":"స్థానం",
+        "LocationInfo": "స్థానం"
+    }
+}

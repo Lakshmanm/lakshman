@@ -1,0 +1,428 @@
+{
+  childId: 1,
+  firstName: 'sudheer',
+  middleName: '',
+  lastName: '',
+  contactNo: '9618492447',
+  dateOfBirth: '2015-01-01',
+  age: 2,
+  gender: 'male',
+  cityOrTown: 'vizag',
+  religion: 'Hindu',
+  nationality: 'Indian',
+  aadhaarNumber: '265323612663',
+  contacts: [
+    {
+      contactTypeId: 1,
+      contactType: 'email',
+      contact: 'sudheer@gmail.com'
+    }
+  ],
+  image: '3ilAppBase01/Web/assets/images/child1.jpg',
+  addressLine1: '',
+  addressLine2: '',
+  districtId:1,
+  district: 'AP',
+  stateId:1,
+  state: 'Indian',
+  pinCode: '530026',
+  familyDetails: [
+    {
+      familyDetailsId: 1,
+      firstName: 'prasanth',
+      middleName: '',
+      lastName: 'kotti',
+      contact: '9876543210',
+      relationTypeId:1,
+      relationType: 'Father'
+    },
+    {
+      familyDetailsId: 2,
+      firstName: 'sravani',
+      middleName: '',
+      lastName: 'kotti',
+      contact: '9885965782',
+      relationTypeId:2,
+      relation: 'Mother'
+    }
+  ],
+  familyHistory: [
+    {
+      conditionTypeId:1,    
+      conditionType: 'Cancer',
+      relationSideTypeId:1,
+      relationSideType: 'Father Side',
+      comments: ''
+    },
+    {
+      conditionTypeId:2,    
+      conditionType: 'BloodPressure',
+      relationSideTypeId:2,
+      relationSideType: 'Mother Side',
+      comments: ''
+    }
+  ],
+  surgicalHistory: [
+    {
+      surgeryTypeId:1,    
+      surgeryType: 'Knee Surgery',
+      comments: '',
+      file: '',
+      dateOfSurgery: '2015-05-05'
+    },
+    {
+      surgeryTypeId:2,
+      surgeryType: 'Shoulder Surgery',
+      comments: '',
+      file: '',
+      dateOfSurgery: '2015-06-05'
+    }
+  ],
+  allergies: [
+    {
+      allergyTypeId:1,
+      allergyType: 'Skin Allegrgy',
+      fromType: 'Days',
+      fromCount: '20',
+      comments: ''
+    },
+    ,
+    {
+      allergyTypeId:2,
+      allergyType: 'Dust Allergey',
+      fromType: 'Months',
+      fromCount: '2',
+      comments: ''
+    }
+  ],
+  immunizationVaccinationHistory: [
+    {
+      immunizationTypeId:1,    
+      immunizationType: 'Hep B',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+      dueDate: '2016-10-01',
+      givenOn: '2015-05-05',
+      givenBy: 'Dr.Radha',
+      batchNumber: '1125447789'
+    },
+    {
+      immunizationTypeId:2,    
+      immunizationType: 'OPV',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+     dueDate: '2016-11-02',
+      givenOn: '2015-06-06',
+      givenBy: 'Dr.Naveen',
+      batchNumber: '32547147889'
+    }
+  ],
+  screenings: [
+    {
+      screeningId: 1,
+      vitals: {
+        height: {
+          value1: '75 cms',
+          value2: '0'
+        },
+        weight: {
+          value1: '10 kgs',
+          value2: '0'
+        },
+        mUAC: {
+          value1: '30cms',
+          value2: '0'
+        },
+        headCircumferrence: {
+          value1: '46.35cms',
+          value2: '0'
+        },
+        temperature: {
+          value1: '99 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '5.4 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep B',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-10-01',
+          givenBy: 'Dr.Radha',
+          batchNumber: '1247754789'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-11-02',
+          givenBy: 'Dr.Naveen',
+          batchNumber: '1475447844'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'itching of eyes',
+          comments: ''
+        },
+        {
+          symptonId: 2,
+          sympton: 'itching of eyes 2',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        },
+        {
+          investigationId: 2,
+          condition: '',
+          typeOfSampleId:2,
+          typeOfSample: 'Urine',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Hemoglobin deficiency'
+        },
+        {
+          diagnosisId: 2,
+          healthCondition: 'Urine Infection'
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Pracetmol',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: '',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: 'Dr.Rithika',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    },
+     {
+      screeningId: 2,
+      vitals: {
+        height: {
+          value1: '60 cms',
+          value2: ''
+        },
+        weight: {
+          value1: '11 Kgs',
+          value2: ''
+        },
+        mUAC: {
+          value1: '',
+          value2: ''
+        },
+        headCircumferrence: {
+          value1: '49.25 cms',
+          value2: ''
+        },
+        temperature: {
+          value1: '99 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '8 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep A',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '2016-08-08',
+          givenOn: '2016-04-04',
+          givenBy: 'Dr.Jhansi',
+          batchNumber: '3535343553'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV 1',
+          dose: '2', 
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '2016-08-08',
+          givenOn: '2016-04-04',
+          givenBy: 'Dr.Jhansi',
+          batchNumber: '3535343553'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'itching of eyes',
+          comments: ''
+        },
+        {
+          symptonId: 2,
+          sympton: 'itching of eyes 2',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        },
+        {
+          investigationId: 2,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Urine',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Deficiency Of Blood'
+        },
+        {
+          diagnosisId: 2,
+          healthCondition: 'Urine Infection'
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Pracetmol',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: '',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: 'Dr.Kiran',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    }
+  ]
+}

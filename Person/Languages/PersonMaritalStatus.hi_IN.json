@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "MaritalStatus": "वैवाहिक स्थिति",
+        "MaritalStatusName": "वैवाहिक स्थिति का नाम",
+        "StartDate":"आरंभ करने की तिथि",
+        "EndDate":"अंतिम तिथि",
+        "MaritalStatusType":"वैवाहिक स्थिति के प्रकार",
+        "Submit": "जमा करें",
+
+        "Title":"शीर्षक",
+        "MaritalStatusType":"वैवाहिक स्थिति के प्रकार",
+        "StartDate":"आरंभ करने की तिथि",
+        "EndDate":"अंतिम तिथि",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

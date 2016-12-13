@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "designationTitle": "Designation Title",
+        "designationDetails": "Designation Details",
+        "designationHeading": "New Designation",
+        "submit": "Submit",
+        "organizationKey":"Organization Name"
+       
+
+    },
+    "errors": {
+
+    }
+}

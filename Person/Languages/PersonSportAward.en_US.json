@@ -1,0 +1,14 @@
+{
+    "labels": {
+        
+        "sportAwardName": "Sport AwardName",
+        "curricularActivity": "Curricular Activity",
+         "gameDetails":"Game Details",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete",
+        "sportsAwards": "Sports Awards"
+
+    }
+  
+}

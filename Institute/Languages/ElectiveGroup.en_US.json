@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "electiveGroupHeading": "Elective Group  ",
+        "electiveGroupTitle": "Elective Group Title",
+        "termTitle": "Term Title",
+        "courseTitle": "Course Title",
+        "groupTitle": "Group Title",
+        "boardTitle": "Board Title",
+        "instanceOrganizationKey": "Instance Organization Key",
+
+        "minimumSubjects": "Minimum Subjects",
+        "maximumSubjects": "Maximum Subjects",
+        "save": "Save",
+        "update": "Update"
+
+
+    },
+    "errors": {
+
+    }
+}

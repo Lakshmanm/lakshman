@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "title": "शीर्षक",
+        "organizationName": "संस्था का नाम",
+        "designation": "पद",
+        "occupation": "कब्जे",
+        "location": "स्थान",
+         "totalYears": "कुल साल",
+        "teachingExperience": "पढ़ाने का तज़ुर्बा",
+        "otherExperience": "दूसरे के अनुभव",
+        "startDate": "आरंभ करने की तिथि",
+        "endDate": "अंतिम तिथि",
+         "submit": "जमा करें",
+         "edit": "संपादित करें",
+        "delete": "मिटाना",
+        "workExperiences": "काम के अनुभव"
+     
+    },
+    "errors": {
+
+    }
+}

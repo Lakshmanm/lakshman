@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "termTitle": "Term Title",
+        "termHeading": "Term Heading",
+        "boardTitle": "Board Title",
+        "groupTitle": "Group Title",
+        "courseTitle": "Course Title",
+        "instanceOrganizationKey": "Instance Organization Key",
+        "submit": "Save",
+        "update": "Update",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "folderKey": "Folder Key"
+    },
+    "errors": {
+
+    }
+}

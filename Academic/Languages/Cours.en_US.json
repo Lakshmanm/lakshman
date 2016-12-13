@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "coursHeading": "Cours ",
+        "courseKey": "Course Key",
+        "courseTitle": "Course Title",
+        "groupTitle": "Group Title",
+        "boardTitle": "Board Title",
+        "instanceOrganizationKey": "Instance Organization Key",
+        "submit": "Save",
+        "update": "Update",
+        "course": "Course",
+ "board": "Board",
+        "group": "Group"
+
+    },
+    "errors": {
+
+    }
+}

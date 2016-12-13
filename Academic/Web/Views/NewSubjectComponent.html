@@ -1,0 +1,153 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewSubjectComponent.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="subjectComponentForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.boardTitle.$dirty && subjectComponentForm.boardTitle.$invalid, 'has-success':subjectComponentForm.boardTitle.$valid}">
+                        <label>{{labelsSubjectComponent.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entitySubjectComponent.boardKey)" ng-model="entitySubjectComponent.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.boardTitle.$dirty && subjectComponentForm.boardTitle.$invalid" class="error text-small block">
+                        <p ng-show="subjectComponentForm.boardTitle.$error.required ">Board title is required</p>
+
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.groupTitle.$dirty && subjectComponentForm.groupTitle.$invalid, 'has-success':subjectComponentForm.groupTitle.$valid}">
+                        <label>{{labelsSubjectComponent.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3" class="form-control " ng-change="getGroupCourse(entitySubjectComponent.groupKey)" ng-model="entitySubjectComponent.groupKey" name="groupTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.groupTitle.$dirty && subjectComponentForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show="subjectComponentForm.groupTitle.$error.required ">Group title is required</p>
+
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.courseTitle.$dirty && subjectComponentForm.courseTitle.$invalid, 'has-success':subjectComponentForm.courseTitle.$valid}">
+                        <label>{{labelsSubjectComponent.courseTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="course.courseKey as course.courseTitle for course in courseList " value="3" class="form-control " ng-change="getCourseTerm(entitySubjectComponent.courseKey)" ng-model="entitySubjectComponent.courseKey" name="courseTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.courseTitle.$dirty && subjectComponentForm.courseTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectComponentForm.courseTitle.$error.required">Course title  is required</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.termTitle.$dirty && subjectComponentForm.termTitle.$invalid, 'has-success':subjectComponentForm.termTitle.$valid}">
+                        <label>{{labelsSubjectComponent.termTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="term.termKey as term.termTitle for term in termList" value="3" class="form-control " ng-change="getTermSubject(entitySubjectComponent.termKey)" ng-model="entitySubjectComponent.termKey" name="termTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.termTitle.$dirty && subjectComponentForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectComponentForm.termTitle.$error.required ">Term title  is required</p>
+                        </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.subjectTitle.$dirty && subjectComponentForm.subjectTitle.$invalid, 'has-success':subjectComponentForm.subjectTitle.$valid}">
+                        <label>{{labelsSubjectComponent.subject}}<span class="symbol required"></span></label>
+                        <select ng-options="subject.subjectKey as subject.subjectTitle for subject in subjectList" value="3" class="form-control " ng-model="entitySubjectComponent.subjectKey" name="subjectTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.subjectTitle.$dirty && subjectComponentForm.subjectTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectComponentForm.subjectTitle.$error.required ">Subject title  is required.</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.examinationTypeTitle.$dirty && subjectComponentForm.examinationTypeTitle.$invalid, 'has-success':subjectComponentForm.examinationTypeTitle.$valid}">
+                        <label>{{labelsSubjectComponent.examinationType}}<span class="symbol required"></span></label>
+                        <select ng-options="exam.examinationTypeKey as exam.examinationTypeTitle for exam in examinationTypeList" value="3" class="form-control " ng-model="entitySubjectComponent.examinationTypeKey" name="examinationTypeTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="subjectComponentForm.examinationTypeTitle.$dirty && subjectComponentForm.examinationTypeTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectComponentForm.examinationTypeTitle.$error.required ">ExaminationType title  is required.</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.subjectComponentTitle.$dirty && subjectComponentForm.subjectComponentTitle.$invalid, 'has-success':subjectComponentForm.subjectComponentTitle.$valid}">
+                        <label>{{labelsSubjectComponent.subjectComponentTitle}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entitySubjectComponent.subjectComponentTitle" name="subjectComponentTitle" type="text" ng-minlength="2" ng-maxlength="80" ng-pattern="/^[ A-Za-z0-9_@./#&+-]*$/" ng-required="true"> <span ng-if="subjectComponentForm.subjectComponentTitle.$dirty && subjectComponentForm.subjectComponentTitle.$invalid" class="error text-small block">
+                        <p ng-if="subjectComponentForm.subjectComponentTitle.$error.required ">SubjectComponent title is required</p>
+                        <p ng-show="subjectComponentForm.subjectComponentTitle.$error.minlength">SubjectComponent title minimum length is 2 characters</p>
+                        <p ng-show="subjectComponentForm.subjectComponentTitle.$error.maxlength">SubjectComponent title maximum length is 80 characters</p>
+                        <p ng-show="subjectComponentForm.subjectComponentTitle.$error.pattern">Alphabets only</p>
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':subjectComponentForm.maximumSubjects.$dirty && subjectComponentForm.maximumSubjects.$invalid, 'has-success':subjectComponentForm.maximumSubjects.$valid}">
+                        <label>{{labelsSubjectComponent.maximumSubjects}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entitySubjectComponent.maximumMarks" name="maximumSubjects" type="number" ng-min="1" ng-max="100" ng-required="true">
+                        <span ng-if="subjectComponentForm.maximumSubjects.$submitted || subjectComponentForm.maximumSubjects.$touched" class="error text-small block">
+                        <p ng-show="subjectComponentForm.maximumSubjects.$error.required">Maximum Subjects is required.</p>
+                        <p ng-show="subjectComponentForm.maximumSubjects.$error.min">Maximum Marks is invalid</p>
+                        <p ng-show="subjectComponentForm.maximumSubjects.$error.max">Maximum Marks is too long</p>
+
+                        </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" ng-disabled="subjectComponentForm.$invalid" class="btn btn-wide btn-primary" ng-click="subjectComponentForm.$valid&&addSubjectComponent()">{{labelsSubjectComponent.save}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" ng-disabled="subjectComponentForm.$invalid" class="btn btn-wide btn-primary" ng-click="subjectComponentForm.$valid&&updateSubjectComponent()">{{labelsSubjectComponent.update}}</button>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <table id="tblSubjectComponentList" class="table table-stripped" cellspacing="0" width="100 % ">
+                        <thead>
+                            <tr>
+                                <th>{{labelsSubjectComponent.subjectComponentTitle}}</th>
+                                <th>{{labelsSubjectComponent.subjectTitle}}</th>
+                                <th>{{labelsSubjectComponent.examinationType}}</th>
+                                <th>{{labelsSubjectComponent.maximumSubjects}}</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entitySubjectComponent in subjectComponentCollection">
+                                <td>{{ entitySubjectComponent.subjectComponentTitle }}</td>
+                                <td>{{ entitySubjectComponent.subjectTitle }}</td>
+                                <td>{{ entitySubjectComponent.examinationTypeTitle }}</td>
+                                <td>{{ entitySubjectComponent.maximumMarks }}</td>
+                                <td><a ng-click="editSubjectComponent(entitySubjectComponent.subjectComponentKey)"><i class="fa fa-pencil"></i></a></td>
+                                <td><a ng-click="deleteSubjectComponent(entitySubjectComponent.subjectComponentKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,69 @@
+
+    <h4 class="mainTitle no-margin">Student Enrollment </h4>
+    
+
+<div class="container-fluid container-fullw bg-white">
+    <uib-accordion close-others="true" class="accordion">
+        <!--   <uib-accordion-group heading="Basic Information" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" -->
+
+            <!-- <div ng-show="startdetails"> -->
+      <!--   <uib-accordion-group heading="" is-open="true" is-disabled="false" ng-click="module={};module.basicInfo.flag = !module.basicInfo.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cogs" style="margin-right:10px; color:#337ab7"></i>Start</h5> </uib-accordion-heading>
+            <div ng-if="module.basicInfo.flag">
+                <start></start>
+            </div>
+        </uib-accordion-group> -->
+            <!--</div>
+      <div ng-show="basicdetails"> -->
+      <uib-accordion-group heading="" is-open="true" is-disabled="false"   ng-click="module={};module.basicInfo.flag = !module.basicInfo.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-info-circle fa_icon" style="margin-right:10px; color:#337ab7"></i>Basic Information</h5> </uib-accordion-heading>
+            <div ng-if="module.basicInfo.flag">
+                <ebasic></ebasic>
+            </div>
+        </uib-accordion-group>
+       <!--  </div>
+    
+<div ng-show="otherdetails"> -->
+
+ <div ng-show="openothers">
+        <uib-accordion-group heading="" is-disabled="status.isFirstDisabled" ng-click="module={};module.enumber.flag = !module.enumber.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-compress" style="margin-right:10px; color:#337ab7"></i>Enrollment Number</h5> </uib-accordion-heading>
+            <div ng-if="module.enumber.flag">
+                <enumber></enumber>
+            </div>
+        </uib-accordion-group>
+               <uib-accordion-group heading="" is-disabled="status.isFirstDisabled" ng-click="module={};module.address.flag = !module.address.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-map-marker fa_icon" style="margin-right:10px; color:#337ab7"></i>Address</h5> </uib-accordion-heading>
+            <div ng-if="module.address.flag">
+                <address></address>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="" ng-click="module={};module.education.flag = !module.education.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-users fa_icon" style="margin-right:10px; color:#337ab7"></i>Family Details</h5> </uib-accordion-heading>
+            <div ng-if="module.education.flag">
+                <family></family>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Installment Plans" is-disabled="status.isFirstDisabled" ng-click="module={};module.family.flag = !module.family.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i>Past Education</h5> </uib-accordion-heading>
+            <div ng-if="module.family.flag">
+                <education></education>
+            </div>
+        </uib-accordion-group>
+       <!--  <uib-accordion-group heading="Installment Plans" is-disabled="status.isFirstDisabled" ng-click="module={};module.family.flag = !module.family.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-arrows" style="margin-right:10px; color:#337ab7"></i>Complete</h5> </uib-accordion-heading>
+            <div ng-if="module.family.flag">
+                <complete></complete>
+            </div>
+        </uib-accordion-group> -->
+      <!--   </div> -->
+      </div>
+    </uib-accordion>
+</div>

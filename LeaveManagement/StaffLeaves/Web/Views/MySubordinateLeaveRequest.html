@@ -1,0 +1,94 @@
+<style>
+    a:hover {
+        color: red;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+</style>
+
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#/app/applyLeave">Apply Leave</a></li>
+    <li><a data-toggle="tab" href="#/app/leaveRequest">My Leave Request</a></li>
+    <li class="active"><a data-toggle="tab" href="#/app/subordinateLeaveRequest">My Subordinate Leave Request</a></li>
+
+</ul>
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="breadcrumb-wrapper">
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <a href="#" class="pull-right" ng-click="getRequest()">Inactive Requests</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-right" class="col-lg-3 col-md-6">
+            <input type="text" placeholder="search" class="form-control" name="BranchName" ng-model="branchSearch">
+        </div>
+    </div>
+
+    <table style="font-size:small" class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="cursor: pointer" ng-click="sortData('requestDate')">{{labelsLeave.requestDate}}
+                    <div ng-class="getSortClass('requestDate')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('from')">{{labelsLeave.from}}
+                    <div ng-class="getSortClass('from')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('to')">{{labelsLeave.to}}
+                    <div ng-class="getSortClass('to')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('noOfDays')">{{labelsLeave.noOfDays}}
+                    <div ng-class="getSortClass('noOfDays')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('requester')">{{labelsLeave.requester}}
+                    <div ng-class="getSortClass('requester')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('status')">{{labelsLeave.status}}
+                    <div ng-class="getSortClass('status')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('view')">{{labelsLeave.view}}
+                    <div ng-class="getSortClass('view')"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr dir-paginate="role in leaveRequestList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+                <td>{{role.createdDateTime | date}}</td>
+                <td>{{role.startdatetime | date}}</td>
+                <td>{{role.enddatetime | date}}</td>
+                <td>{{role.noofdays}}</td>
+
+                <td>{{role.firstname}}</td>
+                <td>{{role.leavestatustitle}}</td>
+
+                <td> <a href="" ng-click=SwitchFuction(role.status,$index,role.leaverequestkey)>View</a> </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="col-md-2" ng-hide="((leaveRequestList | filter:search).length<=10)||((leaveRequestList | filter:search).length==undefined)">
+        <div ng-init="pageSize=10 ">
+            <label for="search">Records per page:</label>
+            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-12" style="text-align:left">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+{
+    "messages": {
+        "personSaved": "Person Details Saved Successfully"
+        , "personUpdated": "Person Details Updated Successfully"
+        , "personDeleted": "Person Details Deleted Successfully",
+
+
+        "awardSaved": "Award Details Saved Successfully"
+        , "awardUpdated": "Award Details Updated Successfully"
+        , "awardDeleted": "Award Details Deleted Successfully",
+
+
+        "bankSaved": "Bank Details Saved Successfully"
+        , "bankUpdated": "Bank Details Updated Successfully"
+        , "bankDeleted": "Bank Details Deleted Successfully",
+
+
+        "demographicSaved": "Demographic Details Saved Successfully"
+        , "demographicUpdated": "Demographic Details Updated Successfully"
+        , "demographicDeleted": "Demographic Details Deleted Successfully",
+
+        "diseaseSaved": "Disease Details Saved Successfully"
+        , "diseaseUpdated": "Disease Details Updated Successfully"
+        , "diseaseDeleted": "Disease Details Deleted Successfully",
+
+
+        "educationSaved": "Education Details Saved Successfully"
+        , "educationUpdated": "Education Details Updated Successfully"
+        , "educationDeleted": "Education Details Deleted Successfully",
+
+
+        "hobbySaved": "Hobby Details Saved Successfully"
+        , "hobbyUpdated": "Hobby Details Updated Successfully"
+        , "hobbyDeleted": "Hobby Details Deleted Successfully",
+
+
+
+        "identitySaved": "PersonIdentity Details Saved Successfully"
+        , "identityUpdated": "PersonIdentityPersonIdentity Details Updated Successfully"
+        , "identityDeleted": "PersonIdentity Details Deleted Successfully",
+
+        "insuranceSaved": "PersonInsurance Details Saved Successfully"
+        , "insuranceUpdated": "PersonInsurance Details Updated Successfully"
+        , "insuranceDeleted": "PersonInsurance Details Deleted Successfully",
+
+        "languageSaved": "Language Proficiency Details Saved Successfully"
+        , "languageUpdated": "Language Proficiency Details Updated Successfully"
+        , "languageDeleted": "Language Proficiency Details Deleted Successfully",
+
+        "livingSaved": "Person Living Place Details Saved Successfully"
+        , "livingUpdated": "Person Living Place Details Updated Successfully"
+        , "livingDeleted": "Person Living Place Details Deleted Successfully",
+
+        "maritialSaved": "Martial Status Details Saved Successfully"
+        , "maritialUpdated": "Martial Status Details Updated Successfully"
+        , "maritialDeleted": "Martial Status Details Deleted Successfully",
+
+        "religionSaved": "Religion Details Saved Successfully"
+        , "religionUpdated": "Religion Details Updated Successfully"
+        , "religionDeleted": "Religion Details Deleted Successfully",
+
+        "relativeSaved": "Relative Details Saved Successfully"
+        , "relativeUpdated": "Relative Details Updated Successfully"
+        , "relativeDeleted": "Relative Details Deleted Successfully",
+
+        "sportsSaved": "Sports Saved Successfully"
+        , "sportsUpdated": "Sports Updated Successfully"
+        , "sportsDeleted": "Sports Details Deleted Successfully",
+
+        "sportsAwardSaved": "Sports Awards Saved Successfully"
+        , "sportsAwardUpdated": "Sports Awards Updated Successfully"
+        , "sportsAwardDeleted": "Sports Awards Details Deleted Successfully",
+
+        "vaccinationSaved": "Person Vaccination Details Saved Successfully"
+        , "vaccinationAwardUpdated": "Person Vaccination Details Updated Successfully"
+        , "vaccinationAwardDeleted": "Person Vaccination Details Deleted Successfully",
+
+        "vissaSaved": "Vissa Details Saved Successfully"
+        , "vissaUpdated": "Vissa Details Updated Successfully"
+        , "vissaDeleted": "Vissa Details Deleted Successfully",
+
+        "experienceSaved": "Experience Details Saved Successfully"
+        , "experienceUpdated": "Experience Details Updated Successfully"
+        , "experienceDeleted": "Experience Details Deleted Successfully"
+
+
+
+
+
+
+
+
+
+    }
+    , "errors": {
+
+    }
+}

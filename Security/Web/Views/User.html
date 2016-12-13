@@ -1,0 +1,197 @@
+<!--=======================================================================
+  All rights reserved to Thrill Innovations Lab.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : User
+ Type                : Html
+ Description         : This HTML file dispalys User Details
+ References          :
+ Author              :  Tulasi Ballada
+ Created Date        :  07-Apl-2016
+****************************************************************************
+MODIFICATION LOG
+
+**************************************************************************** 
+Ver Date         Modified By            Description
+
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       15-April-2016         Sri Venkatesh.T           No Issues
+****************************************************************************
+*/
+-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <form name="UserName">
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.UserName}}<span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.Username" type="text" name="UserName" ng-minlength="2" ng-required="true" maxlength="10" />
+
+                        <span ng-if="UserForm.$submitted || UserForm.UserName.$touched">
+<p ng-show="UserForm.UserName.$invalid && UserForm.UserName.$error.required">UserName is required</p>
+<p ng-show="UserForm.UserName.$error.minlength">UserName is too short</p>
+</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.Password}}<span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.Password" type="password" name="Password" ng-minlength="2" ng-required="true" maxlength="10" />
+
+                        <span ng-if="UserForm.$submitted || UserForm.Password.$touched">
+<p ng-show="UserForm.Password.$invalid && UserForm.Password.$error.required">Password is required</p>
+<p ng-show="UserForm.Password.$error.minlength">Password is too short</p>
+
+</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.FirstName}}<span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.FirstName" type="textarea" name="FirstName" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+
+                        <span ng-if="UserForm.$submitted || UserForm.FirstName.$touched">
+<p ng-show="UserForm.FirstName.$invalid && UserForm.FirstName.$error.required">FirstName is required</p>
+<p ng-show="UserForm.FirstName.$error.minlength">FirstName is too short</p>
+<p ng-show="UserForm.FirstName.$error.pattern">Alphabets Only</p>
+</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.LastName}}<span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.LastName" type="textarea" name="LastName" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+
+                        <span ng-if="UserForm.$submitted || UserForm.LastName.$touched">
+<p ng-show="UserForm.LastName.$invalid && UserForm.LastName.$error.required">Last Name is required</p>
+<p ng-show="UserForm.LastName.$error.minlength">Last Name is too short</p>
+<p ng-show="UserForm.LastName.$error.pattern">Alphabets Only</p>
+</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.EmailId}}<span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.PrimaryEmailAddress" type="email" ng-required="true" />
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.MobileNumber}} <span style="color:red">*</span></label>
+                        <input class="form-control" ng-model="User.MobileNumber" type="tel" name="UserMobile" ng-minlength="10" ng-required="true" ng-pattern="/^[0-9\s]*$/" maxlength="10" />
+
+                        <span ng-if="UserForm.$submitted || basicform.UserMobile.$touched">
+<p ng-show="UserForm.UserMobile.$invalid && UserForm.UserMobile.$error.required">Mobile is required</p>
+<p ng-show="UserForm.UserMobile.$error.minlength">Mobile is too short</p>
+<p ng-show="UserForm.UserMobile.$error.pattern">Numbers Only</p>
+</span>
+                        <label ng-show="Emessage">
+                            <h3><span style="color:red">EmailID already registered.Kindly register with another Email Address.</span></h3>
+                        </label>
+                        <label ng-show="Mmessage">
+                            <h3><span style="color:red">MobileNumber already exists.Kindly enter another mobile number.</span></h3>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="panel-body">
+                        <label>{{securityUser.IsActive}}</label>
+                        <input class="form-control" ng-model="User.isActive" type="checkbox" name="isacive" />
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div style="text-align:center" class="row">
+                <button type="submit" name="type_saveid" ng-show="save" ng-click="UsersSave()" class="btn btn-primary">{{securityUser.Save}}</button>
+            </div>
+
+            <div style="text-align:center" class="row">
+                <button type="submit" id="type_saveid" ng-show="update" name="type_saveid" ng-click="updateUsers()" class="btn btn-primary">{{securityUser.Update}}</button>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+<div style="width: px; height: px; overflow: scroll;">
+  
+
+                        <table style="font-size:small" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> {{securityUser.FirstName}}</th>
+                                    <th>{{securityUser.LastName}}</th>
+                                    <th>{{securityUser.UserName}}</th>
+                                    <th>{{securityUser.EmailId}}</th>
+                                    <th>{{securityUser.MobileNumber}}</th>
+                                    <th>{{securityUser.IsActive}}</th>
+                                    <th>{{securityUser.Edit}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="list in users">
+                                    <td>{{list.FirstName}}</td>
+                                    <td>{{list.LastName}}</td>
+                                    <td>{{list.Username}}</td>
+                                    <td>{{list.PrimaryEmailAddress}}</td>
+                                    <td>{{list.MobileNumber}}</td>
+                                    <td>{{ (list.isActive ==true)?"Active":"In Active"}}</td>
+                                    <td>
+                                        <ul class="nav">
+
+                                            <li class="active"><a href="" ng-click="edituser(list)">Edit</a></li>
+
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        </div>
+
+                        <!-- Row -->
+
+
+                    </div>
+                </div>
+            </div>
+
+        </form><!--form-->
+    </div>
+</div>
+<!-- Main Wrapper -->

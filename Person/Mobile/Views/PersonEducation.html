@@ -1,0 +1,179 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personEducation.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************-->
+
+
+<form name="educationForm" novalidate>
+    <h2>{{educationLabels.education}}</h2>
+
+
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.title}}<span style="color:red">*</span></span>
+            <input type="text" name="title" ng-model="education.educationName" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+            <div class="padding" ng-if="educationForm.title.$touched || educationForm.$submitted" style="color:red">
+                <p ng-show="educationForm.title.$error.required ">Title is required</p>
+                <p ng-show="educationForm.title.$error.minlength">Title is too short must be longer than 3 characters</p>
+                <p ng-show="educationForm.title.$error.maxlength">Title is too long it should be below 30 characters</p>
+                <p ng-show="educationForm.title.$error.pattern">Title accept only alphabetic characters</p>
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+
+            <span>{{educationLabels.startDate}}<span style="color:red">*</span></span>
+            <input name="startDate" type="date" ng-model="education.startDate" required>
+            <div class="padding" ng-if="educationForm.startDate.$touched || educationForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="educationForm.startDate.$error.required ">Start date is required</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.endDate}}<span style="color:red">*</span></span>
+            <input name="endDate" type="date" ng-model="education.endDate" required>
+            <div class="padding" ng-if="educationForm.endDate.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.endDate.$error.required ">End date is required</p>
+
+            </div>
+        </label>
+
+
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.instituteName}}<span style="color:red">*</span></span>
+            <input type="text" name="instituteName" ng-model="education.instituteName" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="30" required>
+            <div class="padding" ng-if="educationForm.instituteName.$touched || educationForm.$submitted" style="color:red">
+                <p ng-show="educationForm.instituteName.$error.required ">Institute name is required</p>
+                <p ng-show="educationForm.instituteName.$error.minlength">Institute name is too short must be longer than 3 characters</p>
+
+                <p ng-show="educationForm.instituteName.$error.pattern">Institute name accept only alphabetic characters</p>
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.instituteCode}}<span style="color:red">*</span></span>
+            <input class="form-control" name="instituteCode" type="text" ng-model="education.instituteCode" maxlength="30" required>
+            <div class="padding" ng-if="educationForm.instituteCode.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.instituteCode.$error.required ">Institute code is required</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.instituteMedium}}<span style="color:red">*</span></span>
+            <select name="instituteMedium" style="width: 100%" ng-options="lng.languageId as lng.languageName for lng in languageList" ng-model="education.instituteMedium" required>
+                <option value="">--Select--</option>
+            </select>
+            <div class="padding" ng-if="educationForm.instituteMedium.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.instituteMedium.$error.required ">Institute medium is required</p>
+
+            </div>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.marksObtained}}<span style="color:red">*</span></span>
+            <input name="marksObtained" type="number" ng-model="education.marksObtained" maxlength="6" required>
+            <div class="padding" ng-if="educationForm.marksObtained.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.marksObtained.$error.required ">Marks obtained is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{educationLabels.gradeObtained}}<span style="color:red">*</span></span>
+            <input name="gradeObtained" type="text" ng-model="education.gradeObtained" maxlength="30" required>
+            <div class="padding" ng-if="educationForm.gradeObtained.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.gradeObtained.$error.required ">Grade obtained is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <label>{{educationLabels.location}}</label>
+            <!--<input class="form-control" type="text" ng-model="education.addressID">-->
+            <input type="text" id="Autocomplete2" ng-model="educationLocation.geoLocation" ng-autocomplete options="options" details="details" />
+
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <label>{{educationLabels.yearOfPassing}}<span style="color:red">*</span></label>
+            <input name="yearOfPassing" ng-model="education.yearOfPassing" maxlength="4" required>
+            <div class="padding" ng-if="educationForm.yearOfPassing.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.yearOfPassing.$error.required ">Year of passing is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-select item-stacked-label">
+            <label>{{educationLabels.qualification}}<span style="color:red">*</span></label>
+            <select name="qualificationID" style="width: 100%" ng-options="qua.qualificationId as 
+qua.qualificationName for qua in qualificationList" ng-model="education.qualificationId" required>
+                <option value="">--select--</option>
+
+            </select>
+            <div class="padding" ng-if="educationForm.qualificationID.$touched || educationForm.$submitted" style="color:red" required>
+                <p ng-show="educationForm.qualificationID.$error.required ">selection is required</p>
+
+            </div>
+        </label>
+        <div class="row">
+            <div style="text-align:center">
+                <button type="submit" ng-click="educationForm.$valid&&saveEducation()" class=" button button-stable">{{educationLabels.submit}}</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br>
+<div style="text-align:center">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{educationLabels.title}}</th>
+
+                <th>{{educationLabels.instituteName}}</th>
+                <th>{{educationLabels.instituteCode}}</th>
+                <th>{{educationLabels.yearOfPassing}}</th>
+                <th>{{educationLabels.edit}}</th>
+                <th>{{educationLabels.delete}}</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="education in educationList">
+
+                <td>{{education.educationName}}</td>
+                <td>{{education.instituteName}}</td>
+                <td>{{education.instituteCode}}</td>
+                <td>{{education.yearOfPassing}}</td>
+
+
+
+                <td>
+                    <a ng-click="editEducation(education.referenceKey)"><i class="fa fa-pencil"></i>Edit</a>
+                </td>
+                <td><a ng-click="deleteEducation(education.referenceKey)"><i class="fa fa-trash"></i>Delete</a></td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

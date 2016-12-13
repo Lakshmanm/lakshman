@@ -1,0 +1,375 @@
+{
+  childId: 1,
+  firstName: 'Ramana',
+  middleName: '',
+  lastName: '',
+  contactNo: '8686223355',
+  dateOfBirth: '2015-02-02',
+  age:1,
+  gender: 'male',
+  cityOrTown: 'vizag',
+  religion: 'Hindu',
+  nationality: 'Indian',
+  aadhaarNumber: '78459632144',
+  contacts: [
+    {
+      contactTypeId: 1,
+      contactType: 'email',
+      contact: 'ram@gmail.com'
+    },
+    {
+      contactTypeId: 2,
+      contactType: 'landLine',
+      contact: '08912707093'
+    },
+
+  ],
+  image: '3ilAppBase01/Web/assets/images/child5.jpg',
+  addressLine1: '',
+  addressLine2: '',
+  districtId:1,
+  district: 'AP',
+  stateId:1,
+  state: 'Indian',
+  pinCode: '530012',
+  familyDetails: [
+    {
+      familyDetailsId: 1,
+      firstName: 'sumanth',
+      middleName: '',
+      lastName: 'kupa',
+      contact: '9346543123',
+      relationTypeId:1,
+      relationType: 'Father'
+    },
+    {
+      familyDetailsId: 2,
+      firstName: 'sudha',
+      middleName: '',
+      lastName: 'kupa',
+      contact: '9984755662',
+      relationTypeId:2,
+      relation: 'Mother'
+    }
+  ],
+  familyHistory: [
+   
+    {
+      conditionTypeId:2,    
+      conditionType: 'BloodPressure',
+      relationSideTypeId:2,
+      relationSideType: 'Both',
+      comments: ''
+    }
+  ],
+  surgicalHistory: [
+    
+    {
+      surgeryTypeId:2,
+      surgeryType: 'Shoulder Surgery',
+      comments: '',
+      file: '',
+      dateOfSurgery: '2015-06-05'
+    }
+  ],
+  allergies: [
+    {
+      allergyTypeId:1,
+      allergyType: 'Skin Allegrgy',
+      fromType: 'Days',
+      fromCount: '7',
+      comments: ''
+    },
+    ,
+    {
+      allergyTypeId:2,
+      allergyType: 'Dust Allergey',
+      fromType: 'Months',
+      fromCount: '7',
+      comments: ''
+    }
+  ],
+  immunizationVaccinationHistory: [
+    {
+      immunizationTypeId:1,    
+      immunizationType: 'Hep B',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+      dueDate: '2016-08-01',
+      givenOn: '2015-04-04',
+      givenBy: 'Dr.Radhika',
+      batchNumber: '1125448889'
+    },
+    {
+      immunizationTypeId:2,    
+      immunizationType: 'OPV',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+     dueDate: '2016-10-02',
+      givenOn: '2015-07-06',
+      givenBy: 'Dr.Tripati',
+      batchNumber: '32547133889'
+    }
+  ],
+  screenings: [
+    {
+      screeningId: 1,
+      vitals: {
+        height: {
+          value1: '72 cms',
+          value2: '0'
+        },
+        weight: {
+          value1: '13 kgs',
+          value2: '0'
+        },
+        mUAC: {
+          value1: '30cms',
+          value2: '0'
+        },
+        headCircumferrence: {
+          value1: '49.35cms',
+          value2: '0'
+        },
+        temperature: {
+          value1: '96 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '9.4 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep B',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-04-01',
+          givenBy: 'Dr.Ram',
+          batchNumber: '1247723489'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-05-02',
+          givenBy: 'Dr.Naresh',
+          batchNumber: '1473337844'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'lack of color in eyes',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Hemoglobin deficiency'
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Fe',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: 'Iron Syrup',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: 'Dr.Rithika',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    },
+     {
+      screeningId: 2,
+      vitals: {
+        height: {
+          value1: '67 cms',
+          value2: ''
+        },
+        weight: {
+          value1: '15 Kgs',
+          value2: ''
+        },
+        mUAC: {
+          value1: '',
+          value2: ''
+        },
+        headCircumferrence: {
+          value1: '50 cms',
+          value2: ''
+        },
+        temperature: {
+          value1: '98 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '8.8 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep A',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '2016-05-08',
+          givenOn: '2016-04-04',
+          givenBy: 'Dr.Jhansi',
+          batchNumber: '3535343553'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'frequent Cold',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Deficiency Of Vitamin c'
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Fe',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: 'Iron Syrup',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: 'Dr.Kiran',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name                : NewBoard.html 
+//* Type                : HTML File
+//* Description         :
+//* References          :
+//* Author              :
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver       Date            Modified By            Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+// ng-pattern="/^[0-9\s]*$/"
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="gradeForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':gradeForm.percentageFrom.$dirty && gradeForm.percentageFrom.$invalid, 'has-success':gradeForm.percentageFrom.$valid}">
+                        <label>{{labelsGrade.percentageFrom}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityGrade.percentageFrom" name="percentageFrom" type="text" ng-change="getVal(entityGrade.percentageFrom)" ng-min="1" ng-max="100" ng-pattern="/^\-?\d+((\.|\,)\d+)?$/" ng-required="true"> <span ng-if="gradeForm.percentageFrom.$dirty && gradeForm.percentageFrom.$invalid" class="error text-small block">
+                 <p ng-show="gradeForm.percentageFrom.$error.required ">Percentage From  is required</p>
+                        <p ng-show="gradeForm.percentageFrom.$error.min">Percentage from is too small</p>
+                        <p ng-show="gradeForm.percentageFrom.$error.max">Percentage from is too long</p>
+                         <p ng-show="gradeForm.percentageFrom.$error.pattern">Numbers and decimals  between 1 and 100 only  </p>
+                            
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':gradeForm.percentageTo.$dirty && gradeForm.percentageTo.$invalid, 'has-success':gradeForm.percentageTo.$valid}">
+                        <label>{{labelsGrade.percentageTo}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityGrade.percentageTo" name="percentageTo" type="text" ng-min="1" ng-change="getVal(entityGrade.percentageTo)" ng-max="100" ng-pattern="/^\-?\d+((\.|\,)\d+)?$/" ng-required="true"> <span ng-if="gradeForm.percentageTo.$dirty && gradeForm.percentageTo.$invalid" class="error text-small block">
+                 <p ng-show="gradeForm.percentageTo.$invalid && gradeForm.percentageTo.$error.required ">Percentage To  is required</p>
+                        <p ng-show="gradeForm.percentageTo.$error.min">Percentage to is too small</p>
+                        <p ng-show="gradeForm.percentageTo.$error.max">Percentage to is too long</p>
+                          <p ng-show="gradeForm.percentageTo.$error.pattern">Numbers and decimals  between 1 and 100 only </p>
+                             
+                        </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':gradeForm.GradePoints.$dirty && gradeForm.GradePoints.$invalid, 'has-success':gradeForm.GradePoints.$valid}">
+                        <label>{{labelsGrade.grade}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityGrade.gradePoints" name="GradePoints" type="text" ng-min="1" ng-max="4" ng-pattern="/^[ A-Za-z0-9_@./#&+-]*$/" ng-required="true"> <span ng-if="gradeForm.GradePoints.$dirty && gradeForm.GradePoints.$invalid" class="error text-small block">
+                 <p ng-show="gradeForm.GradePoints.$invalid && gradeForm.GradePoints.$error.required ">Grade Points  is required.</p>
+                        <p ng-show="gradeForm.GradePoints.$error.minl">Grade Points is too small.</p>
+                        <p ng-show="gradeForm.GradePoints.$error.max">Grade Points  is too long.</p>
+                        <p ng-show="gradeForm.GradePoints.$error.pattern">Numbers and decimals between 1 and 10 only </p>
+                        </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" ng-disabled="gradeForm.$invalid" class="btn btn-wide btn-primary" ng-show="save" ng-click="gradeForm.$valid&&addGrade()">{{labelsGrade.submit}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" ng-disabled="gradeForm.$invalid" class="btn btn-wide btn-primary" ng-show="update" ng-click="gradeForm.$valid&&updateGrade()">{{labelsGrade.update}}</button>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="tblBoardList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsGrade.percentageFrom}}</th>
+                                    <th>{{labelsGrade.percentageTo}}</th>
+                                    <th>{{labelsGrade.grade}}</th>
+                                    <th>{{labelsGrade.edit}}</th>
+                                    <th>{{labelsGrade.Delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityGrade in gradeCollection">
+                                    <td>{{entityGrade.PercentageFrom}}</td>
+                                    <td>{{entityGrade.PercentageTo}}</td>
+                                    <td>{{entityGrade.GradePoints}}</td>
+                                    <td><a ng-click="editGrade(entityGrade.GradeKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteGrade(entityGrade.GradeKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+    </div>
+</div>

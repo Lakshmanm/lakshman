@@ -1,0 +1,175 @@
+<!-- start: BREADCRUMB -->
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+
+<div id="main-wrapper">
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+
+ <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#/app/demographics">Vitals Inspection</a></li>
+                 <li><a data-toggle="tab" href="#/app/vaccination">Immunization And Vaccination</a></li>
+                 <li><a data-toggle="tab" href="#/app/diseases">Diseases And Conditions</a></li>
+                  <li><a data-toggle="tab" href="#/app/insurance">Insurance Details</a></li>
+
+
+            </ul>
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+             <form name="demographicsForm" novalidate>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.height}}<span style="color:red">*</span></label>
+                        <input class="form-control" name="height" ng-model="demographic.height" type="number" required>
+                        <div class="padding" ng-if="demographicsForm.height.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.height.$error.required ">Height is required</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.weight}}<span style="color:red">*</span></label>
+                        <input class="form-control" name="weight" ng-model="demographic.weight" type="number" required>
+                        <div class="padding" ng-if="demographicsForm.weight.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.weight.$error.required ">Weight is required</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.bmi}}<span style="color:red">*</span></label>
+                        <input class="form-control" name="bmi" ng-model="demographic.bmi" type="number" required>
+                        <div class="padding" ng-if="demographicsForm.bmi.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.bmi.$error.required ">BMI is required</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.temperature}}<span style="color:red">*</span></label>
+                        <input class="form-control" name="temperature" ng-model="demographic.temperature" type="number" required>
+                        <div class="padding" ng-if="demographicsForm.temperature.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.temperature.$error.required ">Temperature is required</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.hemoglobin}}<span style="color:red">*</span></label>
+                        <input class="form-control" name="hemoglobin" ng-model="demographic.hemoglobin" type="number" required>
+                        <div class="padding" ng-if="demographicsForm.hemoglobin.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.hemoglobin.$error.required ">Hemoglobin is required</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="panel-body">
+                        <label>{{demographicLabels.inspectionDate}}<span style="color:red">*</span></label>
+                        <input class="form-control date-picker" name="inspectionDate" ng-model="demographic.inspectionDate" type="date" required>
+                        <div class="padding" ng-if="demographicsForm.inspectionDate.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                            <p ng-show="demographicsForm.inspectionDate.$error.required ">Inspection date is required</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>Documents</label>
+                <input type="file" ng-model="dem.document" name="file" base-sixty-four-input>
+
+            </div>
+
+
+        </div>
+    </div>-->
+            <div class="row">
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-primary" ng-click="demographicsForm.$valid&&saveDemographic()">{{demographicLabels.submit}}</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{demographicLabels.height}}</th>
+                                <th>{{demographicLabels.weight}}</th>
+                                <th>{{demographicLabels.bmi}}</th>
+                                <th>{{demographicLabels.temperature}}</th>
+                                <th>{{demographicLabels.hemoglobin}}</th>
+                                <th>{{demographicLabels.inspectionDate}}</th>
+                                <th>{{demographicLabels.edit}}</th>
+                                <th>{{demographicLabels.delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="demographic in demographicList">
+                                <td>{{demographic.height}}</td>
+                                <td>{{demographic.weight}}</td>
+                                <td>{{demographic.bmi}}</td>
+                                <td>{{demographic.temperature}}</td>
+                                <td>{{demographic.hemoglobin}}</td>
+                                <td>{{demographic.inspectionDate|date}}</td>
+                                <td>
+                                    <a ng-click="getDemographic(demographic.referenceKey)"><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteDemographic(demographic.referenceKey)"><i class="fa fa-trash"></i></a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+<!-- end: USER PROFILE -->

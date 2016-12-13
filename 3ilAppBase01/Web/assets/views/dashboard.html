@@ -1,0 +1,59 @@
+<!-- start: BREADCRUMB -->
+
+<!--  <div class="row" ng-show="drop">
+ <div class="col-md-4">
+ </div>
+ <div class="col-md-4">
+ </div>
+       <div class="col-md-4">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteKey.$dirty && LeaveForm.InstituteKey.$invalid, 'has-success':LeaveForm.InstituteKey.$valid}">
+                    <label class="control-label">
+                          Roles <span class="symbol required"></span> </label> <span class="clip-select">
+                   
+                                <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="entity.LoginDetailID" ng-options="item as item.RoleOrgName for item in multiplecollection" ng-disabled="details" ng-change="getmenu(entity.LoginDetailID.RoleID,entity.LoginDetailID.InstituteKey,entity.LoginDetailID)" name="InstituteKey" ng-required="true">
+                                        <option value="" >-Select-</option>
+                                        </select>
+                                        </span>
+                    <span ng-if="LeaveForm.$submitted || LeaveForm.InstituteKey.$touched" class="validationMessage">
+                        <span ng-if="LeaveForm.InstituteKey.$invalid && LeaveForm.InstituteKey.$error.required ">Institute  is required.</span>
+                    </span>
+                </div>
+
+            </div>
+            </div> -->
+            <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Dashboard</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+    <div class="container-fluid container-fullw bg-white"> 
+    <div class="row">
+    <div class="col-md-6">
+    <label><b>School Strength</b></label>
+     <canvas id="line" class="chart chart-line" chart-data="data"chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas> 
+</div>
+
+<div class="col-md-6">
+    <label><b>Gender Wise Staff</b></label>
+     <canvas id="line" class="chart chart-line" chart-data="dataHeight"chart-labels="labelsHeight" chart-series="seriesHeight" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas> 
+</div>
+</div>
+
+ <div class="row">
+    <div class="col-md-6">
+    <label><b>Gender Wise Students</b></label>
+     <canvas id="line" class="chart chart-line" chart-data="dataMUAC"chart-labels="labelsMUAC" chart-series="seriesHeightMUAC" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas> 
+
+    </div>
+
+    <div class="col-md-6">
+    <label><b>Community Wise Students</b></label>
+     <canvas id="line" class="chart chart-line" chart-data="dataHead"chart-labels="labelsHead" chart-series="seriesHead" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas> 
+</div>
+    </div>
+
+
+</div>

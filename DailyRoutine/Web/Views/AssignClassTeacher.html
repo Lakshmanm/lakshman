@@ -1,0 +1,137 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Daily routine</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#/app/Daily">Daily routine</a></li>
+        <li  ><a data-toggle="tab" href="#/app/Assign">Assign Class Teacher</a></li>
+
+
+    </ul>
+    </br>
+    <form name="assignForm">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+
+
+                    <div class="form-group" ng-class="{'has-error':assignForm.instituteTitle.$dirty && assignForm.instituteTitle.$invalid, 'has-success':assignForm.instituteTitle.$valid}">
+                        <label class="control-label">
+                                   InstituteList<span class="symbol required"></span> </label> <span class="clip-select">
+        
+                        <select ng-options="institute as institute.OrganizationName for institute in instituteList " ng-required="true" value="3" ng-change="getclassTable(entityBatch.InstituteKey.InstituteKey,entityBatch.InstituteKey.ParentOrganizationKey)" ng-disabled="assignclass" class="form-control "
+                            ng-model="entityBatch.InstituteKey" name="instituteTitle"> 
+						 <option value="">--Select--</option>
+					 </select> </span> <span class="error text-small block" ng-if="assignForm.instituteTitle.$dirty && assignForm.instituteTitle.$invalid">    
+                                        
+                                        <p ng-show="assignForm.instituteTitle.$invalid && assignForm.instituteTitle.$error.required">Institute is required</p>
+                       
+                                    
+                                    </span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+
+
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <div class="col-md-1">
+                                &nbsp
+                            </div>
+                            <div class="col-md-2">
+
+
+
+                                <label class="control-label">
+
+                        </label>
+                                <!--<button type="button" class="btn  btn-primary" v-pressable>
+                            Search
+                        </button> -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <table class="table table-hover" id="sample-table-1">
+                                    <thead>
+                                        <tr>
+                                            <th style="cursor: pointer" ng-click="sortData('Course/Class')">Course/Class
+                                                <div ng-class="getSortClass('Course/Class')"></div>
+                                            </th>
+                                            <th style="cursor: pointer" ng-click="sortData('Batch/Section')">Batch/Section
+                                                <div ng-class="getSortClass('Batch/Section')"></div>
+                                            </th>
+
+
+                                            <th>Assigned Class Teacher</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="classTeacher in classTeacherList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+
+
+
+
+                                            <td>{{classTeacher.CourseTitle}}</td>
+                                            <td>{{classTeacher.BatchName}}</td>
+
+
+                                            <td>
+
+
+                                                <select ng-options="staff.StaffKey as staff.FirstName for staff in teacherList " value="3" ng-model="classTeacher.StaffKey" name="staffTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-2" ng-hide="((classTeacherList | filter:search).length<=10)||((classTeacherList | filter:search).length==undefined)">
+                        <div ng-init="pageSize=10 ">
+                            <label for="search">Records per page:</label>
+                            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12" style="text-align:left">
+                        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                        </dir-pagination-controls>
+                    </div>
+
+
+                    <div class="row">
+                        <button type="button" ng-click="saveClassTeacher(classTeacherList,entityBatch)" class="btn btn-wide btn-primary">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end: USER PROFILE -->

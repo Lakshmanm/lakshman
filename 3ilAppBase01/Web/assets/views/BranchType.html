@@ -1,0 +1,67 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4>New Branch Type</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+                <form name="MYForm" novalidate>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend>
+                                Branch Type
+                            </legend>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="control-label"> Branch Type Title <span class="symbol required"></span> </label>
+                                    <input type="text" placeholder="" class="form-control" name="orgName" ng-model="branchtype.subOrganizationTypeTitle" ng-minlength="5" ng-maxlength="30" required>
+                                    <span ng-if="MYForm.$submitted || MYForm.orgName.$touched" style="color:red;">
+                        <span class="error text-small block" ng-if="MYForm.orgName.$invalid && MYForm.orgName.$error.required ">Branch Type Title is required.</span>
+                                    <span ng-if="MYForm.orgName.$error.minlength">Branch Type Title is too short.</span>
+                                    <span ng-if="MYForm.orgName.$error.maxlength">Branch Type Title is too long.</span>
+                                    </span>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-12">
+                        <center>
+                            <button ng-disabled="!MYForm.$valid" type="button" ng-show="save" ng-click="addBranch()" class="btn btn-wide btn-primary" v-pressable>
+                                Save
+                            </button>
+                            <button ng-disabled="!MYForm.$valid" type="button" ng-show="update" ng-click="UpdateBranch()" class="btn btn-wide btn-primary" v-pressable>
+                                Update
+                            </button>
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-click="cancel()" v-pressable>
+                                Cancel
+                            </button>
+                        </center>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- end: USER PROFILE -->

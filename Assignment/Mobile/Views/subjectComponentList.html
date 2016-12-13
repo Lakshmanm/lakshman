@@ -1,0 +1,53 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: subjectComponentList.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="subjectComponent List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="list subjectComponent_table">
+					 <div class="row item" dir-paginate="entitysubjectComponent in collectionsubjectComponent | orderBy:sortColumn: reverseSort | orderBy:sortKey: reverse | itemsPerPage:pageSize">
+						 <div class="col col-80">
+
+							 {{ entitysubjectComponent.subjectComponentTitle }}
+							 &nbsp;
+							 {{ entitysubjectComponent.minimumSubjects }}
+							 &nbsp;
+							 {{ entitysubjectComponent.maximumSubjects }}
+							 &nbsp;
+						 </div>
+						 <div class="col col-10">
+							 <a  ng-click="" href="#/app/editsubjectComponent/{{entitysubjectComponent.subjectComponentKey}}"><span  class="new_icon ion-edit"></span></a>
+						 </div>
+						 <div class="col col-10">
+							 <a ng-click="deletesubjectComponent(entitysubjectComponent.subjectComponentKey)"><span class="new_icon ion-trash-a"></span></a>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "name": "విద్య పేరు",
+        "dateOfBirth": "పుట్టిన తేది",
+        "placeOfBirth": "పుట్టిన స్థలం",
+        "bloodGroupName": "అనువంశిక రక్త వర్గము పేరు",
+        "edit": "మార్చు",
+           "delete": "తొలగించు",
+        "personList": "PersonList"
+    }
+}

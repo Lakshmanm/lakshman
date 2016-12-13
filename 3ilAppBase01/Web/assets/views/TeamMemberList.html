@@ -1,0 +1,64 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: TeamMemberList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsTeamMemberList.teamMemberListTitle}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblteamList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+                             <th  style="cursor: pointer" ng-click="sortData('teamtitle')">{{labelsTeamMemberList.teamKey}} <div ng-class="getSortClass('teamtitle')"></div></th>
+                             <th  style="cursor: pointer" ng-click="sortData('personkey')">{{labelsTeamMemberList.personKey}} <div ng-class="getSortClass('personkey')"></div></th>
+                             <th  style="cursor: pointer" ng-click="sortData('teamroletitle')">{{labelsTeamMemberList.teamRoleKey}} <div ng-class="getSortClass('teamroletitle')"></div></th>
+				<th style="cursor: pointer" ng-click="sortData('startdate')">{{labelsTeamMemberList.startDate}} <div ng-class="getSortClass('startdate')"></div></th>
+				
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityTeamMember in collectionTeamMember | orderBy:sortColumn:reverseSort">
+							  <td>{{ entityTeamMember.teamtitle }}</td>
+                              <td>{{ entityTeamMember.personkey }}</td>
+                              <td>{{ entityTeamMember.teamroletitle }}</td>
+                             <td>{{ entityTeamMember.startdate | date }}</td>
+							 
+                             
+							 <td><a ng-click="" href="#/editTeamTeamMember/{{entityTeamMember.teammemberkey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteTeamMember(entityTeamMember.teammemberkey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>
+ 

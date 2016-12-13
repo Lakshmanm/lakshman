@@ -1,0 +1,16 @@
+{
+    "labels": {
+        
+        "sportAwardName": "క్రీడా పురస్కారం పేరు",
+        "curricularActivity": "పాఠ్య కార్యాచరణ",
+         "gameDetails":"గేమ్ వివరాలు",
+         "submit": "సపింమర్చండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "sportsAwards": "క్రీడలు అవార్డులు"
+
+    },
+    "errors": {
+
+    }
+}

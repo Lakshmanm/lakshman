@@ -1,0 +1,44 @@
+{
+    "labels": {
+        
+        "EventTitle": "कार्यक्रम का शीर्षक",
+        "StartDateTime": "प्रारंभ दिनांक समय",
+        "EndDateTime": "समाप्ति दिनांक समय",
+        "Reminder": "अनुस्मारक",
+        "ReminderType": "अनुस्मारक लिखें",
+        "Calender": "केलिन्डर",
+        "RecurrencePattern": "पुनरावृत्ति पैटर्न",
+        "RecurrencePattern1": "पुनरावृत्ति पैटर्न1",
+        "RepeatsEvery": "दोहराता हर",
+        "days(s)": "दिन ( s)",
+        "Oneveryweekday": "हर एक काम करने के दिन",
+        "RecurrencePattern2": "पुनरावृत्ति पैटर्न2",
+        "Week(s)on:": "वीक ( ओं) पर",
+        "Monday": "सोमवार",
+        "Tuesday": "मंगलवार",
+        "Wednesday": "बुधवार",
+        "Thursday": "गुरूवार",
+        "Friday": "शुक्रवार",
+        "Saturday": "शनिवार",
+        "Sunday": "रविवार",
+        "RecurrencePattern3": "पुनरावृत्ति पैटर्न3",
+        "Day": "दिन",
+        "ofevery": "हरेक का",
+        "months(s)":"महीने ( s)",
+        "months":"महीने",
+        "The":"दी",
+        "Daily": "रोज",
+        "Weekly": "साप्ताहिक",
+        "Monthly": "मासिक",
+        "Location": "स्थान",
+        "Attendee": "सहभागी",
+        "Description": "विवरण",
+        "SendiCalender": "भेजें कैलेंडर सभी सहभागियों को आमंत्रित करते हैं।.",
+        "Save": "बचाना",
+        "Cancel": "रद्द करना"
+         
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "LivingPlace": "Living Place",
+        "LivingPlaceName": "Living Place Name",
+        "LivingPlaceType": "Living Place Type",
+        "Location":"Location",
+        "StartDate":"Start Date",
+        "EndDate":"End Date",
+        "Submit": "Submit",
+        "Title":"Title",
+        "LivingPlaceType":"Living Place Type",
+        "StartDate":"Start Date",
+        "EndDate":"End Date",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

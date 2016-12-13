@@ -1,0 +1,14 @@
+
+
+{
+    "labels": {
+        "Success":"Success",
+        "RegistrationSuccessful": "Registration Successful",
+        "Message": "An Email has been seen to your registered Email Address.Kindly check your inbox and proceed further.",
+        "Ok":"Ok"
+           },
+    "errors": {
+        
+        }
+    
+}

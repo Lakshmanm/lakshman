@@ -1,0 +1,91 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : Contact.HTML
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  Kiranmai
+ Created Date        :  13-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date:
+Modified By:
+Description:
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       14-April-2016         Sri Venkatesh.T          In "Type" section in header remove Javascript and Jquery and wirte HTML
+****************************************************************************/-->
+
+        <form name="contactform" novalidate>
+            <h2>{{contactInfoLables.ContactBasicInfo}}</h2>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span>{{contactInfoLables.ContactInfo}}<span style="color:red">*</span></span>
+
+                    <input class="form-control" id="input-Default" ng-model="contactBasicInfo.ContactInfo" type="text" name="Title" ng-minlength="2" ng-required="true" ng-pattern="/^(0|[1-9][0-9]*)$/" ng-maxlength="50" />
+                     <span ng-if="contactform.$submitted || contactform.Title.$touched" style="color:red;">
+                        <p ng-show="contactform.Title.$invalid && contactform.Title.$error.required">Contact Info is required</p>
+                        <p ng-show="contactform.Title.$error.minlength">Contact Info should be maximum of 2 characters</p>
+                        <p ng-show="contactform.Title.$error.maxlength">Contact Info should be minumum of 50 characters</p>
+                        <p ng-show="contactform.Title.$error.pattern">Numbers Only</p>
+                    </span>
+
+                    
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span>{{contactInfoLables.ContactType}}</span>
+
+                    <select ng-options="ContactType.ContactSubTypeID as ContactType.ContactSubTypeName for ContactType in ContactTypeList" name="ContactType" class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="contactBasicInfo.ContactSubTypeID">
+                     <option value="">--Select--</option>
+                     </select>
+
+                    
+                </label>
+                
+                
+                <label class="item item-input item-stacked-label">
+                    <button type="submit" class="btn btn-default" ng-click="contactform.$valid &&addupdateContact()">{{contactInfoLables.Submit}}</button>
+                    
+
+                </label>
+                <label class="item item-input item-stacked-label">
+                <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+
+                                <th>{{contactInfoLables.ContactInfo}}</th>
+                                <th>{{contactInfoLables.EntityType}}</th>
+                                <th>{{contactInfoLables.ContactType}}</th>
+                                <th>{{contactInfoLables.Edit}}</th>
+                                <th>{{contactInfoLables.Delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="contact in contactDetails">
+                                <td> {{ contact.ContactInfo }}</td>
+                                <td> {{ contact.EntityType }}</td>
+                                <td> {{ contact.ContactSubTypeName }} </td>
+
+                                <td>
+                                    <a ng-click="editContact(contact.ContactID)"><i class="fa fa-pencil"></i>Edit</a>
+                                </td>
+                                <td><a ng-click="deleteContact(contact.ContactID)"><i class="fa fa-trash"></i>Delete</a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                
+                </label>
+            </div>
+        </form>
+ 

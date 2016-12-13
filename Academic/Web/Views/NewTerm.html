@@ -1,0 +1,161 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewTerm.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="termForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':termForm.boardTitle.$dirty && termForm.boardTitle.$invalid, 'has-success':termForm.boardTitle.$valid}">
+                        <label>{{labelsTerm.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entityTerm.boardKey)" ng-model="entityTerm.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="termForm.groupTitle.$dirty && termForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show=" termForm.boardTitle.$error.required ">Board title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6 ">
+                    <div class="form-group " ng-class="{ 'has-error':termForm.groupTitle.$dirty && termForm.groupTitle.$invalid, 'has-success':termForm.groupTitle.$valid} ">
+                        <label>{{labelsTerm.groupTitle}}<span class="symbol required "></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3 " class="form-control " ng-model="entityTerm.groupKey " ng-change="getCoursByGroupKey(entityTerm.groupKey) " name="groupTitle " ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="termForm.groupTitle.$dirty && termForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show="termForm.groupTitle.$error.required">Group title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6 ">
+                    <div class="form-group " ng-class="{ 'has-error':termForm.courseTitle.$dirty && termForm.courseTitle.$invalid, 'has-success':termForm.courseTitle.$valid} ">
+                        <label>{{labelsTerm.courseTitle}} <span class="symbol required "></span></label>
+                        <select ng-options="course.courseKey as course.courseTitle for course in courseList " value="3 " class="form-control " ng-model="entityTerm.courseKey " name="courseTitle " ng-required="true ">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="termForm.courseTitle.$dirty && termForm.courseTitle.$invalid" class="error text-small block">
+                 <p ng-if="termForm.courseTitle.$error.required ">Course title  is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6 ">
+                    <div class="form-group " ng-class="{ 'has-error':termForm.termTitle.$dirty && termForm.termTitle.$invalid, 'has-success':termForm.termTitle.$valid} ">
+                        <label>{{labelsTerm.termTitle}} <span class="symbol required "></span></label>
+                        <input class="form-control " id="input-Default " ng-model="entityTerm.termTitle " name="termTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-required="true"> <span ng-if="termForm.termTitle.$dirty && termForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-show="termForm.termTitle.$error.required">Term title is required.</p> <p ng-show="termForm.termTitle.$error.minlength">Term title minimum length is 3 characters</p> <p ng-show="termForm.termTitle.$error.maxlength">Term title maximum length is 80 characters</p>  </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 ">
+                    <div class="form-group " ng-class="{ 'has-error':termForm.startDate.$dirty && termForm.startDate.$invalid, 'has-success':termForm.startDate.$valid} ">
+                        <label>{{labelsTerm.startDate}}<span class="symbol required "></span></label>
+                        <input class="form-control date-picker" ng-model="entityTerm.startDate" name="startDate" type="date" ng-required="true "> <span ng-if="ermForm.startDate.$dirty && termForm.startDate.$invalid" class="error text-small block">
+                        <p ng-show="termForm.startDate.$invalid || termForm.startDate.$error.required ">Start Date is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6 ">
+                    <div class="form-group " ng-class="{ 'has-error':termForm.endDate.$dirty && termForm.endDate.$invalid, 'has-success':termForm.endDate.$valid} ">
+                        <label>{{labelsTerm.endDate}}<span class="symbol required "></span></label>
+                        <input class="form-control date-picker " ng-model="entityTerm.endDate " name="endDate " type="date" ng-required="true" min="{{entityTerm.startDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}"> <span ng-if="termForm.endDate.$dirty && termForm.endDate.$invalid" class="error text-small block">
+                        <p ng-if="termForm.endDate.$invalid || termForm.endDate.$error.required ">End Date is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group">
+                        <label>{{labelsTerm.folderKey}}<span class="symbol required "></span></label>
+                        <input type="file" name="myFile" id="myFile" ng-model="dms.documents" base-sixty-four-input> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group">
+                        <table>
+                            <tr>
+                                <td><a href="#" download ng-click="getFile(entityTerm.FileKey) ">{{entityTerm.fileName}}</a></td>
+                                <td>
+                                    <a ng-click="deleteFile(entityTerm.FileKey)"> <i class="fa fa-trash" ng-show="hideDelete"></i> </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--
+                <table>
+                    
+                    <tr ng-repeat="file in fileDetails">
+                        <td><a href="# " download ng-click="getFile(file.FileKey) ">{{file.FileName}}</a> </td>
+                        <td>
+                            <a ng-click="deleteFile(file.FileKey)">
+                                <center><i class="fa fa-trash "></i></center>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="#" download ng-click="getFile(entityTerm.fileKey) ">{{entityTerm.fileName}}</a> </td>
+                        <td>
+                            <a ng-click="deleteFile(file.FileKey)">
+                                <center><i class="fa fa-trash "></i></center>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+-->
+                <div class="row ">
+                    <div class="col-lg-12 col-md-12 ">
+                        <center>
+                            <div class="form-group">
+                                <div ng-if="save ">
+                                    <button type="submit" ng-disabled="termForm.$invalid" class="btn btn-wide btn-primary " ng-click="termForm.$valid&&addTerm() ">{{labelsTerm.submit}}</button>
+                                </div>
+                                <div ng-if="update ">
+                                    <button type="submit " ng-disabled="termForm.$invalid" class="btn btn-wide btn-primary " ng-click="termForm.$valid&&updateTerm() ">{{labelsTerm.update}}</button>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <div class="row ">
+                <div class="col-md-12 ">
+                    <div class="panel-body ">
+                        <table id="tblTermList " class="table table-stripped " cellspacing="0 " width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsTerm.term}}</th>
+                                    <th>{{labelsTerm.board}}</th>
+                                    <th>{{labelsTerm.group}}</th>
+                                    <th>{{labelsTerm.course}}</th>
+                                    <th>{{labelsTerm.startDate}}</th>
+                                    <th>{{labelsTerm.endDate}}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityTerm in termCollection ">
+                                    <td>{{ entityTerm.termTitle}}</td>
+                                    <td>{{ entityTerm.boardTitle}}</td>
+                                    <td>{{ entityTerm.groupTitle}}</td>
+                                    <td>{{ entityTerm.courseTitle}}</td>
+                                    <td>{{ entityTerm.startDate | date }}</td>
+                                    <td>{{ entityTerm.endDate | date }}</td>
+                                    <td><a ng-click="editTerm(entityTerm.termKey) "><i class="fa fa-pencil "></i></a></td>
+                                    <td><a ng-click="deleteTerm(entityTerm.termKey) "><i class="fa fa-trash "></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>

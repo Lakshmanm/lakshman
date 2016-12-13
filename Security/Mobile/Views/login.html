@@ -1,0 +1,59 @@
+<ion-view hide-nav-bar="true">
+
+  <ion-content class="login-main" scroll="false" >
+     <h2 style="color:#224D56; line-height:50px; text-align: center; position:absolute; top:50;left:0">Security</h2>
+
+	<div class="login-Container">
+
+
+
+       <div class="inputs-Container" style="margin-top:70px; ">
+
+
+  			<div style="background: rgba(255, 255, 255, 0.1);padding:10px; border-radius:10px; margin-top:0px;  width:100%; display:inline-block">
+  				<form ng-submit="doLogin()" class="login_form_cont" >
+
+
+
+        <label class=" item-input" style="padding-left:0px;">
+
+          <input type="text" ng-model="username" placeholder="Username" style="color:#736F6E;"/>
+        </label>
+        <label class=" item-input" style="padding-left:0px;">
+
+          <input type="password" ng-model="password" placeholder="Password" style="color:#736F6E;"/>
+        </label>
+
+        <label class="log">
+          <button class="button button-block button-energized"  ng-click="DashBoardPage()">Log in</button>
+
+        </label>
+
+      <a href="#" style="color:#fff; text-decoration:none">Forgot Password ?</a>
+
+
+      <div  class="social_blk">
+          <ul>
+              <li><a class="facebook-icon"></a></li>
+              <li><a class="twitter-icon"> </a></li>
+              <li><a class="linkedin-icon"> </a></li>
+              <li><a class="google-icon"> </a></li>
+          </ul>
+              </div>
+      <a href="#" style="color:#fff; text-decoration:none">Do not have an account?</a>
+      <label class="log">
+          <button class="button button-block button-light"  ng-click="createAction()">Create an account</button>
+
+      </label>
+
+   			</form>
+       </div>
+  </div>
+
+
+
+  </div>
+
+
+</ion-content>
+</ion-view>

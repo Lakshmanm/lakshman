@@ -1,0 +1,127 @@
+<div class="def-pad full-border">
+    <div class="row ">
+        <div class="col-md-12">
+            <label><h5>School Name: <b>{{PayFee.SchoolName}}</b></h5></label><br>
+            <label>{{city}}</label>
+        </div>
+    </div>
+</div>
+<div class="def-pad full-border">
+    <table width="800px">
+        <tr>
+            <th>
+                <h5><b>Fee Receipt</b></h5></th>
+            <th>
+                <h5><b>Receipt No: {{details.ReceptNo}}</b></h5></th>
+            <th>
+                <h5><b>Date: {{PayFee.Date}}</b></h5></th>
+        </tr>
+        <tr>
+            <td>
+                <h5>Student:<b>{{PayFee.Name}}</b></h5></td>
+            <td></td>
+            <td>
+                <h5>Parent:<b>{{parentname}}</b></h5></td>
+        </tr>
+        <tr>
+            <td>
+              <h5>RollNumber:<b>{{PayFee.AdmissionNumber}}</b></h5></td>
+            <td></td>
+            <td>
+                <h5>DueDate:<b>{{details.DueDate}}</b></h5></td>
+        </tr>
+     
+    </table>
+</div>
+<div class="def-pad full-border">
+    <table width="800px">
+        <tr>
+            <th>
+                <h5><b>Particular</b></h5></th>
+            <th></th>
+            <th>
+                <h5><b>Amount</b></h5></th>
+        </tr>
+        <tr>
+            <td>
+                <h5>1.Total Amount</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.TotalAmount}}</h5></td>
+        </tr>
+        <tr>
+            <td>
+                <h5>2.Discount</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.Discount}}</h5></td>
+        </tr>
+        <tr>
+            <td>
+                <h5>3.Total AMount To Pay</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.TotalAmountToPay}}</h5></td>
+        </tr>
+        <tr>
+            <td>
+                <h5>4.Paid Amount</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.PaidAmount}}</h5></td>
+        </tr>
+        <tr>
+            <td>
+                <h5>5.Next Due Amount</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.NextDueAmount}}</h5></td>
+        </tr>
+        <tr>
+            <td>
+                <h5>6.Next Due Date</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.NextDueDate}}</h5></td>
+        </tr>
+
+        <tr>
+            <td>
+                <h5>7.Additional Charges</h5></td>
+            <td></td>
+            <td>
+                <h5>{{details.AdditionalCharges1}}</h5></td>
+        </tr>
+    </table>
+</div>
+
+<div class="def-pad full-border">
+    <table width="800px">
+        <tr>
+
+            <td>
+                <h5>PaymentMode:Cash</h5></td>
+            <td></td>
+        </tr>
+        <tr>
+
+            <td>
+                <h5>Note:CashPayment</h5></td>
+            <td></td>
+        </tr>
+
+    </table>
+</div>
+<style>
+    .full-border {
+        border: solid 1px #333;
+    }
+    
+    .def-pad {
+        padding: 10px;
+    }
+    
+    .border-bot {
+        border-bottom: solid 1px #333;
+    }
+</style>

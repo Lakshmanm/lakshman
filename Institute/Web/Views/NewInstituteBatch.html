@@ -1,0 +1,211 @@
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="batchForm" novalidate>
+            <fieldset ng-disabled="details">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.boardTitle.$dirty && batchForm.boardTitle.$invalid, 'has-success':batchForm.boardTitle.$valid}">
+                        <label>{{labelsBatch.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.InstituteBoardKey as board.BoardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entityBatch.InstituteBoardKey)" ng-model="entityBatch.InstituteBoardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.boardTitle.$dirty && batchForm.boardTitle.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.boardTitle.$error.required ">Board title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.groupTitle.$dirty && batchForm.groupTitle.$invalid, 'has-success':batchForm.groupTitle.$valid}">
+                        <label>{{labelsBatch.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupList" value="3" class="form-control " ng-model="entityBatch.InstituteGroupKey" ng-change="getCoursByGroupKey(entityBatch.InstituteGroupKey)" name="groupTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-show="batchForm.groupTitle.$dirty && batchForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.groupTitle.$error.required ">Group title is required.</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.courseTitle.$dirty && batchForm.courseTitle.$invalid, 'has-success':batchForm.courseTitle.$valid}">
+                        <label>{{labelsBatch.courseTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="course.InstituteCourseKey as course.CourseTitle for course in courseList " value="3" class="form-control " ng-model="entityBatch.InstituteCourseKey" name="courseTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.courseTitle.$dirty && batchForm.courseTitle.$invalid" class="error text-small block">
+                 <p ng-show="batchForm.courseTitle.$error.required ">Course title  is required.</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.yearTitle.$dirty && batchForm.yearTitle.$invalid, 'has-success':batchForm.yearTitle.$valid}">
+                        <label>{{labelsBatch.yearTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearList " value="3" class="form-control " ng-model="entityBatch.academicYearKey" name="yearTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.yearTitle.$dirty && batchForm.yearTitle.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.yearTitle.$error.required">Year title is required</p> </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.batchTitle.$dirty && batchForm.batchTitle.$invalid, 'has-success':batchForm.batchTitle.$valid}">
+                        <label>{{labelsBatch.batchTitle}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityBatch.batchName" name="batchTitle" type="text" ng-minlength="4" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true"> <span ng-if="batchForm.batchTitle.$dirty && batchForm.batchTitle.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.batchTitle.$error.required">Batch title is required</p> <p ng-show="batchForm.batchTitle.$error.minlength">Batch title is too small</p> <p ng-show="batchForm.batchTitle.$error.maxlength">Batch title is too long</p> <p ng-show="batchForm.batchTitle.$error.pattern">Alphabets only</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.seats.$dirty && batchForm.seats.$invalid, 'has-success':batchForm.seats.$valid}">
+                        <label>{{labelsBatch.noOfSeats}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityBatch.noOfSeats" name="seats" type="number" ng-minlength="2" ng-maxlength="80" ng-pattern="/^[0-9\s]*$/" ng-required="true"> <span ng-if="batchForm.seats.$dirty && batchForm.seats.$invalid" class="error text-small block">
+                        <p ng-if="batchForm.seats.$error.required ">No of seats is required</p> <p ng-if="batchForm.seats.$error.minlength">No of seats is too small</p> <p ng-if="batchForm.seats.$error.maxlength">No of seats is too long</p> <p ng-if="batchForm.seats.$error.pattern">Alphabets only</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.startDate.$dirty && batchForm.startDate.$invalid, 'has-success':batchForm.startDate.$valid}">
+                        <label>{{labelsBatch.startDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityBatch.startDate" name="startDate" type="date" ng-required="true"> <span ng-if="batchForm.startDate.$dirty && batchForm.startDate.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.startDate.$error.required ">Start Date is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.endDate.$dirty && batchForm.endDate.$invalid, 'has-success':batchForm.endDate.$valid}">
+                        <label>{{labelsBatch.endDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityBatch.endDate" name="endDate" type="date" ng-required="true" min="{{entityBatch.startDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}"> <span ng-if="batchForm.endDate.$dirty && batchForm.endDate.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.endDate.$error.required ">End Date is required</p> </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.termTitle.$dirty && batchForm.termTitle.$invalid, 'has-success':batchForm.termTitle.$valid}">
+                        <label>{{labelsBatch.educationType}}<span class="symbol required"></span></label>
+                        <select ng-options="education.EducationTypeKey as education.EducationTypeName for education in educationList " value="3" class="form-control " ng-model="entityBatch.educationTypeKey" name="termTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.termTitle.$dirty && batchForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.termTitle.$error.required">Year title is required</p> </span> </div>
+                </div>
+-->
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.startHours.$dirty && batchForm.startHours.$invalid, 'has-success':batchForm.startHours.$valid}">
+                        <label>{{labelsBatch.startHours}}<span class="symbol required"></span></label>
+                        <select ng-options="hour.teachingDayStartTimeHoursKey as hour.teachingDayStartTimeHours for hour in startHourList " value="3" class="form-control " ng-model="entityBatch.teachingDayStartTimeHours" name="startHours" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.startHours.$dirty && batchForm.startHours.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.startHours.$error.required ">Hours is required.</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.startMin.$dirty && batchForm.startMin.$invalid, 'has-success':batchForm.startMin.$valid}">
+                        <label>{{labelsBatch.startMin}}<span class="symbol required"></span></label>
+                        <select ng-options="min.teachingDayStartTimeMinsKey as min.teachingDayStartTimeMins for min in startMinList " value="3" class="form-control " ng-model="entityBatch.teachingDayStartTimeMins" name="startMin" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.startMin.$dirty && batchForm.startMin.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.startMin.$error.required ">Minutes is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.endHours.$dirty && batchForm.endHours.$invalid, 'has-success':batchForm.endHours.$valid}">
+                        <label>{{labelsBatch.endHours}}<span class="symbol required"></span></label>
+                        <select ng-options="hour.teachingDayEndTimeHoursKey as hour.teachingDayEndTimeHours for hour in endHourList " value="3" class="form-control " ng-model="entityBatch.teachingDayEndTimeHours" name="endHours" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.endHours.$dirty && batchForm.endHours.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.endHours.$error.required ">Hours is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':batchForm.endMin.$dirty && batchForm.endMin.$invalid, 'has-success':batchForm.endMin.$valid}">
+                        <label>{{labelsBatch.endMin}}<span class="symbol required"></span></label>
+                        <select ng-options="min.teachingDayEndTimeMinsKey as min.teachingDayEndTimeMins for min in endMinList " value="3" class="form-control " ng-model="entityBatch.teachingDayEndTimeMins" name="endMin" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="batchForm.endMin.$dirty && batchForm.endMin.$invalid" class="error text-small block">
+                        <p ng-show="batchForm.endMin.$error.required ">Minutes is required</p> </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label> Week Days <span class="symbol required"></span></label>
+                    <div class="col-md-12">
+                        <input type="checkbox" id="checkbox1" ng-model="entityBatch.workingOnSunday" name="sunday">
+                        <label for="checkbox1"> {{labelsBatch.sunday}} </label>
+                        <input type="checkbox" id="checkbox2" ng-model="entityBatch.workingOnMonday" name="monday">
+                        <label for="checkbox2"> {{labelsBatch.monday}} </label>
+                        <input type="checkbox" id="checkbox3" ng-model="entityBatch.workingOnTuesday" name="tuesday">
+                        <label for="checkbox3"> {{labelsBatch.tuesday}} </label>
+                        <input type="checkbox" id="checkbox4" ng-model="entityBatch.workingOnWednesday" name="wednesday">
+                        <label for="checkbox4"> {{labelsBatch.wednesday}} </label>
+                        <input type="checkbox" id="checkbox5" ng-model="entityBatch.workingOnThursday" name="thursday">
+                        <label for="checkbox5"> {{labelsBatch.thursday}} </label>
+                        <input type="checkbox" id="checkbox6" ng-model="entityBatch.workingOnFriday" name="friday">
+                        <label for="checkbox6"> {{labelsBatch.friday}} </label>
+                        <input type="checkbox" id="checkbox7" ng-model="entityBatch.workingOnSaturday" name="saturday">
+                        <label for="checkbox7"> {{labelsBatch.saturday}} </label>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-click="batchForm.$valid&&addBatch()">{{labelsBatch.submit}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" class="btn btn-wide btn-primary" ng-click="batchForm.$valid&&updateBatch()">{{labelsBatch.update}}</button>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!--
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label"> Search </label>
+                            <input type="text" placeholder="search by text" class="form-control" name="BranchName" ng-model="branchSearch"> </div>
+                    </div>
+-->
+                    <div class="col-md-12" ng-disabled="details">
+                        <div class="panel panel-white">
+                            <div class="form-group">
+                                <table class="table table-hover" id="sample-table-1">
+                                    <thead>
+                                        <tr>
+                                            <th style="cursor: pointer" ng-click="sortData('OrganizationName')">{{labelsBatch.batchTitle}}
+                                                <div ng-class="getSortClass('OrganizationName')"></div>
+                                            </th>
+                                            <th style="cursor: pointer" ng-click="sortData('InstituteDiseCode')">{{labelsBatch.courseTitle}}
+                                                <div ng-class="getSortClass('InstituteDiseCode')"></div>
+                                            </th>
+                                            <th>Group/Stream</th>
+                                            <th>{{labelsBatch.boardTitle}}</th>
+                                            <th>{{labelsBatch.yearTitle}}</th>
+                                            <th>{{labelsBatch.noOfSeats}}</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="batch in batchCollection | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+                                            <td>{{batch.BatchName}}</td>
+                                            <td>{{batch.CourseTitle}}</td>
+                                            <td>{{batch.GroupTitle}}</td>
+                                            <td>{{batch.BoardTitle}}</td>
+                                            <td>{{batch.AcademicYearName}}</td>
+                                            <td>{{batch.NoOfSeats}}</td>
+                                            <td><a ng-click="editBatch(batch.InstituteBatchKey)"><i class="fa fa-pencil"></i></a></td>
+                                            <td><a ng-click="deleteBatch(batch.InstituteBatchKey)"><i class="fa fa-trash"></i></a></td>
+                                        </tr>
+                                        <tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-hide="((batchCollection | filter:search).length<=10)||((batchCollection | filter:search).length==undefined)">
+                        <div ng-init="pageSize=10 ">
+                            <label for="search">Records per page:</label>
+                            <select min="1" max="100" ng-model="pageSize">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12" style="text-align:left">
+                        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true"> </dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- end: USER PROFILE

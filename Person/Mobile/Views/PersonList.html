@@ -1,0 +1,52 @@
+<ion-view view-title="New Employee">
+    <ion-content>
+
+        <div class="panel-white">
+
+
+            <div class="col-lg-12">
+                <h2>{{lables.personList}}</h2></div>
+            <a href="#/addPerson">Add Person</a>
+
+
+
+            <div style="text-align:center">
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>{{labels.name}}</th>
+                            <!--  <th>{{labels.dateOfBirth}}</th>-->
+                            <th>{{labels.placeOfBirth}}</th>
+                            <!-- <th>{{labels.bloodGroupName}}</th>-->
+                            <th>{{labels.edit}}</th>
+                            <th>{{labels.delete}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="person in personList">
+                            <td> {{person.firstName }} {{person.middleName}} {{person.lastName }} </td>
+                            <!-- <td>{{person.dateOfBirth|date}}</td>-->
+                            <td>{{person.placeOfBirth}}</td>
+                            <!-- <td>{{person.bloodGroupName}}</td>-->
+                            <td>
+
+                                <a href="#/editPerson/{{person.referenceKey}}"><i class="fa fa-pencil"></i>Edit</a>
+                            </td>
+                            <td><a ng-click="deletePerson(person.referenceKey)" confirmation-needed="Really Delete?"><i class="fa fa-trash"></i>Delete</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
+
+
+
+
+<!-- Page Content -->

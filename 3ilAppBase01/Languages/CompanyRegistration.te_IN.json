@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "registrationNumber": "Registration Number",
+        "validFrom": "Valid From",
+        "validTo": "Valid To",
+        "endDate": "End Date",
+        "registrationDetails": "Registration Details",
+        "submit": "Submit",
+        "delete": "Delete",
+        "registration": "registration"
+
+    },
+    "errors": {
+
+    }
+
+}

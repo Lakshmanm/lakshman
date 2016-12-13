@@ -1,0 +1,192 @@
+
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Award
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Sreelakshmi ch
+ Created Date       : 18-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+    <div class="panel-white">
+<div class="col-lg-12">
+<h2>{{awardLabels.award}}</h2></div>
+<form name="awardForm" novalidate>
+<div class="row">
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{awardLabels.awardedName}}<span style="color:red">*</span></label>
+                <input class="form-control" type="text" ng-model="award.awardName" ng-maxlength="30" ng-minlength="3" name="title" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                <div class="padding" ng-if="awardForm.title.$touched || awardForm.$submitted" style="color:red">
+                    <p ng-show="awardForm.title.$error.required ">Title is required</p>
+                    <p ng-show="awardForm.title.$error.minlength">Title is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.title.$error.maxlength">Title is too long it should be below 30 characters</p>
+                    <p ng-show="awardForm.title.$error.pattern">Title accept only alphabetic characters</p>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{awardLabels.awardedDate}}<span style="color:red">*</span></label>
+                <input class="form-control" type="date" ng-model="award.awardedDate" name="awardedDate" max="2016-02-28" required>
+
+
+                <div class="padding" ng-if="awardForm.awardedDate.$touched || awardForm.$submitted" style="color:red">
+                    <p ng-show="awardForm.awardedDate.$error.required ">Awarded date is required</p>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{awardLabels.description}}<span style="color:red">*</span></label>
+                <input class="form-control" type="text" ng-model="award.description" ng-maxlength="30" ng-minlength="3" name="description" ng-maxlength="30" ng-minlength="3" required>
+                <div class="padding" ng-if="awardForm.description.$touched || awardForm.$submitted" style="color:red">
+                    <p ng-show="awardForm.description.$error.required ">Description is required</p>
+                    <p ng-show="awardForm.description.$error.minlength">Description is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.description.$error.maxlength">Description is too long it should be below 30 characters</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+    <label>{{awardLabels.awardedOrganization}}<span style="color:red">*</span></label>
+                <input class="form-control" type="text" ng-model="award.awardedOrganization" name="awardedOrganization" ng-maxlength="30" ng-minlength="3" required>
+                <div class="padding" ng-if="awardForm.awardedOrganization.$touched || awardForm.$submitted" style="color:red">
+                    <p ng-show="awardForm.awardedOrganization.$error.required ">Awarded organization is required</p>
+                    <p ng-show="awardForm.awardedOrganization.$error.minlength">Awarded organization is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.awardedOrganization.$error.maxlength">Awarded organization is too long it should be below 30 characters</p>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 col-md-6">
+
+            <!--  <div class="panel-body">
+<label>Location<span style="color:red">*</span></label>
+<input class="form-control" type="text" ng-model="award.addressID">
+</div>
+
+-->
+            <div class="panel-body">
+                <label>{{awardLabels.location}}</label>
+
+                <input type="text" ng-model="awardLocation.geoLocation" name="geoLocation" class="form-control" ng-autocomplete options="options" details="details"  />
+               
+                <!--<input class="form-control" ng-model="basic.placeOfBirth" type="text" />-->
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="awardForm.$valid&&savePersonaward()" class="btn btn-primary">{{awardLabels.submit}}</button>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <br>
+    <div style="width:20%">
+
+
+    </div>
+    
+
+
+    <table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                 <th>{{awardLabels.awardedName}}</th>
+              
+                <th>{{awardLabels.awardedOrganization}}</th>
+                <th>{{awardLabels.edit}}</th>
+                <th>{{awardLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <tr ng-repeat="award in awardList">
+                <td>{{award.awardName}}</td>
+             
+                <td>{{award.awardedOrganization}}</td>
+               
+          
+           <td>
+                        <a ng-click="getAwardListById(award.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td><a ng-click="deletePersonAward(award.referenceKey)" ><i class="fa fa-trash"></i></a></td>
+
+            </tr>
+                            </tbody>
+                        </table>
+
+                        <table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                     <th>{{awardLabels.awardedName}}</th>
+              
+                <th>{{awardLabels.awardedOrganization}}</th>
+                <th>{{awardLabels.edit}}</th>
+                <th>{{awardLabels.delete}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                         <tr ng-repeat="award in awardList">
+                <td>{{award.awardName}}</td>
+             
+                <td>{{award.awardedOrganization}}</td>
+               
+          
+           <td>
+                        <a ng-click="getAwardListById(award.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td><a ng-click="deletePersonAward(award.referenceKey)" ><i class="fa fa-trash"></i></a></td>
+
+            </tr>>
+                            </tbody>
+                        </table>
+    <!--<div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+
+</div>
+</div>
+</div>

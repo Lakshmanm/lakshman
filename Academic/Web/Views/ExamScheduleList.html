@@ -1,0 +1,59 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: ExamScheduleList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsExamSchedule.examScheduleHeading}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblExamScheduleList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th>{{labelsExamSchedule.examinationDate }}</th>
+							 <th>{{labelsExamSchedule.startDate }}</th>
+							 <th>{{labelsExamSchedule.endDate }}</th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityExamSchedule in examScheduleCollection">
+						  <td>{{ entityExamSchedule.examinationdate|date : "dd/MM/yy" }}</td>
+							</td>
+							 <td>{{ entityExamSchedule.startdate|date : "dd/MM/yy" }}</td>
+							 <td>{{ entityExamSchedule.enddate|date : "dd/MM/yy" }}</td>
+							 <td><a ng-click="" href="#/app/editExamSchedule/{{entityExamSchedule.examschedulekey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteExamSchedule(entityExamSchedule.examschedulekey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

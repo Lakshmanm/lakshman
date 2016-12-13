@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "DepartmentName": "विभाग का नाम",
+        "ParentDepartment":"मूल विभाग",
+        "ParentDepartmentName":"मूल विभाग का नाम",
+         "Submit": "जमा करें",
+        "Update": "अपडेट",
+        "DepartmentBasicInfo1": "विभाग बुनियादी जानकारी  ",
+        "Edit": "संपादित करें",
+        "Delete": "मिटाना",
+        "DepartmentList": "विभाग की सूची "
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,116 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: Menu.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="ion-navicon-round" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <img src="Academic/Mobile/assets/images/3il.png">
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+		 <ion-item menu-close href=" ng-click="newBoard()" >
+			 <div class="ion-plus-circled new_icon">New Board</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listBoard()" >
+			 <div class="ion-filing new_icon">Board List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newGroup()" >
+			 <div class="ion-plus-circled new_icon">New Group</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listGroup()" >
+			 <div class="ion-filing new_icon">Group List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newCours()" >
+			 <div class="ion-plus-circled new_icon">New Cours</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listCours()" >
+			 <div class="ion-filing new_icon">Cours List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newTerm()" >
+			 <div class="ion-plus-circled new_icon">New Term</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listTerm()" >
+			 <div class="ion-filing new_icon">Term List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newElectiveGroup()" >
+			 <div class="ion-plus-circled new_icon">New ElectiveGroup</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listElectiveGroup()" >
+			 <div class="ion-filing new_icon">ElectiveGroup List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newSubject()" >
+			 <div class="ion-plus-circled new_icon">New Subject</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listSubject()" >
+			 <div class="ion-filing new_icon">Subject List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newExaminationType()" >
+			 <div class="ion-plus-circled new_icon">New ExaminationType</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listExaminationType()" >
+			 <div class="ion-filing new_icon">ExaminationType List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newExamination()" >
+			 <div class="ion-plus-circled new_icon">New Examination</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listExamination()" >
+			 <div class="ion-filing new_icon">Examination List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newSubjectMarksRange()" >
+			 <div class="ion-plus-circled new_icon">New SubjectMarksRange</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listSubjectMarksRange()" >
+			 <div class="ion-filing new_icon">SubjectMarksRange List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newSubjectComponent()" >
+			 <div class="ion-plus-circled new_icon">New SubjectComponent</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listSubjectComponent()" >
+			 <div class="ion-filing new_icon">SubjectComponent List</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="newExamSchedule()" >
+			 <div class="ion-plus-circled new_icon">New ExamSchedule</div> 
+		 </ion-item>
+		 <ion-item menu-close href=" ng-click="listExamSchedule()" >
+			 <div class="ion-filing new_icon">ExamSchedule List</div> 
+		 </ion-item>
+</ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,306 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Daily Routines</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <form name="dailyForm" novalidate>
+                    <!-- start: USER TABSET -->
+
+                    <div class="col-md-12">
+                        <!--  <fieldset>-->
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="row">
+                                    <div class="col-md-3">
+
+
+                                        <div class="form-group" ng-class="{'has-error':dailyForm.instituteTitle.$dirty && dailyForm.instituteTitle.$invalid, 'has-success':dailyForm.instituteTitle.$valid}">
+                                            <label class="control-label">
+                                    {{labelsDaily.instituteTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+        
+                                        <select ng-options="institute.InstituteKey as institute.OrganizationName for institute in instituteList " ng-required="true" value="3" class="form-control " ng-change="getBoard(entityBatch.InstituteKey)" ng-model="entityBatch.InstituteKey" name="instituteTitle"> 
+						 <option value="">--Select--</option>
+					 </select> </span> <span class="error text-small block" ng-if="dailyForm.instituteTitle.$dirty && dailyForm.instituteTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.instituteTitle.$invalid && dailyForm.instituteTitle.$error.required">Institute is required</p>
+                       
+                                    
+                                    </span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-3">
+
+
+                                        <div class="form-group" ng-class="{'has-error':dailyForm.yearTitle.$dirty && dailyForm.yearTitle.$invalid, 'has-success':dailyForm.yearTitle.$valid}">
+                                            <label class="control-label">
+                                    {{labelsDaily.yearTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                           
+                                        <select ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearList " ng-required="true" value="3" class="form-control " ng-model="entityDaily.academicYearKey" name="yearTitle" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                                        </span> <span class="error text-small block" ng-if="dailyForm.yearTitle.$dirty && dailyForm.yearTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.yearTitle.$invalid && dailyForm.yearTitle.$error.required">Academic year is required</p>
+                       
+                                    
+                                    </span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group" ng-class="{'has-error':dailyForm.boardTitle.$dirty && dailyForm.boardTitle.$invalid, 'has-success':dailyForm.boardTitle.$valid}">
+                                            <label class="control-label">
+                                          {{labelsDaily.boardTitle}}  <span class="symbol required"></span> </label>
+
+                                            <span class="clip-select">
+                                    <select ng-options="board.InstituteBoardKey as board.BoardTitle for board in boardList" ng-required="true" value="3" class="form-control" ng-change="getBoardGroups(entityDaily.InstituteBoardKey)" ng-model="entityDaily.InstituteBoardKey" name="boardTitle" > 
+						 <option value="">--Select--</option>
+					 </select>
+                                        </span>
+                                            <span class="error text-small block" ng-if="dailyForm.boardTitle.$dirty && dailyForm.boardTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.boardTitle.$invalid && dailyForm.boardTitle.$error.required">Board is required</p>
+                       
+                                    
+                                    </span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group" ng-class="{'has-error':dailyForm.groupTitle.$dirty && dailyForm.groupTitle.$invalid, 'has-success':dailyForm.groupTitle.$valid}">
+                                            <label class="control-label">
+                                          {{labelsDaily.groupTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                            
+                                        <select ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupList" ng-required="true" value="3" class="form-control " ng-model="entityDaily.InstituteGroupKey" ng-change="getCoursByGroupKey(entityDaily.InstituteGroupKey)" name="groupTitle"> 
+             <option value="">--Select--</option>
+           </select>
+
+                                     </span> <span class="error text-small block" ng-if="dailyForm.groupTitle.$dirty && dailyForm.groupTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.groupTitle.$invalid && dailyForm.groupTitle.$error.required">Group is required</p>
+                       
+                                    
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group" ng-class="{'has-error':dailyForm.courseTitle.$dirty && dailyForm.courseTitle.$invalid, 'has-success':dailyForm.courseTitle.$valid}">
+                                            <label class="control-label">
+                                            {{labelsDaily.courseTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                           
+                                        <select ng-options="course.InstituteCourseKey as course.CourseTitle for course in courseList " ng-required="true" value="3" class="form-control " ng-change="getTableData(entityDaily.InstituteCourseKey)" ng-model="entityDaily.InstituteCourseKey" name="courseTitle"> 
+             <option value="">--Select--</option>
+           </select>
+
+
+
+                                       </span> <span class="error text-small block" ng-if="dailyForm.courseTitle.$dirty && dailyForm.courseTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.courseTitle.$invalid && dailyForm.courseTitle.$error.required">Course is required</p>
+                       
+                                    
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+              
+                <!--<div class="container-fluid container-fullw bg-white">-->
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="col-md-12">
+
+
+
+                            <div class="col-md-3">
+
+                                <div class="form-group">
+                                    <div class="col-md-1">
+                                        &nbsp
+                                    </div>
+                                    <div class="col-md-2">
+
+
+
+                                        <label class="control-label">
+
+                        </label>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            {{message}}
+                            <div class="col-md-12">
+
+                                <div class="panel panel-white">
+                                    <div class="panel-body">
+                                        <table class="table table-hover" id="sample-table-1">
+                                            <thead>
+                                                <tr>
+                                                    <th style="cursor: pointer" ng-click="sortData('OrganizationName')">Period
+                                                        <div ng-class="getSortClass('OrganizationName')"></div>
+                                                    </th>
+                                                    <th style="cursor: pointer" ng-click="sortData('InstituteDiseCode')">Start Time
+                                                        <div ng-class="getSortClass('InstituteDiseCode')"></div>
+                                                    </th>
+                                                    <th></th>
+
+                                                    <th>End Time</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>Remove</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr dir-paginate="entityDaily in dailyList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+                                                    <td>
+
+
+                                                        <label></label>
+                                                        <input class="form-control"  ng-model="entityDaily.PeriodSlotName" name="periodName{{$index}}" type="text" ng-minlength="4" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true">
+                                                        <span ng-if="dailyForm['periodName'+$index].$submitted || dailyForm['periodName'+$index].$touched" class="validationMessage" style="color:red">
+                        <span ng-if=" dailyForm['periodName'+$index].$error.required ">Batch title is required.</span>
+                                                        <span ng-if="dailyForm['periodName'+$index].$error.minlength">Batch title is too small.</span>
+                                                        <span ng-if="dailyForm['periodName'+$index].$error.maxlength">Batch title is too long.</span>
+                                                        <span ng-if="dailyForm['periodName'+$index].$error.pattern">Alphabets only.</span>
+                                                        </span>
+
+
+
+
+                                                    </td>
+
+                                                    <td><label>Hrs </label>
+                                                        <select ng-options="hour.startTimeHours as hour.startTimeHoursKey for hour in startHourList  " class="form-control " ng-model="entityDaily.startTimeHours" name="startHours{{$index}}" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                                                        <span ng-if="dailyForm['startHours'+$index].$submitted || dailyForm['startHours'+$index].$touched" class="validationMessage" style="color:red">
+                        <span ng-if="dailyForm['startHours'+$index].$error.required  ">Hours is required.</span>
+                                                        </span>
+                                                    </td>
+
+                                                    <td><label>Min</label><select ng-options="min.startTimeMins as min.startTimeMinsKey for min in startMinList  " class="form-control " ng-model="entityDaily.startTimeMins" name="startMin{{$index}}" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                                                        <span ng-if="dailyForm['startMin'+$index].$touched || dailyForm['startMin'+$index].$submitted" style="color:red" class="validationMessage">
+                        <span ng-if="dailyForm['startMin'+$index].$error.required  ">Minutes is required.</span>
+                                                        </span>
+                                                    </td>
+
+                                                    <td><label>Hrs</label>
+                                                        <select ng-options="hour.endTimeHours as hour.endTimeHoursKey for hour in endHourList " class="form-control " ng-model="entityDaily.endTimeHours" name="endHours{{$index}}" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                                                        <span ng-if="dailyForm['endHours'+$index].$submitted || dailyForm['endHours'+$index].$touched" style="color:red" class="validationMessage">
+                        <span ng-if=" dailyForm['endHours'+$index].$error.required ">Hours is required.</span>
+                                                        </span>
+
+                                                    </td>
+
+                                                    <td><label>Min</label> <select ng-options="min.endTimeMins as min.endTimeMinsKey  for min in endMinList " class="form-control " ng-model="entityDaily.endTimeMins" name="endMin{{$index}}" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select></td>
+                                                    <span ng-if="dailyForm[endMin+'$index'].$submitted || dailyForm[endMin+'$index'].$touched" style="color:red" class="validationMessage">
+                        <span ng-if="dailyForm[endMin+'$index'].$error.required ">Minutes is required.</span>
+                                                    </span>
+
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <br>
+                                                            <input type="checkbox" id="checkbox{{$index}}" ng-model="entityDaily.IsBreak">
+                                                            <label for="checkbox{{$index}}"> Is Break</label>
+                                                        </div>
+                                                    </td>
+
+
+                                                    <td> <button ng-click="removeg(dailyList,$index)" name="remove{{$index}}" value="remove">Remove</button> </td>
+
+                                                </tr>
+                                                <tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" ng-hide="((dailyList | filter:search).length<=10)||((dailyList | filter:search).length==undefined)">
+
+                                <div ng-init="pageSize=10 ">
+                                    <label for="search">Records per page:</label>
+                                    <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-12" style="text-align:left">
+                                <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                                </dir-pagination-controls>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="form-group">
+
+
+                        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="DailyRoutine/Web/assets/images/Add.PNG" height="18px">
+                        <a ng-click="addNewPeriod()">Add New</a>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-3" ng-show="test">
+                    <div class="form-group">
+
+                        <button type="submit" ng-disabled="dailyForm.$invalid" class="btn btn-wide btn-primary" ng-click="dailyForm.$valid && addPeriod(entityDaily,dailyList)">save</button>
+
+                    </div>
+                </div>
+  </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<!-- end: USER PROFILE

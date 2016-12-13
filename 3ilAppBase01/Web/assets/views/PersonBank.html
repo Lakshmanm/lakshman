@@ -1,0 +1,194 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name		    	: Person Bank
+ Type		    	: html 
+ Description		: html page for person Identity 
+ References		    :
+ Author	    		: Styanarayana Tippani
+ Created Date       : 13-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+   .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+     
+        <div class="col-lg-12">
+        
+        <form name="bankForm" novalidate>
+        <fieldset ng-disabled="details"> 
+            <div class="row">
+                 <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':bankForm.accountNumber.$dirty && bankForm.accountNumber.$invalid, 'has-success':bankForm.accountNumber.$valid}">
+                        <label>{{bankLabels.accountNumber}}<span class="symbol required"></span> </label> <span class="clip-select">
+                      <!--   <input class="form-control " type="text" ng-model="bank.accountNumber" name="accountNumber"  mask='999' restrict="reject" clean="true"  ng-pattern="[0-9]"  required> -->
+                        <input type="number" class="form-control" name="accountNumber" ng-model="bank.accountNumber" ng-minlength="2"  ng-pattern="[0-9]" ng-maxlength="20" required></span>
+                        <span class="error text-small block" ng-if="bankForm.accountNumber.$dirty && bankForm.accountNumber.$invalid" style="color:red">   
+                            <p ng-show="bankForm.accountNumber.$invalid && educationForm.branchName.$error.required">Account number is required</p>
+                            <p ng-show="bankForm.accountNumber.$error.minlength">Account number is too short must be longer than 2 characters</p>
+                            <p ng-show="bankForm.accountNumber.$error.maxlength">Account number is too long it should be below 20 characters</p>
+                            <p ng-show="bankForm.accountNumber.$error.pattern">Account number accept only Numeric characters</p>
+                     </span>
+
+
+                    </div>
+</div>
+                
+                <div class="col-lg-4 col-md-6">
+                   <div class="form-group" ng-class="{'has-error':bankForm.benificiary.$dirty && bankForm.benificiary.$invalid, 'has-success':bankForm.benificiary.$valid}">
+                        <label>{{bankLabels.name}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control " type="text" ng-model="bank.benificiaryName" name="benificiary" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required></span>
+                        <span class="error text-small block" ng-if="bankForm.benificiary.$dirty && bankForm.benificiary.$invalid" style="color:red">   
+                            <p ng-show="bankForm.benificiary.$error.required ">Benificiary Name is required</p>
+                            <p ng-show="bankForm.benificiary.$error.minlength">Benificiary Name  is too short must be longer than 3 characters</p>
+                            <p ng-show="bankForm.benificiary.$error.maxlength">Benificiary Name is too long it should be below 30 characters</p>
+                            <p ng-show="bankForm.benificiary.$error.pattern">Benificiary Name accept only alphabetic characters</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':bankForm.title.$dirty && bankForm.title.$invalid, 'has-success':bankForm.title.$valid}">
+                        <label>Bank Title<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control " type="text" ng-model="bank.bankTitle" name="title" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required></span>
+                        <span class="error text-small block" ng-if="bankForm.title.$dirty && bankForm.title.$invalid" style="color:red">    
+                            <p ng-show="bankForm.title.$invalid && bankForm.title.$error.required">Title is required</p>
+                            <p ng-show="bankForm.title.$error.minlength">Title is too short must be longer than 3 characters</p>
+                            <p ng-show="bankForm.title.$error.maxlength">Title is too long it should be below 30 characters</p>
+                            <p ng-show="bankForm.title.$error.pattern">Title accept only alphabetic characters</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                   <div class="form-group" ng-class="{'has-error':bankForm.address.$dirty && bankForm.address.$invalid, 'has-success':bankForm.address.$valid}">
+                        <label>{{bankLabels.address}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                       <input type="text" ng-model="bankLocation.geoLocation" ng-pattern="/^[@,_a-zA-Z0-9-\s]*$/" name="address" class="form-control" required /></span>
+                         <span class="error text-small block" ng-if="bankForm.address.$dirty && bankForm.address.$invalid" style="color:red">    
+                            <p ng-show="bankForm.address.$invalid && bankForm.address.$error.required">Address is required</p>
+ <p ng-show="bankForm.address.$error.pattern">Enter Only Alphanumeric and "@"_","-",","</p>
+                        </span>
+                        <!--<input class="form-control" ng-model="basic.placeOfBirth" type="text" />-->
+                    </div>
+
+                </div>
+ 
+                <div class="col-lg-4 col-md-6">
+                   <div class="form-group" ng-class="{'has-error':bankForm.bankName.$dirty && bankForm.bankName.$invalid, 'has-success':bankForm.bankName.$valid}">
+                 <label>{{bankLabels.bank}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        
+                        <select class="form-control" style="width: 100%" ng-options="bank.bankNameId as bank.bankName for bank in bankNames" ng-model="bank.bankNameId" name="bankName" required>
+                            <option value="">--Select--</option>
+                       </select></span>
+                      <span class="error text-small block" ng-if="bankForm.bankName.$dirty && bankForm.bankName.$invalid" style="color:red">    
+                            <p ng-show="bankForm.bankName.$invalid && bankForm.bankName.$error.required"> Branch is mandatory</p>
+                        </span>
+                    </div>
+                </div>
+
+           
+                <div class="col-lg-4 col-md-6">
+                  <div class="form-group" ng-class="{'has-error':bankForm.branchName.$dirty && bankForm.branchName.$invalid, 'has-success':bankForm.branchName.$valid}">
+                        <label>{{bankLabels.branch}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control " type="text" ng-model="bank.branchName" name="branchName" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/" required> </span>
+                      <span class="error text-small block" ng-if="bankForm.branchName.$dirty && bankForm.branchName.$invalid" style="color:red">  
+                            <p ng-show="bankForm.branchName.$invalid && bankForm.branchName.$error.required">Branch Name is required</p>
+                            <p ng-show="bankForm.branchName.$error.minlength">Branch name is too short must be longer than 3 characters</p>
+                            <p ng-show="bankForm.branchName.$error.maxlength">Branch name is too long it should be below 30 characters</p>
+                            <p ng-show="bankForm.branchName.$error.pattern">Branch name accept only alphanumeric characters</p>
+                        </span>
+
+                    </div>
+                </div>
+               
+                </div>
+            <div class="row">
+                     <div class="col-lg-4 col-md-6">
+                  <div class="form-group" ng-class="{'has-error':bankForm.iFSCCode.$dirty && bankForm.iFSCCode.$invalid, 'has-success':bankForm.iFSCCode.$valid}">
+                        <label>{{bankLabels.iFSCCode}}<span class="symbol required"></span> </label> <span class="clip-select">
+                      <input class="form-control" ng-minlength="2" ng-maxlength="20"  ng-pattern="/^[a-zA-Z0-9\s]*$/"  type="text"  ng-model="bank.iFSCCode" name="iFSCCode" required></span>
+                      <span class="error text-small block" ng-if="bankForm.iFSCCode.$dirty && bankForm.iFSCCode.$invalid" style="color:red">   
+                            <p ng-show="bankForm.iFSCCode.$invalid && bankForm.iFSCCode.$error.required">IFSC code is required</p>
+                            <p ng-show="bankForm.iFSCCode.$error.minlength">IFSC code is too short must be longer than 2 characters</p>
+                            <p ng-show="bankForm.iFSCCode.$error.maxlength">IFSC code is too long it should be below 20 characters</p>
+                          <p ng-show="bankForm.iFSCCode.$error.pattern">IFSC Code accept only Alphanumeric characters</p> </span>
+                        </div>
+
+                    </div>
+                </div>
+               
+                <!-- </div>
+
+            </div> -->
+</fieldset>
+
+
+            <div class="row">
+                <div style="text-align:center">
+                 <!--    <button type="submit" ng-click="bankForm.$valid&&saveBank()" class="btn btn-primary">{{bankLabels.submit}}</button> -->
+<button type="button" ng-hide="bank" class="btn btn-wide btn-primary" ng-disabled="bankForm.$invalid" ng-click="bankForm.$valid && saveBank()" v-pressable>{{bankLabels.submit}}</button>
+
+
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+
+            <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>{{bankLabels.title}}</th>
+                        <th>{{bankLabels.address}}</th>
+                        <th>{{bankLabels.branch}}</th>
+                        <th>{{bankLabels.accountNumber}}</th>
+                        <th>{{bankLabels.iFSCCode}}</th>
+                        <th>{{bankLabels.edit}}</th>
+                        <th ng-hide="bank">{{bankLabels.delete}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bank in bankList">
+
+
+                        <td>{{bank.bankTitle}}</td>
+                        <td>{{bank.geoLocation}}</td>
+                        <td>{{bank.branchName}}</td>
+                        <td>{{bank.accountNumber}}</td>
+                        <td>{{bank.iFSCCode}}</td>
+                        <td>
+                            <a ng-click="getBank(bank.referenceKey)"><i class="fa fa-pencil"></i></a>
+                        </td>
+                        <td ng-hide="bank"><a ng-click="deleteBank(bank.referenceKey)"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

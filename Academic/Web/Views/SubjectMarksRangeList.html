@@ -1,0 +1,56 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: SubjectMarksRangeList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsSubjectMarksRange.subjectMarksRangeHeading}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblSubjectMarksRangeList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th>{{labelsSubjectMarksRange.minimumSubjects}}</th>
+							 <th>{{labelsSubjectMarksRange.maximumSubjects}}</th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entitySubjectMarksRange in subjectMarksRangeCollection">
+							 <td>{{ entitySubjectMarksRange.minimumsubjects }}</td>
+							 <td>{{ entitySubjectMarksRange.maximumsubjects }}</td>
+							 <td><a ng-click="" href="#/app/editSubjectMarksRange/{{entitySubjectMarksRange.subjectmarksrangekey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteSubjectMarksRange(entitySubjectMarksRange.subjectmarksrangekey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

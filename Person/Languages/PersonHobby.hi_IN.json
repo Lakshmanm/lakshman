@@ -1,0 +1,18 @@
+{
+    "hobbyLabels": {
+        "hobbyName": "शौक के नाम",
+        "hobbyType": "शौक के प्रकार",
+        "details": "विवरण",
+        "proficiency": "निपुणता",
+         "submit": "जमा करें",
+          "edit": "संपादित",
+           "delete": "मिटाना",
+           "hobby":"शौक"
+
+
+      
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,151 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Branch Types</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+            <div class="col-md-12">
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Branch Type Search
+                        </label>
+                        <input type="text" placeholder="search by text" class="form-control" name="DepartmentName" ng-model="search">
+                    </div>
+
+                </div>
+                <!--
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            City
+                        </label>
+                        <input type="text" placeholder="Enter City" class="form-control" name="City" ng-model="Branches.City">
+                    </div>
+
+                </div>-->
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <div class="col-md-1">
+                            &nbsp
+                        </div>
+                        <div class="col-md-2">
+
+
+
+                            <label class="control-label">
+
+                        </label>
+                            <!--<button type="button" class="btn  btn-primary" v-pressable>
+                            Search
+                        </button> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div ng-hide="OrganizationRemove">
+                            <!-- <image class="form-control" ></image>  -->
+                            <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG" height="18px">
+                            <a ng-click="addNew()">Add Branch Type</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+
+                            <table class="table table-hover" id="sample-table-1">
+                                <thead>
+                                    <tr>
+                                        <th style="cursor: pointer" ng-click="sortData('SubOrganizationTypeTitle')">Branch Type Title
+                                            <div ng-class="getSortClass('SubOrganizationTypeTitle')"></div>
+                                        </th>
+
+
+                                        <!-- <th>City</th>
+                                        <th>Staff</th>-->
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="BranchType in BranchTypeList | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+
+
+                                        <!-- <td>{{p.id}}</td>-->
+                                        <td>{{BranchType.subOrganizationTypeTitle}}</td>
+
+
+                                        <!-- <td>{{p.City}}</td>
+                                        <td> <img ng-src="3ilAppBase01/Web/assets/images/Staff.png" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope" src="3ilAppBase01/Web/assets/images/Staff.png" ng-click="Redirectstaff(p)" height="20px"></td>
+
+                                       -->
+                                        <td>
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                <a href="#/app/editBranchType/{{BranchType.subOrganizationTypeKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a>
+
+                                                <a href ng-click="deleteBranch(BranchType.subOrganizationTypeKey)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white" ng-hide="OrganizationRemove"></i></a>
+                                            </div>
+                                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                <div class="btn-group" uib-dropdown>
+                                                    <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" uib-dropdown-toggle>
+                                                        <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                        <li>
+                                                            <a href="#/app/department/branch/{{department.organizationReferenceKey}}/{{department.referenceKey}}"> Edit </a>
+
+                                                        </li>
+
+                                                        <li>
+                                                            <a href ng-click="deleteDepartment(department)" ng-hide="OrganizationRemove"> Remove </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <!-- <td><a href="#organizationRegistration/{{p.name}}">{{p.name}}<a></td>  !-->
+                                    </tr>
+                                    <tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2" ng-hide="((BranchTypeList | filter:search).length<=10)||((BranchTypeList | filter:search).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end: USER PROFILE -->

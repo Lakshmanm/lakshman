@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "name": "नाम",
+        "dateOfBirth": "जन्मतिथि",
+        "placeOfBirth": "जन्म स्थान",
+        "bloodGroupName": "रक्त समूह का नाम",
+       "edit":"संपादित",
+        "delete":"मिटाना",
+        "personList": "PersonList"
+    }
+}

@@ -1,0 +1,118 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Language Proficiency
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Kiranmai Labhala
+ Created Date       : 18-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+SNO   Ver  Date        Modified By  Description
+1     1.0  28-04-2016  Kiranmai    changing LanguageProficiencyID with LanguageProficiencyReferenceKey changeing in LanguageId and LanguageName with languageId and languageName
+*******************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+    <div id="main-wrapper">
+                <form name="languageForm" novalidate>
+
+    <div class="panel-white">
+
+        <div class="col-lg-12">
+            <h2>{{langproLables.LanguageProficiency}}</h2></div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{langproLables.Language}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="lng.languageId as lng.languageName for lng in languageList" ng-model="lang.LanguageId" name="LanguageId" required>
+                    <option value="">--Select--</option>
+                </select>
+                <div class="padding" ng-if="languageForm.languageId.$touched || languageForm.languageId.$submitted" style="color:red">
+                    <p ng-show="languageForm.languageId.$error.required ">Language is required</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <div class="panel-body">
+                <label>{{langproLables.LanguageProficiency}}<span style="color:red">*</span></label>
+                <label>
+                    <input type="checkbox" ng-model="lang.CanRead" text="Read" [name="Read" ] [ng-true-value="expression" ] [ng-false-value="expression" ] [ng-change="string" ]> Read</label>
+                <label>
+                    <input type="checkbox" ng-model="lang.CanWrite" text="Write" [name="Write" ] [ng-true-value="expression" ] [ng-false-value="expression" ] [ng-change="string" ]> Write</label>
+                <label>
+                    <input type="checkbox" ng-model="lang.CanSpeak" text="Speak" [name="Speak" ] [ng-true-value="expression" ] [ng-false-value="expression" ] [ng-change="string" ]> Speak</label>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="languageForm.$valid&&saveLanguage()" class="btn btn-primary">{{langproLables.Submit}}</button>
+            
+        </div>
+    </div>
+    </div>
+
+</form>
+    <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{langproLables.Language}}</th>
+                <th>{{langproLables.Read}}</th>
+                <th>{{langproLables.Write}}</th>
+                <th>{{langproLables.Speak}}</th>
+                <th>{{langproLables.edit}}</th>
+               <th>{{langproLables.delete}}</th>
+               <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="lang in languageProficiencyList">
+
+            
+                <td>{{lang.LanguageName}}</td>
+                <td>{{(lang.CanRead==1)?'Yes':'No'}}</td>
+                <td>{{(lang.CanWrite==1)?'Yes':'No'}}</td>
+                <td>{{(lang.CanSpeak==1)?'Yes':'No'}}</td>
+                <td>
+                <a ng-click="getLangProf(lang.referenceKey)"><i class="fa fa-pencil"></i></a>
+                </td>
+                <td>
+                <a ng-click="deleteLanguage(lang.referenceKey)"><i class="fa fa-trash"></i></a>
+                </td>
+
+               
+            </tr>
+
+        </tbody>
+    </table>
+    <!-- <div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+</div>
+</div>
+</div>
+</div>

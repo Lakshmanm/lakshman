@@ -1,0 +1,304 @@
+<!-- start: BREADCRUMB -->
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+
+
+
+body {font-family: "Lato", sans-serif;}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 16px 223px;;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+
+
+
+
+
+
+</style>
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Assign roles</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+
+<div class="container-fluid container-fullw bg-white">
+
+
+
+<!-- <ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="openRoleDetails()">Role</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" ng-click="changePassword()">Change Password</a></li>
+</ul>
+ -->
+
+   <form name="Form" id="form" ng-show="showRoles" >
+         
+                <div class="col-md-6">
+                  
+                        <fieldset ng-disabled="details">
+                            <legend>Roles Details </legend>
+                            <div class="row">
+                               
+                           <div class="col-md-8">
+                 <div class="form-group" ng-class="{'has-error':form.LeaveForm.EmailId.$dirty && form.LeaveForm.EmailId.$invalid, 'has-success':form.LeaveForm.EmailId.$valid}">
+                                    <label class="control-label"> 
+                                                Email Id
+                                  <span class="symbol required"></span></label>
+                                    <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" name="EmailId" ng-model="AssignRole.PrimaryEmailAddress"  ng-change="checkmail(AssignRole.PrimaryEmailAddress)" ng-minlength="2" ng-maxlength="35" ng-disabled="emaildisable" ng-required="true">
+                                  
+                                      <span ng-if="form.LeaveForm.$submitted || form.LeaveForm.EmailId.$touched" class="validationMessage">          
+                                       <span ng-if="form.LeaveForm.EmailId.$invalid && form.LeaveForm.EmailId.$error.required ">Email Id  is required.</span>
+                       <p ng-show="form.LeaveForm.EmailId.$error.pattern" style="color:#a94442">Invalid email id</p>
+                                   <label style="color:red" ng-show="msg">Email  is not registered with this organization</label>
+                                    <label style="color:red" ng-show="text">This EmailID is registered with Organisation Admin.Try Another</label>
+                                     <label style="color:red" ng-show="mtext">Email Not Registered with staff</label>
+                                    </span>
+                                    </div>
+                                   
+                                </div> <br>
+                              
+                           
+<div class="col-md-2">
+
+<button type="button" class="btn btn-wide btn-primary" ng-show="emailbtn" ng-click="getDetails()" v-pressable>
+                            Get Details
+                        </button>
+
+
+
+</div>
+                               
+                            </div>
+
+ <div class="row">
+          <div class="col-md-6">
+           <h5>First Name:<b>{{Role.FirstName}}</b></h5>  
+        </div>
+                   </div>
+                        <div class="row">
+          <div class="col-md-6">
+                   
+          <h5>Last Name:<b>{{Role.LastName}}</b></h5>  
+
+              
+            </div>
+            </div>  
+
+  <div class="row">
+              <div class="col-md-6">
+                  
+       
+               <h5>Mobile Number:<b>{{Role.PrimaryMobileNumber}}</b></h5>  
+
+            </div>
+            </div>
+     <div class="row">
+  <div class="col-md-12">
+                
+            <div class="form-group" ng-class="{'has-error':form.LeaveForm.RoleID.$dirty && form.LeaveForm.RoleID.$invalid, 'has-success':form.LeaveForm.RoleID.$valid}">
+              
+                        <label class="control-label">
+                            Role<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" name="RoleID" ng-options="role.RoleID as role.RoleName for role in roles" ng-model="AssignRole.RoleID" ng-change="getInstitutes()" ng-required="true">
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select></span>
+                        <span ng-if="form.LeaveForm.$submitted || form.LeaveForm.RoleID.$touched" class="validationMessage">
+                        <span ng-if="form.LeaveForm.RoleID.$invalid && form.LeaveForm.RoleID.$error.required ">Role is required.</span>
+                        </span>
+                   </div>
+           
+            </div>
+
+   </div>
+   <div class="row"><label>{{form.LeaveForm.$valid}}</label>
+              <div class="col-md-12" ng-show="inst">
+            <div class="form-group" ng-class="{'has-error':form.LeaveForm.InstituteKey.$dirty && form.LeaveForm.InstituteKey.$invalid, 'has-success':form.LeaveForm.InstituteKey.$valid}">
+                <label class="control-label"> Institute  <span class="symbol required"></span> </label>
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="AssignRole.InstituteKey" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-change="duplicaterole(AssignRole.InstituteKey)"  name="InstituteKey" ng-required="true">
+                                        <option value="" >-select-</option>
+                                        </select>
+                                     <span ng-if="form.LeaveForm.$submitted || form.LeaveForm.InstituteKey.$touched" class="validationMessage">
+                                         <p ng-show="form.LeaveForm.InstituteKey.$invalid && form.LeaveForm.InstituteKey.$error.required">Institute  is required</p>
+                                            </span></div>
+            
+         
+            </div>
+          </div>
+
+
+                        </fieldset>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                 <fieldset ng-disabled="details">
+                            <legend>Image</legend>
+
+                    <div class="form-group">
+                       
+                    
+                            <!-- <div flow-init flow-object="obj.flow">-->
+                            <div class="user-image">
+                                <div class="thumbnail margin-bottom-5">
+                                    <!--  <img src="assets/images/person-icon.png" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="$('#ID_profilePic').click()">--> <img ng-src="{{studentProfilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Staff" onclick="document.getElementById('ID_profilePic').click()">
+              
+                                    <!-- imageonload -->
+                                  <!--   <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="subOrganization.profilePic" base-sixty-four-input /> </div> -->
+                            </div>
+                        </div>
+              
+                </div>
+                </fieldset>
+</div>
+</div>
+           
+
+<div class="row">
+       <div class="col-md-12">
+            <center>
+          
+     <label style="color:red" ng-show="tmessage">The Staff you are trying to assign a role doesnot belong to your organization</label>
+     <label style="color:red" ng-show="roledup">This role is already assigned for this institute. Try another!</label>
+
+     <label style="color:red">{{duplicate}} </label>
+
+         <button type="submit" class="btn btn-wide btn-primary"  ng-if="savee" ng-click="SaveRole()" v-pressable>Save</button>
+       <button type="submit" class="btn btn-wide btn-primary"  ng-if="updatee" ng-click="updateRole()" v-pressable>Update</button>
+
+            </center>
+
+        </div>
+        </div>
+       
+ <div class="col-md-12">
+
+                <table class="table table-hover" id="sample-table-1">
+                    <thead>
+                        <tr>
+                            <!-- <th>S.No</th> -->
+                            <th style="cursor: pointer" ng-click="sortData('firstname')">Name
+                                <div ng-class="getSortClass('firstname')"></div>
+                            </th>
+                            <th></th>
+                            <th>Email Id</th>
+                            <th>Role</th>
+                            <th>Organization Name</th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="S in orgRoleList | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+
+                            <!--   <td>{{p.id}}</td>-->
+                            <td>{{S.FirstName}} {{S.LastName}}</td>
+                            <td>
+                                <ul class="nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle " data-toggle="dropdown"><span><i class="fa fa-cog"></i></span></a>
+                                        <ul class="dropdown-menu dropdown-list" role="menu">
+                                            <li role="presentation"><a ng-click="editRole(S.LoginDetailID);" href="javascript:void(0);"><i class="fa fa-edit"></i>Edit</a></li>
+                                            <li role="presentation"><a ng-click="passwordchange(S.PersonReferencekey);" href="javascript:void(0);"><i class="fa fa-edit"></i>Change Password</a></li>
+                                             <!--
+                                            <li role="presentation"><a ng-click="payFee(S.StudentKey);" href="javascript:void(0);"><i class="fa fa-edit"></i>Pay Fee</a></li> -->
+                                        </ul>
+                                        </li>
+                                        </ul>
+                            </td>
+                            <td>{{S.EmailId}}</td>
+                            <td>{{S.RoleName}}</td>
+                            <td>{{S.OrganizationName}}</td>
+                
+                        </tr>
+                        </tbody>
+                </table>
+        
+    </div>
+
+      </form>
+ <div class="col-md-2" ng-hide="((orgRoleList | filter:search).length<=10)||((orgRoleList | filter:search).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+   

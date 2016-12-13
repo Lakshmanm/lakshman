@@ -1,0 +1,12 @@
+{
+    "labels": {
+        "electiveGroupHeading": "Elective Group  "
+        , "academicYearTitle": "Academic Year"
+        , "startDate": "Start Date"
+        , "endDate": "End Date"
+        , "isActive": "Is Active"
+        , "save": "Save"
+        , "update": "Update"
+    }
+    , "errors": {}
+}

@@ -1,0 +1,362 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+<!-- <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Staff Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div> -->
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <form action="#" name="staffForm" role="form" id="form">
+        <div class="row">
+            <div ng-controller="Aarush.StaffAddition">
+                <div class="col-md-12">
+              
+                    <div class="col-md-12">
+                        <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+                        <!-- start: UggggSER TABSET -->
+
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend> Staff Profile </legend>
+                                <div class="row">
+                                    <div class="form-group" ng-class="{'has-error':staffForm.Firstname.$dirty && staffForm.Firstname.$invalid, 'has-success':staffForm.Firstname.$valid}">
+                                        <label class="control-label"> First Name <span class="symbol required"></span> </label>
+                                        <input type="text" class="form-control" name="Firstname" ng-pattern="/^[a-zA-Z\s]*$/" ng-minlength="2" ng-maxlength="35" ng-model="Staff.FirstName" required> <span class="error text-small block" ng-if="staffForm.Firstname.$dirty && staffForm.Firstname.$invalid">    
+                    <p ng-show="staffForm.Firstname.$invalid && staffForm.Firstname.$error.required && staffForm.Firstname.$dirty">First name is required</p>
+                      <p ng-show="staffForm.Firstname.$error.minlength">First name should be minumum of 2 characters</p> 
+                      <p ng-show="staffForm.Firstname.$error.maxlength">First name should be maximum  of 35 characters</p> 
+                  <p ng-show="staffForm.Firstname.$error.pattern" style="color:#a94442">Enter Only Alphabets</p></span> </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Middle Name </label>
+                                        <input type="text" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="35" class="form-control" name="Middlename" ng-model="Staff.MiddleName">
+
+                                        <p ng-show="staffForm.Middlename.$error.minlength" style="color:#a94442">Middle name should be minumum of 2 characters</p>
+                                        <p ng-show="staffForm.Middlename.$error.maxlength" style="color:#a94442">Middle name should be maximum of 35 characters</p>
+                                        <p ng-show="staffForm.Middlename.$error.pattern" style="color:#a94442">Enter Only Alphabets</p>
+
+
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.Lastname.$dirty && staffForm.Lastname.$invalid, 'has-success':staffForm.Lastname.$valid}">
+                                        <label class="control-label"> Last Name <span class="symbol required"></span> </label>
+                                        <input type="text" class="form-control" ng-pattern="/^[a-zA-Z\s]*$/" name="Lastname" ng-model="Staff.LastName" ng-minlength="2" ng-maxlength="35" required> <span class="error text-small block" ng-if="staffForm.Lastname.$dirty && staffForm.Lastname.$invalid">     
+                                             <p ng-show="staffForm.Lastname.$invalid && staffForm.Lastname.$error.required">Last Name is required</p>
+                                            
+                      <p  class="error text-small block" ng-show="staffForm.Lastname.$error.minlength">Last Name should be minimum of 2 characters</p>
+                        <p   class="error text-small block" ng-show="staffForm.Lastname.$error.maxlength">Last Name should be maximum of 35 characters</p>
+                          <p ng-show="staffForm.Lastname.$error.pattern" style="color:#a94442">Enter Only Alphabets</p>
+                                                    </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.DOB.$dirty && staffForm.DOB.$invalid, 'has-success':staffForm.DOB.$valid}">
+                                        <label class="control-label"> D.O.B <span class="symbol required"></span> </label>
+                                        <!--   <input type="date" name="DOB" class="form-control" ng-model="Staff.DateOfBirth" required />-->
+                                        <input class="form-control date-picker" ng-model="Staff.DateOfBirth" name="DOB" type="date" min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" required> <span class="error text-small block"
+                                            ng-if="(staffForm.DOB.$dirty ||staffForm.$submitted) && staffForm.DOB.$invalid">    
+                                        <p ng-show="staffForm.DOB.$invalid && staffForm.DOB.$error.required" style="color:#a94442">Date of birth is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.EmailId.$dirty && staffForm.EmailId.$invalid, 'has-success':staffForm.EmailId.$valid}">
+                                        <label class="control-label"> Email ID<span class="symbol required"></span></label>
+                                        <input type="email" class="form-control" name="EmailId" ng-model="Staff.EmailId" ng-change="checkmail(Staff.EmailId)" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required> <span class="error text-small block" ng-if="(staffForm.EmailId.$dirty ||OrgContactForm.$submitted) && staffForm.EmailId.$invalid">    
+                                    <span class="error text-small block" ng-if="staffForm.EmailId.$dirty && staffForm.EmailId.$invalid" style="color:red">          
+                                        <p ng-show="staffForm.EmailId.$invalid && staffForm.EmailId.$error.required" style="color:#a94442">Email ID is required</p>
+                                         
+                       <p ng-show="staffForm.EmailId.$error.pattern" style="color:#a94442">Invalid email ID</p>
+                                    
+                                    </span></div>
+                                         <label style="color:red" ng-show="msg">Email ID  has already been registered.Try another</label>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.Mobile.$dirty && staffForm.Mobile.$invalid, 'has-success':staffForm.Mobile.$valid}">
+                                        <label class="control-label"> Mobile Number <span class="symbol required"></span> </label>
+                                        <input type="text" class="form-control" name="Mobile" ng-model="Staff.PrimaryMobileNumber" ng-change="checkmobile(Staff.PrimaryMobileNumber)" ng-pattern="/^[0-9]{1,10}$/" required> <span class="error text-small block" ng-if="(staffForm.Mobile.$dirty ||staffForm.$submitted) && staffForm.Mobile.$invalid">    
+                                    <span class="error text-small block" ng-if="staffForm.Mobile.$dirty && staffForm.Mobile.$invalid" style="color:red">          
+                                        <p ng-show="staffForm.Mobile.$invalid && staffForm.Mobile.$error.required" style="color:#a94442">Mobile number is required</p>
+                       <p ng-show="staffForm.Mobile.$error.pattern" style="color:#a94442">Invalid mobile number</p>
+                                  </span> </div>
+                                        <label style="color:red" ng-show="mtext">Mobile Number has already been registered.Try another </label>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.gender.$dirty && staffForm.gender.$invalid, 'has-success':staffForm.gender.$valid}">
+                                        <label class="control-label"> Gender<span class="symbol required"></span> </label>
+                                        <select ng-options="genderList.Id as genderList.Title  for genderList in gender" value="3" class="form-control " ng-model="Staff.Id" name="gender" required>
+                                        <option value="">--Select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.gender.$dirty ||staffForm.$submitted) && staffForm.gender.$invalid">    
+                                        <p ng-show="staffForm.gender.$invalid && staffForm.gender.$error.required" style="color:#a94442">Gender is required</p>                                      
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.maritalStatus.$dirty && staffForm.maritalStatus.$invalid, 'has-success':staffForm.maritalStatus.$valid}">
+                                        <label class="control-label"> Marital Status <span class="symbol required"></span> </label> <span class="clip-select">
+                                  <select name="maritalStatus" class="form-control" ng-model="Staff.maritalStatusTypeId" ng-options="maritalStatustype.maritalStatusTypeId as maritalStatustype.maritalStatusTypeName for maritalStatustype in maritalStatusTypes" required>
+                                                    <option value="">--select--</option>
+                                                     </select>
+</span> <span class="error text-small block" ng-if="(staffForm.maritalStatus.$dirty ||staffForm.$submitted) && staffForm.maritalStatus.$invalid">    
+                                        <p ng-show="staffForm.maritalStatus.$invalid && staffForm.maritalStatus.$error.required" style="color:#a94442">Marital Status is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.bloodGroup.$dirty && staffForm.bloodGroup.$invalid, 'has-success':staffForm.bloodGroup.$valid}">
+                                        <label class="control-label"> Blood Group <span class="symbol required"></span> </label>
+                                        <select name="bloodGroup" class="form-control" ng-model="Staff.bloodGroupId" ng-options="bloodGrouptype.bloodGroupId as bloodGrouptype.bloodGroupName for bloodGrouptype in bloodGroupTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.bloodGroup.$dirty ||staffForm.$submitted) && staffForm.bloodGroup.$invalid">    
+                                        <p ng-show="staffForm.bloodGroup.$invalid && staffForm.bloodGroup.$error.required" style="color:#a94442">Blood Group is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.language.$dirty && staffForm.language.$invalid, 'has-success':staffForm.language.$valid}">
+                                        <label class="control-label"> Primary Language <span class="symbol required"></span> </label>
+                                        <select name="language" class="form-control" ng-model="Staff.languageId" ng-options="languagetype.languageId as languagetype.languageName for languagetype in languageTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.language.$dirty ||staffForm.$submitted) && staffForm.language.$invalid">    
+                                        <p ng-show="staffForm.language.$invalid && staffForm.language.$error.required" style="color:#a94442">Language is required</p>                                    
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.employeeId.$dirty && staffForm.employeeId.$invalid, 'has-success':staffForm.employeeId.$valid}">
+                                        <label class="control-label"> Employee ID <span class="symbol required"></span> </label>
+                                        <input type="text" class="form-control" name="employeeId" ng-model="Staff.employeeId" ng-pattern="/^[,_a-zA-Z0-9-\s]*$/" ng-minlength="2" ng-maxlength="35" required>
+                                        <span class="error text-small block" ng-if="staffForm.employeeId.$dirty && staffForm.employeeId.$invalid" required>     
+         <p ng-show="staffForm.employeeId.$invalid && staffForm.employeeId.$error.required">Employee Id is required</p>
+                             <p  class="error text-small block" ng-show="staffForm.employeeId.$error.minlength">Employee Id should be minimum of 2 characters</p>
+                        <p   class="error text-small block" ng-show="staffForm.employeeId.$error.maxlength">Employee Id should be maximum of 35 characters</p>
+                        <p ng-show="staffForm.employeeId.$error.pattern">Enter Only Alphanumeric and "_","-",","</p>
+                                                    </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.employeeCategory.$dirty && staffForm.employeeCategory.$invalid, 'has-success':staffForm.employeeCategory.$valid}">
+                                        <label class="control-label"> Employee Category<span class="symbol required"></span> </label>
+                                        <select name="employeeCategory" class="form-control" ng-model="Staff.EmployeeCategoryKey" ng-options="employeeCategorytype.EmployeeCategoryKey as employeeCategorytype.EmployeeCategoryName for employeeCategorytype in employeeCategoryTypes" required>
+                                        <option value="">--select--</option>
+                                    </select><span class="error text-small block" ng-if="(staffForm.employeeCategory.$dirty ||staffForm.$submitted) && staffForm.employeeCategory.$invalid">    
+                                        <p ng-show="staffForm.employeeCategory.$invalid && staffForm.employeeCategory.$error.required" style="color:#a94442">Employee Category is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.typeOfEmployment.$dirty && staffForm.typeOfEmployment.$invalid, 'has-success':staffForm.typeOfEmployment.$valid}">
+                                        <label class="control-label"> Type Of Employment <span class="symbol required"></span> </label>
+                                        <select name="typeOfEmployment" class="form-control" ng-model="Staff.EmploymentTypeKey" ng-options="typeOfEmploymenttype.EmploymentTypeKey as typeOfEmploymenttype.EmploymentTypeName for typeOfEmploymenttype in typeOfEmploymentTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.typeOfEmployment.$dirty ||staffForm.$submitted) && staffForm.typeOfEmployment.$invalid">    
+                                        <p ng-show="staffForm.typeOfEmployment.$invalid && staffForm.typeOfEmployment.$error.required" style="color:#a94442">Employment Type is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.aadharCardNumber.$dirty && staffForm.aadharCardNumber.$invalid, 'has-success':staffForm.aadharCardNumber.$valid}">
+                                        <label class="control-label"> Aadhar Card Number<span class="symbol required"></span> </label>
+                                        <input type="text" class="form-control" name="aadharCardNumber" ng-model="Staff.aadharCardNumber" ng-minlength="2" ng-pattern="[0-9]" ng-maxlength="16" required>
+                                        <span class="error text-small block" ng-if="staffForm.aadharCardNumber.$dirty && staffForm.aadharCardNumber.$invalid">     
+                                             <p ng-show="staffForm.aadharCardNumber.$invalid && staffForm.aadharCardNumber.$error.required">Aadhar Card Number is required</p>
+                                            
+                      <p  class="error text-small block" ng-show="staffForm.aadharCardNumber.$error.minlength">Adhaarcard Number should be minimum of 2 characters</p>
+                        <p   class="error text-small block" ng-show="staffForm.aadharCardNumber.$error.maxlength">Adhaarcard Number should be maximum of 20 characters</p>
+                 <p ng-show="staffForm.aadharCardNumber.$error.pattern" style="color:#a94442">Enter Only Numbers</p>
+                                                    </span> </div>
+
+                                    <div class="form-group" ng-class="{'has-error':staffForm.DOJ.$dirty && staffForm.DOJ.$invalid, 'has-success':staffForm.DOJ.$valid}">
+                                        <label class="control-label"> Date Of Join <span class="symbol required"></span> </label>
+                                        <input class="form-control date-picker" ng-model="Staff.DateOfJoining" name="DOJ" type="date" min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" required> <span class="error text-small block"
+                                            ng-if="(staffForm.DOJ.$dirty ||staffForm.$submitted) && staffForm.DOJ.$invalid">    
+                                        <p ng-show="staffForm.DOJ.$invalid && staffForm.DOJ.$error.required" style="color:#a94442">Date of joining is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.designation.$dirty && staffForm.designation.$invalid, 'has-success':staffForm.designation.$valid}">
+                                        <label class="control-label"> Designation<span class="symbol required"></span> </label>
+                                        <select name="designation" class="form-control" ng-model="Staff.designationId" ng-options="designationtype.designationId as designationtype.designationName for designationtype in designationTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.designation.$dirty ||staffForm.$submitted) && staffForm.designation.$invalid">    
+                                        <p ng-show="staffForm.designation.$invalid && staffForm.designation.$error.required" style="color:#a94442">Designation is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.assignedDepartment.$dirty && staffForm.assignedDepartment.$invalid, 'has-success':staffForm.assignedDepartment.$valid}">
+                                        <label class="control-label"> Primary Department <span class="symbol required"></span> </label>
+                                        <select name="assignedDepartment" class="form-control" ng-model="Staff.referenceKey" ng-options="assignedDepartmenttype.referenceKey as assignedDepartmenttype.departmentName for assignedDepartmenttype in assignedDepartmentTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.assignedDepartment.$dirty ||staffForm.$submitted) && staffForm.assignedDepartment.$invalid">    
+                                        <p ng-show="staffForm.assignedDepartment.$invalid && staffForm.assignedDepartment.$error.required" style="color:#a94442">Primary Department is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.assignedDepartment2.$dirty && staffForm.assignedDepartment2.$invalid, 'has-success':staffForm.assignedDepartment2.$valid}">
+                                        <label class="control-label"> Secondary Department <span class="symbol required"></span> </label>
+                                        <select name="assignedDepartment2" class="form-control" ng-model="Staffs.referenceKey" ng-options="secondaryDepartmenttype.referenceKey as secondaryDepartmenttype.departmentName for secondaryDepartmenttype in secondaryDepartmentTypes" required>
+                                        <option value="">--select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.assignedDepartment2.$dirty ||staffForm.$submitted) && staffForm.assignedDepartment2.$invalid">    
+                                        <p ng-show="staffForm.assignedDepartment2.$invalid && staffForm.assignedDepartment2.$error.required" style="color:#a94442">Secondary Department is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" ng-checked="check" id="checkbox1" ng-model="Staff.IsActive">
+                                        <label for="checkbox1"> Is Active</label>
+                                    </div>
+                                   <!-- <div class="form-group" ng-class="{'has-error':staffForm.Treasury.$dirty && staffForm.Treasury.$invalid, 'has-success':staffForm.Treasury.$valid}">-->
+                                        <label class="control-label"> Treasury ID </label>
+                                        <input type="text" class="form-control" name="Treasury" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-model="Staff.TreasuryId" ng-minlength="2" ng-maxlength="35" > <span class="error text-small block" ng-if="staffForm.Treasury.$dirty && staffForm.Treasury.$invalid">     
+                                            <!-- <p ng-show="staffForm.Treasury.$invalid && staffForm.Treasury.$error.required">Treasury ID required</p>-->
+                                   
+                      <p  ng-show="staffForm.Treasury.$error.minlength">Treasury ID should be minimum of 2 characters</p>
+                        <p  ng-show="staffForm.Treasury.$error.maxlength">Treasury ID should be maximum of 35 characters</p>
+                     <p ng-show="staffForm.Treasury.$error.pattern">Enter Only Alphanumeric </p>
+                                 </span>
+                                   <!-- </div>-->
+
+
+
+                                    <div class="form-group" ng-class="{'has-error':staffForm.appointmentkey.$dirty && staffForm.appointmentkey.$invalid, 'has-success':staffForm.appointmentkey.$valid}">
+                                        <label class="control-label"> Nature Of Appointment <span class="symbol required"></span> </label>
+                                        <select ng-options="appontList.appointmentkey as appontList.appointmenttitle  for appontList in appointmentList" value="3" class="form-control " ng-model="Staff.appointmentkey" name="appointmentkey" required>
+                                        <option value="">--Select--</option>
+                                    </select> <span class="error text-small block" ng-if="(staffForm.appointmentkey.$dirty ||staffForm.$submitted) && staffForm.appointmentkey.$invalid">    
+                                        <p ng-show="staffForm.appointmentkey.$invalid && staffForm.appointmentkey.$error.required" style="color:#a94442">Nature of Appointment is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.interviewDate.$dirty && staffForm.interviewDate.$invalid, 'has-success':staffForm.interviewDate.$valid}">
+                                        <label class="control-label"> Final Interview Date <span class="symbol required"></span> </label>
+                                        <input class="form-control date-picker" ng-model="Staff.FinalInterviewedDate" name="interviewDate" type="date" min="{{minDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" required> <span class="error text-small block"
+                                            ng-if="(staffForm.interviewDate.$dirty ||staffForm.$submitted) && staffForm.interviewDate.$invalid">    
+                                        <p ng-show="staffForm.interviewDate.$invalid && staffForm.interviewDate.$error.required" style="color:#a94442">Interview Date is required</p>                                        
+                                  </span> </div>
+                                    <div class="form-group" ng-class="{'has-error':staffForm.interviewed.$dirty && staffForm.interviewed.$invalid, 'has-success':staffForm.interviewed.$valid}">
+                                        <label class="control-label"> Interviewed by </label>
+                                        <select name="interviewed" class="form-control" ng-options="item.StaffKey as item.FirstName for item in interviedByTypes" ng-model="Staff.interviewByKey">
+                                        <option value="">--select--</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" id="checkbox2" ng-model="Staff.IsSMC">
+                                        <label for="checkbox2">is SMC member in current Acadamicyear</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="user-image">
+                            <div class="thumbnail margin-bottom-5">
+
+                                <img ng-src="{{image_source}}" width="190" height="200" onclick="document.getElementById('trigger').click()">
+                                <input type="file" id="trigger" onchange="angular.element(this).scope().setFile(this)" accept="image/*" style="display:none;" ng-model="Staff.file" base-sixty-four-input>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend> Social Information </legend>
+                                <div class="form-group" ng-class="{'has-error':staffForm.nationalities.$dirty && staffForm.nationalities.$invalid, 'has-success':staffForm.nationalities.$valid}">
+                                    <label class="control-label"> Nationality<span class="symbol required"></span> </label>
+                                    <select name="nationalities" class="form-control" ng-model="Staff.nationalityId" ng-options="nationalitytype.nationalityId as nationalitytype.nationalityName for nationalitytype in nationalityTypes" required>
+                                    <option value="">--select--</option>
+                                </select> <span class="error text-small block" ng-if="(staffForm.nationalities.$dirty ||staffForm.$submitted) && staffForm.nationalities.$invalid">    
+                                        <p ng-show="staffForm.nationalities.$invalid && staffForm.nationalities.$error.required" style="color:#a94442">Nationality is required</p>                                        
+                                  </span> </div>
+
+
+
+
+
+
+
+
+                                <div class="form-group" ng-class="{'has-error':staffForm.religion.$dirty && staffForm.religion.$invalid, 'has-success':staffForm.religion.$valid}">
+                                    <label class="control-label"> Religion<span class="symbol required"></span> </label>
+                                    <select name="religion" class="form-control" ng-model="Staff.religionTypeId" ng-options="religitontype.religionTypeId as religitontype.religionTypeName for religitontype in religitionTypes" required>
+                                    <option value="">--select--</option>
+                                </select> <span class="error text-small block" ng-if="(staffForm.religion.$dirty ||staffForm.$submitted) && staffForm.religion.$invalid">    
+                                        <p ng-show="staffForm.religion.$invalid && staffForm.religion.$error.required" style="color:#a94442">Religion is required</p>                                        
+                                  </span> </div>
+                                <div class="form-group" ng-class="{'has-error':staffForm.caste.$dirty && staffForm.caste.$invalid, 'has-success':staffForm.caste.$valid}">
+                                    <label class="control-label"> Caste/SubCaste<span class="symbol required"></span> </label>
+                                    <select name="caste" class="form-control" ng-model="Staff.socialGroupId" ng-options="castetype.socialGroupId as castetype.socialGroupName for castetype in casteTypes" required>
+                                    <option value="">--select--</option>
+                                </select> <span class="error text-small block" ng-if="(staffForm.caste.$dirty ||staffForm.$submitted) && staffForm.caste.$invalid">    
+                                        <p ng-show="staffForm.caste.$invalid && staffForm.caste.$error.required" style="color:#a94442">Caste is required</p>                                        
+                                  </span> </div>
+                            </fieldset>
+                        </div>
+                        <br/>
+                        <br/>
+
+                        <div class="col-md-6">
+                            <fieldset>
+                                <legend> Work Location </legend>
+                               <!--  <div class="form-group" ng-class="{'has-error':staffForm.nationalities.$dirty && staffForm.nationalities.$invalid, 'has-success':staffForm.nationalities.$valid}">
+                                    <label class="control-label"> Parent Organization:{{}}<span class="symbol required"></span> </label>
+                                </div>
+ -->
+  <div class="row">
+  <input type="radio" name="parent" value="parent" ng-click="Parentradio()" ng-model="Register.email"> <label class="control-label"> Parent Organization:{{}}<span class="symbol required"></span> </label>
+  <label ng-show="org">testing</label>
+</div>
+
+
+<div class="row">
+  <input type="radio" name="parent" value="radioBranch" ng-click="branchradio()" ng-model="Register.email"> 
+  <label class="control-label">Branch<span class="symbol required"></span> </label>
+      <div class="form-group" ng-class="{'has-error':staffForm.branchKey.$dirty && staffForm.branchKey.$invalid, 'has-success':staffForm.branchKey.$valid}"   ng-show="showBranch">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="Staff.SuborganizationKey" ng-options="item.referenceKey as item.organizationName for item in subOrganizationList"  ng-change="getInstitutes()" name="branchKey" >
+                                        <option value="" >-select-</option>
+                                     </select> <span class="error text-small block" ng-if="(staffForm.branchKey.$dirty ||staffForm.$submitted) && staffForm.branchKey.$invalid">    
+                                        <p ng-show="staffForm.branchKey.$invalid && staffForm.branchKey.$error.required" style="color:#a94442">Religion is required</p>                                        
+                                  </span> </div>
+  </div>
+<div class="row">
+  <input type="radio" name="parent" value="radioInstitute" ng-click="instituteradio()" ng-model="Register.email"> <label class="control-label"> Institute<span class="symbol required"></span> </label>
+</div>
+
+
+
+
+                          
+<div ng-show="institute">
+
+                                   <div class="form-group" ng-class="{'has-error':staffForm.branchOrg.$dirty && staffForm.branchOrg.$invalid, 'has-success':staffForm.branchOrg.$valid}">
+                                    <label class="control-label"> Branch<span class="symbol required"></span> </label>
+                                 <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="Staff.SuborganizationKey" ng-options="item.referenceKey as item.organizationName for item in subOrganizationList" ng-change="getInstitutes()" name="branchOrg" required>
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         <span class="error text-small block" ng-if="(staffForm.branchOrg.$dirty ||staffForm.$submitted) && staffForm.branchOrg.$invalid">    
+                                        <p ng-show="staffForm.branchOrg.$invalid && staffForm.branchOrg.$error.required" style="color:#a94442">Branch is required</p>                                        
+                                  </span> </div>
+
+
+
+                                   <div class="form-group" ng-class="{'has-error':staffForm.institutedropdown.$dirty && staffForm.institutedropdown.$invalid, 'has-success':staffForm.institutedropdown.$valid}">
+                                    <label class="control-label"> Institute<span class="symbol required"></span> </label>
+                                    <select name="institutedropdown" class="form-control" ng-model="Staff.InstituteKey" ng-options="instute.InstituteKey as instute.OrganizationName for instute in instituteList" required>
+                                    <option value="">--select--</option>
+                             </select> <span class="error text-small block" ng-if="(staffForm.institutedropdown.$dirty ||staffForm.$submitted) && staffForm.institutedropdown.$invalid">    
+                                        <p ng-show="staffForm.institutedropdown.$invalid && staffForm.institutedropdown.$error.required" style="color:#a94442">Instituite is required</p>                                        
+                                  </span> </div>
+                                  </div>
+
+     <div class="form-group" ng-class="{'has-error':staffForm.primaryApplication.$dirty && staffForm.primaryApplication.$invalid, 'has-success':staffForm.primaryApplication.$valid}">
+                                    <label class="control-label"> Primary Application Role<span class="symbol required"></span> </label>
+                                <select class="form-control" name="primaryApplication" ng-options="role.RoleID as role.RoleName for role in roles" ng-model="Staff.RoleID" ng-change="duplicaterole()" required>
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select> <span class="error text-small block" ng-if="(staffForm.primaryApplication.$dirty ||staffForm.$submitted) && staffForm.primaryApplication.$invalid">    
+                                        <p ng-show="staffForm.primaryApplication.$invalid && staffForm.primaryApplication.$error.required" style="color:#a94442">Primary Applicatio Role is required</p>                                        
+                                  </span> </div>
+                                  <label style="color:red" ng-show="roledup">This role is already assigned for this institute. Try another!</label>
+                                  <label style="color:red" ng-show="duplicate">This Role is assigned to this person already for this Institute.Try Another!</label>
+
+                                  <label style="color:red">{{duplicate}} </label>
+
+
+
+                            </fieldset>
+                        </div>
+                       
+    </form>
+    <!-- end: TAB EDIT ACCOUNT -->
+    <!-- start: TAB PROJECTS -->
+    <!-- end: TAB PROJECTS -->
+    <!-- end: USER TABSET -->
+    </div>
+    </div>
+      <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-body">
+                                    <div class="row" align="center">
+                                        <!--   <button type="buddddddtton" ng-show="save" ng-click="Savebasicinfo()" class="btn btn-wide btn-primary" v-pressable>Submit</button> -->
+                                        <button type="button" class="btn btn-wide btn-primary" ng-disabled="staffForm.$invalid" ng-show="save" ng-click="staffForm.$valid && Savebasicinfo()" v-pressable>Submit</button>
+
+                                        <button type="button" class="btn btn-wide btn-primary" ng-show="update" ng-click="updateStaffOrganization()" v-pressable>Update</button>
+                                        <button type="button" ng-click="Staffcancel()" class="btn btn-wide btn-primary" v-pressable> Cancel </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>               
+                    
+                    
+    </div>
+    </div>
+    <!-- end: USER PROFILE

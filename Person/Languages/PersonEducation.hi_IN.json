@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "title": "नाम",                                   
+        "startDate": "आरंभ करने की तिथि",
+        "endDate": "अंतिम तिथि",
+        "instituteName": "संस्थान का नाम",
+        "instituteCode": "संस्थान संहिता",
+        "instituteMedium": "संस्थान मझौले",
+        "marksObtained": "प्राप्तांक",
+        "gradeObtained": "ग्रेड मिले",
+        "location": "स्थान",
+         "yearOfPassing": "उत्तीर्ण होने का वर्ष",
+        "qualification": "योग्यता",
+        "submit": "जमा करें",
+        "edit":"संपादित",
+        "delete":"मिटाना",
+        "educationInfo": "शिक्षा "
+    },
+    "errors": {
+
+    }
+}

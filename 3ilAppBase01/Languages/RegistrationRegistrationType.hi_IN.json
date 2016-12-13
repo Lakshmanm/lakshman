@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "registrationTypeTitle": "Registration Type Title",
+        "submit": "submit",
+		"delete": "Delete",
+        "registrationType": "Registration Type"
+ },
+    "errors": {
+
+    }
+}

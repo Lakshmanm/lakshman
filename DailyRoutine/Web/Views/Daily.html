@@ -1,0 +1,434 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Daily Routines</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+
+
+<div class="container-fluid container-fullw bg-white">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#/app/Daily">Daily routine</a></li>
+        <li ng-show="assign"><a data-toggle="tab" href="#/app/Assign">Assign Class Teacher</a></li>
+
+
+    </ul>
+    </br>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form name="dailyForm">
+                <!-- start: USER TABSET -->
+
+                <div class="col-md-12">
+                    <!--  <fieldset>-->
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="row">
+                                <div class="col-md-3">
+
+
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.instituteTitle.$dirty && dailyForm.instituteTitle.$invalid, 'has-success':dailyForm.instituteTitle.$valid}">
+                                        <label class="control-label">
+                                    {{labelsDaily.instituteTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="institute as institute.OrganizationName for institute in instituteList " ng-required="true" value="3" class="form-control " ng-change="getKey(entityBatch.InstituteKey.InstituteKey,entityBatch.InstituteKey.ParentOrganizationKey)" ng-disabled="dailyInstitute" ng-model="entityBatch.InstituteKey"
+                                    name="instituteTitle"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="dailyForm.instituteTitle.$dirty && dailyForm.instituteTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.instituteTitle.$invalid && dailyForm.instituteTitle.$error.required">Institute is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-3">
+
+
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.yearTitle.$dirty && dailyForm.yearTitle.$invalid, 'has-success':dailyForm.yearTitle.$valid}">
+                                        <label class="control-label">
+                                    {{labelsDaily.yearTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                        
+                                <select ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearList " value="3" class="form-control " ng-model="entityBatch.academicYearKey" ng-required="true" name="yearTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+                               </span> <span class="error text-small block" ng-if="dailyForm.yearTitle.$dirty && dailyForm.yearTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.yearTitle.$invalid && dailyForm.yearTitle.$error.required">Academic year is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.boardTitle.$dirty && dailyForm.boardTitle.$invalid, 'has-success':dailyForm.boardTitle.$valid}">
+                                        <label class="control-label">
+                                          {{labelsDaily.boardTitle}}  <span class="symbol required"></span> </label> <span class="clip-select">
+                                           
+                                <span class="clip-select">
+                                 <select ng-options="board.InstituteBoardKey as board.BoardTitle for board in boardList" value="3" class="form-control" ng-required="true" ng-change="getBoardGroups(entityDaily.InstituteBoardKey)" ng-model="entityDaily.InstituteBoardKey" name="boardTitle" > 
+						 <option value="">--Select--</option>
+					 </select>
+</span>
+                                        </span> <span class="error text-small block" ng-if="dailyForm.boardTitle.$dirty && dailyForm.boardTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.boardTitle.$invalid && dailyForm.boardTitle.$error.required">Board  is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.groupTitle.$dirty && dailyForm.groupTitle.$invalid, 'has-success':dailyForm.groupTitle.$valid}">
+                                        <label class="control-label">
+                                          {{labelsDaily.groupTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                           
+                                <select ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupList"  ng-required="true" value="3" class="form-control " ng-model="entityDaily.InstituteGroupKey" ng-change="getCoursByGroupKey(entityDaily.InstituteGroupKey)" name="groupTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                                </span> <span class="error text-small block" ng-if="dailyForm.groupTitle.$dirty && dailyForm.groupTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.groupTitle.$invalid && dailyForm.groupTitle.$error.required">Group is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.courseTitle.$dirty && dailyForm.courseTitle.$invalid, 'has-success':dailyForm.courseTitle.$valid}">
+                                        <label class="control-label">
+                                            {{labelsDaily.courseTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                            
+                                <select ng-options="course.InstituteCourseKey as course.CourseTitle for course in courseList "  ng-required="true" value="3" class="form-control " ng-change="getBatchCourseKey(entityDaily.InstituteCourseKey)" ng-model="entityDaily.InstituteCourseKey" name="courseTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+
+                               </span> <span class="error text-small block" ng-if="dailyForm.courseTitle.$dirty && dailyForm.courseTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.courseTitle.$invalid && dailyForm.courseTitle.$error.required">Course is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group" ng-class="{'has-error':dailyForm.batchTitle.$dirty && dailyForm.batchTitle.$invalid, 'has-success':dailyForm.batchTitle.$valid}">
+                                        <label class="control-label">
+                                          {{labelsDaily.batchTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                          
+                                <select ng-options="batch.InstituteBatchKey as batch.BatchName for batch in batchList " ng-required="true" value="3" ng-change="getTableKey(entityDaily.InstituteBatchKey)" class="form-control " ng-model="entityDaily.InstituteBatchKey" name="batchTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                               </span> <span class="error text-small block" ng-if="dailyForm.batchTitle.$dirty && dailyForm.batchTitle.$invalid">    
+                                        
+                                        <p ng-show="dailyForm.batchTitle.$invalid && dailyForm.batchTitle.$error.required">Batch is required</p>
+                       
+                                    
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </form>
+            <!--<div class="container-fluid container-fullw bg-white">-->
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="col-md-12">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+
+                                <input type="text" placeholder="search " class="form-control" name="BranchName" ng-model="branchSearch">
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <div class="col-md-1">
+                                    &nbsp
+                                </div>
+                                <div class="col-md-2">
+
+
+
+                                    <label class="control-label">
+
+                        </label>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+
+                            <div class="panel panel-white">
+                                <div class="panel-body">
+                                    <table class="table table-bordered" id="sample-table-1">
+
+                                        <thead>
+                                            <tr>
+
+                                                <th>Period
+
+                                                </th>
+                                                <th>Sunday
+
+                                                </th>
+                                                <th>Monday
+
+                                                </th>
+                                                <th>Tuesday
+
+                                                </th>
+
+                                                <th>Wednesday
+
+                                                </th>
+                                                <th>Thursday
+
+                                                </th>
+                                                <th>Friday
+
+                                                </th>
+                                                <th>Saturday
+
+                                                </th>
+
+
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr dir-paginate="period in periodList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+{{}}
+
+                                                <td id="periodslot{{$index}}">{{period.PeriodSlotName}}</td>
+
+                                                <td></td>
+                                                <td id="1{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle1}}"> <i class="fa fa-book" ng-show="period.WeekDayId1=='1'?true:false " aria-hidden="true"></i> {{period.WeekDayId1 ==="1" ? (period.SubjectTitle1 | limitTo:6): undefined }}</div> <br>
+                                                    <div title="{{period.StaffName1}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId1=='1'?true:false " aria-hidden="true"></i> {{period.WeekDayId1 ==="1" ? (period.StaffName1 | limitTo:6): undefined }}</div>
+
+
+                                                    <div align="right" class="panel-body">
+
+                                                        <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="1:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+
+
+                                                    </div>
+
+
+                                                </td>
+
+
+
+
+                                                <td id="2{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle2}}"> <i class="fa fa-book" ng-show="period.WeekDayId2=='2'?true:false " aria-hidden="true"></i>{{period.WeekDayId2 === "2" ? (period.SubjectTitle2 | limitTo:6) : undefined }}</div> <br>
+                                                    <div title="{{period.StaffName2}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId2=='2'?true:false " aria-hidden="true"></i>{{period.WeekDayId2 === "2" ? (period.StaffName2 | limitTo:6): undefined }}</div>
+
+                                                    <div class="panel-body">
+                                                        <p align="right">
+
+                                                            <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="2:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td id="3{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle3}}"> <i class="fa fa-book" ng-show="period.WeekDayId3=='3'?true:false " aria-hidden="true"> </i> {{period.WeekDayId3 === "3" ? (period.SubjectTitle3 | limitTo:6 ) : undefined }}</div> <br>
+                                                    <div title="{{period.StaffName3}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId3=='3'?true:false " aria-hidden="true"></i> {{period.WeekDayId3 === "3" ? (period.StaffName3 | limitTo:6) : undefined }}</div>
+
+                                                    <div class="panel-body">
+                                                        <p align="right">
+
+                                                            <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="3:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td id="4{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle4}}"> <i class="fa fa-book" ng-show="period.WeekDayId4=='4'?true:false " aria-hidden="true"></i> {{period.WeekDayId4 === "4" ? (period.SubjectTitle4 | limitTo:6): undefined }} </div> <br>
+                                                    <div title="{{period.StaffName4}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId4=='4'?true:false " aria-hidden="true"></i> {{period.WeekDayId4 === "4" ? (period.StaffName4 | limitTo:6 ) : undefined }}</div>
+
+                                                    <div class="panel-body">
+                                                        <p align="right">
+
+                                                            <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="4:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td id="5{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle5}}"> <i class="fa fa-book" ng-show="period.WeekDayId5=='5'?true:false " aria-hidden="true"></i> {{period.WeekDayId5 === "5" ? (period.SubjectTitle5 | limitTo:6) : undefined }} </div> <br>
+                                                    <div title="{{period.StaffName5}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId5=='5'?true:false " aria-hidden="true"></i> {{period.WeekDayId5 === "5" ? (period.StaffName5 | limitTo:6): undefined }}</div>
+
+                                                    <div class="panel-body">
+                                                        <p align="right">
+                                                            <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="5:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td id="6{{$index}}">
+
+                                                    <div title="{{period.SubjectTitle6}}"> <i class="fa fa-book" ng-show="period.WeekDayId6=='6'?true:false " aria-hidden="true"></i> {{period.WeekDayId6 === "6" ? (period.SubjectTitle6 | limitTo:6) : undefined }}</div> <br>
+                                                    <div title="{{period.StaffName6}}"> <i class="glyphicon glyphicon-user" ng-show="period.WeekDayId6=='6'?true:false " aria-hidden="true"></i> {{period.WeekDayId6 === "6" ? (period.StaffName6 | limitTo:6): undefined }}</div>
+
+                                                    <div class="panel-body">
+                                                        <p align="right">
+                                                            <button class="glyphicon glyphicon-edit" data-toggle="modal" ng-disabled="daily" id="6:{{period.PeriodSlotKey}}:{{entityDaily.InstituteBatchKey}}" ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>
+                                                        </p>
+                                                    </div>
+                                                </td>
+
+
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2" ng-hide="((instituteList | filter:search).length<=10)||((instituteList | filter:search).length==undefined)">
+                            <div ng-init="pageSize=10 ">
+                                <label for="search">Records per page:</label>
+                                <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12" style="text-align:left">
+                            <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Small Modal -->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                            <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+                        </div>
+                        <div>
+
+
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                    <label class="control-label">
+                                            {{labelsDaily.subjectTitle}}<span class="symbol required"></span>
+                                            </label>
+                                    <select ng-options="subject.InstituteSubjectkey as subject.SubjectTitle for subject in subjectList "  value="3" ng-model="entityTeacher.subjectKey" name="subjectTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-md-3">
+
+                                    <label class="control-label">
+                                            {{labelsDaily.teacherTitle}}<span class="symbol required"></span>
+                                            </label>
+                                    <select ng-options="staff.StaffKey as staff.FirstName for staff in staffList " value="3" ng-change="getStaffPeriodList()" ng-model="entityTeacher.StaffKey" name="staffTitle"> 
+						 <option value="">--Select--</option>
+					 </select>
+
+                                </div>
+                            </div>
+                           
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" ng-disabled="staff" ng-click="addClassTeacher(entityTeacher,entityDaily.InstituteBatchKey,periodList[$index])" class="btn btn-primary" data-dismiss="modal">
+                                                                    Assign
+                                                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<!-- end: USER PROFILE

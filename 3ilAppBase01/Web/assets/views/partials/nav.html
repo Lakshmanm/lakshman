@@ -1,0 +1,527 @@
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title" >
+    <!--    <span translate="sidebar.heading.NAVIGATION">Main Navigation</span>--></div>
+<!-- <script type="text/javascript">
+    'use strict';
+    app.controller('navigation', function($scope, $filter, TempDataService,$state, $rootScope, $localStorage, thrillAppBasePersonLogic, appBaseOrganizationLogic,$location) {
+        //alert('aa')
+        //$localStorage.Role = 'LabTechnician';
+
+        var staffkey;
+
+ $localStorage.calMenu = $scope.calMenu;
+        
+   /*     function getStaff()
+        {
+            
+      thrillAppBasePersonLogic.getStaffKey($localStorage.LoginPersonReferencekey).then(function(response) {
+         
+ staffkey=response[0].StaffKey;
+   $localStorage.staffkey=response[0].StaffKey;
+      });
+              }*/
+
+                function getMenus()
+        {
+  
+thrillAppBasePersonLogic.getModules($localStorage.RoleID).then(function(response) {
+    //for(var i=0; i<=response.length; i++)
+
+
+    angular.forEach(response,function(resp){
+
+
+        if(resp.ModuleId=='1')
+        {
+           $scope.DashBoard=true;
+        }
+
+         if(resp.ModuleId=='2')
+        {
+           $scope.Organization=true;
+        }
+
+        if(resp.ModuleId=='3')
+        {
+           $scope.Student=true;
+        }
+
+         if(resp.ModuleId=='4')
+        {
+           $scope.Staff=true;
+        }
+
+     if(resp.ModuleId=='5')
+        {
+           $scope.FeeStructure=true;
+        }
+
+      if(resp.ModuleId=='6')
+        {
+           $scope.DailyRoutine=true;
+        }
+          if(resp.ModuleId=='7')
+        {
+           $scope.Attendance=true;
+        }
+
+           if(resp.ModuleId=='8')
+        {
+           $scope.Assignment=true;
+        }
+
+           if(resp.ModuleId=='9')
+        {
+           $scope.LeaveManagement=true;
+        }
+
+      if(resp.ModuleId=='10')
+        {
+           $scope.Events=true;
+        }
+
+       if(resp.ModuleId=='11')
+        {
+           $scope.Marks=true;
+        }
+
+   if(resp.ModuleId=='12')
+        {
+           $scope.Settings=true;
+        }
+        
+    })
+    console.log(response);
+});
+};
+getMenus();
+
+        function getsubmenus()
+        {
+
+thrillAppBasePersonLogic.getSubModules($localStorage.RoleID).then(function(response) {
+    //for(var i=0; i<=response.length; i++)
+
+
+    angular.forEach(response,function(resp){
+
+
+        if(resp.SubModuleId=='1')
+        {
+           $scope.SOrganization=true;
+        }
+
+         if(resp.SubModuleId=='2')
+        {
+           $scope.Branch=true;
+        }
+
+        if(resp.SubModuleId=='3')
+        {
+           $scope.Institutes=true;
+        }
+
+         if(resp.SubModuleId=='4')
+        {
+           $scope.EnrollmentForm=true;
+        }
+
+     if(resp.SubModuleId=='5')
+        {
+           $scope.EnrollmentList=true;
+        }
+
+      if(resp.SubModuleId=='6')
+        {
+           $scope.AddStudent=true;
+        }
+          if(resp.SubModuleId=='7')
+        {
+           $scope.StudentList=true;
+        }
+
+           if(resp.SubModuleId=='8')
+        {
+           $scope.AddStaff=true;
+        }
+
+           if(resp.SubModuleId=='9')
+        {
+           $scope.StaffList=true;
+        }
+
+      if(resp.SubModuleId=='10')
+        {
+           $scope.SFeeStructure=true;
+        }
+
+       if(resp.SubModuleId=='11')
+        {
+           $scope.FeeDetails=true;
+        }
+
+   if(resp.SubModuleId=='12')
+        {
+           $scope.SDailyRoutine=true;
+        }
+
+ if(resp.SubModuleId=='13')
+        {
+           $scope.ManagePeriodSlots=true;
+        }
+
+         if(resp.SubModuleId=='14')
+        {
+           $scope.Attendance=true;
+        }
+
+        if(resp.SubModuleId=='15')
+        {
+           $scope.Assignment=true;
+        }
+
+         if(resp.SubModuleId=='16')
+        {
+           $scope.StudentLeave=true;
+        }
+
+     if(resp.SubModuleId=='17')
+        {
+           $scope.StudentLeaveList=true;
+        }
+
+      if(resp.SubModuleId=='18')
+        {
+           $scope.StaffLeave=true;
+        }
+          if(resp.SubModuleId=='19')
+        {
+           $scope.LeaveSettings=true;
+        }
+
+           if(resp.SubModuleId=='20')
+        {
+           $scope.AssignRoles=true;
+        }
+
+           if(resp.SubModuleId=='21')
+        {
+           $scope.Academics=true;
+        }
+
+      if(resp.SubModuleId=='22')
+        {
+           $scope.GeneralSettings=true;
+        }
+
+       if(resp.SubModuleId=='23')
+        {
+           $scope.ProfileSettings=true;
+        }
+
+   if(resp.SubModuleId=='24')
+        {
+           $scope.ChangePassword=true;
+        }
+
+        
+    })
+    console.log(response);
+});
+
+ }
+ getsubmenus();   
+$scope.InstitutesClick = function()
+{
+
+    if($localStorage.RoleID==2 || $localStorage.RoleID==3)
+    {
+
+ $state.go('app.editInstitute/:instituteKey', {instituteKey: $localStorage.LoginInstituteKey});
+
+    }
+    else{
+
+
+    $state.go('app.instituteList');
+}
+};
+
+
+
+
+
+$scope.StaffClick = function()
+{
+
+    if($localStorage.RoleID==2)
+    {
+   
+
+$location.path('app/staff/StaffKey/'+$localStorage.LoginStaffKey+'/PersonKey/'+$localStorage.LoginPersonReferencekey);
+
+
+
+    }
+    else{
+
+
+    $state.go('app.stafflist');
+}
+};
+  
+    });
+</script> -->
+<ul class="main-navigation-menu" ng-controller="navigation" >
+
+    <li ui-sref-active="active" ng-if="DashBoard" >
+        <a ui-sref="app.dashboard">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-home"></i> </div>
+                <div class="item-inner"> <span class="title"> Dashboard </span> </div>
+            </div>
+        </a>
+    </li>
+    <li ng-if="Organization">
+        <a href="javascript:void(0)">
+            <div class="item-content" >
+                <div class="item-media"> <i class="fa fa-university"></i> </div>
+                <div class="item-inner"> <span class="title">Organization </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="SOrganization">
+                <a ui-sref="app.Organization"> <span>Organization </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="Branch">
+                <a ui-sref="app.SubOrganizationlist"> <span>Branch</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+           <!--  <li ng-if="Institutes">
+                <a ui-sref="app.instituteList" > <span>Institutes</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li> -->
+
+             <li ng-if="Institutes">
+                <a ui-sref="#" ng-click="InstitutesClick()"> <span>Institutes</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <li ng-if="Student">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <span class="menu-icon new-icon icon-student "></span> <i class="fa fa-graduation-cap"></i> </div>
+                <div class="item-inner"> <span class="title">Student </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="EnrollmentForm" >
+                <a ui-sref="app.start"> <span>Enrollment Form </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="EnrollmentList">
+                <a ui-sref="app.enrollmentlist"> <span>Enrollment List </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="AddStudent">
+                <a ui-sref="app.studentadd"> <span>Add Student </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="StudentList">
+                <a ui-sref="app.studentlist"> <span>Student List </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <!-- <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-home"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> Student List </span>
+                </div>
+            </div>
+        </a>
+    </li>-->
+    <li ng-if="Staff">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-user"></i> </div>
+                <div class="item-inner"> <span class="title">Staff </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="AddStaff">
+                <a ui-sref="app.Staff"> <span>Add Staff </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="StaffList">
+                <a  ui-sref="#"  ng-click="StaffClick()"> <span>Staff List </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+
+
+    <li ng-if="FeeStructure">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-money"></i> </div>
+                <div class="item-inner"> <span class="title">Fee </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="SFeeStructure">
+                <a ui-sref="app.feeStructure"> <span>Fee Structure </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="FeeDetails">
+                <a ui-sref="app.feeDetails"> <span>Fee Details </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <!--
+    <li>
+    <a href="javascript:void(0)">
+        <div class="item-content">
+            <div class="item-media"> <i class="fa fa-life-ring"></i> </div>
+            <div class="item-inner"> <span class="title">Events </span><i class="icon-arrow"></i> </div>
+        </div>
+    </a>
+    <ul class="sub-menu">
+        <li>
+            <a ui-sref="app.stafflist"> <span>Add Event</span> </a>
+            <ul class="sub-menu"> </ul>
+        </li>
+        <li>
+            <a ui-sref="app.stafflist"> <span>Event Calendar</span> </a>
+            <ul class="sub-menu"> </ul>
+        </li>
+    </ul>
+</li>
+-->
+    <li ng-if="DailyRoutine">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-bolt"></i> </div>
+                <div class="item-inner"> <span class="title">Daily Routine </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="SDailyRoutine">
+                <a ui-sref="app.daily"> <span>Daily Routine</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="ManagePeriodSlots">
+                <a ui-sref="app.newDaily"> <span>Manage Period Slots</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <li ng-if="Attendance">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-list-alt"></i> </div>
+                <div class="item-inner"> <span class="title">Attendance </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a ui-sref="app.AttendanceDetails"> <span>Attendance</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <li ng-if="Assignment">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-list-alt"></i> </div>
+                <div class="item-inner"> <span class="title">Assignment </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a ui-sref="app.assignmentList"> <span>Assignment List</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <li ng-if="LeaveManagement">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <span class="menu-icon new-icon icon-leave "></span> <i class="fa fa-calendar-times-o"></i> </div>
+                <div class="item-inner"> <span class="title">Leave Management </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li ng-if="StudentLeave">
+                <a ui-sref="app.leaveForm"> <span>Student Leave </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="StudentLeaveList" >
+                <a ui-sref="app.leavesList"> <span>Student Leave List </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="StaffLeave">
+                <a ui-sref="app.applyLeave"> <span>Staff Leave </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+             <li ng-if="LeaveSettings">
+                <a ui-sref="app.leaveSettings"> <span>Leave Settings </span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+    <!--
+    <li>
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-file-o"></i> </div>
+                <div class="item-inner"> <span class="title">Marks </span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a ui-sref="app.marks"> <span>Update Marks</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+        </ul>
+    </li>
+-->
+    <li ng-if="Settings">
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media"> <i class="fa fa-gear"></i> </div>
+                <div class="item-inner"> <span class="title">Settings</span><i class="icon-arrow"></i> </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+                <li  ng-if="AssignRoles">
+                <a ui-sref="app.roles"> <span>Assign Roles</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+
+            <li ng-if="Academics">
+                <a ui-sref="app.BoardList"> <span>Academics</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+             <li ng-if="GeneralSettings">
+                <a ui-sref="app.generalSettings"> <span>General Settings</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="ProfileSettings">
+    
+                <a ui-sref="app.psettings"> <span>Profile Settings</span> </a>
+                <ul class="sub-menu"> </ul>
+            </li>
+            <li ng-if="ChangePassword">
+                <a ui-sref="app.changePassword"> <span>Change Password</span></a>
+            </li>
+        </ul>
+    </li>
+</ul>

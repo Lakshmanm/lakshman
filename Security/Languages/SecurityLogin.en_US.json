@@ -1,0 +1,18 @@
+
+
+{
+    "labels": {
+        "SignIn": "SIGN IN",
+        "LoginHeader": "Please login into your account.",
+        "EmailId": "Email ID",
+        "Password": "Password",
+        "Login": "Login",
+        "ForgotPassword": "Forgot Password",
+        "DoNotHaveAnAccount": "Do not have an account?",
+        "CreateAccount": "Create new account"
+    },
+    "errors": {
+        
+        }
+    
+}

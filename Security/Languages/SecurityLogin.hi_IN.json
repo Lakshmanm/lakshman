@@ -1,0 +1,17 @@
+
+{
+    "labels": {
+        "SignIn": "साइन इन करें",
+        "LoginHeader": "अपने खाते में लॉग इन करें ।",
+        "EmailId": "ई-मेल आईडी",
+        "Password": "पासवर्ड",
+        "Login": "लॉगिन",
+        "ForgotPassword": "पासवर्ड भूल गए",
+        "DoNotHaveAnAccount": "क्या आपका कोई खाता नहीं है?",
+        "CreateAccount": "नया खाता बनाएँ"
+    },
+    "errors": {
+        
+        }
+    
+}

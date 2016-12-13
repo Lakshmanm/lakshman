@@ -1,0 +1,58 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: SubjectList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsSubjectList.subjectHeading}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblSubjectList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th>{{labelsSubjectList.subjectTitle}}</th>
+							<!-- <th>{{labelsSubjectList.isElective}}</th>-->
+							 <th>{{labelsSubjectList.minimumTeachingHours}}</th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entitySubject in subjectCollection">
+							 <td>{{ entitySubject.subjecttitle }}</td>
+							<!-- <td>{{ entitySubject.iselective }}</td>-->
+							 <td>{{ entitySubject.minimumteachinghours }}</td>
+							 <td><a ng-click="" href="#/app/editSubject/{{entitySubject.subjectkey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteSubject(entitySubject.subjectkey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

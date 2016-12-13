@@ -1,0 +1,172 @@
+
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Award
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Sreelakshmi ch
+ Created Date       : 18-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<style>
+    .validationMessage {
+        color: red
+    }
+   .validationStar {
+        color: red
+    }
+</style>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+     
+<div class="col-lg-12">
+
+<form name="awardForm" novalidate>
+<fieldset ng-disabled="details"> 
+<div class="row">
+        <div class="col-lg-4 col-md-6">
+
+            <div class="form-group" ng-class="{'has-error':awardForm.title.$dirty && awardForm.title.$invalid, 'has-success':awardForm.title.$valid}">
+         <label>{{awardLabels.awardedName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <input class="form-control" type="text" ng-model="award.awardName" ng-maxlength="30" ng-minlength="3" name="title" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/" required>
+              <span class="error text-small block" ng-if="awardForm.title.$dirty && awardForm.title.$invalid" style="color:red">    
+                    <p ng-show="awardForm.title.$invalid && awardForm.title.$error.required">Awarded Name is required</p>
+                    <p ng-show="awardForm.title.$error.minlength">Awarded Name  is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.title.$error.maxlength">Awarded Name  is too long it should be below 30 characters</p>
+                    <p ng-show="awardForm.title.$error.pattern">Awarded Name  accept only Alphanumeric characters</p>
+                   
+                    </span>
+                     </div>
+        </div>
+
+   
+        
+        <div class="col-lg-4 col-md-6">
+
+          <div class="form-group" ng-class="{'has-error':awardForm.awardedDate.$dirty && awardForm.awardedDate.$invalid, 'has-success':awardForm.awardedDate.$valid}">
+             <label>{{awardLabels.awardedDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <input class="form-control" type="date" ng-model="award.awardedDate" name="awardedDate"  max="{{maxDate | date:'yyyy-MM-dd'}}" required>
+                 <span class="error text-small block" ng-if="awardForm.awardedDate.$dirty && awardForm.awardedDate.$invalid" style="color:red">   
+                    <p ng-show="awardForm.awardedDate.$invalid && awardForm.awardedDate.$error.required">Awarded date is required</p>
+               </span>
+         </div>
+        </div>
+
+   <div class="col-lg-4 col-md-6">
+
+          <div class="form-group" ng-class="{'has-error':awardForm.awardedOrganization.$dirty && awardForm.awardedOrganization.$invalid, 'has-success':awardForm.awardedOrganization.$valid}">
+    <label>{{awardLabels.awardedOrganization}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <input class="form-control" type="text" ng-model="award.awardedOrganization" name="awardedOrganization" ng-maxlength="30" ng-pattern="/^[-a-zA-Z0-9-\s]*$/" ng-minlength="3" required>
+                 <span class="error text-small block" ng-if="awardForm.awardedOrganization.$dirty && awardForm.awardedOrganization.$invalid" style="color:red">   
+                    <p ng-show="awardForm.awardedOrganization.$error.required ">Awarded organization is required</p>
+                    <p ng-show="awardForm.awardedOrganization.$error.minlength">Awarded organization is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.awardedOrganization.$error.maxlength">Awarded organization is too long it should be below 30 characters</p>
+<p ng-show="awardForm.awardedOrganization.$error.pattern">Enter Only alphanumeric</p>
+             </span>
+            </div>
+
+    </div>
+     
+    </div>
+    <div class="row">
+     
+ <div class="col-lg-4 col-md-6">
+               <div class="form-group" ng-class="{'has-error':awardForm.geoLocation.$dirty && awardForm.geoLocation.$invalid, 'has-success':awardForm.geoLocation.$valid}">
+                <label>{{awardLabels.location}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                <input type="text" ng-model="awardLocation.geoLocation" ng-minlength="3" ng-maxlength="100" name="geoLocation" class="form-control" ng-autocomplete options="options"  details="details" required /></span>
+                 <span class="error text-small block" ng-if="awardForm.geoLocation.$dirty && awardForm.geoLocation.$invalid" style="color:red">   
+                   <p ng-show="awardForm.geoLocation.$error.required ">Location is required</p>
+                  <p ng-show="awardForm.geoLocation.$error.minlength">Location is too short must be longer than 3 characters</p>
+                    <p ng-show="awardForm.geoLocation.$error.maxlength">Location is too long it should be below 100 characters</p>
+
+                </span>
+                <!--<input class="form-control" ng-model="basic.placeOfBirth" type="text" />-->
+            </div>
+
+    
+</div>
+   <div class="col-lg-6 col-md-6">
+
+         <div class="form-group" ng-class="{'has-error':awardForm.description.$dirty && awardForm.description.$invalid, 'has-success':awardForm.description.$valid}">
+                <label>{{awardLabels.description}}<span class="symbol required"></span> </label> <span class="clip-select">
+                <textarea class="form-control" type="text" ng-model="award.description" ng-maxlength="30" ng-minlength="3" name="description" ng-maxlength="30"  ng-pattern="/^[,@_a-zA-Z0-9-\s]*$/" ng-minlength="3" required></textarea></span>
+              <span class="error text-small block" ng-if="awardForm.description.$dirty && awardForm.description.$invalid" style="color:red">   
+             <p ng-show="awardForm.description.$invalid && awardForm.description.$error.required">Description is required</p>
+             <p ng-show="awardForm.description.$error.minlength">Description is too short must be longer than 3 characters</p>
+              <p ng-show="awardForm.description.$error.maxlength">Description is too long it should be below 30 characters</p>
+            </span>
+        </div>
+    </div>
+
+</div>
+</fieldset>
+    <div class="row">
+        <div style="text-align:center">
+           
+<button type="button" ng-hide="awards" class="btn btn-wide btn-primary" ng-disabled="awardForm.$invalid" ng-click="awardForm.$valid && savePersonaward()" v-pressable>{{awardLabels.submit}}</button>
+
+
+
+        </div>
+    </div>
+</form>
+<div class="row">
+    <br>
+    <div style="width:20%">
+
+
+    </div>
+    <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{awardLabels.awardedName}}</th>
+              
+                <th>{{awardLabels.awardedOrganization}}</th>
+                <th>{{awardLabels.edit}}</th>
+                <th ng-hide="awards">{{awardLabels.delete}}</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="award in awardList">
+                <td>{{award.awardName}}</td>
+             
+                <td>{{award.awardedOrganization}}</td>
+               
+          
+           <td>
+                        <a ng-click="getAwardListById(award.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td ng-hide="awards"><a ng-click="deletePersonAward(award.referenceKey)" ><i class="fa fa-trash"></i></a></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <!--<div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+
+</div>
+</div>
+</div>

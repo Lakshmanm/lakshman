@@ -1,0 +1,14 @@
+{
+    "labels": {
+    	
+        "CalenderName": "క్యాలెండర్ పేరు",
+        "CalenderColor": "క్యాలెండర్ రంగు",
+        "Description": "వివరణ",
+        "Update": "సేవ్",
+        "Cancel": "రద్దు" 
+
+    },
+    "errors": {
+
+    }
+}

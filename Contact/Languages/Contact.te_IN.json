@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "ContactBasicInfo1": "సంప్రదించండి ప్రాథమిక సమాచారం ",
+        "ContactType": "సంప్రదించండి రకం",
+        "ContactInfo": "సంప్రదించండి సమాచారం",
+        "EntityType": "సంస్థ రకం",
+        "EntityId": "సంస్థ ఐడి",
+        "Submit": "సమర్పించండి",
+        "Update": "నవీకరణ"
+    },
+    "errors": {
+
+    }
+}

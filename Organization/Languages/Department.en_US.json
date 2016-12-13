@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "DepartmentName":"Department Name",
+        "ParentDepartment":"Parent Department",
+        "ParentDepartmentName":"Parent Department Name",
+        "Submit": "Submit",
+        "Update": "Update",
+        "DepartmentBasicInfo1": "Department Basic Info",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "DepartmentList": " Department List"
+
+
+    },
+    "errors": {
+
+    }
+}

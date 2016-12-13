@@ -1,0 +1,28 @@
+
+{
+    "labels": {
+         "SignUp": "Sign-Up",
+         "BasicInfo": "BasicInfo",
+        "Address": "Address",
+         "UserName": "User Name",
+         "CheckAvailability": "Check Availability",
+         "Password": "Password",
+         "ReEnterPassword": "Re-enter Password",
+         "DoorNo": "Door No ",
+        "Street1": "Street1",
+        "Street2": "Street2",
+        "Country": "Country",
+        "State": "State",
+        "District": "District",
+        "Mandal": "Mandal",
+        "Village": "Village",
+        "Pincode": "Pincode",
+        "SecurityQuestion": "Choose security Question",
+        "HintAnswer": "Hint Answer",
+         "Submit": "Submit"
+           },
+    "errors": {
+        
+        }
+    
+}

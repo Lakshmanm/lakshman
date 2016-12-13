@@ -1,0 +1,19 @@
+{
+    "labels": {
+        
+        "sportName": "खेल के नाम",
+        "curricularActivityType": "पाठयक्रम गतिविधियों के प्रकार",
+         "sportType":"खेल के प्रकार",
+         "proficiency":"निपुणता",
+         "sportType":"खेल के प्रकार",
+         "highestLevelPlay":"उच्चतम स्तर पर खेलने",
+         "submit": "जमा करें",
+         "edit": "संपादित करें",
+        "delete": "मिटाना",
+        "sports": "खेल"
+
+    },
+    "errors": {
+
+    }
+}

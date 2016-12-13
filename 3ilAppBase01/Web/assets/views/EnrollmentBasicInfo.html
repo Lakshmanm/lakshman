@@ -1,0 +1,335 @@
+<!-- start: BREADCRUMB -->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<!-- <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin"></h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+ -->
+
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+            <!-- start: USER TABSET -->
+
+            <form name="form" novalidate>
+                <div class="row">
+                    <div class="form-group" ng-class="{'has-error':form.InstituteKey.$dirty && form.InstituteKey.$invalid, 'has-success':form.InstituteKey.$valid}">
+                        <div class="col-md-4">
+                            <label class="control-label"> Institute <span class="symbol required"></span> </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="StudentAdd.InstituteKey" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-change="getBoards()" name="InstituteKey" ng-required="true">
+                                        <option value="" >-select-</option>
+                                        </select>
+                           <span ng-if="form.$submitted || form.InstituteKey.$touched" class="validationMessage">
+                        <span ng-if="form.InstituteKey.$invalid && form.InstituteKey.$error.required ">Institute is required.</span>
+
+                            </span>
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>
+                            Basic Information
+                        </legend>
+
+                        <div class="row">
+
+
+                            <div class="form-group" ng-class="{'has-error':form.Firstname.$dirty && form.Firstname.$invalid, 'has-success':form.Firstname.$valid}">
+                                <label class="control-label"> 
+                                                First Name
+                                                <span class="symbol required"></span>
+                                            </label>
+
+                                <input type="text" class="form-control" name="Firstname" ng-minlength="2" ng-maxlength="32" ng-model="StudentAdd.FirstName" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                                <span ng-if="form.$submitted || form.Firstname.$touched" class="validationMessage">
+                        <span ng-if="form.Firstname.$invalid && form.Firstname.$error.required ">First Name is required.</span>
+                                <span ng-if="form.Firstname.$error.minlength">First Name is too small.</span>
+                                <span ng-if="form.Firstname.$error.maxlength">First Name is too long.</span>
+                                <span ng-if="form.Firstname.$error.pattern">Alphabets only.</span>
+                                </span>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                                 Middle Name
+                                            </label>
+
+                                <input type="text" class="form-control" name="Middlename" ng-minlength="2" ng-maxlength="32" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="StudentAdd.MiddleName">
+                                <span ng-if="form.$submitted || form.Middlename.$touched" class="validationMessage">
+
+                                <span ng-if="form.Middlename.$error.minlength">Middle Name is too small.</span>
+                                <span ng-if="form.Middlename.$error.maxlength">Middle Name is too long.</span>
+                                <span ng-if="form.Middlename.$error.pattern">Alphabets only.</span>
+                                </span>
+                            </div>
+
+
+
+
+                            <div class="form-group" ng-class="{'has-error':form.Lastname.$dirty && form.Lastname.$invalid, 'has-success':form.Lastname.$valid}">
+                                <label class="control-label">
+                                                 Last Name  <span class="symbol required"></span>
+                                            </label>
+                                <input type="text" class="form-control" name="Lastname" ng-model="StudentAdd.LastName" ng-minlength="2" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="32" required>
+                                <span ng-if="form.$submitted || form.Lastname.$touched" class="validationMessage">
+                        <span ng-if="form.Lastname.$invalid && form.Lastname.$error.required ">Last Name is required.</span>
+                                <span ng-if="form.Lastname.$error.minlength">Last Name is too small.</span>
+                                <span ng-if="form.Lastname.$error.maxlength">Last Name is too long.</span>
+                                <span ng-if="form.Lastname.$error.pattern">Alphabets only.</span>
+                                </span>
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="form-group">
+                                <label class="control-label">
+                                                 Email Id
+                                            </label>
+                                <input type="email" class="form-control" name="EmailId" ng-model="StudentAdd.EmailId" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+
+                                <p ng-show="form.EmailId.$error.pattern" class="validationMessage">Invalid Email Id</p>
+                                
+                            </div>
+                            <div class="form-group" ng-class="{'has-error':form.DOB.$dirty && form.DOB.$invalid, 'has-success':form.DOB.$valid}">
+                                <label class="control-label">
+                                                 D.O.B  <span class="symbol required"></span>
+                                            </label>
+                                <!--   <input type="date" name="DOB" class="form-control" ng-model="Staff.DateOfBirth" required />-->
+                                <input class="form-control date-picker" ng-model="StudentAdd.DateOfBirth" name="DOB" type="date" min="01-01-1916" max="{{maxdate | date:'yyyy-MM-dd'}}" required>
+                                <span class="error text-small block" ng-if="form.DOB.$dirty && form.DOB.$invalid">  
+                                        <!-- <p ng-show="form.DOB.$invalid && form.DOB.$error.required">Date Of Birth  is required</p>-->
+                                                 <p ng-show="form.DOB.$error.max">
+                                <span style="color:red">Date Of Birth Should Not Be Greater Than Today Date</span> </p>
+                                <p ng-show="form.DOB.$error.min">
+                                    <span style="color:red">Select a valid date</span> </p>
+                                </span>
+                                <span ng-if="form.$submitted || form.DOB.$touched" class="validationMessage">
+                        <span ng-if="form.DOB.$invalid && form.DOB.$error.required ">Date Of Birth is required.</span>
+
+                                </span>
+
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error':form.gender.$dirty && form.gender.$invalid, 'has-success':form.gender.$valid}">
+                                <label class="control-label">
+                                                Gender <span class="symbol required"></span>
+                                            </label>
+                                <select class="form-control" name="gender" ng-options="item.Id as item.Title for item in gender" ng-model="StudentAdd.GenderID" required>
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                                <span ng-if="form.$submitted || form.gender.$touched" class="validationMessage">
+                        <span ng-if="form.gender.$invalid && form.gender.$error.required ">Gender is required.</span>
+
+                                </span>
+                            </div>
+
+                            <div class="form-group" ng-class="{'has-error':form.bloodGroup.$dirty && form.bloodGroup.$invalid, 'has-success':form.bloodGroup.$valid}">
+                                <label class="control-label"> Blood Group <span class="symbol required"></span> </label>
+                                <select class="form-control" name="bloodGroup"  ng-options="item.bloodGroupId as item.bloodGroupName for item in bloodGroupTypes" ng-model="StudentAdd.BloodGroupID" required>
+                                        <option value="" selected>---Select---</option>
+                                    </select>     <span ng-if="form.$submitted || form.bloodGroup.$touched" class="validationMessage">
+                        <span ng-if="form.bloodGroup.$invalid && form.bloodGroup.$error.required ">Blood Group is required.</span>
+                                <br /> </div>
+                            <div class="form-group">
+                              <div class="form-group" ng-class="{'has-error':form.PrimaryMobileNumber.$dirty && form.PrimaryMobileNumber.$invalid, 'has-success':form.PrimaryMobileNumber.$valid}" ng-hide="StaffAdd">
+                                <label class="control-label">
+                                                Mobile Number
+                                            </label>
+                                <input type="number" class="form-control" name="PrimaryMobileNumber" ng-model="StudentAdd.PrimaryMobileNumber" ng-minlength="10" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10">
+                              
+                    <span class="error text-small block" ng-show="form.PrimaryMobileNumber.$error.minlength">Mobile Number should be minumum of 10 characters</span>   
+                     <span class="error text-small block" ng-show="form.PrimaryMobileNumber.$error.maxlength">Mobile Number should be maximum of 10 characters</span>  
+                         <p ng-show="form.PrimaryMobileNumber.$error.pattern" style="color:#a94442">Enter Only Numbers</p>                        </span>
+                            </div>
+
+
+                            <div class="form-group" ng-class="{'has-error':form.languageName.$dirty && form.languageName.$invalid, 'has-success':form.languageName.$valid}">
+                                <label class="control-label">
+                                             Mother Tongue  <span class="symbol required"></span>
+                                            </label>
+
+
+                                <select class="form-control" name="languageName" ng-options="item.languageId as item.languageName for item in languageTypes" ng-model="StudentAdd.PrimaryLanguageId" required>
+                                             <option value=""  selected>---Select---</option>  
+                                            
+                                        </select>
+                                <span ng-if="form.$submitted || form.languageName.$touched" class="validationMessage">
+                        <span ng-if="form.languageName.$invalid && form.languageName.$error.required ">Mother Tongue is required.</span>
+
+                                </span>
+
+
+                            </div>
+                            <!---
+           
+                                   
+                                --->
+                        </div>
+
+                    </fieldset>
+
+
+
+                </div>
+                <!--
+                             
+                                              
+                            -->
+                <div class="col-md-6">
+
+
+
+                    <img ng-src="{{studentProfilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="document.getElementById('ID_profilePic').click()">
+                    <!---->
+                    <!-- imageonload -->
+                    <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="StudentAdd.profilePic" base-sixty-four-input />
+                </div>
+
+                <div class="col-md-6">
+
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend>
+                            Social Information
+                        </legend>
+                        <div class="form-group" ng-class="{'has-error':form.nationalityName.$dirty && form.nationalityName.$invalid, 'has-success':form.nationalityName.$valid}">
+                            <label class="control-label">
+                                             Nationality  <span class="symbol required"></span>
+                                            </label>
+
+                            <span class="clip-select">  
+                                    <select class="form-control" name="nationalityName"  ng-options="group.nationalityId as group.nationalityName for group in nationalityTypes" ng-model="StudentAdd.NationalityId" required>
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                                                                 <span ng-if="form.$submitted || form.nationalityName.$touched" class="validationMessage">
+                        <span ng-if="form.nationalityName.$invalid && form.nationalityName.$error.required ">Nationality is required.</span>
+
+                            </span>
+                            </span>
+
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':form.religionTypeName.$dirty && form.religionTypeName.$invalid, 'has-success':form.religionTypeName.$valid}">
+                            <label class="control-label">
+                                             Religion <span class="symbol required"></span>
+                                            </label>
+
+
+                            <select class="form-control" name="religionTypeName" ng-options="group.religionTypeId as group.religionTypeName for group in religitionTypes" ng-model="StudentAdd.ReligionId" required>
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                            <span ng-if="form.$submitted || form.religionTypeName.$touched" class="validationMessage">
+                        <span ng-if="form.religionTypeName.$invalid && form.religionTypeName.$error.required ">Religion is required.</span>
+
+                            </span>
+
+
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':form.socialGroupName.$dirty && form.socialGroupName.$invalid, 'has-success':form.socialGroupName.$valid}">
+                            <label class="control-label">
+                                             Social Group <span class="symbol required"></span>
+                                            </label>
+
+
+                            <select class="form-control" name="socialGroupName" ng-options="group.socialGroupId as group.socialGroupName for group in casteTypes" ng-model="StudentAdd.SocialGroupId" required>
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                            <span ng-if="form.$submitted || form.socialGroupName.$touched" class="validationMessage">
+                        <span ng-if="form.socialGroupName.$invalid && form.socialGroupName.$error.required ">Social Group is required.</span>
+
+                            </span>
+
+
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':form.LoginId.$dirty && form.LoginId.$invalid, 'has-success':form.LoginId.$valid}" ng-hide="StaffAdd">
+                            <label class="control-label"> Aadhar Card Number </label>
+                            <input type="text" class="form-control"  ng-pattern="/^[a-zA-Z0-9-\s]*$/" name="LoginId" ng-minlength="2" ng-maxlength="35" ng-model="StudentAdd.AadharNumber"> <span class="error text-small block" ng-if="form.LoginId.$dirty && form.LoginId.$invalid">    
+                  
+                      <span class="error text-small block" ng-show="form.LoginId.$error.minlength">Aadhar Card Number should be minumum of 12 characters</span>                           
+                       <span class="error text-small block" ng-show="form.LoginId.$error.maxlength">Aadhar Card Numbershould be maximum  of 12 characters</span>
+                 <span ng-show="form.LoginId.$error.pattern" style="color:#a94442">Allows Only AlphaNumeric Characters</span> </span>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':form.IdentificationMarks.$dirty && form.IdentificationMarks.$invalid, 'has-success':form.IdentificationMarks.$valid}" >
+                            <label class="control-label">
+                                                Identification Marks 
+                                            </label>
+                            <textarea class="form-control" minlength="2" ng-maxlength="100" name="IdentificationMarks" ng-pattern="/^[ A-Za-z0-9_@./#&+-%*()_]*$/" ng-model="StudentAdd.IdentificationMarks"></textarea>
+<span class="error text-small block" ng-if="form.IdentificationMarks.$dirty && form.IdentificationMarks.$invalid">    
+                  
+                     <span class="error text-small block" ng-show="form.IdentificationMarks.$error.minlength">Identification Marks should be minumum of 2 characters</span>                           
+                       <span class="error text-small block" ng-show="form.IdentificationMarks.$error.maxlength">Identification Marks should be maximum  of 100 characters</span>
+                <p ng-show="form.IdentificationMarks.$error.pattern">Allows only Alphanumeric and Special Characters</p></span>
+                        </div>
+
+
+
+                    </fieldset>
+                </div>
+
+                <div class="row" height="500px">
+                </div>
+                <div class="row">
+                </div>
+                <br/>
+                <br/>
+                <div class="col-md-12">
+                    <center>
+                        <button type="submit" ng-click="form.$valid&& studentAddBasicInfo()" ng-show="saveshow" class="btn btn-wide btn-primary" v-pressable>
+                            Submit
+                        </button>
+                        <button type="submit" ng-click="form.$valid&& studentUpdateBasicInfo()" ng-show="updateshow" class="btn btn-wide btn-primary" v-pressable>
+                            Update
+                        </button>
+                        <button type="button" ng-click="Staffcancel()" class="btn btn-wide btn-primary" v-pressable>
+                            Cancel
+                        </button>
+
+                    </center>
+                </div>
+            </form>
+
+            <!-- end: TAB EDIT ACCOUNT -->
+            <!-- start: TAB PROJECTS -->
+
+            <!-- end: TAB PROJECTS -->
+
+            <!-- end: USER TABSET -->
+        </div>
+    </div>
+</div>
+</div>
+<!-- end: USER PROFILE -->
+<!--
+ $scope.StudentAdd.NationalityId = 5;
+    $scope.StudentAdd.ReligionId = 1;
+    $scope.StudentAdd.SocialGroupId = 1;
+    $scope.StudentAdd.PrimaryLanguageId = 17;-->

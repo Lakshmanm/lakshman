@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "FirstName": "మొదటి పేరు",
+        "LastName": "చివరి పేరు",
+        "DateOfBirth": "పుట్టిన తేది",
+        "Gender": "లింగ",
+        "Male": "మగ",
+        "Female": "ఆడ",
+        "Phone": "ఫోన్",
+        "BloodGroup": "రక్తపు సమూహం",
+        "Email": "ఇమెయిల్",
+        "NewPassword": "కొత్త పాస్వర్డ్",
+        "ConfirmPassword": "పాస్వర్డ్ని నిర్ధారించండిడ్",
+        "Submit": "సమర్పించండి",
+        "ProfileSettings": "ప్రొఫైల్ సెట్టింగ్లు",
+        "Cancel": "రద్దు"
+
+    },
+    "errors": {
+
+    }
+}

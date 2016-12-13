@@ -1,0 +1,21 @@
+
+{
+    "labels": {
+        "User": "उपयोगकर्ता",
+        "UserName": "उपयोगकर्ता नाम",
+        "Password": "पासवर्ड",
+         "First Name": "पहला नाम",
+         "LastName": "अंतिम नाम",
+         "EmailId": "ई-मेल आईडी",
+         "MobileNumber": "मोबाइल नंबर",
+         "IsActive": "सक्रिय है",
+        "Save": "बचाना",
+        "Update": "अपडेट",
+        "Edit": "संपादित करें"
+       
+           },
+    "errors": {
+        
+        }
+    
+}

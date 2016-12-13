@@ -1,0 +1,14 @@
+{
+    "labels": {
+        "board": "Board",
+        "group": "Group",
+        "course": "Course",
+        "batch": "Batch",
+        "period": "Period",
+        "date": "Date"
+   },
+    "errors": {
+
+    }
+
+}

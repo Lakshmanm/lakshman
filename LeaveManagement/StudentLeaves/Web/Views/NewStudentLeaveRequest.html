@@ -1,0 +1,407 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewStudentLeaveRequest.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Student Leave Request</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <form name="leaveForm">
+        <div class="row">
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.InstituteKey.$dirty && leaveForm.InstituteKey.$invalid, 'has-success':leaveForm.InstituteKey.$valid}">
+
+
+
+                        <label class="control-label">
+                          Institute<span class="symbol required"></span> </label> <span class="clip-select">
+                       
+                        <select class="js-states form-control" style="width: 100%" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-required="true" ng-model="leave.InstituteKey" ng-disabled="studentLeaveInstitute" ng-change="getBoards()" name="InstituteKey">
+                                        <option value="" >-select-</option>
+                                        </select>
+</span>
+                        <span class="error text-small block" ng-if="leaveForm.InstituteKey.$dirty && leaveForm.InstituteKey.$invalid">
+                        <span ng-show="leaveForm.InstituteKey.$invalid && leaveForm.InstituteKey.$error.required ">Institute  is required.</span>
+                        </span>
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.AcademicYearName.$dirty && leaveForm.AcademicYearName.$invalid, 'has-success':leaveForm.AcademicYearName.$valid}">
+                        <label class="control-label">
+                          Academic Year<span class="symbol required">
+                      </span>  </label>
+                        <select class="form-control" name="AcademicYearName" ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearCollection" ng-model="leave.AcademicYearKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+
+                        <span class="error text-small block" ng-if="leaveForm.AcademicYearName.$dirty && leaveForm.AcademicYearName.$invalid">
+                        <span ng-if="leaveForm.AcademicYearName.$invalid && leaveForm.AcademicYearName.$error.required ">Academic Year is required.</span>
+                        </span>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.InstituteBoardKey.$dirty && leaveForm.InstituteBoardKey.$invalid, 'has-success':leaveForm.InstituteBoardKey.$valid}">
+                        <label class="control-label">
+                            Type Of Board<span class="symbol required">
+                       </span> </label>
+                        <select class="form-control" ng-options="Board.InstituteBoardKey as Board.BoardTitle for Board in boardCollection" name="InstituteBoardKey" ng-change="getGroup()" ng-model="leave.BoardKey" ng-required="true">
+                                          <option value=""  selected>---Select---</option>  
+                                        </select>
+                        <span class="error text-small block" ng-if="leaveForm.InstituteBoardKey.$dirty && leaveForm.InstituteBoardKey.$invalid">
+                        <span ng-if="leaveForm.InstituteBoardKey.$invalid && leaveForm.InstituteBoardKey.$error.required ">Board is required.</span>
+                        </span>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.InstituteGroupKey.$dirty && leaveForm.InstituteGroupKey.$invalid, 'has-success':leaveForm.InstituteGroupKey.$valid}">
+                        <label class="control-label">
+                            Group/Stream<span class="symbol required">
+                       </span> </label>
+                        <select class="form-control" name="InstituteGroupKey" ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupCollection" ng-model="leave.GroupKey" ng-change="getCourses()" ng-required="true">
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                        <span class="error text-small block" ng-if="leaveForm.InstituteGroupKey.$dirty && leaveForm.InstituteGroupKey.$invalid">
+                        <span ng-if="leaveForm.InstituteGroupKey.$invalid && leaveForm.InstituteGroupKey.$error.required ">Group/Stream is required.</span>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.InstituteCourseKey.$dirty && leaveForm.InstituteCourseKey.$invalid, 'has-success':leaveForm.InstituteCourseKey.$valid}">
+                        <label class="control-label">
+                            Class/Course<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control" name="InstituteCourseKey" ng-options="course.InstituteCourseKey as course.CourseTitle for course in coursCollection" ng-model="leave.CourseKey" ng-change="getBatches()" ng-required="true">
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                        <span class="error text-small block" ng-if="leaveForm.InstituteCourseKey.$dirty && leaveForm.InstituteCourseKey.$invalid">
+                        <span ng-if="leaveForm.InstituteCourseKey.$invalid && leaveForm.InstituteCourseKey.$error.required ">Class/Course is required.</span>
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':leaveForm.InstituteBatchKey.$dirty && leaveForm.InstituteBatchKey.$invalid, 'has-success':leaveForm.InstituteBatchKey.$valid}">
+                        <label class="control-label">
+                                            Batch/Section <span class="symbol required"></span>
+                                            </label>
+
+
+                        <select class="form-control" name="InstituteBatchKey" ng-options="item.InstituteBatchKey as item.BatchName for item in Sections" ng-model="leave.BatchKey" ng-required="true">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+                        <span class="error text-small block" ng-if="leaveForm.InstituteBatchKey.$dirty && leaveForm.InstituteBatchKey.$invalid">
+                        <span ng-if="leaveForm.InstituteBatchKey.$invalid && leaveForm.InstituteBatchKey.$error.required ">Batch/Section is required.</span>
+                        </span>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-12">
+            <center>
+                <button type="button" class="btn btn-wide btn-primary" ng-disabled="leaveForm.$invalid" ng-click="leaveForm.$valid && getAllStudents()" v-pressable>
+                            Search
+                        </button>
+
+
+            </center>
+        </div>
+    </form>
+
+    <div class="row" ng-show="grid">
+        <form name="LeaveForm" novalidate>
+
+            <div class="col-md-12">
+
+                <div class="panel panel-white">
+                    <div class="panel-body">
+
+
+                        <div class="container">
+
+
+
+                            <div class="left-col ">
+                                <div class="head-row ">
+                                    <div class="head-col ">Student Name</div>
+                                    <div class="head-col ">Requested Date</div>
+                                    <div class="head-col ">From Date</div>
+                                    <div class="head-col ">To Date</div>
+                                    <div class="head-col ">Reason</div>
+                                    <div class="head-col ">Request Mode</div>
+                                    <div class="head-col ">Received By</div>
+
+                     
+                                </div>
+                                <div class="b-row " ng-repeat="personalDetail in personalDetails ">
+
+                                    <div class="b-col ">
+                                        <select class="js-states form-control " tabindex="-1 " style="width: 100% " ng-model="personalDetail.studentKey " ng-options="item.StudentKey as (item.FirstName+ ' '+item.LastName) for item
+                                in studentCollection " ng-change="getBoards() " name="studentKey{{$index}} " required>
+                                        <option value="">-select-</option>
+                                        </select>
+                                        <div class="padding " ng-if="LeaveForm[ 'studentKey'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm[ 'studentKey'+$index].$error.required ">Student Name is required</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="b-col "> <input type="date" class="form-control " ng-model="personalDetail.requesteddate" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" max="{{requestedMaxDate | date:'yyyy-MM-dd'}}" name="requesteddate{{$index}} " required/>
+                                        <div class="padding " ng-if="LeaveForm[ 'requesteddate'+$index].$touched || LeaveForm.$submitted" style="color:red ">
+                                            <p ng-show="LeaveForm[ 'requesteddate'+$index].$error.required ">Requested Date is required</p>
+                                            <span class="error" ng-show="!LeaveForm['requesteddate'+$index].$error.required&&!LeaveForm['requesteddate'+$index].$valid">
+         Not a valid date!</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-col "> <input type="date" class="form-control " ng-model="personalDetail.startDateTime" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" max="{{fromTOMaxDate | date:'yyyy-MM-dd'}}" name="startDateTime{{$index}} " required/>
+                                        <div class="padding " ng-if="LeaveForm[ 'startDateTime'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm[ 'startDateTime'+$index].$error.required ">From Date is required</p>
+                                            <span class="error" ng-show="!LeaveForm['startDateTime'+$index].$error.required&&!LeaveForm['startDateTime'+$index].$valid">
+         Not a valid date!</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-col "> <input type="date" class="form-control " ng-model="personalDetail.endDateTime" min="{{personalDetail.startDateTime | date:'yyyy-MM-dd'}}" max="{{fromTOMaxDate | date:'yyyy-MM-dd'}}" name="endDateTime{{$index}} " required/>
+                                        <div class="padding " ng-if="LeaveForm['endDateTime'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm['endDateTime'+$index].$error.required ">To Date is required</p>
+                                            <span class="error" ng-show="!LeaveForm['endDateTime'+$index].$error.required&&!LeaveForm['endDateTime'+$index].$valid">
+         Not a valid date!</span>
+                                        </div>
+                                    </div>
+                                    <div class="b-col "> <select class="js-states form-control " tabindex="-1 " style="width: 100% " ng-model="personalDetail.reasonForLeaveKey " ng-required="true " ng-options="item.studentleavereasonkey as item.studentleavereasontitle
+                                for item in resonsCollection " name="reasonForLeaveKey{{$index}} ">
+                                        <option value="">-select-</option>
+                                        </select>
+                                        <div class="padding " ng-if="LeaveForm[ 'reasonForLeaveKey'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm[ 'reasonForLeaveKey'+$index].$error.required ">Reason is required</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="b-col "><select class="js-states form-control " tabindex="-1 " style="width: 100% " ng-model="personalDetail.requestModeKey " ng-required="true " ng-options="item.studentleaverequestmodekey as item.studentleaverequestmodetitle
+                                for item in requestModeCollection " name="requestModeKey{{$index}}">
+                                        <option  value="">-select-</option>
+                                        </select>
+                                        <div class="padding " ng-if="LeaveForm[ 'requestModeKey'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm[ 'requestModeKey'+$index].$error.required ">Request Mode is required</p>
+                                        </div>
+                                    </div>
+                                    <div class="b-col "><select class="js-states form-control " tabindex="-1 " style="width: 100% " ng-model="personalDetail.requestReceviedByKey " ng-required="true " ng-options="item.studentleaverequestreceivedbykey
+                                as item.studentleaverequestreceivedbytitle for item in receivedByCollection " name="requestReceviedByKey{{$index}} ">
+                                        <option value="">-select-</option>
+                                        </select>
+                                        <div class="padding " ng-if="LeaveForm[ 'requestReceviedByKey'+$index].$touched || LeaveForm.$submitted " style="color:red ">
+                                            <p ng-show="LeaveForm[ 'requestReceviedByKey'+$index].$error.required ">Received By is required</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="b-col ">
+                                        <a name="remove{{$index}}" href ng-click="removeg(personalDetails,$index)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                    </div>
+
+
+                                </div>
+                                <div align="center" class="b-row-bottom ">
+
+                                    <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="DailyRoutine/Web/assets/images/Add.PNG" height="18px">
+                                    <a ng-click="addNew()">Add New</a>
+                                    <!--   <input type="submit " class="btn btn-primary addnew pull-right " ng-click="LeaveForm.$valid && addNew()" value="Add New ">-->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12 ">
+                <center>
+                    <button type="button " class="btn btn-wide btn-primary " v-pressable ng-disabled=" LeaveForm.$invalid" ng-click=" LeaveForm.$valid && saveleaveRequests() ">
+                           Save
+                        </button>
+
+
+                </center>
+            </div>
+        </form>
+    </div>
+    <style>
+        .validationMessage {
+            color: red
+        }
+        
+        .validationStar {
+            color: red
+        }
+        
+        .container {
+            width: 100%;
+            margin: auto;
+            border: solid px #333;
+            position: relative;
+        }
+        
+        .head-row {
+            width: 115%;
+            background: #e2e2e4;
+            color: #e2e2e4;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            border:  1px #333;
+        }
+        
+        .head-col {
+            width: 13%;
+            display: inline-block;
+               color: black;
+            text-align: center;
+            line-height: 30px;
+            border-left:  1px #fff
+        }
+        
+        .head-col:first-child {
+            border-left: none;
+        }
+        
+        .b-row {
+            width: 115%;
+            display: inline-block;
+            border: solid 1px #333;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        
+        .b-row-bottom {
+            width: 80%;
+            display: inline-block;
+            margin-top: 10px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        
+        .b-col {
+            width: 13%;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            border-left: solid 1px #333
+        }
+        
+        .b-col:first-child {
+            border-left: none;
+        }
+        
+        .b-colele {
+            width: 15%;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            border-left: none;
+        }
+        
+        .b-colele:first-child {
+            border-left: none;
+        }
+        
+        .b-col {
+            width: 13%;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            border-left: solid 1px #333
+        }
+        
+        .b-col:first-child {
+            border-left: none;
+        }
+        
+        .left-col {
+            width: 90%;
+            float: left;
+            position: relative
+        }
+        
+        .right-col {
+            width: 9%;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+        
+        .more-elements,
+        .show-elements {
+            width: 100%;
+            float: left;
+            background-color: #f1f1f1;
+            padding: 10px;
+            min-height: 60px;
+            display: none;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        
+        .show-elements {
+            display: block;
+        }
+    </style>

@@ -1,0 +1,32 @@
+{
+    "messages": {
+        "CompanySaved": "Company Details Saved Successfully",
+        "CompanyUpdated": "Company Details Updated Successfully",
+        "CompanyDeleted": "Company Details Deleted Successfully",
+
+
+        "certificationSaved": "certification Details Saved Successfully",
+        "certificationUpdated": "certification Details Updated Successfully",
+        "certificationDeleted": "certification Details Deleted Successfully",
+
+        "departmentSaved": "Department Details Saved Successfully",
+        "departmentUpdated": "Department Details Updated Successfully",
+        "departmentDeleted": "Department Details Deleted Successfully",
+
+        "registrationSaved": "Registration Details Saved Successfully",
+        "registrationUpdated": "Registration Details Updated Successfully",
+        "registrationDeleted": "Registration Details Deleted Successfully",
+
+        "registrationTypeSaved": "RegistrationType Details Saved Successfully",
+        "registrationTypeUpdated": "RegistrationType Details Updated Successfully",
+        "registrationTypeDeleted": "RegistrationType Details Deleted Successfully"
+
+     
+
+
+
+    },
+    "errors": {
+
+    }
+}

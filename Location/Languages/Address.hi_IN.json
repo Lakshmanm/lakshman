@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "Country": "देश",
+        "State": "राज्य",
+        "District": "जिला",
+        "Mandal": "मंडल",
+        "Village": "गाँव",
+        "City":"शहर",
+        "Submit": "जमा करें",
+        "Location":"स्थान",
+        "AddressInfo": "स्थान",
+        "EntityDetails":"पता पंक्ति 1",
+        "StreetDetails":"पता पंक्ति 2",
+        "Pincode":"पिन कोड"
+
+    }
+}

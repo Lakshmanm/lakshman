@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "Vaccination": "टीका",
+        "VaccinationName": "टीकाकरण का नाम",
+        "MedicineType": "चिकित्सा प्रकार",
+        "VaccinationType":"टीकाकरण के प्रकार",
+        "InspectionDate":"निरीक्षण की दिनांक",
+        "Remarks":"टिप्पणियों",
+        "Submit": "जमा करें",
+        "Title":"शीर्षक",
+        "MedicineType": "चिकित्सा प्रकार",
+        "VaccinationType":"टीकाकरण के प्रकार",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "FirstName": "पहला नाम",
+        "LastName": "अंतिम नाम",
+        "DateOfBirth": "जन्म तिथि",
+        "Gender": "लिंग",
+        "Male": "पुस्र्ष",
+        "Female": "नारी",
+        "Phone": "ఫోన్",
+        "BloodGroup": "रक्त वर्ग",
+        "Email": "ईमेल",
+        "NewPassword": "नया पासवर्ड",
+        "ConfirmPassword": "पासवर्ड की पुष्टि कीजिये",
+        "Submit": "जमा करें",
+        "ProfileSettings": "पार्श्वचित्र समायोजन",
+        "Cancel": "रद्द करना"
+
+    },
+    "errors": {
+
+    }
+}

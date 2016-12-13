@@ -1,0 +1,26 @@
+{
+    "labels": {
+        "leaveRequestHeading": "Staff Applying Leave",
+        "startDateTime": "Start Date",
+        "endDateTime": "End Date",
+        "noOFDays": "No Of Days",
+        "noOfLeave": "No Of Leave",
+        "leaveType": "Leave Type",
+        "available": "Available",
+        "used": "Used",
+        "balance": "Balance",
+        "halfDay": "Half Day",
+        "reason": "Reason For Leave",
+        "folderKey": "Upload Folder",
+        "submit": "Submit",
+        "instituteTitle": "Institute",
+        "reportingManager":"Reporting Manager",
+        "staffDepartment":"Staff Departments",
+        "reportingDepartment":"Reporting Manager Department",
+        "staff":"Staff Name",
+        "leaveSettingsHeading":"Leave Approver Configuration",
+        "requester":"Requester"
+
+
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "percentageFrom": "Percentage From",
+        "percentageTo": "Percentage To",
+        "grade": "Grade Points",
+        "edit": "Edit",
+        "Delete": "Delete",
+        "update":"update",
+        "submit":"submit"
+
+    },
+    "errors": {
+
+    }
+}

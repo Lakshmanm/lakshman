@@ -1,0 +1,118 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personDemographics.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************-->
+
+<form name="demographicsForm" novalidate>
+    <h2>{{demographicLabels.demographics}}</h2>
+
+
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.height}}<span style="color:red">*</span></span>
+            <input name="height" ng-model="demographic.height" type="number" required>
+            <div class="padding" ng-if="demographicsForm.height.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.height.$error.required ">Height is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.weight}}<span style="color:red">*</span></span>
+            <input name="weight" ng-model="demographic.weight" type="number" required>
+            <div class="padding" ng-if="demographicsForm.weight.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.weight.$error.required ">Weight is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.bmi}}<span style="color:red">*</span></span>
+            <input name="bmi" ng-model="demographic.bmi" type="number" required>
+            <div class="padding" ng-if="demographicsForm.bmi.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.bmi.$error.required ">BMI is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.temperature}}<span style="color:red">*</span></span>
+            <input name="temperature" ng-model="demographic.temperature" type="number" required>
+            <div class="padding" ng-if="demographicsForm.temperature.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.temperature.$error.required ">Temperature is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.hemoglobin}}<span style="color:red">*</span></span>
+            <input name="hemoglobin" ng-model="demographic.hemoglobin" type="number" required>
+            <div class="padding" ng-if="demographicsForm.hemoglobin.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.hemoglobin.$error.required ">Hemoglobin is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{demographicLabels.inspectionDate}}<span style="color:red">*</span></span>
+            <input name="inspectionDate" ng-model="demographic.inspectionDate" type="date" required>
+            <div class="padding" ng-if="demographicsForm.inspectionDate.$touched || demographicsForm.$submitted" style="color:red;font-size:x-small">
+                <p ng-show="demographicsForm.inspectionDate.$error.required ">Inspection date is required</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <div style="text-align:center">
+                <button type="submit" class=" button button-stable" ng-click="demographicsForm.$valid&&saveDemographic()">{{demographicLabels.submit}}</button>
+            </div>
+        </label>
+    </div>
+</form>
+<br>
+<div style="text-align:center">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{demographicLabels.height}}</th>
+                <th>{{demographicLabels.weight}}</th>
+                <th>{{demographicLabels.bmi}}</th>
+                <th>{{demographicLabels.temperature}}</th>
+                <th>{{demographicLabels.hemoglobin}}</th>
+                <th>{{demographicLabels.inspectionDate}}</th>
+                <th>{{demographicLabels.edit}}</th>
+                <th>{{demographicLabels.delete}}</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="demographic in demographicList">
+                <td>{{demographic.height}}</td>
+                <td>{{demographic.weight}}</td>
+                <td>{{demographic.bmi}}</td>
+                <td>{{demographic.temperature}}</td>
+                <td>{{demographic.hemoglobin}}</td>
+                <td>{{demographic.inspectionDate|date}}</td>
+                <td>
+                    <a ng-click="getDemographic(demographic.referenceKey)"><i class="fa fa-pencil"></i>Edit</a>
+                </td>
+                <td><a ng-click="deleteDemographic(demographic.referenceKey)" confirmation-needed="Really Delete?"><i class="fa fa-trash"></i>Delete</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

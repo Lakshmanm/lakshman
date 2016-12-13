@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "activityType": "Curricular Activity Type",
+        "curricularActivity": "Curricular Activity",
+        "proficiency": "Proficiency",
+        "highestLevel": "Highest Level Play ",
+        "awardedOrganization": "Awarded Organization",
+        "additionalInformation": "Additional Information",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

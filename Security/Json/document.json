@@ -1,0 +1,40 @@
+{
+    "AppDetails": [{
+            "APPID": 1,
+            "AppName": "DMS",
+            "AppKey": "123456dmsKey",
+            "Redirecturl": "http://drive.traffix.in:3110/index.html?p=",
+            "LogoUrl": "http://google.com"
+    },
+        {
+            "APPID": 2,
+            "AppName": "ORG",
+            "AppKey": "123457orgKey",
+            "Redirecturl": "http://org.traffix.in:3110/index.html?p=",
+            "LogoUrl": "http://google.com"
+    },
+        {
+            "APPID": 3,
+            "AppName": "CALENDAR",
+            "AppKey": "123458calKey",
+            "Redirecturl": "http://calendar.traffix.in:3110/index.html?p=",
+            "LogoUrl": "http://google.com"
+    },
+        {
+            "APPID": 4,
+            "AppName": "PERSON",
+            "AppKey": "123459perKey",
+            "Redirecturl": "http://person.traffix.in:3110/index.html?p=",
+            "LogoUrl": "http://google.com"
+    },
+        {
+            "APPID": 5,
+            "AppName": "SURVEY",
+            "AppKey": "123460surKey",
+            "Redirecturl": "http://survey.traffix.in:3110/index.html?p=",
+            "LogoUrl": "http://google.com"
+    }
+
+                  ]
+
+}

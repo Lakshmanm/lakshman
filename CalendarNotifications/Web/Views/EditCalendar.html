@@ -1,0 +1,60 @@
+<div class="create_calender">
+    <form id="myForm" name="editCalendarForm">
+        <div class="col-lg-12" style="margin-top:5px;">
+
+            <div class="col-lg-4"><span style="color:#ff0000;">*</span>{{editCalendarLables.CalenderName}}</div>
+            <div class="col-lg-8">
+                <input class="form-control" type="text" name="calendername" required ng-model="editCalendar.calenderName" />
+            </div>
+        </div>
+
+        <div class="col-lg-12" style="margin:10px 0;">
+            <div class="col-lg-4"><span style="color:#ff0000;">*</span>{{editCalendarLables.CalenderColor}}</div>
+            <input type="hidden" ng-model="editCalendar.calendarColor" name="color" id="colour">
+            <div class="col-lg-8">
+
+
+                <div class="cal_color_box" style="background-color:#e2f2fe; border:solid 1px #bddff8;" id="e2f2fe"> </div>
+                <div class="cal_color_box" style="background-color:#eee8fd; border:solid 1px #d6c6fa;" id="eee8fd"></div>
+                <div class="cal_color_box" style="background-color:#fbe2fd; border:solid 1px #f3c0f6;" id="fbe2fd"></div>
+                <div class="cal_color_box" style="background-color:#defde3; border:solid 1px #bef8c7;" id="defde3"></div>
+                <div class="cal_color_box" style="background-color:#fbe4de; border:solid 1px #f6c8bd;" id="fbe4de"></div>
+                <div class="cal_color_box" style="background-color:#e3fafe; border:solid 1px #bcedf6;" id="e3fafe"></div>
+                <div class="cal_color_box" style="background-color:#fcdfe7; border:solid 1px #fbc5d2;" id="fcdfe7"></div>
+                <div class="cal_color_box" style="background-color:#fee3f5; border:solid 1px #f9c9e9;" id="fee3f5"></div>
+                <div class="cal_color_box" style="background-color:#ffeedf; border:solid 1px #f8dac1;" id="ffeedf"></div>
+                <div class="cal_color_box" style="background-color:#f6fee3; border:solid 1px #d7eea2;" id="f6fee3"></div>
+                <div class="cal_color_box" style="background-color:#e9fefe; border:solid 1px #c4f6f6;" id="e9fefe"></div>
+                <div class="cal_color_box" style="background-color:#eaf5ff; border:solid 1px #c3e0f9;" id="eaf5ff"></div>
+
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <div id="selected-colour"> </div>
+            </div>
+            <div></div>
+        </div>
+
+        <div class="col-lg-12" style="margin-top:5px;">
+            <div class="col-lg-4"><span style="color:#ff0000;">*</span>{{editCalendarLables.Description}}</div>
+            <div class="col-lg-8">
+                <textarea class="form-control" type="text" name="description" required ng-model="editCalendar.description">{{editCalendarLables.description}}</textarea>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12" style="margin-top:10px;">
+            <div class="col-lg-3"> </div>
+            <div class="col-lg-9">
+                <button class="btn btn-primary" type="submit" ng-click="editCalendarForm.$valid && updateCalendar(editCalendar)">{{editCalendarLables.Update}}</button>
+                <button class="btn btn-warning" ng-click="cancel()">{{editCalendarLables.Cancel}}</button>
+            </div>
+        </div>
+
+        <div class="col-lg-12" style="margin-top:10px;">
+
+
+        </div>
+    </form>
+
+</div>

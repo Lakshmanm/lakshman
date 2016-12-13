@@ -1,0 +1,102 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewSpecialization.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4>Specialization</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+                <form name="MYForm" novalidate>
+                    <div class="col-md-6">
+                        <fieldset>
+                            <legend>
+                                Basic Info
+                            </legend>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="control-label"> Specialization Title<span class="symbol required"></span> </label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="entitySpecialization.specializationTitle" name="specializationTitle" ng-minlength="3" ng-maxlength="50" required>
+                                    <span ng-if="MYForm.$submitted || MYForm.specializationTitle.$touched" style="color:red;">
+                        <span class="error text-small block" ng-if="MYForm.specializationTitle.$invalid && MYForm.specializationTitle.$error.required ">Specialization Title is required.</span>
+                                    <span ng-if="MYForm.specializationTitle.$error.minlength">Specialization Title is too short.</span>
+                                    <span ng-if="MYForm.specializationTitle.$error.maxlength">Specialization Title is too long.</span>
+                                    </span>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="control-label"> Specialization Details </label>
+                                    <textarea placeholder="" class="form-control" ng-model="entitySpecialization.specializationDetails" name="specializationDetails" ng-minlength="5" ng-maxlength="250"></textarea>
+                                    <span ng-if="MYForm.$submitted || MYForm.specializationDetails.$touched" style="color:red;">
+                        <!-- <span class="error text-small block" ng-if="MYForm.orgName.$invalid && MYForm.orgName.$error.required ">Department Name is required.</span> -->
+                                  <span ng-if="MYForm.specializationDetails.$error.minlength">Specialization Details are too small.</span>
+                                    <span ng-if="MYForm.specializationDetails.$error.maxlength">Specialization Details are too long.</span>
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-12">
+                        <center>
+                            <button ng-disabled="!MYForm.$valid" type="button" ng-click="addSpecialization()" class="btn btn-wide btn-primary" ng-hide="Organizationupdate" v-pressable>
+                               Save
+                            </button>
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-click="cancel()" v-pressable>
+                                Cancel
+                            </button>
+                        </center>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- end: USER PROFILE -->

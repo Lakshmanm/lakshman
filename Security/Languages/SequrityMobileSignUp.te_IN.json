@@ -1,0 +1,19 @@
+
+
+{
+    "labels": {
+        "Register": "నమోదు",
+        "UserName": "వాడుకరి పేరు",
+        "Password": "పాస్వర్డ్",
+        "EmailId": "ఇమెయిల్ ID",
+        "FirstName": "మొదటి పేరు",
+        "MiddleName": "మధ్య పేరు",
+        "LastName": "చివరి పేరు",
+        "Submit": "సమర్పించండి"
+
+    },
+    "errors": {
+
+    }
+
+}

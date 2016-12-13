@@ -1,0 +1,15 @@
+{
+    "religionLabels": {
+        "nationality": "राष्ट्रीयता",
+        "socialGroup": "सामाजिक समूह",
+        "religionType": "धर्म के प्रकार",
+       
+        "religion": "धर्म",
+        "submit": "जमा करें",
+          "edit": "संपादित",
+           "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

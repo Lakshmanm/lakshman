@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "boardHeading": "Service Category",
+        "ServiceCategory": "Service Category",
+        "Description": "Description",
+       
+        "edit": "Edit",
+        "deleted": "Delete",
+        "submit": "Save",
+        "update": "Update"
+
+    },
+    "errors": {
+
+    }
+}

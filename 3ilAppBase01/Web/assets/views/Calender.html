@@ -1,0 +1,1686 @@
+<div class="col-lg-12 col-md-12">
+    <div>
+        <div class="panel panel-white">
+
+            <div class="panel-body">
+                <div>                <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="mainClinic1stsession" name="session" value="session"  ng-model="Calendersetting.mainClinic1stsession" ng-click="mainClinic1stSssionChange()" >
+                                <label for="mainClinic1stsession">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="mainClinic2ndsession" name="session" value="session"  ng-model="Calendersetting.mainClinic2ndsession"  ng-click="mainClinic2ndSssionChange()" >
+                                
+                                <label for="mainClinic2ndsession">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="mainClinic3rdsession" name="session" value="session"  ng-model="Calendersetting.mainClinic3rdsession"  ng-click="mainClinic3rdSssionchange()">
+                                <label for="mainClinic3rdsession">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession" ng-hide="clinic2ndvalue">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession" ng-hide="clinic3rdvalue">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+
+                <div class="col-md-12" >
+                    <div class="col-md-3">
+                    
+                    </div>
+                     <div class="col-md-8">
+                       <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                 Clinical hours are NOT same for all working days
+                                </label>
+                    </div>
+               <hr>
+                </div>
+                
+                
+                <div id="Monday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Monday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Monday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                <!--- Tuesday Tab  --->
+                       <div id="Tuesday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Tuesday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Tuesday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                
+                
+                <!----- Wednes day Tab -------->
+                
+                 <div id="Wednesday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Wednesday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Wednesday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                
+                <!-- Thrusday  ---->
+                   <div id="Thrusday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Thrusday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Thrusday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                
+        
+                
+                <!---  Friday  ----------->
+                   <div id="Friday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Friday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Friday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                <!----- Saturday  ---------->
+                   <div id="Saturday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Saturday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Saturday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                
+                <!------------   Sunday  ------------->
+                   <div id="Sunday"> 
+                    <div  class="row">
+                         <div class="col-md-1">
+                    </div>
+                    Sunday
+                    </div>
+                      <div  class="row">
+                         <div class="col-md-2">
+                    </div>
+                            <div class="col-md-3">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  Clinic Opens on Sunday
+                                </label>
+                            </div>
+                    </div>
+                    <div class="row">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            <div class="col-md-2">
+
+                                <label for="us-female">
+                                    Clinic Operates in
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                   1 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                    2 sessions
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="radio" id="us-female" name="gender" value="female" ng-model="child.gender">
+                                <label for="us-female">
+                                  3 sessions
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+
+
+
+
+
+                </div>
+                 <div class="row" id="Clinic1stsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic2ndtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                            <div class="row" id="Clinic3rdtsession">
+
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+
+                            <div class="col-md-2" >
+                               
+                            
+                                     <label for="us-female">
+                                    Clinic Opens at
+                                </label>
+                               
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+                            <div class="col-md-2" >
+                               
+                                <div class="row" >
+                                     <label for="us-female">
+                                    Clinic Closes at
+                                </label>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                        <uib-timepicker   ng-model="dt" ng-change="changed()" hour-step="hstep" minute-step="10" show-meridian="ismeridian"></uib-timepicker>
+                              
+                               
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                   
+
+
+
+
+
+                </div>
+                    </div>
+                
+                
+                <div class="col-md-12" >
+                  <center>
+                              <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                           Save
+                        </button>
+                                     <button type="button" class="btn btn-wide btn-primary" v-pressable>
+                            Cancel
+                        </button>
+                                
+                                    </center>
+                
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

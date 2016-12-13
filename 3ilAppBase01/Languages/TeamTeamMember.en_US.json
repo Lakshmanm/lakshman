@@ -1,0 +1,18 @@
+
+{
+    "labels": {
+        "startDate":"Start Date",
+        "endDate":"End Date",
+        "submit": "Save",
+        "teamTitle":"Team Title",
+        "teamMemberTitle": "New Team Member",
+        "teamRoleKey":"Team Role Key",
+        "personKey":"Person Key",
+        "update":"Update",
+        "editTeamMemberTitle":"Edit Team Member "
+
+    },
+    "errors": {
+
+    }
+}

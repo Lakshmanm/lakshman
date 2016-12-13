@@ -1,0 +1,18 @@
+
+
+{
+    "labels": {
+        "UserRole": "User Role",
+        "UserID": "Name Of the User",
+        "RoleID": "Role",
+        "IsActive": "IsActive",
+        "Save": "Save",
+        "Update": "Update",
+        "Edit": "Edit"
+
+    },
+    "errors": {
+
+    }
+
+}

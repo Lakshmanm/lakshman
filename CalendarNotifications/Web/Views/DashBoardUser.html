@@ -1,0 +1,106 @@
+<!-- <div>
+
+ 
+
+    <button ng-click="profile()">profile</button>
+    <button ng-click="notificationSettings()">notification settings</button>
+    <button ng-click="createTask()">create task</button>
+    <button ng-click="createEvent()">create event</button>
+    <button ng-click="editTask()">edit task </button>
+    <button ng-click="editEvent()">edit event</button>
+    <button ng-click="createCalendar()">createCalendar</button>
+    <button ng-click="editCalendar()">editCalendar</button>
+    <button ng-click="eventResponse()">eventResponse</button>
+    <button ng-click="logout()">Logout</button>
+
+</div> -->
+
+<style type="text/css">
+   .myCheckbox {
+           float: left;
+    width: 30px;
+    line-height: 30px;
+    margin: 10px 7px 0 7px;
+    }
+    .myCheckbox input {
+    display: none;
+    }
+    
+    .myCheckbox span {
+        width: 20px;
+        height: 20px;
+        display: block;
+        background-color:#fff;
+        border:solid 1px #ccc
+        
+    }
+
+     
+    /*.myCheckbox input:checked + span {
+        background-color:#ff0000;
+    }*/
+    /*.myCheckbox input:not(:checked) + span {
+        background-color:#fff;
+    }
+*/</style>
+
+
+
+    <div class="container"  >
+    <div class="calendar_left"  ng-hide="calMenu">
+        
+        
+        <div class="col-lg-12" id="staffmenu">
+        
+        
+        <ul class="cal_drop_downs" style="margin-top:0px;padding:20px 5px;"  >
+           
+               <h2>{{dashBoardLabels.MyCalendar}}</h2>
+           
+            
+            <li ng-repeat="calendarObject in doctors" ng-model="calendarObject"   class="staffmenulistactiveno"  id='listID{{$index}}' ng-click="myclickcal(calendarObject.personKey,$index)"  >
+            {{calendarObject.firstname}}
+             
+            </li> 
+        
+        </ul> 
+       
+        </div>
+
+        <div class="{{calendarright}}"  >
+        <div id='loading'>loading...</div>
+        <div id='calendar'></div>
+    </div>
+             
+        
+    </div>
+ 
+    
+    
+<div id="fullCalModal" class="modal fade">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            
+            <div style="padding:20px;">
+             <div id="eventType" class="eventType"> </div> 
+            <div id="modalBody" class="modalBody"> </div>
+            <div style="width:100%; float:left;"><span style="width:25%; float:left;">Description:</span> <div id="eventDescription" class="eventDescription"  ></div></div>
+            <div style="width:100%; float:left;"><span style="width:25%; float:left;">Start Date:</span> <div id="startdate" class="startdate"  ></div></div>
+            <div style="width:100%;"><span style="width:25%; float:left;">End Date:</span> <div id="enddate" class="enddate" ></div></div>
+            </div>
+            <div class="modal-footer">
+              
+               <a id="editevent" ><button class="btn btn-primary"  >Edit </button></a>
+                <button class="btn btn-warning "  id="deleteevent" ng-click="deleteevent()" >Delete </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>

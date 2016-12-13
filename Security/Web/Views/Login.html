@@ -1,0 +1,56 @@
+<div id="main-wrapper">
+    <div class="panel-white">
+
+        <form name="loginForm" novalidate>
+            <div class="page-inner">
+                <div class="page-title text-center text-primary">
+                    <h1>{{securityLogin.SignIn}}</h1>
+                </div>
+
+                <div id="main-wrapper">
+                    <div class="row">
+                        <div class="col-md-3 center">
+                            <div class="login-box">
+
+                                <p class="text-center m-t-md">{{securityLogin.LoginHeader}}</p>
+                                <label ng-show="msg"><span style="color:red;">EmailID or Password is incorrect</span></label>
+
+                                <div class="form-group">
+                                    <input type="text" name="EmailID" class="form-control " ng-model="Text.EmailID" placeholder="Email ID" ng-required="true" />
+
+                                    <span ng-if="loginForm.$submitted || loginForm.EmailID.$touched" style="color:red;">
+                    <p ng-show="loginForm.EmailID.$invalid && loginForm.EmailID.$error.required">EmailID is required</p>
+                   
+                    
+                </span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" ng-required="true" ng-model="Text.password" placeholder="Password">
+                                    <span ng-if="loginForm.$submitted || loginForm.password.$touched" style="color:red;">
+                    <p ng-show="loginForm.password.$invalid && loginForm.password.$error.required">password is required</p>
+                   
+                    
+                </span>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block" id="course_saveid" name="course_saveid" ng-click="loginForm.$valid && login()">{{securityLogin.Login}}</button>
+
+                                <a href="#/forgotPassword" class="display-block text-center m-t-md text-sm">{{securityLogin.ForgotPassword}}</a>
+                                <p class="text-center m-t-xs text-sm">{{securityLogin.DoNotHaveAnAccount}}</p>
+                                <a href="#/basicInfo" class="btn btn-default btn-block m-t-md">{{securityLogin.CreateAccount}}</a>
+                                <div class="panel-body text-center">
+                                    <a href="V1/Security/auth/facebook"><img src="Security/Web/img/facebook.png" width="50" height="50"></a>
+                                    <a href="V1/Security/auth/google"><img src="Security/Web/img/googleplus.png" width="50" height="50"></a>
+                                    <a href="V1/Security/auth/twitter"><img src="Security/Web/img/twitter.png" width="50" height="50"></a>
+                                    <a href="V1/Security/auth/linkedin"><img src="Security/Web/img/linkedin.png" width="50" height="50"></a>
+                                </div>
+                                <p class="text-center m-t-xs text-sm">2016 &copy; Powered by Nunet3.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row -->
+                </div>
+                <!-- Main Wrapper -->
+            </div>
+        </form>
+    </div>
+</div>

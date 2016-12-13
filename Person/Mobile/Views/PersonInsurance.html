@@ -1,0 +1,154 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Insurance
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Kiranmai L
+ Created Date       : 22-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<form name="insuranceForm" novalidate>
+  <div class="list">
+
+    <h2>{{insuranceLabels.insurance}}</h2>
+
+   <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.insuranceName}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="insurance.insuranceName" ng-maxlength="30" ng-minlength="3" name="title" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                <span class="padding" ng-if="insuranceForm.title.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.title.$error.required ">Title is required</p>
+                    <p ng-show="insuranceForm.title.$error.minlength">Title is too short must be longer than 3 characters</p>
+                    <p ng-show="insuranceForm.title.$error.maxlength">Title is too long it should be below 30 characters</p>
+                    <p ng-show="insuranceForm.title.$error.pattern">Title accept only alphabetic characters</p>
+                </span>
+
+      </label>
+      <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.insuranceNumber}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="insurance.insuranceNumber" name="insuranceNumber" mask-clean='true' mask='999' restrict="reject" clean="true" pattern="[0-9]*" s required>
+                <span class="padding" ng-if="insuranceForm.insuranceNumber.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.insuranceNumber.$error.required ">Insurance number is required</p>
+                    <p ng-show="insuranceForm.insuranceNumber.$error.minlength">Insurance number is too short must be longer than 3 characters</p>
+                    <p ng-show="insuranceForm.insuranceNumber.$error.maxlength">Insurance number is too long it should be below 30 characters</p>
+                    <p ng-show="insuranceForm.insuranceNumber.$error.pattern">Insurance number accept only numeric characters</p>
+                </span>
+           </label>
+           <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.insuranceType}}<span style="color:red">*</span></label>
+
+                <select class="form-control" style="width: 100%" ng-options="insurances.insuranceTypeId as insurances.insuranceTypeName for insurances in insuranceTypeList" ng-model="insurance.insuranceTypeID" name="insuranceType" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <span class="padding" ng-if="insuranceForm.insuranceType.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.insuranceType.$error.required ">Insurance type is required</p>
+
+
+                </span>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.startDate}}<span style="color:red">*</span></label>
+                <input class="form-control " type="date" ng-model="insurance.startDate" name="startDate" required>
+                <span class="padding" ng-if="insuranceForm.startDate.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.startDate.$error.required " style="color:red">Start date is required</p>
+
+                </span>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.endDate}}<span style="color:red">*</span></label>
+                <input class="form-control " type="date" ng-model="insurance.endDate" name="endDate" required min="{{insurance.startDate}}">
+                <span class="padding" ng-if="insuranceForm.endDate.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.endDate.$error.required " style="color:red">End date is required</p>
+
+                </span>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.insuranceCompany}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="insurance.insuranceCompany" ng-maxlength="30" ng-minlength="3" name="insuranceCompany" ng-maxlength="30" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                <span class="padding" ng-if="insuranceForm.insuranceCompany.$touched || insuranceForm.$submitted" style="color:red">
+                    <p ng-show="insuranceForm.insuranceCompany.$error.required ">Insurance company name is required</p>
+                    <p ng-show="insuranceForm.insuranceCompany.$error.minlength">Insurance company name is too short must be longer than 3 characters</p>
+                    <p ng-show="insuranceForm.insuranceCompany.$error.maxlength">Insurance company name is too long it should be below 30 characters</p>
+                    <p ng-show="insuranceForm.insuranceCompany.$error.pattern">Insurance company name accept only alphabetic characters</p>
+                </span>
+
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.coverageDetails}}</label>
+                <textarea class="form-control" ng-model="insurance.coverageDetails" class="form-control" rows="3" name="coverageDetails"></textarea>
+
+            </label>
+            <label class="item item-input item-stacked-label">
+                <label>{{insuranceLabels.nominee}}</label>
+                <input class="form-control " type="text" ng-model="person.firstName">
+                <!--<input class="form-control " type="text" ng-model="insurance.nomineePersonID">-->
+          </label>
+          <label class="item item-input item-stacked-label">
+
+            <button type="submit" ng-click="insuranceForm.$valid&&saveInsurance()" class="btn btn-primary">{{insuranceLabels.submit}}</button>
+   </label>
+   <label class="item item-input item-stacked-label">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{insuranceLabels.insuranceName}}</th>
+                <th>{{insuranceLabels.insuranceNumber}}</th>
+                <th>{{insuranceLabels.startDate}}</th>
+                <th>{{insuranceLabels.endDate}}</th>
+                <th>{{insuranceLabels.edit}}</th>
+                <th>{{insuranceLabels.delete}}</th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="insurance in insuranceList">
+                <td>
+                    {{insurance.InsuranceName}}</td>
+                <td>{{insurance.InsuranceNumber}}</td>
+                <td>{{insurance.StartDate|date:"MM/dd/yyyy"}}</td>
+                <td>{{insurance.EndDate|date:"MM/dd/yyyy"}}</td>
+
+
+                <td>
+                    <a ng-click="getInsurance(insurance.referenceKey)"><i class="fa fa-pencil"></i></a> 
+                </td>
+                <td>
+                    <a ng-click="deleteInsurance(insurance.referenceKey)" ><i class="fa fa-trash"></i></a>
+
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!--<div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>-->
+
+</label>
+</div>
+</form>

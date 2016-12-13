@@ -1,0 +1,58 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: ElectiveGroupList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsElectiveGroupList.electiveGroupHeading}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblElectiveGroupList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> 
+							 <th>{{labelsElectiveGroupList.electiveGroupTitle}}</th>
+							 <th>{{labelsElectiveGroupList.minimumSubjects}}</th>
+							 <th>{{labelsElectiveGroupList.maximumSubjects}}</th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityElectiveGroup in electiveGroupCollection">
+							 <td>{{ entityElectiveGroup.electivegrouptitle }}</td>
+							 <td>{{ entityElectiveGroup.minimumsubjects }}</td>
+							 <td>{{ entityElectiveGroup.maximumsubjects }}</td>
+							 <td><a ng-click="" href="#/app/editElectiveGroup/{{entityElectiveGroup.electivegroupkey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteElectiveGroup(entityElectiveGroup.electivegroupkey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>

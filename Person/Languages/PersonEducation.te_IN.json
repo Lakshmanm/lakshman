@@ -1,0 +1,23 @@
+{
+    "labels": {
+        "title": "విద్య పేరు",
+        "startDate": " ప్రారంబపు తేది",
+        "endDate": "ఆఖరి తేది",
+        "instituteName": "ఇన్స్టిట్యూట్ పేరు",
+        "instituteCode": "ఇన్స్టిట్యూట్ కోడ్",
+        "instituteMedium": "ఇన్స్టిట్యూట్ మీడియం",
+        "marksObtained": "మార్కులు స్వీకరించినపుడు",
+        "gradeObtained": "గ్రేడ్ స్వీకరించినపుడు",
+        "location": "నగర",
+         "yearOfPassing": "తరలింపు సంవత్సరం",
+        "qualification": "క్వాలిఫికేషన్",
+        "submit": "సమర్పించండి",
+          "edit": "మార్చు",
+           "delete": "తొలగించు",
+    
+        "educationInfo": "చదువు"
+    },
+    "errors": {
+
+    }
+}

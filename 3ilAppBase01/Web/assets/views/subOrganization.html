@@ -1,0 +1,389 @@
+<style>
+    ng-map {
+        /*padding: 0px;*/
+        width: 100%;
+        height: 200px;
+    }
+    
+    ,
+    .geo {
+        text-align: center;
+    }
+</style>
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4>Branch Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+                <div class="col-md-6">
+                    <form action="#" role="form" name="Form" id="form">
+                        <fieldset>
+                            <legend> Basic Info </legend>
+                            <div class="row">
+                                <div class="form-group" ng-class="{'has-error':Form.orgName.$dirty && Form.orgName.$invalid, 'has-success':Form.orgName.$valid}">
+                                    <label class="control-label"> Branch Name <span class="symbol required"></span> </label>
+                                    <input type="text" placeholder="" class="form-control" name="orgName" ng-model="subOrganization.basicInfo.organizationName" required /> <span class="error text-small block" ng-if="Form.orgName.$dirty && Form.orgName.$invalid">Branch Name is required</span> </div>
+                                <div class="form-group" ng-class="{'has-error':Form.orgCode.$dirty && Form.orgCode.$invalid, 'has-success':Form.orgCode.$valid}">
+                                    <label class="control-label">Branch Code <span class="symbol required"></span></label>
+                                    <input type="text" placeholder="" class="form-control" name="orgCode" ng-model="subOrganization.basicInfo.organizationCode" ng-minlength="2" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9]*$/" required /> <span class="error text-small block" ng-if="Form.orgCode.$dirty && Form.orgCode.$invalid">    
+                                        
+                                        <p ng-show="Form.orgCode.$invalid && Form.orgCode.$error.required">branch code is required</p>
+                        <p ng-show="Form.orgCode.$error.minlength">branch code should be maximum of 2 characters</p>
+                        <p ng-show="Form.orgCode.$error.maxlength">branch code should be minumum of 50 characters</p>
+                        <p ng-show="Form.orgCode.$error.pattern">alphanumeric only</p>
+                                    
+                                    </span> </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Branch Description </label>
+                                    <textarea placeholder="" class="form-control" name="orgDesc" ng-model="subOrganization.basicInfo.organizationDetails"></textarea>
+                                </div>
+                                <!--
+                                <div class="form-group" ng-class="{'has-error':Form.maxNumber.$dirty && Form.maxNumber.$invalid, 'has-success':Form.maxNumber.$valid}">
+                                    <label class="control-label"> Phone<span class="symbol required"></span> </label>
+                                    <input type="number" name="maxNumber" placeholder="" class="form-control" ng-model="subOrganization.contacts[0].contactInfo" max="9999999999" required />
+                                    <span class="error text-small block" ng-if="Form.maxNumber.$error.max">Number must not be higher than 10!</span>
+                                    <span class="error text-small block" ng-if="Form.maxNumber.$error.number">Not valid number!</span>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
+                                    <label class="control-label"> Email <span class="symbol required"></span> </label>
+                                    <input type="email" placeholder="" class="form-control" name="email" ng-model="subOrganization.contacts[1].contactInfo" required>
+                                    <span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$error.required">Email is required.</span>
+                                    <span class="error text-small block" ng-if="Form.email.$error.email">Please, enter a valid email address.</span>
+                                    
+                                </div>-->
+                                 <div class="form-group" ng-class="{'has-error':Form.orgLevel.$dirty && Form.orgLevel.$invalid, 'has-success':Form.orgLevel.$valid}">
+                                    <label class="control-label"> Branch Level <span class="symbol required"></span> </label>
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="subOrganization.basicInfo.organizationLevelID"
+                                         ng-change="getBranchParent(subOrganization.basicInfo.organizationLevelID)"    ng-options="orgLevelList.organizationLevelID as orgLevelList.organizationLevelName for orgLevelList in orgLevelLists"  name="orgLevel" ng-required="true">
+                                        <option value="" >-select-</option>
+                                        </select>
+                                       <span class="error text-small block" ng-if="Form.orgLevel.$dirty && Form.orgLevel.$invalid">Branch Level is required</span>  
+                                    </div>
+                                <!--
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Branch Type <span ></span>
+                                    </label>
+                                    <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="subOrganization.basicInfo.subOrganizationTypeKey" ng-options="branchType.subOrganizationTypeKey as branchType.subOrganizationTypeTitle for branchType in branchTypeList"  name="organizationLevelID">
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span>
+                                </div>
+-->
+                                <div ng-show="parent" class="form-group">
+                                    <label class="control-label"> Branch Parent </label> <span class="clip-select">
+                                    
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="subOrganization.basicInfo.parentOrganizationID" ng-options="parentsOrg.organizationId as parentsOrg.organizationName for parentsOrg in parentsOrganizations"  >
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> </div>
+                                
+                                <div class="form-group" ng-class="{'has-error':Form.recognitionType.$dirty && Form.recognitionType.$invalid, 'has-success':Form.recognitionType.$valid}">
+                                    <label class="control-label"> Type of Recognition <span class="symbol required"></span> </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="subOrganization.basicInfo.typeOfRecognition" ng-options="recognition.RecognitionTypeKey as recognition.ReconitionTypeName for recognition in recognitionList"  name="recognitionType" required>
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> <span class="error text-small block" ng-if="Form.recognitionType.$dirty && Form.recognitionType.$invalid">    
+                                        
+                                        <p ng-show="Form.recognitionType.$invalid && Form.recognitionType.$error.required">Recognition Type is required</p>
+                       
+                                    
+                                    </span> </div>
+                                
+
+                                <div class="form-group">
+                                    <label class="control-label"> Website URL </label>
+                                    <input type="text" placeholder="www.domainname.com" class="form-control" ng-model="subOrganization.basicInfo.websiteUrl" name="websiteUrl"> </div>     
+                                
+                            </div>
+                        </fieldset>
+                    </form>
+                    <form name="subOrgContactForm" novalidate>
+                        <fieldset>
+                            <legend> Contact Details </legend>
+                            <!-- <div class="row">
+                                <div class="form-group">
+
+                                    <div class="form-group" ng-class="{'has-error':Form.maxNumber.$dirty && Form.maxNumber.$invalid, 'has-success':Form.maxNumber.$valid}">
+                                        <label class="control-label"> Phone<span class="symbol required"></span> </label>
+                                        <input type="text" name="maxNumber" placeholder="" class="form-control" ng-model="organization.contacts[0].contactInfo" max="9999999999" required />
+                                        <span class="error text-small block" ng-if="Form.maxNumber.$error.max">Number must not be higher than 10!</span>
+                                        <span class="error text-small block" ng-if="Form.maxNumber.$error.number">Not valid number!</span>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
+                                        <label class="control-label"> Email <span class="symbol required"></span> </label>
+                                        <input type="email" placeholder="" class="form-control" name="email" ng-model="organization.contacts[1].contactInfo" required>
+                                        <span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$error.required">Email is required.</span>
+                                        <span class="error text-small block" ng-if="Form.email.$error.email">Please, enter a valid email address.</span>
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Land Line </label>
+                                        <input type="text" name="landline" placeholder="" class="form-control" ng-model="organization.contacts[2].contactInfo" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Fax </label>
+                                        <input type="text" placeholder="" class="form-control" name="fax" ng-model="organization.contacts[3].contactInfo">
+
+                                       
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="form-group">
+                                    <!--  <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="control-label">
+                                                Contact Type
+                                            </label>
+                                            <span class="clip-select">
+                                                <select name="country" class="form-control" ng-model="subOrganization.contact.contactTypeKey" ng-options="type.contacttypekey as type.contacttypetitle for type in contactTypes">
+                                                    <option value="">--select--</option>
+                                                   
+                                                </select>
+                                            </span>
+                                        </div>.
+
+
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Contact Info
+                                            </label>
+                                            <input type="text" placeholder="" class="form-control" name="contactnumber" ng-model="subOrganization.contact.contactItemInfo">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div>
+                                                <i class="fa fa-plus" aria-hidden="true" ng-click="addContactItem()"></i>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="control-label"> Contact Type </label> <span class="clip-select">
+                                                <select  class="form-control" name="contactType" ng-model="subOrganization.contact.contactTypeKey" ng-options="type.contactTypeKey as type.contactTypeTitle for type in contactTypes" required ng-change="contactTypeChange(subOrganization.contact.contactTypeKey)">
+                                                    <option value="">--select--</option>
+                                                </select>
+                                            </span> <span class="error text-small block" ng-if="(subOrgContactForm.contactType.$dirty ||subOrgContactForm.$submitted)  && subOrgContactForm.contactType.$invalid">    
+                                        
+                                        <p ng-show="subOrgContactForm.contactType.$invalid && subOrgContactForm.contactType.$error.required" style="color:#a94442">Contact Type is required</p>             
+                                    </span> </div>.
+                                        <div class="col-md-6">
+                                            <label class="control-label"> Contact Info </label>
+                                            <input type="text" placeholder="{{validation.placeHolder}}" class="form-control" ng-model="subOrganization.contact.contactItemInfo" name="contactItemInfo" required ng-pattern="validation.contactTypePattern"> <span class="error text-small block" ng-if="(subOrgContactForm.contactItemInfo.$dirty ||subOrgContactForm.$submitted) && subOrgContactForm.contactItemInfo.$invalid">    
+                                       
+                                        <p ng-show="subOrgContactForm.contactItemInfo.$invalid && subOrgContactForm.contactItemInfo.$error.required" style="color:#a94442">Contact Info is required</p>
+                       <p ng-show="subOrgContactForm.contactItemInfo.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    
+                                    </span> </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div ng-hide="OrganizationRemove">
+                                                    <!-- <image class="form-control" ></image>  -->
+                                                    <!--
+                                                        <a ng-click="addContactItem()" ng-disabled="checked"><img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope " src="3ilAppBase01/Web/assets/images/Add.PNG" height="25px"> Add</a>-->
+                                                    <button type="submit" value=""><img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" height="25px" ng-click="subOrgContactForm.$valid&&addContactItem()"></button>
+                                                    <!--<i class="fa fa-plus" aria-hidden="true" ng-click="subOrgContactForm$valid&&addContactItem()"></i>--></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <table class="table">
+                                            <!--<thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Info</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>-->
+                                            <tbody>
+                                                <tr ng-repeat="contact in contactList">
+                                                    <td>{{contact.contactTypeTitle}}</td>
+                                                    <td>{{contact.contactItemInfo}}</td>
+                                                    <td><i class="fa fa-remove" aria-hidden="true" ng-click="deleteContact(contact.contactKey,contact.contactItemKey)"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" height="500px"> </div>
+                            <div class="row"> </div>
+                        </fieldset>
+                    </form>
+<div class="row">
+<h4 ng-click="OpenGeodiv()" ng-show="hideLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+<h4 ng-click="hideGeodiv()" ng-show="showLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+</div>
+
+                    <div class="row" ng-show="showGeo">
+                    <form name="subOrgGeoLocationForm" novalidate>
+                        <fieldset>
+                         
+                            <div class="row">
+                                <form>
+                                    <ng-map default-size="false" class="map" center="{{mapCenter}}" zoom="{{mapZoom}}" on-click="getpos($event)" id="subOrgMap">
+                                        <marker position="{{locationPointer}}" title="Hello World!" on-dragend="getpos($event)" animation="Animation.BOUNCE" animation="DROP" draggable="true" id="subOrgMarker"></marker>
+                                    </ng-map>
+                                    <div class="form-group">
+                                        <label class="control-label"> Longitude </label>
+                                        <input type="text" placeholder="" class="form-control" name="longitude" ng-model="subOrganization.address.longitude" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(subOrganization.address.longitude,subOrganization.address.latitude)"></i> <span class="error text-small block" ng-if="(subOrgGeoLocationForm.longitude.$dirty ||subOrgGeoLocationForm.$submitted) && subOrgGeoLocationForm.longitude.$invalid">    
+                       <p ng-show="subOrgGeoLocationForm.longitude.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    </span> </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Latitude </label>
+                                        <input type="text" placeholder="" class="form-control" name="latitude" ng-model="subOrganization.address.latitude" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(subOrganization.address.longitude,subOrganization.address.latitude)"></i> <span class="error text-small block" ng-if="(subOrgGeoLocationForm.latitude.$dirty ||subOrgGeoLocationForm.$submitted) && subOrgGeoLocationForm.latitude.$invalid">    
+                                    
+                       <p ng-show="subOrgGeoLocationForm.latitude.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    
+                                    </span> </div>
+                                    <!--
+        <div style="text-align:left">
+            Longitude:
+            <input type="text" ng-model="coordinates.long">
+            <br/> Latitude:
+            <input type="text" ng-model="coordinates.lat">
+            <br/>
+            <button type="submit" ng-click="update(long,lat)">Update</button>
+        </div>
+-->
+                                </form>
+                                <!--<single-geo-location></single-geo-location> -->
+                            </div>
+                        </fieldset>
+                    </form>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="form-group">
+                        <label> Logo </label>
+                        <div>
+                            <!-- <div flow-init flow-object="obj.flow">-->
+                            <div class="user-image">
+                                <div class="thumbnail margin-bottom-5">
+                                    <!--  <img src="assets/images/person-icon.png" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="$('#ID_profilePic').click()">--><img ng-src="{{profilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="document.getElementById('ID_profilePic').click()"> <img ng-src="{{profilePic2}}">
+                                    <!-- imageonload -->
+                                    <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="subOrganization.profilePic" base-sixty-four-input />
+                                    <!--
+                                        <img src="3ilAppBase01/Web/assets/images/Organization.jpg" alt="" ng-if="!obj.flow.files.length && noImage">
+                                        <img ng-src="3ilAppBase01/Web/assets/images/Organization.jpg" alt="" ng-if="!obj.flow.files.length && !noImage">
+                                        <img flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length">--></div>
+                            </div>
+                            <!--
+                                <div class="user-image-buttons-edit" ng-if="obj.flow.files.length">
+                                    <span class="btn btn-primary btn-file">
+					                                    <i class="fa fa-pencil"></i>
+					                                    <input type="file" flow-btn />
+					                                </span>
+                                    <span class="btn btn-danger" ng-click="obj.flow.cancel()"> <i class="fa fa-times"></i></span>
+                                </div>
+                                <div class="user-image-buttons-edit" ng-if="!obj.flow.files.length">
+                                    <span class="btn btn-primary btn-file">
+					                                    <i class="fa fa-pencil"></i>
+					                                    <input type="file" flow-btn />
+					                                </span>
+                                    <span class="btn btn-danger" ng-if="!noImage" ng-click="removeImage()"><i class="fa fa-times"></i> </span>
+                                </div>--></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form name="subOrgAddressForm">
+                        <fieldset>
+                            <legend> Address </legend>
+                            <div class="form-group">
+                                <label class="control-label"> Address </label>
+                                <textarea type="text" placeholder="" class="form-control" name="Address" ng-model="subOrganization.address.streetDetails"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> Country </label> <span class="clip-select">
+                                    
+                                     <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.countryId as country.countryName for country in countryList" ng-model="subOrganization.address.countryId" ng-change="getStates(subOrganization.address.countryId)"  name="countryname">
+                            <option value="">-select-</option>
+                        </select>
+                                              <!--  <select name="City" class="form-control">
+                                                    <option value="">--select--</option>
+                                                    <option value="1" selected>Vskp</option>
+                                                    <option value="2">VZM</option>
+                                                    <option value="3">SkLm</option>
+                                                    
+                                                </select> -->
+                                            </span> </div>
+                            <div class="form-group">
+                                <label class="control-label"> State </label> <span class="clip-select">
+                                    
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.stateId as state.stateName for state in stateList" ng-model="subOrganization.address.stateId" ng-change="getCheckAddressMode(subOrganization.address.stateId)"  name="statename">
+                            <option value="">-select-</option>
+
+                        </select>
+                                              <!--  <select name="City" class="form-control">
+                                                    <option value="">--select--</option>
+                                                    <option value="1" selected>Vskp</option>
+                                                    <option value="2">VZM</option>
+                                                    <option value="3">SkLm</option>
+                                                    
+                                                </select> -->
+                                            </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> District </label> <span class="clip-select">
+                                 <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.districtId as district.districtName for district in districtList" ng-change="getMandals(subOrganization.address.districtId)" ng-model="subOrganization.address.districtId"  name="districtname">
+                            <option value="">-select-</option>
+                                     </select>
+</span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> Mandal </label> <span class="clip-select">
+                                               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.mandalId as mandal.mandalName for mandal in mandalList" ng-change="getVillages(subOrganization.address.mandalId)" ng-model="subOrganization.address.mandalId"  name="mandalname">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> Village </label> <span class="clip-select">
+                                               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="subOrganization.address.villageId" ng-options="village.villageId as village.villageName for village in villageList"  name="villagename">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group" ng-show="!isGovtAddressMode">
+                                <label class="control-label"> City </label> <span class="clip-select">   
+                                     <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="city.cityId as city.cityName for city in citiesList" ng-model="subOrganization.address.cityId" ng-change=""  name="cityname">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group">
+                                <label class="control-label"> Pincode </label>
+                                <input type="text" placeholder="" class="form-control" name="pinCode" ng-model="subOrganization.address.pincode" ng-pattern="/^\d{6}$/"> <span class="error text-small block" ng-if="(subOrgAddressForm.pinCode.$dirty ||subOrgAddressForm.$submitted) && subOrgAddressForm.pinCode.$invalid">    
+                                    
+                       <p ng-show="subOrgAddressForm.pinCode.$error.pattern" style="color:#a94442">6 digit number only</p>
+                                    
+                                    </span> </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <center>
+                        <button type="button" ng-disabled="Form.$invalid||subOrgAddressForm.$invalid||subOrgGeoLocationForm.$invalid" ng-click="Form.$valid&&subOrgAddressForm.$valid&&subOrgGeoLocationForm.$valid&&addSubOrganization()" class="btn btn-wide btn-primary" ng-hide="Organizationupdate" v-pressable> {{buttonText}} </button>
+                        <button type="button" class="btn btn-wide btn-primary" ng-click="cancel()" v-pressable> Cancel </button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

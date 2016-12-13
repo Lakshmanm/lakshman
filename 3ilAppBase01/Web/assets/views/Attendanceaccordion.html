@@ -1,0 +1,68 @@
+<style>
+
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    button.accordion.active,
+    button.accordion:hover {
+        background-color: #ddd;
+    }
+</style>
+
+
+
+
+
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Attendance</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+    </div>
+    <!--  <uib-accordion close-others="true" class="accordion">-->
+    <div class="container-fluid container-fullw bg-white">
+    <uib-accordion close-others="true" class="accordion">
+        <!--   <uib-accordion-group heading="Basic Information" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" -->
+        <uib-accordion-group  is-open="true" is-disabled="false" ng-click="module={};module.studentInfo.flag = !module.studentInfo.flag">
+            
+             <uib-accordion-heading>
+               <h5><i class="fa fa-user" style="margin-right:10px; color:#337ab7"></i>Student Attendance</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.studentInfo.flag">
+                <student-New></student-New>
+            </div>
+        </uib-accordion-group>
+      
+
+         <uib-accordion-group ng-show="staffaccord" ng-click="module={};module.studentInfo.flag = !module.studentInfo.flag">
+                
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-users" style="margin-right:10px; color:#337ab7"></i>Staff Attendance</h5>
+                </uib-accordion-heading>
+                <div ng-if="module.studentInfo.flag">
+                    <staff-New></staff-New>
+                </div>
+            </uib-accordion-group>
+          
+
+
+    </uib-accordion>
+    </div>
+</body>
+
+</html>

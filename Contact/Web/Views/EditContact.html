@@ -1,0 +1,52 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: EditContact.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+    <uib-accordion close-others="oneAtATime">
+         <uib-accordion-group>
+                            </uib-accordion-group>
+                            <uib-accordion-group heading="{{labelsContact.contactHeading}}" is-open="true" is-disabled="status.isFirstDisabled">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> {{labelsContact.contactHeading}}  </h2>
+            </div>
+			 <div class="row"><div class="col-md-3">
+				 <div class="panel-body">
+					 <button type="submit" class="btn btn-default" ng-click="updateContact()">{{labelsContact.submit}}</button>
+				 </div>
+			 </div>
+		 </div>
+	 </uib-accordion-group>
+	 <uib-accordion-group heading="Include your next tab name and tag here. Click for instructions " is-open="false" is-disabled="disbaleTabs">
+	 <h2> modifiy the controller / include the directive in the app.js </h2>
+	 <h2> modify the sub Entityt list.html , new. html pages
+	 <h2> Include the tag here 
+	 </uib-accordion-group>
+	 </uib-accordion>
+			 </div>
+		 </div>
+	 </div>

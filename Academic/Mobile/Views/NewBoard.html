@@ -1,0 +1,56 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewBoard.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="Board List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsBoardList.boardHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsBoard.boardOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityBoard.boardOrganizationKey" name="boardOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsBoard.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityBoard.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addboard()">{{labelsboard.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

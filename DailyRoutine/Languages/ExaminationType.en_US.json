@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "examinationTypeTitle": "Examination Type Title",
+        "examinationTypeList": "Examination Type List",
+        "organization": "Organization",
+        "examinationLevel": "Examination Level",
+        "edit": "Edit",
+        "update": "Update",
+        "delete": "Delete",
+        "save": "Save"
+
+
+
+    },
+    "errors": {
+
+    }
+}

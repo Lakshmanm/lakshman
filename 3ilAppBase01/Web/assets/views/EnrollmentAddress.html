@@ -1,0 +1,202 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Award
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Sreelakshmi ch
+ Created Date       : 18-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date         Modified By            Description
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#/app/start">Start</a></li>
+        <li><a data-toggle="tab" href="#/app/enrolmentBasicInfo">Basic Info</a></li>
+        <li><a data-toggle="tab" href="#/app/enrollmentNumber/EnrollmentKey/:EnrollmentKey/PersonKey/:PersonKey">Enrollment No</a></li>
+        <li class="active"><a data-toggle="tab" href="#/app/entrollmentaddress">Address</a></li>
+        <li><a data-toggle="tab" href="#/app/guardian">Guardian</a></li>
+        <li><a data-toggle="tab" href="#/app/enrolmentEducation">Past Education</a></li>
+        <li><a data-toggle="tab" href="#/app/complete">Complete</a></li>
+    </ul>
+    <div class="container-fluid container-fullw bg-white">
+        <form name="AddressForm" novalidate>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':AddressForm.countryname.$dirty && AddressForm.countryname.$invalid, 'has-success':AddressForm.countryname.$valid}">
+                        <label>{{addressInfoLables.Country}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.countryId as country.countryName for country in countryList" ng-model="addressInfo.countryId" ng-change="getStates(addressInfo.countryId)" ng-required="true"
+                            name="countryname">
+                            <option value="">-select-</option>
+                        </select></span> <span class="error text-small block" ng-if="AddressForm.countryname.$dirty && AddressForm.countryname.$invalid" style="color:red">    
+                              <p ng-show="AddressForm.countryname.$invalid && AddressForm.countryname.$error.required">Country is required</p>
+                   
+                        </span> </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':AddressForm.statename.$dirty && AddressForm.statename.$invalid, 'has-success':AddressForm.statename.$valid}">
+                        <label>{{addressInfoLables.State}}<span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.stateId as state.stateName for state in stateList" ng-model="addressInfo.stateId" ng-change="getDistricts(addressInfo.stateId)" ng-required="true" name="statename">
+                            <option value="">-select-</option>
+                        </select> <span class="error text-small block" ng-if="AddressForm.statename.$dirty && AddressForm.statename.$invalid" style="color:red"> 
+                        <p ng-show="AddressForm.statename.$invalid && AddressForm.statename.$error.required">state is required</p>
+                    </span> </div>
+                </div>
+                <!-- 
+        <div class="col-lg-4 col-md-6">
+
+            <div class="panel-body">
+                <label>{{addressInfoLables.City}}<span style="color:red">*</span></label>
+               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="city.CityID as city.cityName for city in citiesList" ng-model="addressInfo.CityID" ng-change="" ng-required="true" name="cityname">
+                            <option value="">-select-</option>
+
+                        </select>
+                        <div class="padding" ng-if="AddressForm.cityname.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.cityname.$error.required ">city is required</p>
+                        </div>
+            </div>
+
+        </div> -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':AddressForm.districtname.$dirty && AddressForm.districtname.$invalid, 'has-success':AddressForm.districtname.$valid}">
+                        <label>{{addressInfoLables.District}}<span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.districtId as district.districtName for district in districtList" ng-change="getMandals(addressInfo.districtId)" ng-model="addressInfo.districtId" ng-required="true" name="districtname">
+                            <option value="">-select-</option>
+                        </select> <span class="error text-small block" ng-if="AddressForm.districtname.$dirty && AddressForm.districtname.$invalid" style="color:red"> 
+                <p ng-show="AddressForm.districtname.$invalid && AddressForm.districtname.$error.required">District is required</p>
+               </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':AddressForm.mandalname.$dirty && AddressForm.mandalname.$invalid, 'has-success':AddressForm.mandalname.$valid}">
+                        <label>{{addressInfoLables.Mandal}}<span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.mandalId as mandal.mandalName for mandal in mandalList" ng-change="getVillages(addressInfo.mandalId)" ng-model="addressInfo.mandalId" ng-required="true" name="mandalname">
+                            <option value="">-select-</option>
+                        </select> <span class="error text-small block" ng-if="AddressForm.mandalname.$dirty && AddressForm.mandalname.$invalid" style="color:red"> 
+                        <p ng-show="AddressForm.mandalname.$invalid && AddressForm.mandalname.$error.required">Mandal is required</p>
+                  
+
+                </span> </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':AddressForm.villagename.$dirty && AddressForm.villagename.$invalid, 'has-success':AddressForm.villagename.$valid}">
+                        <label>{{addressInfoLables.Village}}<span style="color:red">*</span></label>
+                        <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="addressInfo.villageId" ng-options="village.villageId as village.villageName for village in villageList" ng-required="true" name="villagename">
+                            <option value="">-select-</option>
+                        </select> <span class="error text-small block" ng-if="AddressForm.villagename.$dirty && AddressForm.villagename.$invalid" style="color:red"> 
+                        <p ng-show="AddressForm.villagename.$invalid && educationForm.villagename.$error.required">Village is required</p>
+                    </span> </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div>
+                        <label>{{addressInfoLables.LocationName}}</label>
+                        <input type="text" class="form-control" id="txtAutocomplete2" ng-maxlength="80" ng-minlength="3" name="location" ng-model="addressInfo.geoLocation">
+                        <div class="padding" ng-if="AddressForm.location.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.location.$error.minlength || AddressForm.location.$error.minlength"> Location should be minimum of 3 characters</p>
+                            <p ng-show="AddressForm.location.$error.maxlength || AddressForm.location.$error.maxlength"> Location should be maxmum of 80 characters</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--
+                <div class="col-lg-4 col-md-6">
+
+                    <div>
+                        <label>{{addressInfoLables.EntityDetails}}</label>
+                        <input type="text" class="form-control" ng-model="addressInfo.entityDetails" ng-maxlength="80" ng-minlength="3" name="entityDetails">
+                        <div class="padding" ng-if="AddressForm.entityDetails.$touched || AddressForm.$submitted" style="color:red">
+
+                            <p ng-show="AddressForm.entityDetails.$error.minlength || AddressForm.entityDetails.$error.minlength"> Details should be minimum of 3 characters</p>
+                            <p ng-show="AddressForm.entityDetails.$error.maxlength || AddressForm.entityDetails.$error.maxlength"> Details should be maxmum of 80 characters</p>
+                        </div>
+
+                    </div>
+                </div>
+-->
+                <div class="col-lg-4 col-md-6">
+                    <div>
+                        <label>{{addressInfoLables.StreetDetails}}</label>
+                        <input type="text" name="streetDetails" ng-maxlength="80" ng-minlength="3" class="form-control" ng-model="addressInfo.streetDetails">
+                        <div class="padding" ng-if="AddressForm.streetDetails.$touched || AddressForm.$submitted" style="color:red">
+                            <p ng-show="AddressForm.streetDetails.$error.minlength || AddressForm.streetDetails.$error.minlength"> Street Details should be minimum of 3 characters</p>
+                            <p ng-show="AddressForm.streetDetails.$error.maxlength || AddressForm.streetDetails.$error.maxlength"> Street Details should be maxmum of 80 characters</p>
+                        </div>
+                    </div>
+                </div>
+             <div class="col-lg-4 col-md-6">
+                 <div class="form-group" ng-class="{'has-error':AddressForm.pincode.$dirty && AddressForm.pincode.$invalid, 'has-success':AddressForm.pincode.$valid}">
+                    <label>{{addressInfoLables.Pincode}}<span class="symbol required"></span> </label> <span class="clip-select">
+                    <input type="text" name="pincode" ng-minlength="6" ng-pattern="/^[0-9]/" ng-maxlength="6" class="form-control" ng-model="addressInfo.Pincode" required></span>
+               <span class="error text-small block" ng-if="AddressForm.pincode.$dirty && AddressForm.pincode.$invalid" style="color:red"> 
+                <p ng-show="AddressForm.pincode.$invalid && AddressForm.pincode.$error.required">Pin Code required</p>
+                   <p ng-show="AddressForm.pincode.$error.pattern" style="color:#a94442">Enter Only number</p>
+                     <p ng-show="AddressForm.pincode.$error.minlength || AddressForm.pincode.$error.minlength"> PinCode should be minimum of 6 characters</p>
+                             <p ng-show="AddressForm.pincode.$error.maxlength || AddressForm.pincode.$error.maxlength"> PinCode should be maxmum of 6 characters</p>
+               </span>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div style="text-align:center">
+                    <!--    <button type="submit" class="btn btn-default" ng-show="save" ng-click="AllergyForm.$valid && addAddress()">{{addressInfoLables.Submit}}</button>
+ -->
+                    <button type="button" class="btn btn-wide btn-primary" ng-show="save" ng-disabled="AddressForm.$invalid" ng-click="AddressForm.$valid && addAddress()" v-pressable>{{addressInfoLables.Submit}}</button>
+                </div>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-wide btn-primary" ng-show="update" ng-click="updateAddress()">Update</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <br>
+            <div style="width:20%"> </div>
+            <table id="example" class="table table-stripped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>{{addressInfoLables.Country}}</th>
+                        <th>{{addressInfoLables.District}}</th>
+               
+                      
+                        <th>{{addressInfoLables.StreetDetails}}</th>
+                        <th>{{addressInfoLables.Pincode}}</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="address in addressDetails">
+                        <td> {{ address.country }} </td>
+                        <td> {{ address.district }} </td>
+                     
+                    
+                        <td> {{ address.streetDetails }} </td>
+                        <td> {{ address.pincode }} </td>
+                        <td> <a ng-click="editAddress(address.addressKey)"><i class="fa fa-pencil"></i></a> </td>
+                        <td><a ng-click="removeAddress(address.addressKey)"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div style="text-align:right">
+<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true">
+</dir-pagination-controls>
+</div>--></div>
+    </div>
+</div>

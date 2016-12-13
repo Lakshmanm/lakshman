@@ -1,0 +1,148 @@
+<style>
+
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    button.accordion.active,
+    button.accordion:hover {
+        background-color: #ddd;
+    }
+</style>
+
+
+
+
+
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+<div class="breadcrumb-wrapper">
+    <h4>Institute Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<div class="container-fluid container-fullw bg-white">
+    <!--  <uib-accordion close-others="true" class="accordion">-->
+    <uib-accordion close-others="true" class="accordion">
+        <!--   <uib-accordion-group heading="Basic Information" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" -->
+        <uib-accordion-group  is-open="true" is-disabled="false" ng-click="module={};module.basicInfo.flag = !module.basicInfo.flag">
+             <uib-accordion-heading>
+               <h5><i class="fa fa-university fa_icon" style="margin-right:10px; color:#337ab7"></i>Institute</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.basicInfo.flag">
+                <institute-New></institute-New>
+            </div>
+        </uib-accordion-group>
+
+
+
+        <div ng-if="show">
+
+            <uib-accordion-group ng-click="module={};module.Board.flag = !module.Board.flag">
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i>Board</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.Board.flag">
+                    <institute-Board></institute-Board>
+                </div>
+            </uib-accordion-group>
+
+            <div ng-if="board">
+            <uib-accordion-group  ng-click="module={};module.Group.flag = !module.Group.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-object-group fa_icon" style="margin-right:10px; color:#337ab7"></i>Group</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.Group.flag">
+                    <institute-Group></institute-Group>
+                </div>
+            </uib-accordion-group>
+
+            <uib-accordion-group  ng-click="module={};module.course.flag = !module.course.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i>Course</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.course.flag">
+                    <institute-Course></institute-Course>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group  ng-click="module={};module.Batch.flag = !module.Batch.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i>Batch</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.Batch.flag">
+                    <institute-Batch></institute-Batch>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group  ng-click="module={};module.term.flag = !module.term.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-money fa_icon" style="margin-right:10px; color:#337ab7"></i>Term</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.term.flag">
+                    <institute-Term></institute-Term>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group  ng-click="module={};module.electiveGroup.flag = !module.electiveGroup.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-book fa_icon" style="margin-right:10px; color:#337ab7"></i>Elective Group</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.electiveGroup.flag">
+                    <institute-Elective-Group></institute-Elective-Group>
+                </div>
+            </uib-accordion-group>
+
+            <uib-accordion-group ng-click="module={};module.examinationType.flag = !module.examinationType.flag">
+               <uib-accordion-heading>
+               <h5><i class="fa fa-file-text-o fa_icon" style="margin-right:10px; color:#337ab7"></i>Examination Type</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.examinationType.flag">
+                    <institute-Examination-Type></institute-Examination-Type>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group  ng-click="module={};module.examination.flag = !module.examination.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-file-text-o fa_icon" style="margin-right:10px; color:#337ab7"></i>Examination</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.examination.flag">
+                    <institute-Examination></institute-Examination>
+                </div>
+            </uib-accordion-group>
+
+            <uib-accordion-group ng-click="module={};module.subject.flag = !module.subject.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-book fa_icon" style="margin-right:10px; color:#337ab7"></i>Subject</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.subject.flag">
+                    <institute-Subject></institute-Subject>
+                </div>
+            </uib-accordion-group>
+            <uib-accordion-group ng-click="module={};module.leave.flag = !module.leave.flag">
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-book fa_icon" style="margin-right:10px; color:#337ab7"></i>Leave Type</h5>
+            </uib-accordion-heading>
+                <div ng-if="module.leave.flag">
+                    <institute-Leave></institute-Leave>
+                </div>
+            </uib-accordion-group>
+            </div>
+
+        </div>
+
+    </uib-accordion>
+    </div>
+</body>
+
+</html>

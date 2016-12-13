@@ -1,0 +1,22 @@
+{
+    "labels": {
+        "FirstName": "First Name",
+        "LastName": "Last Name",
+        "DateOfBirth": "Date Of Birth",
+        "Gender": "Gender",
+        "Male": "Male",
+        "Female": "Female",
+        "Phone": "Phone",
+        "BloodGroup": "Blood Group",
+        "Email": "Email",
+        "NewPassword": "Newp Password",
+        "ConfirmPassword": "Confirm Password",
+        "Submit": "Submit",
+        "ProfileSettings": "Profile Settings",
+        "Cancel": "Cancel"
+
+    },
+    "errors": {
+
+    }
+}

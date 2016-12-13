@@ -1,0 +1,12 @@
+{
+    "labels": {
+        "Country": "Country",
+        "State": "State",
+        "District": "District",
+        "Mandal": "Mandal",
+        "Village": "Village",
+        "Submit": "Submit",
+        "Location":"Location",
+        "LocationInfo": "Location"
+    }
+}

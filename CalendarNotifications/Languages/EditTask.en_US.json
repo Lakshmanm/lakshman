@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "TaskTitle": "Event Title",
+        "TaskDescription": "Event Description",
+        "StartDateTime": "Start Date Time",
+        "EndDateTime": "End Date Time",
+        "Calender": "Calendar",
+        "Status": "Status",
+        "Priority": "Priority",
+        "Update": "Update",
+        "Cancel": "Cancel"
+    },
+    "errors": {
+
+    }
+}

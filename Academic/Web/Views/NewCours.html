@@ -1,0 +1,98 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewCours.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="courseForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':courseForm.boardTitle.$dirty && courseForm.boardTitle.$invalid, 'has-success':courseForm.boardTitle.$valid}">
+                        <label>{{labelsCours.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entityCours.boardKey)" ng-model="entityCours.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="courseForm.$submitted && courseForm.boardTitle.$touched && courseForm.boardTitle.$dirty" class="error text-small block">
+                        <p ng-show="courseForm.boardTitle.$error.required">Board title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':courseForm.groupTitle.$dirty && courseForm.groupTitle.$invalid, 'has-success':courseForm.groupTitle.$valid}">
+                        <label>{{labelsCours.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3" class="form-control " ng-model="entityCours.groupKey" name="groupTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="courseForm.$submitted && courseForm.groupTitle.$touched && courseForm.groupTitle.$dirty" class="error text-small block">
+                        <p ng-show="courseForm.groupTitle.$error.required ">Group title is required.</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':courseForm.courseTitle.$dirty && courseForm.courseTitle.$invalid, 'has-success':courseForm.courseTitle.$valid}">
+                        <label>{{labelsCours.courseTitle}}<span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityCours.courseTitle" name="courseTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[ A-Za-z0-9_@./#&+-]*$/" ng-required="true"> <span ng-if="courseForm.courseTitle.$invalid && courseForm.courseTitle.$dirty" class="error text-small block">
+                        <p ng-show="courseForm.courseTitle.$error.required ">Course title  is required</p> <p ng-show="courseForm.courseTitle.$error.minlength">Course title minimum length is 3 characters</p> <p ng-show="courseForm.courseTitle.$error.maxlength">Course title maximum length is 80 characters</p> <p ng-show="courseForm.courseTitle.$error.pattern">Alphabets only</p> </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <center>
+                                <div ng-if="save">
+                                    <button type="submit" ng-disabled="courseForm.$invalid" class="btn btn-wide btn-primary" ng-show="save" ng-click="courseForm.$valid&&addCours()">{{labelsCours.submit}}</button>
+                                </div>
+                                <div ng-if="update">
+                                    <button type="submit" ng-disabled="courseForm.$invalid" class="btn btn-wide btn-primary" ng-show="update" ng-click="courseForm.$valid&&updateCours()">{{labelsCours.update}}</button>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="tblCoursList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsCours.course}}</th>
+                                    <th>{{labelsCours.board}}</th>
+                                    <th>{{labelsCours.group}}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityCours in coursCollection">
+                                    <td>{{ entityCours.courseTitle }}</td>
+                                    <td>{{ entityCours.boardTitle }}</td>
+                                    <td>{{ entityCours.groupTitle }}</td>
+                                    <td><a ng-click="editCours(entityCours.courseKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteCours(entityCours.courseKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+    </div>
+</div>

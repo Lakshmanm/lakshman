@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "LocationList": "Location List",
+        "Country": "Country",
+        "District": "District",
+        "Location": "Location",
+        "Edit":"Edit",
+        "Delete":"Delete"
+
+    }
+}

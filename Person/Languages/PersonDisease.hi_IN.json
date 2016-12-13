@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "diseaseType": "बीमारी के प्रकार",
+        "diseasePercentage": "बीमारी का प्रतिशत",
+        "identifiedDate": "पहचान की तिथि",
+        "diseaseDetails": "बीमारी का विवरण",
+        "documents": "दस्तावेजों",
+        "isHospitalized": "अस्पताल में भर्ती",
+        "hospitalName": "अस्पताल का नाम",
+        "isLifeThreatDisease": "जीवन खतरे रोग है",
+        "curedDate": "ठीक दिनांकe",
+        "remarks": "टिप्पणियों",
+        "submit": "जमा करें",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

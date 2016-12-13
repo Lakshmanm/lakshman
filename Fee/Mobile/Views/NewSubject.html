@@ -1,0 +1,74 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewSubject.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="Subject List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsSubjectList.subjectHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsSubject.subjectTitle}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entitySubject.subjectTitle" name="subjectTitle" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsSubject.termKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entitySubject.termKey" name="termKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsSubject.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entitySubject.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsSubject.isElective}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entitySubject.isElective" name="isElective" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsSubject.electiveGroupKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entitySubject.electiveGroupKey" name="electiveGroupKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsSubject.minimumTeachingHours}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entitySubject.minimumTeachingHours" name="minimumTeachingHours" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addsubject()">{{labelssubject.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

@@ -1,0 +1,123 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personHobby.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+sno# Ver        Date                Code Review By            Observations
+****************************************************************************-->
+
+<form name="hobbyForm" novalidate>
+
+    <h2>{{hobbyLabels.hobby}}</h2>
+    <label class="item item-input item-stacked-label">
+        <label>{{hobbyLabels.hobbyName}}<span style="color:red">*</span></label>
+        <input type="text" ng-model="hobby.hobbyName" name="title" required>
+        <div class="padding" ng-if="hobbyForm.title.$touched || hobbyForm.$submitted" style="color:red">
+            <p ng-show="hobbyForm.title.$error.required">Title is required</p>
+
+        </div>
+
+    </label>
+    <label class="item item-input item-select item-stacked-label">
+        <label>{{hobbyLabels.hobbyType}}<span style="color:red">*</span></label>
+        <select name="hobbyTypeID" style="width: 100%" ng-options="hobbyType.hobbyTypeId as hobbyType.hobbyTypeName for hobbyType in hobbyTypeList" ng-model="hobby.hobbyTypeId" required>
+
+            <option value="">--Select--</option>
+
+
+        </select>
+        <div class="padding" ng-if="hobbyForm.hobbyTypeId.$touched || hobbyForm.$submitted" style="color:red">
+            <p ng-show="hobbyForm.hobbyTypeId.$error.required ">Hobby type is required</p>
+
+        </div>
+    </label>
+
+
+    <label class="item item-input item-select item-stacked-label">
+        <label>{{hobbyLabels.proficiency}}<span style="color:red">*</span></label>
+        <select style="width: 100%" ng-options="prof.proficiency as prof.proficiencyName for prof in proficiencyList" ng-model="hobby.proficiency" name="proficiency" required>
+
+            <option value="">--Select--</option>
+
+
+        </select>
+        <div class="padding" ng-if="hobbyForm.proficiency.$touched || hobbyForm.$submitted" style="color:red">
+            <p ng-show="hobbyForm.proficiency.$error.required ">Proficiency is required</p>
+
+        </div>
+    </label>
+
+    <label class="item item-input item-stacked-label">
+        <label>{{hobbyLabels.details}}</label>
+        <textarea id="console" class="form-control" ng-model="hobby.details" rows="3" name="details"></textarea>
+        <div class="padding" ng-if="hobbyForm.details.$touched || hobbyForm.$submitted" style="color:red">
+            <p ng-show="hobbyForm.details.$error.required ">Details is required</p>
+
+        </div>
+    </label>
+
+    <label class="item item-input item-stacked-label">
+        <div style="text-align:center">
+            <button type="submit" ng-click="hobbyForm.$valid&&saveHobby()" class="btn btn-primary">{{hobbyLabels.submit}}</button>
+        </div>
+    </label>
+</form>
+<br/>
+
+<div style="text-align:center">
+    <table class="table table-bordered" style="font-size:small">
+        <thead>
+            <tr>
+                <th>{{hobbyLabels.hobbyName}}</th>
+                <th>{{hobbyLabels.hobbyType}}</th>
+
+                <th>{{hobbyLabels.proficiency}}</th>
+                <th>{{hobbyLabels.edit}}</th>
+                <th>{{hobbyLabels.delete}}</th>
+
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="hobby in hobbyList">
+                <td>{{hobby.hobbyName}}</td>
+                <td>{{hobby.hobbyTypeName}}</td>
+
+                <td>
+                    <div ng-if="hobby.proficiency==1">Beginner</div>
+                    <div ng-if="hobby.proficiency==2">Intermediate</div>
+                    <div ng-if="hobby.proficiency==3">Expertise</div>
+
+
+                </td>
+
+                <td>
+                    <a ng-click="editHobby(hobby.referenceKey)"><i class="fa fa-pencil"></i>Edit</a></td>
+
+                <td><a ng-click="deleteHobby(hobby.referenceKey)"><i class="fa fa-trash"></i>Delete</a></td>
+
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

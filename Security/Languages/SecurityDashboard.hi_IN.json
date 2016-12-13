@@ -1,0 +1,15 @@
+
+{
+    "labels": {
+         "ChangePassword": "पासवर्ड बदलें",
+        "LogOut": "लोग आउट",
+         "Admin": "व्यवस्थापक",
+         "Dashboard": "डैशबोर्ड",
+         "Profile": "प्रोफाइल"
+        
+           },
+    "errors": {
+        
+        }
+    
+}

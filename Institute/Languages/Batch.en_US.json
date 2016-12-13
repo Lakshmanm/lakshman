@@ -1,0 +1,29 @@
+{
+    "labels": {
+        "yearTitle": "Academic Year Title"
+        , "batchTitle": "Batch Title"
+        , "boardTitle": "Board Title"
+        , "groupTitle": "Group Title"
+        , "courseTitle": "Course Title"
+        , "noOfSeats": "No Of Seats"
+        , "startHours": "Start Time Hours"
+        , "startMin": "Start Time Mins"
+        , "endHours": "End Time Hours"
+        , "endMin": "End Time Mins"
+        , "instanceOrganizationKey": "Instance Organization Key"
+        , "submit": "Save"
+        , "update": "Update"
+        , "startDate": "Batch Start Date"
+        , "endDate": "Batch End Date"
+        , "folderKey": "Folder Key"
+        , "sunday": "Sunday"
+        , "monday": "Monday"
+        , "tuesday": "Tuesday"
+        , "wednesday": "Wednesday"
+        , "thursday": "Thursday"
+        , "friday": "Friday"
+        , "saturday": "Saturday"
+        , "educationType": "Education Type"
+    }
+    , "errors": {}
+}

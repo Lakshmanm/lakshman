@@ -1,0 +1,330 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: StudentLeaveRequestList.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Student Leaves List</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <form name="LeaveForm" novalidate>
+        <div class="row">
+
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+
+            <div class="row">
+
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteKey.$dirty && LeaveForm.InstituteKey.$invalid, 'has-success':LeaveForm.InstituteKey.$valid}">
+                            <label class="control-label">
+                          Institute<span class="symbol required"></span> </label> <span class="clip-select">
+                     
+                        <select class="js-states form-control" style="width: 100%" ng-required="true" ng-options="item.InstituteKey as item.OrganizationName for item in instituteList" ng-model="leave.InstituteKey" ng-disabled="studentLeaveInstitute" ng-change="getBoards()" name="InstituteKey">
+                                        <option value="" >-select-</option>
+                                        </select>
+
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.InstituteKey.$dirty && LeaveForm.InstituteKey.$invalid">    
+                        <span ng-if="LeaveForm.InstituteKey.$invalid && LeaveForm.InstituteKey.$error.required ">Institute  is required.</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+
+
+
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.AcademicYearName.$dirty && LeaveForm.AcademicYearName.$invalid, 'has-success':LeaveForm.AcademicYearName.$valid}">
+                            <label class="control-label">
+                          Academic Year<span class="symbol required"></span> </label> <span class="clip-select">
+                      
+                        <select class="form-control" name="AcademicYearName" ng-required="true" ng-options="academic.AcademicYearKey as academic.AcademicYearName for academic in yearCollection" ng-model="leave.AcademicYearKey">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.AcademicYearName.$dirty && LeaveForm.AcademicYearName.$invalid">
+                        <span ng-if="LeaveForm.AcademicYearName.$invalid && LeaveForm.AcademicYearName.$error.required ">Academic Year is required.</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteBoardKey.$dirty && LeaveForm.InstituteBoardKey.$invalid, 'has-success':LeaveForm.InstituteBoardKey.$valid}">
+                            <label class="control-label">
+                            Type Of Board<span class="symbol required"></span> </label> <span class="clip-select">
+                       
+                        <select class="form-control" ng-required="true" ng-options="Board.InstituteBoardKey as Board.BoardTitle for Board in boardCollection" name="InstituteBoardKey" ng-change="getGroup()" ng-model="leave.BoardKey">
+                                          <option value=""  selected>---Select---</option>  
+                                        </select>
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.InstituteBoardKey.$dirty && LeaveForm.InstituteBoardKey.$invalid">
+
+                        <span ng-if="LeaveForm.InstituteBoardKey.$invalid && LeaveForm.InstituteBoardKey.$error.required ">Board is required.</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteGroupKey.$dirty && LeaveForm.InstituteGroupKey.$invalid, 'has-success':LeaveForm.InstituteGroupKey.$valid}">
+                            <label class="control-label">
+                            Group/Stream<span class="symbol required"></span> </label> <span class="clip-select">
+
+                        <select class="form-control" ng-required="true" name="InstituteGroupKey" ng-options="group.InstituteGroupKey as group.GroupTitle for group in groupCollection" ng-model="leave.GroupKey" ng-change="getCourses()">
+                                            <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.InstituteGroupKey.$dirty && LeaveForm.InstituteGroupKey.$invalid">
+                        <span ng-if="LeaveForm.InstituteGroupKey.$invalid && LeaveForm.InstituteGroupKey.$error.required ">Group/Stream is required.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            
+
+            <div class="row">
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteCourseKey.$dirty && LeaveForm.InstituteCourseKey.$invalid, 'has-success':LeaveForm.InstituteCourseKey.$valid}">
+                            <label class="control-label">
+                            Class/Course<span class="symbol required"></span> </label> <span class="clip-select">
+                        <select class="form-control" ng-required="true" name="InstituteCourseKey" ng-options="course.InstituteCourseKey as course.CourseTitle for course in coursCollection" ng-model="leave.CourseKey" ng-change="getBatches()">
+                                           <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.InstituteCourseKey.$dirty && LeaveForm.InstituteCourseKey.$invalid">
+                        <span ng-if="LeaveForm.InstituteCourseKey.$invalid && LeaveForm.InstituteCourseKey.$error.required ">Class/Course is required.</span>
+                            </span>
+                        </div>
+                    </div>
+                
+
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.InstituteBatchKey.$dirty && LeaveForm.InstituteBatchKey.$invalid, 'has-success':LeaveForm.InstituteBatchKey.$valid}">
+                            <label class="control-label">
+                                            Batch/Section <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                        <select class="form-control" ng-required="true" name="InstituteBatchKey" ng-options="item.InstituteBatchKey as item.BatchName for item in Sections" ng-model="leave.BatchKey">
+                                              <option value=""  selected>---Select---</option>
+                                            
+                                        </select>
+</span>
+                            <span class="error text-small block" ng-if="LeaveForm.InstituteBatchKey.$dirty && LeaveForm.InstituteBatchKey.$invalid">
+                        <span ng-if="LeaveForm.InstituteBatchKey.$invalid && LeaveForm.InstituteBatchKey.$error.required ">Batch/Section is required.</span>
+                            </span>
+
+                        </div>
+
+                    </div>
+                
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.Middlename.$dirty && LeaveForm.Middlename.$invalid, 'has-success':LeaveForm.Middlename.$valid}">
+                            <label class="control-label">
+                                            Student Number </label> <span class="clip-select">
+                                         
+
+
+                        <input type="text" ng-pattern="/^[0-9]{1,7}$/" class="form-control" name="Middlename" ng-model="leave.StudentNumber">
+                        </span>
+                            <span class="error text-small block" ng-if="LeaveForm.Middlename.$dirty && LeaveForm.Middlename.$invalid">
+                        <span ng-if="LeaveForm.Middlename.$error.pattern ">   Student Number accepts only Numbers upto 7 digits.</span>
+                            </span>
+
+
+                        </div>
+
+                    </div>
+                
+
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.startdate.$dirty && LeaveForm.startdate.$invalid, 'has-success':LeaveForm.startdate.$valid}">
+                            <label class="control-label">
+                                            Start Date <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                        <input type="date" class="form-control" ng-required="true" name="startdate" ng-model="leave.startdate">
+                      </span> <span class="error text-small block" ng-if="LeaveForm.startdate.$dirty && LeaveForm.startdate.$invalid">
+
+                        <span ng-if="LeaveForm.startdate.$invalid && LeaveForm.startdate.$error.required ">Start Date is required.</span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                
+            </div>
+
+            <div class="row">
+
+                    <div class="col-md-3">
+                <div class="form-group" ng-class="{'has-error':LeaveForm.Enddate.$dirty && LeaveForm.Enddate.$invalid, 'has-success':LeaveForm.Enddate.$valid}">
+                            <label class="control-label">
+                                            End Date <span class="symbol required"></span> </label> <span class="clip-select">
+
+
+                        <input type="date" class="form-control" ng-required="true" min="{{leave.startdate | date:'yyyy-MM-dd'}}" name="Enddate" ng-model="leave.Enddate">
+                      </span> <span class="error text-small block" ng-if="LeaveForm.Enddate.$dirty && LeaveForm.Enddate.$invalid">
+
+                        <span ng-if="LeaveForm.Enddate.$invalid && LeaveForm.Enddate.$error.required ">End Date is required.</span>
+                            <span ng-if="LeaveForm.Enddate.$invalid && LeaveForm.Enddate.$error.min ">End Date is not a valid date.</span>
+                            </span>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <center>
+                <button type="button" class="btn btn-wide btn-primary" ng-disabled="LeaveForm.$invalid" ng-click="LeaveForm.$valid && getAllLeaveRequests()" v-pressable>
+                            Show
+                        </button>
+
+
+            </center>
+        </div>
+    </form>
+    <div class="col-md-12">
+    </div>
+
+    <div class="col-md-12" ng-show="grid">
+
+        <div class="panel panel-white">
+            <div class="panel-body">
+
+
+                <table class="table table-hover" id="sample-table-1">
+                    <thead>
+                        <tr>
+                            <!-- <th>S.No</th> -->
+                            <th style="cursor: pointer" ng-click="sortData('StudentName')">Student Name
+                                <div ng-class="getSortClass('StudentName')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('RequestedDate')">Requested Date
+                                <div ng-class="getSortClass('RequestedDate')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('From')">From
+                                <div ng-class="getSortClass('From')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('To')">To
+                                <div ng-class="getSortClass('To')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('Reason')">Reason
+                                <div ng-class="getSortClass('Reason')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('RequestMode')">Request Mode
+                                <div ng-class="getSortClass('RequestMode')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('ReceivedBy')">Received By
+                                <div ng-class="getSortClass('ReceivedBy')"></div>
+                            </th>
+                            <th style="cursor: pointer" ng-click="sortData('Actions')">Actions
+                                <div ng-class="getSortClass('Actions')"></div>
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="S in leaveCollection | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+
+                            <!--   <td>{{p.id}}</td>-->
+                            <td>{{S.StudentName}}</td>
+                            <td>{{ (S.requesteddate)| date : "dd/MM/yy" }}</td>
+                            <td>{{ (S.startDateTime)| date : "dd/MM/yy" }}</td>
+                            <td>{{ (S.endDateTime)| date : "dd/MM/yy" }}</td>
+                            <td>{{S.studentLeaveReasonTitle}}</td>
+                            <td>{{S.studentLeaveRequestModeTitle}}</td>
+                            <td>{{S.studentLeaveRequestReceivedByTitle}}</td>
+
+
+
+                            <!--  <td>{{p.DateOfBirth | date :  "dd.MM.yyyy"}}</td>-->
+                            <td>
+                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                    <!--<a ng-show="A" href="#/app/app/child/{{child.referenceKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Basic Information"><img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"></a>-->
+
+                                    <!-- 
+                                            <a href="#/app/student/StudentKey/{{S.StudentKey}}/PersonKey/{{S.PersonKey}}" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="Edit"><i class="fa fa-pencil"></i></a> -->
+
+
+
+
+                                    <a ng-hide="{{S.deletehide}}" href ng-click="deleteStudentLeaveRequest(S.studentLeaveRequestKey,S.startDateTime)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="Remove" ng-hide="stafflistRemove"><i class="fa fa-times fa fa-white"></i></a>
+
+                                </div>
+
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-2" ng-hide="((leaveCollection | filter:search).length<=10)||((leaveCollection | filter:search).length==undefined)">
+                    <div ng-init="pageSize=10 ">
+                        <label for="search">Records per page:</label>
+                        <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12" style="text-align:left">
+                    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

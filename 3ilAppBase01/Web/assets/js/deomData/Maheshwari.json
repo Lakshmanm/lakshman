@@ -1,0 +1,428 @@
+{
+    childId: 1
+    , firstName: 'Maheshwari'
+    , middleName: ''
+    , lastName: ''
+    , contactNo: '9618492447'
+    , dateOfBirth: '2015-01-01'
+    , age: 1
+    , gender: 'male'
+    , cityOrTown: 'vizag'
+    , religion: 'Hindu'
+    , nationality: 'Indian'
+    , aadhaarNumber: '265385644663'
+    , contacts: [
+        {
+            contactTypeId: 1
+            , contactType: 'email'
+            , contact: 'swaroop@gmail.com'
+    }
+  ]
+    , image: '3ilAppBase01/Web/assets/images/child1.jpg'
+    , addressLine1: ''
+    , addressLine2: ''
+    , districtId: 1
+    , district: 'AP'
+    , stateId: 1
+    , state: 'Indian'
+    , pinCode: '530026'
+    , familyDetails: [
+        {
+            familyDetailsId: 1
+            , firstName: 'prasanth'
+            , middleName: ''
+            , lastName: 'kotti'
+            , contact: '9876543210'
+            , relationTypeId: 1
+            , relationType: 'Father'
+    }
+        , {
+            familyDetailsId: 2
+            , firstName: 'sravani'
+            , middleName: ''
+            , lastName: 'kotti'
+            , contact: '9885965782'
+            , relationTypeId: 2
+            , relation: 'Mother'
+    }
+  ]
+    , familyHistory: [
+        {
+            conditionTypeId: 1
+            , conditionType: 'Cancer'
+            , relationSideTypeId: 1
+            , relationSideType: 'Father Side'
+            , comments: ''
+    }
+        , {
+            conditionTypeId: 2
+            , conditionType: 'BloodPressure'
+            , relationSideTypeId: 2
+            , relationSideType: 'Mother Side'
+            , comments: ''
+    }
+  ]
+    , surgicalHistory: [
+        {
+            surgeryTypeId: 1
+            , surgeryType: 'Knee Surgery'
+            , comments: ''
+            , file: ''
+            , dateOfSurgery: ''
+    }
+        , {
+            surgeryTypeId: 2
+            , surgeryType: 'Shoulder Surgery'
+            , comments: ''
+            , file: ''
+            , dateOfSurgery: ''
+    }
+  ]
+    , allergies: [
+        {
+            allergyTypeId: 1
+            , allergyType: 'Skin Allegrgy'
+            , fromType: 'Days'
+            , fromCount: '20'
+            , comments: ''
+    }
+    , 
+        , {
+            allergyTypeId: 2
+            , allergyType: 'Dust Allergey'
+            , fromType: 'Months'
+            , fromCount: '2'
+            , comments: ''
+    }
+  ]
+    , immunizationVaccinationHistory: [
+        {
+            immunizationTypeId: 1
+            , immunizationType: 'Hep B'
+            , ageOfChild: ''
+            , dosage: ''
+            , dosageUnit: ''
+            , dueDate: ''
+            , givenOn: ''
+            , givenBy: ''
+            , batchNumber: ''
+    }
+        , {
+            immunizationTypeId: 2
+            , immunizationType: 'OPV'
+            , ageOfChild: ''
+            , dosage: ''
+            , dosageUnit: ''
+            , dueDate: ''
+            , givenOn: ''
+            , givenBy: ''
+            , batchNumber: ''
+    }
+  ]
+    , screenings: [
+        {
+            screeningId: 1
+            , vitals: {
+                height: {
+                    value1: ''
+                    , value2: ''
+                }
+                , weight: {
+                    value1: ''
+                    , value2: ''
+                }
+                , mUAC: {
+                    value1: ''
+                    , value2: ''
+                }
+                , headCircumferrence: {
+                    value1: ''
+                    , value2: ''
+                }
+                , temperature: {
+                    value1: ''
+                    , value2: ''
+                }
+                , hemoglobin: {
+                    value1: ''
+                    , value2: ''
+                }
+            }
+            , immunizationVaccination: [
+                {
+                    immunizationVaccinationId: 1
+                    , immunizationTypeId: 1
+                    , immunizationType: 'Hep B'
+                    , dose: '1'
+                    , ageOfChild: ''
+                    , dosage: ''
+                    , dosageUnit: ''
+                    , dueDate: ''
+                    , givenOn: ''
+                    , givenBy: ''
+                    , batchNumber: ''
+        }
+                , {
+                    immunizationVaccinationId: 2
+                    , immunizationTypeId: 2
+                    , immunizationType: 'OPV'
+                    , dose: '1'
+                    , ageOfChild: ''
+                    , dosage: ''
+                    , dosageUnit: ''
+                    , dueDate: ''
+                    , givenOn: ''
+                    , givenBy: ''
+                    , batchNumber: ''
+        }
+      ]
+            , symptoms: [
+                {
+                    symptonId: 1
+                    , sympton: 'itching of eyes'
+                    , comments: ''
+        }
+                , {
+                    symptonId: 2
+                    , sympton: 'itching of eyes 2'
+                    , comments: ''
+        }
+      ]
+            , investigations: [
+                {
+                    investigationId: 1
+                    , condition: ''
+                    , typeOfSampleId: 1
+                    , typeOfSample: 'Blood'
+                    , initiatedOn: '2016-23-06'
+                    , file: ''
+        }
+                , {
+                    investigationId: 2
+                    , condition: ''
+                    , typeOfSampleId: 1
+                    , typeOfSample: 'Blood'
+                    , initiatedOn: '2016-23-06'
+                    , file: ''
+        }
+      ]
+            , diagnosis: [
+                {
+                    diagnosisId: 1
+                    , healthCondition: ''
+        }
+                , {
+                    diagnosisId: 2
+                    , healthCondition: ''
+        }
+      ]
+            , medications: [
+                {
+                    medicationId: 1
+                    , drugTypeId: 1
+                    , drugType: 'Tablets'
+                    , drugName: 'Pracetmol'
+                    , dosage: '500'
+                    , dosageUnit: 'mg'
+                    , duration: '2'
+                    , durationType: 'Days'
+                    , frequency: [
+                        {
+                            morning: true
+                            , afternoon: false
+                            , evening: false
+                            , night: false
+            }
+          ]
+                    , quantity: 2
+                    , instructions: ''
+        }
+                , {
+                    medicationId: 2
+                    , drugTypeId: 2
+                    , drugType: 'Syrup'
+                    , drugName: ''
+                    , dosage: '500'
+                    , dosageUnit: 'ml'
+                    , duration: '2'
+                    , durationType: 'Days'
+                    , frequency: [
+                        {
+                            morning: true
+                            , afternoon: false
+                            , evening: false
+                            , night: false
+            }
+          ]
+                    , quantity: 2
+                    , instructions: ''
+        }
+      ]
+            , recommendations: [
+                {
+                    recommandId: 1
+                    , recommandForId: 1
+                    , recommandFor: ''
+                    , comments: ''
+        }
+      ]
+            , isfollowUp: true
+            , followUpAfterId: 1
+            , followUpAfter: '1Day'
+            , isRefer: true
+            , referTo: ''
+    }
+        , {
+            screeningId: 2
+            , vitals: {
+                height: {
+                    value1: ''
+                    , value2: ''
+                }
+                , weight: {
+                    value1: ''
+                    , value2: ''
+                }
+                , mUAC: {
+                    value1: ''
+                    , value2: ''
+                }
+                , headCircumferrence: {
+                    value1: ''
+                    , value2: ''
+                }
+                , temperature: {
+                    value1: ''
+                    , value2: ''
+                }
+                , hemoglobin: {
+                    value1: ''
+                    , value2: ''
+                }
+            }
+            , immunizationVaccination: [
+                {
+                    immunizationVaccinationId: 1
+                    , immunizationTypeId: 1
+                    , immunizationType: 'Hep B'
+                    , dose: '1'
+                    , ageOfChild: ''
+                    , dosage: ''
+                    , dosageUnit: ''
+                    , dueDate: ''
+                    , givenOn: ''
+                    , givenBy: ''
+                    , batchNumber: ''
+        }
+                , {
+                    immunizationVaccinationId: 2
+                    , immunizationTypeId: 2
+                    , immunizationType: 'OPV'
+                    , dose: '1'
+                    , ageOfChild: ''
+                    , dosage: ''
+                    , dosageUnit: ''
+                    , dueDate: ''
+                    , givenOn: ''
+                    , givenBy: ''
+                    , batchNumber: ''
+        }
+      ]
+            , symptoms: [
+                {
+                    symptonId: 1
+                    , sympton: 'itching of eyes'
+                    , comments: ''
+        }
+                , {
+                    symptonId: 2
+                    , sympton: 'itching of eyes 2'
+                    , comments: ''
+        }
+      ]
+            , investigations: [
+                {
+                    investigationId: 1
+                    , condition: ''
+                    , typeOfSampleId: 1
+                    , typeOfSample: 'Blood'
+                    , initiatedOn: '2016-23-06'
+                    , file: ''
+        }
+                , {
+                    investigationId: 2
+                    , condition: ''
+                    , typeOfSampleId: 1
+                    , typeOfSample: 'Blood'
+                    , initiatedOn: '2016-23-06'
+                    , file: ''
+        }
+      ]
+            , diagnosis: [
+                {
+                    diagnosisId: 1
+                    , healthCondition: ''
+        }
+                , {
+                    diagnosisId: 2
+                    , healthCondition: ''
+        }
+      ]
+            , medications: [
+                {
+                    medicationId: 1
+                    , drugTypeId: 1
+                    , drugType: 'Tablets'
+                    , drugName: 'Pracetmol'
+                    , dosage: '500'
+                    , dosageUnit: 'mg'
+                    , duration: '2'
+                    , durationType: 'Days'
+                    , frequency: [
+                        {
+                            morning: true
+                            , afternoon: false
+                            , evening: false
+                            , night: false
+            }
+          ]
+                    , quantity: 2
+                    , instructions: ''
+        }
+                , {
+                    medicationId: 2
+                    , drugTypeId: 2
+                    , drugType: 'Syrup'
+                    , drugName: ''
+                    , dosage: '500'
+                    , dosageUnit: 'ml'
+                    , duration: '2'
+                    , durationType: 'Days'
+                    , frequency: [
+                        {
+                            morning: true
+                            , afternoon: false
+                            , evening: false
+                            , night: false
+            }
+          ]
+                    , quantity: 2
+                    , instructions: ''
+        }
+      ]
+            , recommendations: [
+                {
+                    recommandId: 1
+                    , recommandForId: 1
+                    , recommandFor: ''
+                    , comments: ''
+        }
+      ]
+            , isfollowUp: true
+            , followUpAfterId: 1
+            , followUpAfter: '1Day'
+            , isRefer: true
+            , referTo: ''
+    }
+  ]
+}

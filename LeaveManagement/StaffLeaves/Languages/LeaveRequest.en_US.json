@@ -1,0 +1,32 @@
+{
+    "labels": {
+        "requestDate": "Leave Requested Date",
+        "from": "Leave From",
+        "to": "Leave To",
+        "noOfDays": "No Of Days",
+        "approver": "Approver",
+        "status": "Status",
+        "view": "View",
+          "leaveRequestHeading": "Leave Request",
+        "startDateTime": "Start Date",
+        "endDateTime":"End Date",
+       "approverComments":"Approver Comments",
+        "noOfLeave": "No Of Leave",
+        "leaveType": "Leave Type",
+         "available": "Available",
+         "used": "Used",
+         "balance": "Balance",
+        "halfDay":"Half Day",
+        "reason":"Reason For Leave",
+        "folderKey":"Upload Folder",
+        "cancel":"Cancel",
+      "date":"Date",
+        "action":"Action",
+        "user":"User",
+        "submit":"Submit"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,168 @@
+
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person sports
+ Type               : html 
+ Description        : html page for person sports
+ References         :
+ Author             : Sreelakshmi ch
+ Created Date       : 20-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+SNo. Ver Date         Modified By    Description
+1    1.0 29-04-2016   Kiranmai L     Define refrenceKeys
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+    <div class="panel-white">
+<div class="col-lg-12">
+<h2>{{sportLabels.sports}}</h2></div>
+
+<form name="sportsForm" novalidate>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{sportLabels.sportName}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="sport.sportName" name="title" required>
+                <div class="padding" ng-if="sportsForm.title.$touched || sportsForm.$submitted" style="color:red">
+                    <p ng-show="sportsForm.title.$error.required "> Title is mandatory</p>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{sportLabels.curricularActivityType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="sportss.cirricularActivityTypeID as sportss.cirricularActivityTypeName for sportss in CurricularActivityTypeList" ng-model="sport.cirricularActivityTypeId" name="CurricularActivityType" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="sportsForm.CurricularActivityType.$touched || sportsForm.$submitted" style="color:red">
+                    <p ng-show="sportsForm.CurricularActivityType.$error.required "> Curricular activity type is mandatory</p>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{sportLabels.sportType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="sporttypes.sportTypeId as sporttypes.sportTypeName for sporttypes in sportTypeList" ng-model="sport.sportTypeID" name="sportType" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="sportsForm.sportType.$touched || sportsForm.$submitted" style="color:red">
+                    <p ng-show="sportsForm.sportType.$error.required "> Sport type is mandatory</p>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{sportLabels.proficiency}}</label>
+                <select class="form-control" style="width: 100%" ng-options="Proficiencys.proficiencyId as Proficiencys.proficiencyName for Proficiencys in proficiencyList" ng-model="sport.proficiencyId" name="proficiency" >
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+              <!--   <div class="padding" ng-if="sportsForm.proficiency.$touched || sportsForm.$submitted" style="color:red">
+                    <p ng-show="sportsForm.proficiency.$error.required ">Proficiency is required</p>
+
+                </div> -->
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{sportLabels.highestLevelPlay}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="highestLevels.highestLevelPlayId as highestLevels.highestLevelPlayName for highestLevels in highestLevelPlayList" ng-model="sport.highestLevelPlayId" name="highestLevelPlay" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="sportsForm.highestLevelPlay.$touched || sportsForm.$submitted" style="color:red">
+                    <p ng-show="sportsForm.highestLevelPlay.$error.required "> Highest level play is mandatory</p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="sportsForm.$valid&&saveSport()" class="btn btn-primary">{{sportLabels.submit}}</button>
+        </div>
+    </div>
+
+    <br/>
+    <div class="row">
+
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>{{sportLabels.sportName}}</th>
+            <th>{{sportLabels.curricularActivityType}}</th>
+
+                    <th>{{sportLabels.sportType}}</th>
+                    <th>{{sportLabels.edit}}</th>
+                    <th>{{sportLabels.delete}}</th>
+
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="sport in sportsList">
+                    <td>{{sport.sportName}}</td>
+                    <td>{{sport.cirricularActivityTypeName}}</td>
+                    <td>{{sport.sportTypeName}}</td>
+
+<td>
+                        <a ng-click="getSportById(sport.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td><a ng-click="deleteSport(sport.referenceKey)" ><i class="fa fa-trash"></i></a></td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</form>
+</div>
+</div>

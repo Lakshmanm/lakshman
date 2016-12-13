@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "disease":"వ్యాధి",
+        "diseaseType": "వ్యాధి టైపు",
+        "diseasePercentage": "వ్యాధి శాతం",
+        "identifiedDate": "గుర్తించారు తేదీ",
+        "diseaseDetails": "వ్యాధి వివరాలు",
+        "documents": "పత్రాలు",
+        "isHospitalized": "ఆసుపత్రి",
+        "hospitalName": "ఆసుపత్రి పేరు",
+        "isLifeThreatDisease": "లైఫ్ థ్రెట్ వ్యాధి",
+        "curedDate": "నయమవుతుంది తేదీ",
+        "remarks": "వ్యాఖ్యలు",
+        "submit": "సమర్పించండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించు"
+    },
+    "errors": {
+
+    }
+}

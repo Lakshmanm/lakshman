@@ -1,0 +1,18 @@
+{
+    "hobbyLabels": {
+        "hobbyName": "Hobby Name",
+        "hobbyType": "Hobby Type",
+        "details": "Details",
+        "proficiency": "Proficiency",
+         "submit": "Submit",
+          "edit": "Edit",
+           "delete": "Delete",
+"hobby":"Hobby"
+
+
+      
+    },
+    "errors": {
+
+    }
+}

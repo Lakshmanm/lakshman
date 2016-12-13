@@ -1,0 +1,17 @@
+[
+    {
+        "LanguageID": 1,
+        "Language": "English",
+        "LanguageCulture": "en_US"
+                 },
+    {
+        "LanguageID": 2,
+        "Language": "हिंदी",
+        "LanguageCulture": "hi-IN"
+                 },
+    {
+        "LanguageID": 3,
+        "Language": "తెలుగు",
+        "LanguageCulture": "te_IN"
+                 }
+ ]

@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "subjectHeading": "New Subject",
+        "subjectTitle": "Subject Title",
+        "termKey": "Term Key",
+        "instanceOrganizationKey": "Instance Organization Key",
+        "Submit": "save",
+        "Update": "update",
+        "isElective": "is Elective",
+        "electiveGroupKey": "Elective Group Key",
+        "minimumTeachingHours": "Minimum Teaching Hours"
+
+    },
+    "errors": {
+
+    }
+}

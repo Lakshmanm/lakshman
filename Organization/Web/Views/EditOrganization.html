@@ -1,0 +1,153 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : NewOrganization.html
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  kalyani
+ Created Date        :  11-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       14-April-2016         Sri Venkatesh.T          In "Type" section in header remove Javascript and Jquery and wirte HTML
+****************************************************************************/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <form name="orgform" novalidate>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> {{orgLables.orgBasicInfo}}  </h2></div>
+            <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.Title}}</label>
+                    <input class="form-control" id="input-Default" ng-model="orgBasicInfo.organizationName" type="text" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="50" name="organizationName" />
+                    <span ng-if="orgform.$submitted || orgform.organizationName.$touched" style="color:red;">
+                        <p ng-show="orgform.organizationName.$invalid && orgform.organizationName.$error.required">organization name is required</p>
+                        <p ng-show="orgform.organizationName.$error.minlength">organization name should be maximum of 2 characters</p>
+                        <p ng-show="orgform.organizationName.$error.maxlength">organization name should be minumum of 50 characters</p>
+                        <p ng-show="orgform.organizationName.$error.pattern">Alphabets Only</p>
+                    </span>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.OrganizationCode}}<span  style="color:red;">*</span></label>
+                    <input class="form-control" id="input-Default" name="OrganizationCode" ng-model="orgBasicInfo.organizationCode" type="text" ng-minlength="2" ng-required="true" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-maxlength="50" />
+                     <span ng-if="orgform.$submitted || orgform.OrganizationCode.$touched" style="color:red;">
+                        <p ng-show="orgform.OrganizationCode.$invalid && orgform.OrganizationCode.$error.required">organization code is required</p>
+                        <p ng-show="orgform.OrganizationCode.$error.minlength">organization code should be maximum of 2 characters</p>
+                        <p ng-show="orgform.OrganizationCode.$error.maxlength">organization code should be minumum of 50 characters</p>
+                        <p ng-show="orgform.OrganizationCode.$error.pattern">Alphabets Only</p>
+                    </span>
+                </div>
+
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.EstablishedOn}}<span  style="color:red;">*</span></label>
+                    <input class="form-control" id="input-Default" name="EstablishedOn" ng-model="orgBasicInfo.establishedOn" type="date" ng-required="true" />
+                     <span ng-if="orgform.$submitted || orgform.EstablishedOn.$touched" style="color:red;">
+                        <p ng-show="orgform.EstablishedOn.$invalid && orgform.EstablishedOn.$error.required">Established on is required</p>
+                    </span>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.SubOrganization}}</label>
+                   <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="orgBasicInfo.parentOrganizationID" ng-options="org.organizationID as org.organizationName for org in orgList">
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.OrganizationLevel}}</label>
+                     <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="orgBasicInfo.organizationLevelID" ng-options="orgLevelList.organizationLevelID as orgLevelList.organizationLevelName for orgLevelList in orgLevelLists" ng-required="true" name="organizationLevelID">
+                    </select>
+                    <div class="padding" ng-if="orgform.organizationLevelID.$touched || orgform.$submitted" style="color:red">
+                    <p ng-show="orgform.organizationLevelID.$error.required ">Organization Level is required</p>
+                 </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{orgLables.OrganizationType}}</label>
+                  
+                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="orgBasicInfo.organizationTypeKey" ng-options="orgType.organizationTypeKey as orgType.organizationTypeTitle for orgType in orgTypes"  name="organizationType">
+                        <option value="" >-select-</option>
+                    </select>
+                           
+                </div>
+                </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="panel-body">
+                    <label>{{orgLables.SubOrganizationType}}</label>
+                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="orgBasicInfo.subOrganizationTypeKey" ng-options="subOrgType.subOrganizationTypeKey as subOrgType.subOrganizationTypeTitle for subOrgType in subOrgTypes"  name="subOrganizationType">
+                        <option value="" >-select-</option>
+                    </select>
+                           
+                </div>
+                
+            </div>
+
+
+
+
+        </div>
+        <div class="row">
+        
+        <div class="col-lg-3 col-md-6">
+
+                <div class="panel-body">
+                    <label>{{orgLables.OrgDetails}}</label>
+                    <textarea ng-model="orgBasicInfo.organizationDetails"></textarea>
+                </div>
+
+            </div>
+
+        
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <button type="submit" class="btn btn-default" ng-click="orgform.$valid && updateOrganization()">{{orgLables.Submit}}</button>
+                </div>
+            </div>
+
+
+        </div>
+        </form>
+<!--<org-contact></org-contact>-->
+<org-registration></org-registration>
+<!--<org-location></org-location>-->
+<org-department></org-department>
+<org-certification></org-certification>
+    </div>
+</div>
+
+
+
+<!-- Page Content -->
+<!-- Page Content -->

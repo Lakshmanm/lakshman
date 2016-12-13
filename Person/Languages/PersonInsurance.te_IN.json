@@ -1,0 +1,20 @@
+{
+    "labels": {
+        "insuranceName": "భీమా పేరు",
+        "insuranceNumber": "భీమా సంఖ్య",
+        "insuranceType": "భీమా టైప్",
+        "startDate": "ప్రారంబపు తేది",
+        "endDate": "ఆఖరి తేది",
+        "insuranceCompany": "భీమా సంస్థ",
+        "coverageDetails": "కవరేజ్ వివరాలు",
+        "nominee":"అభ్యర్థి",
+        "submit": "సపింమర్చండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "insurance": "భీమా"
+
+    },
+    "errors": {
+
+    }
+}

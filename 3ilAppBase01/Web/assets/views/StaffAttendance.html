@@ -1,0 +1,206 @@
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-md-12">
+               <!--  <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#/app/attendance">Student</a></li>
+                    <li class="active"><a data-toggle="tab" style="background-color:#ddd" href="#/app/attendanceStaff">Staff</a></li>
+                </ul> -->
+                <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+                <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js  -->
+                <form name="attendanceForm" novalidate>
+                    <div class="row">
+                  <div class="col-lg-3 col-md-3">
+               <div class="form-group" ng-class="{'has-error':attendanceForm.attendanceInstit.$dirty && attendanceForm.attendanceInstit.$invalid, 'has-success':attendanceForm.attendanceInstit.$valid}">
+
+           <label>Institute  <span class="symbol required"></span> </label> <span class="clip-select"> 
+                         <select class="js-states form-control" ng-disabled="staffAttendance"  ng-model="entityattendance.item" ng-options="item as item.OrganizationName for item in instituteList" ng-change="getInstitute(entityattendance.item)" name="attendanceInstit" ng-required="true">
+                                    <option value="">-select-</option>
+                                </select> </span>
+                                 <span class="error text-small block" ng-if="attendanceForm.attendanceInstit.$dirty && attendanceForm.attendanceInstit.$invalid" class="validationMessage">    
+                              <p ng-show="attendanceForm.attendanceInstit.$invalid && attendanceForm.attendanceInstit.$error.required">Institute is required</p></span>
+                       </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group" ng-class="{'has-error':attendanceForm.departmentTitle.$dirty && attendanceForm.departmentTitle.$invalid, 'has-success':attendanceForm.departmentTitle.$valid}">
+                                <label>Department<span class="symbol required"></span> </label> <span class="clip-select">
+                              <select ng-options="assignedDepartmenttype.referenceKey as assignedDepartmenttype.departmentName for assignedDepartmenttype in assignedDepartmentTypes" value="3" class="form-control" ng-change="getAllStaff(entityattendance.referenceKey)" ng-model="entityattendance.referenceKey" name="departmentTitle" ng-required="true">
+                                    <option value="">--Select--</option>
+                                </select></span>
+                                 <span class="error text-small block" ng-if="attendanceForm.departmentTitle.$dirty && attendanceForm.departmentTitle.$invalid" class="validationMessage">    
+                              <p ng-show="attendanceForm.departmentTitle.$invalid && attendanceForm.departmentTitle.$error.required">Department is required</p></span>
+                            </div>
+                        </div>
+                      
+                      <!--   <div class="col-lg-3 col-md-6">
+                          <div class="form-group" ng-class="{'has-error':attendanceForm.attTypeName.$dirty && attendanceForm.attTypeName.$invalid, 'has-success':attendanceForm.attTypeName.$valid}">
+                             
+                                    <label> Attendance Type<span class="symbol required"></span> </label> <span class="clip-select">
+                                    <select ng-options="attList.AttendanceTypeKey as attList.Title  for attList in attendaneTyp" value="3" class="form-control " ng-model="entityattendance.AttendanceTypeKey" ng-change="getAttendanceType(entityattendance.AttendanceTypeKey)" name="attTypeName" ng-required="true">
+                                        <option value="">--Select--</option>
+                                    </select>  </span>
+                                     <span class="error text-small block" ng-if="attendanceForm.attTypeName.$dirty && attendanceForm.attTypeName.$invalid" class="validationMessage">    
+                              <p ng-show="attendanceForm.attTypeName.$invalid && attendanceForm.attTypeName.$error.required">Attendance Type is required</p></span>
+                                </div>
+                            </div> -->
+                              <div class="col-lg-3 col-md-6" ng-show="showPeriod">
+                           <div>
+                                <label>Period</label><span class="validationStar">*</span>
+                                <select ng-options="period.PeriodslotKey as period.PeriodSlotName for period in periodList" value="3" class="form-control" ng-model="entityattendance.PeriodslotKey" ng-change="getperiod(entityattendance.PeriodslotKey)" name="periodTitle" >
+                                    <option value="">--Select--</option>
+                                </select>
+                                 <span ng-if="attendanceForm.$submitted || attendanceForm.periodTitle.$touched" class="validationMessage">
+                        <span ng-if="attendanceForm.periodTitle.$invalid && attendanceForm.periodTitle.$error.required ">Period title  is required.</span> </span>
+                            </div>
+                        </div>
+
+   <div class="col-lg-3 col-md-6" ng-show="showSession">
+                            <div>
+                               
+                                    <label>Session</label><span class="validationStar">*</span>
+                                    <select ng-options="sessionList.attendanceShiftKey as sessionList.Title  for sessionList in session" value="3" class="form-control " ng-model="entityattendance.attendanceShiftKey" ng-change="getSesssion(entityattendance.attendanceShiftKey)" name="sessionName" >
+                                        <option value="">--Select--</option>
+                                    </select>
+                                     <span  ng-if="attendanceForm.$submitted || attendanceForm.sessionName.$touched" class="validationMessage">
+            <span ng-if="attendanceForm.sessionName.$invalid && attendanceForm.sessionName.$error.required ">Session  is required.</span> </span>
+                                </div>
+                            </div>
+                     
+<div class="col-lg-3 col-md-6">
+                           <div class="form-group" ng-class="{'has-error':attendanceForm.startDateTime.$dirty && attendanceForm.startDateTime.$invalid, 'has-success':attendanceForm.startDateTime.$valid}">
+                                <label>Date<span class="symbol required"></span> </label> <span class="clip-select">
+                                <input type="date" class="form-control " ng-model="entityattendance.startDateTime" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" max="{{requestedMaxDate | date:'yyyy-MM-dd'}}" name="startDateTime{{$index}} " required/></span>
+                               <!--  <div class="padding " ng-if="attendanceForm[ 'startDateTime'+$index].$touched || attendanceForm.$submitted " style="color:red ">
+                                    <p  ng-show="attendanceForm[ 'startDateTime'+$index].$error.required ">Attendance Date is required</p> <span class="error" ng-show="!attendanceForm['startDateTime'+$index].$error.required&&!attendanceForm['startDateTime'+$index].$valid">
+                                      Not a valid date!</span> </div> -->
+
+                 <span class="error text-small block" ng-if="attendanceForm.startDateTime.$dirty && attendanceForm.startDateTime.$invalid">    
+          <p ng-show="attendanceForm.startDateTime.$invalid && attendanceForm.startDateTime.$error.required">Start date is required</p>
+                          </span>
+                            </div>
+                        </div>
+                        </div>
+                      
+                     
+                <div class="row">
+                        
+                         <div class="col-lg-12 col-md-12">
+                            <div class="panel-body">
+                                <div>
+                                 <!--    <button type="submit" class="btn btn-wide btn-primary" ng-click="getListOfStaffs()">Start</button> -->
+
+                                    <button type="button" class="btn btn-wide btn-primary" ng-disabled="attendanceForm.$invalid" ng-click="attendanceForm.$valid && getListOfStaffs()" v-pressable>Start</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                      <div class="col-lg-6"></div>
+                        <div class="col-lg-3" ng-show="present">
+                            <input type="radio" name="gender" value="allPresent" ng-model="allPresent" ng-click="changeAllAttendance(allPresent)">
+                            <label> Mark All as Present </label>
+                            <br> </div>
+                        <div class="col-lg-3" ng-show="absent">
+                            <input type="radio" name="gender" value="allAbsent" ng-model="allAbsent" ng-click="changeAllAttendance(allAbsent)">
+                            <label>Mark All as Absent</label>
+                            <br> </div>
+                    </div>
+    
+                    <div class="row" ng-show="hideSearch">
+                        <div class="col-lg-6">
+                            <label>Search</label>
+                            <input type="text" ng-model="search" class="form-control" placeholder="Search"> </div><br>
+                        <div class="col-lg-3">
+                            <h4>No of Staffs:{{" "}}{{staffList.length}}</h4>
+                        </div>
+                     <!--    <div class="col-lg-3">
+                            <label>No of Absent:{{absentCountArrayLength}} </label>
+                        </div>  --></div>
+                    <div class="row" ng-show="tablehide">
+                        <table>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-body">
+                                        <table id="tblBoardList" class="table table-stripped" cellspacing="0" width="100 % ">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Full Name</th>
+                                                    <th>Employee ID</th>
+                                                    <th>Attendance</th>
+                                                    <th> </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="entityattendance in staffList | orderBy:'FirstName' |filter:search" ng-class="rowClass(entityattendance)">
+                                                    <td><img ng-src="{{staffProfilePic}}"></td>
+                                                    <td>{{entityattendance.FirstName}}{{" "}}{{entityattendance.LastName}}</td>
+                                                    <td>{{entityattendance.EmployeeNumber}}</td>
+                                                    <td>
+                                                        <div ng-show="{{entityattendance.showLeave}}">
+                                                            <label>Leave</label>
+                                                        </div>
+                                                        <div ng-show="{{entityattendance.hideRadios}}">
+                                                            <input type="radio" name="gender{{$index}}" value="1234567898a8ede0-5012-11e6-ada8-sdfsdf35ff" ng-click="uncheckPresent()" ng-model="entityattendance.attendanceStatuKey" ng-change="getRadio(entityattendance.attendanceStatuKey)">
+                                                            <label> Present</label>
+                                                            <br>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div ng-show="{{entityattendance.hideRadios}}">
+                                                            <input type="radio" name="gender{{$index}}" value="fe366dc0-4e57-11e6-bb5e-4d978092b727" ng-model="entityattendance.attendanceStatuKey" ng-change="getRadio(entityattendance.attendanceStatuKey)">
+                                                            <label>Absent</label>
+                                                            <br>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div ng-show="{{entityattendance.hideRadios}}">
+                                                            <input type="radio" name="gender{{$index}}" value="3970a130-4e58-11e6-bb5e-4d978092b727" ng-model="entityattendance.attendanceStatuKey" ng-change="getRadio(entityattendance.attendanceStatuKey)">
+                                                            <label>None</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <div class="row">
+                                  <!--   <button type="button" ng-show="save" ng-click="SaveStaffAttendanceinfo()" class="btn btn-wide btn-primary" v-pressable>Submit</button> -->
+<!--  <button type="button"  ng-show="save" ng-disabled="attendanceForm.$invalid" ng-click="attendanceForm.$valid && SaveStaffAttendanceinfo()" class="btn btn-wide btn-primary" v-pressable>Submit</button> -->
+ <button type="button"  ng-show="save" ng-disabled="attendanceForm.$invalid" ng-click="attendanceForm.$valid && SaveStaffAttendanceinfo()" class="btn btn-wide btn-primary" v-pressable>Submit</button>
+
+
+
+                                    <!--  <button type="button" ng-show="update" class="btn btn-wide btn-primary"  ng-click="updateStaffOrganization()" v-pressable>Update</button>  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE

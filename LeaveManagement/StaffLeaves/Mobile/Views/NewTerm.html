@@ -1,0 +1,74 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewTerm.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="Term List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsTermList.termHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsTerm.termTitle}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityTerm.termTitle" name="termTitle" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsTerm.courseKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityTerm.courseKey" name="courseKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsTerm.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityTerm.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsTerm.startDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityTerm.startDate" name="startDate" type="date"> 
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsTerm.endDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityTerm.endDate" name="endDate" type="date"> 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsTerm.folderKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityTerm.folderKey" name="folderKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addterm()">{{labelsterm.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

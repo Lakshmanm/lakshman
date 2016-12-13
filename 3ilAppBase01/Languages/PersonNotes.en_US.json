@@ -1,0 +1,14 @@
+
+{
+    "labels": {
+        "name": "Notes Title",
+        "description": "Notes Description",
+        "date": "Date",
+        "submit": "Submit",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

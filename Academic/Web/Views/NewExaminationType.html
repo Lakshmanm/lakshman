@@ -1,0 +1,102 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExaminationType.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="examinationTypeForm" novalidate>
+            <div class="row">
+               
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examinationTypeForm.examinationTypeTitle.$dirty && examinationTypeForm.examinationTypeTitle.$invalid, 'has-success':examinationTypeForm.examinationTypeTitle.$valid}">
+                        <label>{{labelsExaminationType.examinationTypeTitle}} <span class="symbol required"></span></label>
+                        <input class="form-control" id="input-Default" ng-model="entityExaminationType.examinationTypeTitle" name="examinationTypeTitle" type="text" ng-minlength="2" ng-maxlength="80"  ng-required="true">
+                        <span ng-if="examinationTypeForm.examinationTypeTitle.$dirty && examinationTypeForm.examinationTypeTitle.$invalid" class="error text-small block"  >
+                        <p ng-show="examinationTypeForm.examinationTypeTitle.$error.required ">ExaminationType title  is required</p>
+                        <p ng-show="examinationTypeForm.examinationTypeTitle.$error.minlength">ExaminationType title minimum Length is 2 characters</p>
+                        <p ng-show="examinationTypeForm.examinationTypeTitle.$error.maxlength">ExaminationType title maximum Length is 80 characters</p>
+                        
+                        </span>
+                    </div>
+                </div>
+               
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examinationTypeForm.examinationLevel.$dirty && examinationTypeForm.examinationLevel.$invalid, 'has-success':examinationTypeForm.examinationLevel.$valid}">
+                        <label>{{labelsExaminationType.examinationLevel}} <span class="symbol required"></span></label>
+                        <select ng-options="level.Id as level.Title for level in ExaminationLevel " value="3" class="form-control " ng-model="entityExaminationType.examinationLevelKey" name="examinationLevel" ng-required="true"> 
+						 <option value="">--Select--</option>
+					 </select>
+                        <span ng-if="examinationTypeForm.examinationLevel.$dirty && examinationTypeForm.examinationLevel.$invalid"  class="error text-small block">
+                        <p ng-if="examinationTypeForm.examinationLevel.$error.required ">Examination Level is required</p>
+
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <center>
+                            <div ng-if="save">
+                                <button type="submit" ng-disabled="examinationTypeForm.$invalid" class="btn btn-wide btn-primary" ng-show="save" ng-click="examinationTypeForm.$valid&&addExaminationType()">{{labelsExaminationType.save}}</button>
+                            </div>
+
+                            <div ng-if="update">
+                     <button type="submit" ng-disabled="examinationTypeForm.$invalid" class="btn btn-wide btn-primary" ng-show="update" ng-click="examinationTypeForm.$valid&&updateExaminationType()">{{labelsExaminationType.update}}</button>
+                            </div>
+</center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="tblExaminationTypeList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                     <th>{{labelsExaminationType.examinationTypeTitle}}</th>
+                                    <th>{{labelsExaminationType.examinationLevelKey}}</th>
+                                    
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead><tbody>
+                                <tr ng-repeat="entityExaminationType in examinationTypeCollection">
+                                    <td>{{ entityExaminationType.examinationTypeTitle }}</td>
+                                    <td>{{ (entityExaminationType.examinationLevelKey ==1)?"Organization Level":"Institute Level"}}</td>
+
+                                    <td><a ng-click="editExaminationType(entityExaminationType.examinationTypeKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteExaminationType(entityExaminationType.examinationTypeKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>

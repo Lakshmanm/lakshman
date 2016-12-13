@@ -1,0 +1,381 @@
+{
+  childId: 1,
+  firstName: 'Kamal',
+  middleName: '',
+  lastName: '',
+  contactNo: '9647822447',
+  dateOfBirth: '2015-02-02',
+  age: 2,
+  gender: 'male',
+  cityOrTown: 'vizag',
+  religion: 'Chrisitian',
+  nationality: 'Indian',
+  aadhaarNumber: '265385634363',
+  contacts: [
+    {
+      contactTypeId: 1,
+      contactType: 'email',
+      contact: 'ravi@gmail.com'
+    },
+    {
+      contactTypeId: 2,
+      contactType: 'landLine',
+      contact: '0891255880'
+    },
+
+  ],
+  image: '3ilAppBase01/Web/assets/images/child4.jpg',
+  addressLine1: '',
+  addressLine2: '',
+  districtId:1,
+  district: 'AP',
+  stateId:1,
+  state: 'Indian',
+  pinCode: '530012',
+  familyDetails: [
+    {
+      familyDetailsId: 1,
+      firstName: 'Kumar',
+      middleName: '',
+      lastName: 'attili',
+      contact: '9346543123',
+      relationTypeId:1,
+      relationType: 'Father'
+    },
+    {
+      familyDetailsId: 2,
+      firstName: 'rachel',
+      middleName: '',
+      lastName: 'attili',
+      contact: '9832965234',
+      relationTypeId:2,
+      relation: 'Mother'
+    }
+  ],
+  familyHistory: [
+   
+    {
+      conditionTypeId:2,    
+      conditionType: 'Cancer',
+      relationSideTypeId:2,
+      relationSideType: 'Father Side',
+      comments: ''
+    }
+  ],
+  surgicalHistory: [
+    
+    {
+      surgeryTypeId:2,
+      surgeryType: 'Shoulder Surgery',
+      comments: '',
+      file: '',
+      dateOfSurgery: '2015-03-05'
+    }
+  ],
+  allergies: [
+    {
+      allergyTypeId:1,
+      allergyType: 'Skin Allegrgy',
+      fromType: 'Days',
+      fromCount: '20',
+      comments: ''
+    },
+   
+     ],
+  immunizationVaccinationHistory: [
+    {
+      immunizationTypeId:1,    
+      immunizationType: 'Hep B',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+      dueDate: '2016-10-01',
+      givenOn: '2015-05-05',
+      givenBy: 'Dr.Radhika',
+      batchNumber: '2345623453'
+    },
+    {
+      immunizationTypeId:2,    
+      immunizationType: 'OPV',
+      ageOfChild: '1',
+      dosage: '10',
+      dosageUnit: 'ml',
+     dueDate: '2016-11-02',
+      givenOn: '2015-07-06',
+      givenBy: 'Dr.Naveena',
+      batchNumber: '4789562135'
+    }
+  ],
+  screenings: [
+    {
+      screeningId: 1,
+      vitals: {
+        height: {
+          value1: '70 cms',
+          value2: '0'
+        },
+        weight: {
+          value1: '9 kgs',
+          value2: '0'
+        },
+        mUAC: {
+          value1: '30cms',
+          value2: '0'
+        },
+        headCircumferrence: {
+          value1: '50.35cms',
+          value2: '0'
+        },
+        temperature: {
+          value1: '99 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '8.4 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep B',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-10-06',
+          givenBy: 'Dr.Radha',
+          batchNumber: '1232345632'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '',
+          givenOn: '2016-11-08',
+          givenBy: 'Dr.Naveen',
+          batchNumber: '1475467890'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'frequent fever',
+          comments: ''
+        },
+        {
+          symptonId: 2,
+          sympton: 'pain in abdomen',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-01-06',
+          file: ''
+        },
+        {
+          investigationId: 2,
+          condition: '',
+          typeOfSampleId:2,
+          typeOfSample: 'Urine',
+          initiatedOn: '2016-09-06',
+          file: ''
+        }
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Malaria'
+        },
+        {
+          diagnosisId: 2,
+          healthCondition: ''
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Tablets',
+          drugName: 'Pracetmol',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        },
+        {
+          medicationId: 2,
+          drugTypeId: 2,
+          drugType: 'Syrup',
+          drugName: 'DeCold',
+          dosage: '500',
+          dosageUnit: 'ml',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: 'Dr.Ridhima',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    },
+     {
+      screeningId: 2,
+      vitals: {
+        height: {
+          value1: '60 cms',
+          value2: ''
+        },
+        weight: {
+          value1: '14 Kgs',
+          value2: ''
+        },
+        mUAC: {
+          value1: '',
+          value2: ''
+        },
+        headCircumferrence: {
+          value1: '51 cms',
+          value2: ''
+        },
+        temperature: {
+          value1: '95 f',
+          value2: ''
+        },
+        hemoglobin: {
+          value1: '8 gm/dL',
+          value2: ''
+        }
+      },
+      immunizationVaccination: [
+        {
+          immunizationVaccinationId:1,
+          immunizationTypeId:1,    
+          immunizationType: 'Hep A',
+          dose: '2',
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '2016-05-05',
+          givenOn: '2016-03-03',
+          givenBy: 'Dr.Janaki',
+          batchNumber: '1234512345'
+        },
+        {
+          immunizationVaccinationId:2,
+          immunizationTypeId:2,    
+          immunizationType: 'OPV 1',
+          dose: '2', 
+          ageOfChild: '2',
+          dosage: '10',
+          dosageUnit: 'ml',
+          dueDate: '2016-06-06',
+          givenOn: '2016-05-05',
+          givenBy: 'Dr.Janaki',
+          batchNumber: '6678877899'
+        }
+      ],
+      symptoms: [
+        {
+          symptonId: 1,
+          sympton: 'frequent cold',
+          comments: ''
+        }
+      ],
+      investigations: [
+        {
+          investigationId: 1,
+          condition: '',
+          typeOfSampleId:1,
+          typeOfSample: 'Blood',
+          initiatedOn: '2016-23-06',
+          file: ''
+        }
+        
+        
+      ],
+      diagnosis: [
+        {
+          diagnosisId: 1,
+          healthCondition: 'Vitamin C Deficiency'
+        }
+      ],
+      medications: [
+        {
+          medicationId: 1,
+          drugTypeId: 1,
+          drugType: 'Syrup',
+          drugName: 'Iron Gold',
+          dosage: '500',
+          dosageUnit: 'mg',
+          duration: '2',
+          durationType: 'Days',
+          frequency: [
+            {
+              morning: true,
+              afternoon: false,
+              evening: false,
+              night: false
+            }
+          ],
+          quantity: 2,
+          instructions: ''
+        }
+        
+      ],
+      recommendations: [
+        {
+          recommandId: 1,
+          recommandForId:1,
+          recommandFor: '',
+          comments: ''
+        }
+      ],
+      isfollowUp: true,
+      followUpAfterId: 1,
+      followUpAfter: '1Day',
+      isRefer: true,
+      referTo: ''
+    }
+  ]
+}

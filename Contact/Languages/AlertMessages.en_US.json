@@ -1,0 +1,12 @@
+{
+    "messages": {
+        "contactSaved": " Saved Successfully",
+        "contactUpdated": " Updated Successfully",
+        "contactDeleted": " Deleted Successfully"
+
+       
+    },
+    "errors": {
+
+    }
+}

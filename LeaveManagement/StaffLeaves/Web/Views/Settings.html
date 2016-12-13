@@ -1,0 +1,228 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Settings</h4>
+
+ <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+
+    <html>
+
+    <form name="leaveSettingsForm" novalidate>
+
+        <div id="main-wrapper">
+<!--            <div class="container-fluid container-fullw bg-white">-->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4> {{labelsLeave.leaveSettingsHeading}}  </h4>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" ng-class="{'has-error':leaveSettingsForm.department.$dirty && leaveSettingsForm.department.$invalid, 'has-success':leaveSettingsForm.department.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>
+                                    {{labelsLeave.staffDepartment}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="department.referenceKey as department.departmentName for department in departmentList " ng-required="true" value="3" class="form-control " ng-change="getStaffList(entityLeaveRequest.departmentKey)" ng-model="entityLeaveRequest.departmentKey"
+                                    name="department"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="leaveSettingsForm.department.$dirty && leaveSettingsForm.department.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.department.$invalid && leaveSettingsForm.department.$error.required">Department is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                           <div class="form-group" ng-class="{'has-error':leaveSettingsForm.staffName.$dirty && leaveSettingsForm.staffName.$invalid, 'has-success':leaveSettingsForm.staffName.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>
+                                    {{labelsLeave.staff}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="staff.personKey as staff.firstName for staff in staffDepartmentList " ng-required="true" value="3" class="form-control "  ng-model="entityLeaveRequest.requesterPersonKey"
+                                    name="staffName"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="leaveSettingsForm.staffName.$dirty && leaveSettingsForm.staffName.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.staffName.$invalid && leaveSettingsForm.staffName.$error.required">Reporting Manager is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>  
+
+  <div class="form-group" ng-class="{'has-error':leaveSettingsForm.reportingDepartment.$dirty && leaveSettingsForm.reportingDepartment.$invalid, 'has-success':leaveSettingsForm.reportingDepartment.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>
+                                    {{labelsLeave.reportingDepartment}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="department.referenceKey as department.departmentName for department in departmentList " ng-required="true" value="3" class="form-control " ng-change="getStaff(entityLeaveRequest.reportingDepartmentKey)" ng-model="entityLeaveRequest.reportingDepartmentKey"
+                                    name="reportingDepartment"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="leaveSettingsForm.reportingDepartment.$dirty && leaveSettingsForm.reportingDepartment.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.reportingDepartment.$invalid && leaveSettingsForm.reportingDepartment.$error.required">Department is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" ng-class="{'has-error':leaveSettingsForm.reportingManager.$dirty && leaveSettingsForm.reportingManager.$invalid, 'has-success':leaveSettingsForm.reportingManager.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>
+                                    {{labelsLeave.reportingManager}}<span class="symbol required"></span> </label> <span class="clip-select">
+   
+                                <select ng-options="staff.personKey as staff.firstName for staff in staffList " ng-required="true" value="3" class="form-control "  ng-model="entityLeaveRequest.approverPersonKey"
+                                    name="reportingManager"> 
+						 <option value="">--Select--</option>
+					 </select>  </span> <span class="error text-small block" ng-if="leaveSettingsForm.reportingManager.$dirty && leaveSettingsForm.reportingManager.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.reportingManager.$invalid && leaveSettingsForm.reportingManager.$error.required">Reporting Manager is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+ </div>
+                    <div class="row">
+                        <div class="form-group" ng-class="{'has-error':leaveSettingsForm.startDateTime.$dirty && leaveSettingsForm.startDateTime.$invalid, 'has-success':leaveSettingsForm.startDateTime.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>{{labelsLeave.startDateTime}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+                                    <input class="form-control date-picker" ng-change="getApprover(entityLeaveRequest.startDateTime)" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" ng-model="entityLeaveRequest.startDateTime" name="startDateTime" type="date" ng-required="true">
+                                
+                                    </span> <span class="error text-small block" ng-if="leaveSettingsForm.recognitionType.$dirty && leaveSettingsForm.recognitionType.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.recognitionType.$invalid && leaveSettingsForm.recognitionType.$error.required">Start date is required</p>
+                       
+                                    
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                   
+                        <div class="form-group" ng-class="{'has-error':leaveSettingsForm.endDateTime.$dirty && leaveSettingsForm.endDateTime.$invalid, 'has-success':leaveSettingsForm.endDateTime.$valid}">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel-body">
+                                    <label>{{labelsLeave.endDateTime}}<span class="symbol required"></span> </label> <span class="clip-select">
+                                    <input class="form-control date-picker" ng-change="getDate(entityLeaveRequest.startDateTime,entityLeaveRequest.endDateTime)" min="{{entityLeaveRequest.startDateTime | date:'yyyy-MM-dd'}}" ng-model="entityLeaveRequest.endDateTime" name="endDateTime" type="date"
+                                        ng-required="true">
+                                   
+                                 </span> <span class="error text-small block" ng-if="leaveSettingsForm.endDateTime.$dirty && leaveSettingsForm.endDateTime.$invalid">    
+                                        
+                                        <p ng-show="leaveSettingsForm.endDateTime.$invalid && leaveSettingsForm.endDateTime.$error.required">End date is required</p>
+                         <p ng-show="leaveSettingsForm.endDateTime.$invalid && leaveSettingsForm.endDateTime.$error.min">End date is not a valid date</p>
+                                    
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <!--</div>-->
+
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel-body">
+                        <center>
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-disabled="leaveSettingsForm.$invalid" ng-click="leaveSettingsForm.$valid && addReportingManager()" v-pressable>{{labelsLeave.submit}}</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+    </form>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <input type="text" placeholder="search " class="form-control" name="BranchName" ng-model="branchSearch">
+        </div>
+    </div>
+
+
+    <table style="font-size:small" class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="cursor: pointer" ng-click="sortData('leaveType')">{{labelsLeave.reportingManager}}
+                    <div ng-class="getSortClass('leaveType')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('leaveType')">{{labelsLeave.requester}}
+                    <div ng-class="getSortClass('leaveType')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('available')">{{labelsLeave.startDateTime}}
+                    <div ng-class="getSortClass('available')"></div>
+                </th>
+                <th style="cursor: pointer" ng-click="sortData('used')">{{labelsLeave.endDateTime}}
+                    <div ng-class="getSortClass('used')"></div>
+                </th>
+               <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr dir-paginate="role in approverList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">
+                <td>{{role.approverName}}</td>
+                <td>{{role.requesterName}}</td>
+                <td>{{role.startdatetime| date }}</td>
+                 <td>{{role.enddatetime | date}}</td>
+                <td> 
+                                <label>
+<a href="#"   ng-click="editLeave(role.leaveapproverkey)"><i class="fa fa-pencil"></i></a> 
+                                </label>
+                   
+                </td>
+                 <td>
+                                <label>
+                                    <a href="#"   ng-click="deleteLeave(role.leaveapproverkey)"><i class="fa fa-trash"></i></a> 
+                                </label>
+   </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="col-md-2" ng-hide="((leaveBalanceList | filter:search).length<=10)||((leaveBalanceList | filter:search).length==undefined)">
+        <div ng-init="pageSize=10 ">
+            <label for="search">Records per page:</label>
+            <select min="1" max="100" ng-model="pageSize">
+<option>10</option> 
+<option>20</option> 
+<option>30</option> 
+</select>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-12" style="text-align:left">
+        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+
+    </html>
+    </div>
+</div>

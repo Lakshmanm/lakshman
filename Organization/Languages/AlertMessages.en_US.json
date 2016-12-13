@@ -1,0 +1,24 @@
+{
+    "messages": {
+        "organizationSaved": "Organization Details Saved Successfully",
+        "organizationUpdated": "Organization Details Updated Successfully",
+        "organizationDeleted": "Organization Details Deleted Successfully",
+
+
+        "departmentSaved": "department Details Saved Successfully",
+        "departmentUpdated": "department Details Updated Successfully",
+        "departmentDeleted": "department Details Deleted Successfully",
+        
+        "certificationSaved": "certification Details Saved Successfully",
+        "certificationUpdated": "certification Details Updated Successfully",
+        "certificationDeleted": "certification Details Deleted Successfully",
+        
+        "registrationSaved": "registration Details Saved Successfully",
+        "registrationUpdated": "registration Details Updated Successfully",
+        "registrationDeleted": "certtification Details Deleted Successfully"
+       
+    },
+    "errors": {
+
+    }
+}

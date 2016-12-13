@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "electiveGroupHeading": "Elective Group List",
+        "electiveGroupTitle": "Elective Group Title",
+        "minimumSubjects": "Minimum Subjects",
+        "maximumSubjects": "Maximum Subjects",
+        "delete": "Delete",
+        "edit": "Edit"
+
+    }
+}

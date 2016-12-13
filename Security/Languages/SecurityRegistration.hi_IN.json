@@ -1,0 +1,50 @@
+{
+    "labels": {
+        "SignUp": "साइन अप करें"
+        , "BasicInfo": "बुनियादी जानकारी"
+        , "Address": "पता"
+        , "FirstName": "पहला नाम"
+        , "MiddleName": "मध्य नाम"
+        , "LastName": "अंतिम नाम"
+        , "Gender": "लिंग"
+        , "Female": "महिला"
+        , "Male": "नर"
+        , "DateOfBirth": "जन्मतिथि"
+        , "MobileNumber": "मोबाइल नंबर"
+        , "PrimaryEmailAddress": "प्राथमिक ईमेल"
+        , "SecondaryEmailAddress": "द्वैतीयक ईमेल"
+        , "Captcha": "कैप्चा"
+        , "SaveContinue": "सहेजें जारी रखें",
+
+
+        "SignUp": "साइन अप करें"
+        , "BasicInfo": "बुनियादी जानकारी"
+        , "Address": "पता"
+        , "Username": "उपयोगकर्ता नाम"
+        , "CheckAvailability": "उपलब्धता जाँचें"
+        , "Password": "पासवर्ड"
+        , "ReEnterPassword": "पासवर्ड फिर से दर्ज करें"
+        , "DoorNo": "दरवाजा संख्या"
+        , "Addressline1": "पता पंक्ति नं। 1"
+        , "Addressline2": "पता पंक्ति नं। 2"
+        , "CountryID": "देश"
+        , "StateID": "राज्य"
+        , "DistrictID": "जिला"
+        , "MandalID": "मंडल"
+        , "VillageID": "गाँव"
+        , "ZipCode": "पिन कोड"
+        , "QuestionaireId": "सुरक्षा प्रश्न चुनें"
+        , "HintAnswer": "सांकेतिक जवाब"
+        , "Submit": "जमा करें",
+
+        "Success": "सफलता"
+        , "RegistrationSuccessful": "पंजीकरण सफल"
+        , "Message": "एक ईमेल आपके पंजीकृत ईमेल पते पर देखा गया है। कृपया अपने इनबॉक्स की जाँच करें और आगे बढ़ना।"
+        , "Ok": "ठीक"
+
+    }
+    , "errors": {
+
+    }
+
+}

@@ -1,0 +1,187 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+  
+          
+ <form  name="leaveForm" novalidate>
+<div id="main-wrapper">
+    <div class="panel-white">
+        <div class="row">
+            <div class="col-lg-12">
+               <h4> {{labelsLeave.leaveRequestHeading}}  </h4>
+            </div>
+			<div class="row">
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+				  <label>{{labelsLeave.startDateTime}}</label>
+					 <input class="form-control date-picker" ng-change="getApprover(entityLeaveRequest.startDateTime)"  ng-model="entityLeaveRequest.startDateTime" ng-disabled="true" name="startDateTime" type="date"
+                           > 
+                       
+ 
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsLeave.endDateTime}}</label>
+					 <input class="form-control date-picker" ng-change="getDate(entityLeaveRequest.startDateTime,entityLeaveRequest.endDateTime)"  ng-model="entityLeaveRequest.endDateTime" ng-disabled="true"  name="endDateTime" type="date"  > 
+                     
+				 </div>
+			 </div>
+            <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsLeave.noOfDays}}</label>
+										 <input class="form-control" id="input-Default" ng-model="entityLeaveRequest.noOfDays"  name="noOfDays" type="text" ng-minlength = "1" ng-disabled="true" ng-maxlength = "3" > 
+				
+				 </div>
+			 </div>
+                </div>
+          
+        </div>
+  
+     
+         
+
+
+              <table  style="font-size:small;width:25%;border: 1px solid "  class="table table-bordered" id="sample-table-1">
+                                <thead>
+                                    <tr>
+                                       <th style=" border: 1px solid " >{{labelsLeave.leaveType}}
+                                           
+                                        </th>
+                                        <th style=" border: 1px solid " >{{labelsLeave.noOfLeave}}
+                                           
+                                        </th>
+                                 
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="leave in getLeaveTypeList" >
+                                 <td  style=" border: 1px solid " >  {{leave.leavetypetitle}}     </td> 
+                                      
+                                      <td  style=" border: 1px solid " >{{leave.noofdays}}</td>
+                  
+                                    </tr>
+                  </tbody>
+                            </table>
+    
+       
+  
+    <!--
+    <div id="main-wrapper">
+    <div class="panel-white">-->
+       
+          
+			<div class="row">
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsLeave.reason}}</label>
+                     <textarea class="form-control" ng-disabled="true"  ng-model="entityLeaveRequest.reasonForLeave" name="reason" type="text"  > </textarea>
+                   
+                     
+				 </div>
+			 </div>
+        </div>
+        <div  class="row">
+			<div class="col-lg-3 col-md-6">
+                  <div class="panel-body">
+                        <label>{{labelsLeave.folderKey}}</label>
+                    
+                      
+              <table>
+                               
+                                <tbody>
+                                  <tr  ng-repeat="file in fileList" >
+                               <td ><a href="#"  download ng-click="getFileDetails(file.FileKey)">{{ file.FileName }}</a> </td>                                                      </tr>
+                  </tbody>
+                            </table>
+                   
+                </div>       
+                   
+                </div>
+            
+                </div>
+        
+        
+	<div class="row">
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					<span class="validationStar">*</span> <label>{{labelsLeave.approverComments}}</label>
+                     <textarea class="form-control"  ng-model="entityLeaveRequest.approverComments" name="approverComments" type="text"  ng-disabled="true" ng-required="true" > </textarea>
+                     <span ng-if="leaveForm.$submitted || leaveForm.approverComments.$touched" class="validationMessage">
+                      <span ng-if="leaveForm.approverComments.$invalid && leaveForm.approverComments.$error.required ">Comment  is required.</span></span>
+                     
+				 </div>
+                     
+				 </div>
+			 </div>
+       
+             
+	<div class="row">
+			 <div class="col-lg-2 col-md-6">
+<span class="validationStar">*</span> <label>{{labelsLeave.status}}</label>
+      		</div>	
+      
+         <div class="col-lg-2 col-md-6">
+     <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="2" name="status" type="radio"> Approved
+             	 </div>
+         <div class="col-lg-2 col-md-6">
+     <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="3" name="status" type="radio"> Rejected  
+              </div>
+         <div class="col-lg-2 col-md-6">
+     <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="4" name="status" type="radio"> More Info Required
+             	 </div>
+        
+         <div class="col-lg-2 col-md-6">
+     <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="6" name="status" type="radio"> Hold   
+              </div>
+         <div class="col-lg-2 col-md-6">
+     <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="7" name="status" type="radio"> Approved,but attach the proofs 
+             	 </div>
+         <div class="col-lg-2 col-md-6">
+    <input id="input-Default" ng-disabled="true" ng-model="entityLeaveRequest.status" value="8" name="status" type="radio"> Cancelled 
+          </div>
+         
+        
+        </div>
+          
+        
+              <table  style="font-size:small;width:50%;border:1px solid" class="table table-bordered" id="sample-table-1">
+                                <thead>
+                                    <tr >
+                                        <th style=" border: 1px solid " >{{labelsLeave.date}}
+                                           
+                                        </th>
+                                        <th style=" border: 1px solid " >{{labelsLeave.action}}
+                                           
+                                        </th>
+                                 <th style=" border: 1px solid "  >{{labelsLeave.user}}
+                                           
+                                        </th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <tr  ng-repeat="history in leaveHistoryList" >
+                               <td style=" border: 1px solid ">{{history.createddatetime | date}}</td>                   
+                                      
+                              <td style=" border: 1px solid ">{{history.leavestatustitle}}</td> 
+                              <td style=" border: 1px solid ">{{history.status === 1 || 5 || 6 ? history.requesterName : history.approverName}}</td>   
+                        
+
+                                    </tr>
+                  </tbody>
+                            </table>
+        
+        
+        
+    
+     </div>
+      </div>
+</form>

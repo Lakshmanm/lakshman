@@ -1,0 +1,138 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : NewRegistration.html
+ Type                : HTML
+ Description         :
+ References          :
+ Author              :  Kiranmai Labhala
+ Created Date        :  11-04-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+S.No Ver       Date          Modified By         Description
+1.    1.0       12-04-2016    Kiranmai Labhala    Change update and date filters
+2.    1.0      14-04-2016    Kiranmai Labhala    Define Registration validation
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       14-April-2016         Sri Venkatesh.T          In "Type" section in header remove Javascript and Jquery .
+1         1.0       14-April-2016         Sri Venkatesh.T          Place header iin OrganizationList.html
+****************************************************************************/-->
+<form name="regform" novalidate>
+<div id="main-wrapper">
+    <div class="panel-white">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> {{RegistrationInfoLabels.RegistrationBasicInfo}}  </h2>
+            </div>
+                <div class="col-lg-3 col-md-12">
+                    <div class="panel-body">
+                        <label>{{RegistrationInfoLabels.RegistrationType}}<span style="color:red;">*</span></label>
+                        <select ng-options="RegistrationType.registrationTypeID as RegistrationType.registrationTypeName for RegistrationType in RegistrationTypeList" name="RegistrationTypeID" class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="regBasicInfo.registrationTypeID" ng-required="true">
+                     <option value="">--Select--</option>
+                     </select>
+                     <div class="padding" ng-if="regform.RegistrationTypeID.$touched || regform.$submitted" style="color:red">
+                    <p ng-show="regform.RegistrationTypeID.$error.required">Registration Type is required</p>
+                </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <div class="panel-body">
+                        <label>{{RegistrationInfoLabels.ValidFrom}}<span style="color:red;">*</span></label>
+                        <input class="form-control" id="input-Default" ng-model="regBasicInfo.validFrom" type="date" name="validFrom" ng-required="true" ng-change='checkToday(reg.validFrom)' />
+                <span ng-if="regform.$submitted || regform.validFrom.$touched" style="color:red;"  >
+                    <p ng-show="regform.validFrom.$invalid && regform.validFrom.$error.required">From date is required</p>
+                    <p>{{errMessage1}}</p>
+                </span>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <div class="panel-body">
+                        <label>{{RegistrationInfoLabels.ValidTo}}<span style="color:red;">*</span></label>
+                        <input class="form-control" id="input-Default" ng-model="regBasicInfo.validTo" type="date"  name="validTo"   ng-required="true"  ng-change='checkErr(reg.validFrom,reg.validTo)'/>
+                <span ng-if="regform.$submitted || regform.validTo.$touched" style="color:red;">
+                    <p ng-show="regform.validTo.$invalid && regform.validTo.$error.required">To date is required</p>
+                    <p>{{errMessage}}</p>
+                </span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+
+                    <div class="panel-body">
+                        <label>{{RegistrationInfoLabels.RegistrationDetails}}</label>
+                        <textarea class="form-control" id="input-Default" ng-model="regBasicInfo.registrationDetails" type="text">
+                        </textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <button type="submit" class="btn btn-default" ng-click="regform.$valid&&addRegistration()">{{RegistrationInfoLabels.Submit}}</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-12">
+            <h2>{{RegistrationInfoLabels.RegistrationList}}</h2></div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="panel-body">
+
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>{{RegistrationInfoLabels.RegistrationType}}</th>
+                                <th>{{RegistrationInfoLabels.ValidFrom}}</th>
+                                <th>{{RegistrationInfoLabels.ValidTo}}</th>
+                                <th>{{RegistrationInfoLabels.Edit}}</th>
+                                <th>{{RegistrationInfoLabels.Delete}}</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="reg in regDetails">
+                                <td> {{ reg.registrationTypeName }}</td>
+                                <td> {{ reg.validFrom  | date:"MM/dd/yyyy" }} </td>
+                                <td> {{ reg.validTo |  date:"MM/dd/yyyy" }} </td>
+                                <td>
+                                    <a ng-click="editRegistration(reg.referenceKey)" href=""><i class="fa fa-pencil"></i></a>
+                                </td>
+                                <td><a ng-click="deleteRegistration(reg.referenceKey)"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</form>
+
+
+<!-- Page Content -->

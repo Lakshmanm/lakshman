@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "departmentTitle": "Department Title",
+        "submit": "submit",
+		"delete": "Delete",
+        "department": "Department"
+ },
+    "errors": {
+
+    }
+}

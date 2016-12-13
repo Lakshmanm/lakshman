@@ -1,0 +1,100 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewStudentLeaveRequest.html 
+//* Type		    	: Mobile HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<ion-view view-title="StudentLeaveRequest List">
+	 <ion-content scroll="true">
+		 <div class="">
+			 <div class="container">
+				 <div class="row">
+					 <h3> {{labelsStudentLeaveRequestList.studentLeaveRequestHeading}}  </h3>
+				 </div>
+				 <div class="row responsive-sm">
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.personKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.personKey" name="personKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.studentKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.studentKey" name="studentKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsStudentLeaveRequest.startDateTime}}</label>
+					 <input class="form-control date-picker"  ng-model="entityStudentLeaveRequest.startDateTime" name="startDateTime" type="date"> 
+			 </div>
+			 <div class="col col-25">
+					 <label>{{labelsStudentLeaveRequest.endDateTime}}</label>
+					 <input class="form-control date-picker"  ng-model="entityStudentLeaveRequest.endDateTime" name="endDateTime" type="date"> 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.noOfDays}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityStudentLeaveRequest.noOfDays" name="noOfDays" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.reasonForLeaveKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.reasonForLeaveKey" name="reasonForLeaveKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.requestModeKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.requestModeKey" name="requestModeKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.requestReceviedByKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.requestReceviedByKey" name="requestReceviedByKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.remarks}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityStudentLeaveRequest.remarks" name="remarks" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.Status}}</label>
+				 <input class="form-control" id="input-Default" ng-model="entityStudentLeaveRequest.Status" name="Status" type="text" ng-minlength = "4" ng-maxlength = "80" > 
+			 </div>
+			 <div class="col col-25">
+				 <label>{{labelsStudentLeaveRequest.instanceOrganizationKey}}</label>
+				 <select ng-options="" value="3" class="form-control "  ng-model="entityStudentLeaveRequest.instanceOrganizationKey" name="instanceOrganizationKey" > 
+					 <option value="">--Select--</option>
+					 </select>
+			 </div>
+			 </div>
+			 <div class="row responsive-sm">
+			 <div class="col col-25">
+					 <button type="submit" class="button button-block button-positive" class="btn btn-default" ng-click="addstudentLeaveRequest()">{{labelsstudentLeaveRequest.submit}}</button>
+				 </div>
+		 </div>
+			 </div>
+		 </div>
+	 </ion-content>
+</ion-view>

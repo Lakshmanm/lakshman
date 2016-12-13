@@ -1,0 +1,132 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExamination.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="examinationForm" novalidate>
+            <div class="row">
+                <!--  <div class="col-lg-12">
+                    <h2> {{labelsExamination.examinationHeading}}  </h2>
+                </div> -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examinationForm.examinationTitle.$dirty && examinationForm.examinationTitle.$invalid, 'has-success':examinationForm.examinationTitle.$valid}">
+
+                        <label>{{labelsExamination.taxType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" ng-model="tax.TaxName" name="examinationTitle" type="text" ng-minlength="2" ng-maxlength="80" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true">
+                            <span ng-if="examinationForm.$submitted || examinationForm.examinationTitle.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.examinationTitle.$invalid && examinationForm.examinationTitle.$error.required ">Tax Type  is required.</span>
+                        <span ng-if="examinationForm.examinationTitle.$error.minlength">Tax Type  is too small.</span>
+                        <span ng-if="examinationForm.examinationTitle.$error.maxlength">Tax Type is too long.</span>
+                        <span ng-if="examinationForm.examinationTitle.$error.pattern">Alphabets only.</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsExamination.organization}}</label>
+                        <select ng-options="Org.Id as Org.Title for Org in Organizations" value="3" class="form-control " ng-model="entityExamination.instanceOrganizationKey" name="instanceOrganizationKey"> 
+						 <option value="">--Select--</option>
+					 </select>
+                    </div>
+                </div> -->
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="form-group" ng-class="{'has-error':examinationForm.tax.$dirty && examinationForm.tax.$invalid, 'has-success':examinationForm.tax.$valid}">
+
+
+                        <label>{{labelsExamination.tax}}%<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control" ng-model="tax.TaxValue" name="tax" type="text" ng-minlength="1" ng-maxlength="80" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" ng-required="true" ng-change="taxval(tax.TaxValue)"></span>
+                        <span ng-if="examinationForm.$submitted || examinationForm.tax.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.tax.$invalid && examinationForm.tax.$error.required ">Tax is required.</span>
+                        <span ng-if="examinationForm.tax.$error.pattern">Numericals only.</span>
+                        <label style="color:red">{{msg}}</label>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel-body">
+                        <input type="checkbox" id="checkbox1" ng-model="tax.IsActive">
+                        <label for="checkbox1"> Is Active</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="panel-body">
+                            <div ng-if="save">
+                                <button type="submit" ng-show="save" class="btn btn-wide btn-primary" ng-click="examinationForm.$valid&&saveTax()">{{labelsExamination.save}}</button>
+                            </div>
+
+                            <div ng-if="update">
+                                <button type="submit" ng-show="update" class="btn btn-wide btn-primary" ng-click="examinationForm.$valid&&updateTax()">{{labelsExamination.update}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <table id="tblExaminationList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsExamination.taxType}}</th>
+                                    <th>{{labelsExamination.tax}}%</th>
+                                    <th>IsActive</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                           
+                                <tr ng-repeat="tax in TaxCollection">
+                                    <td>{{ tax.TaxName }}</td>
+                                    <td>{{ tax.TaxValue }}</td>
+                                    <td>{{ tax.IsActive.data[0] == 1 ? "Yes" : "No" }}</td>
+                                    <td><a ng-click="editTax(tax.TaxKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteTax(tax.TaxKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>

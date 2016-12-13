@@ -1,0 +1,22 @@
+
+
+{
+    "labels": {
+        "User": "User",
+        "UserName": "User Name",
+        "Password": "Password",
+        "FirstName": "First Name",
+        "LastName": "Last Name",
+        "EmailId": "Email ID",
+        "MobileNumber": "Mobile Number",
+        "IsActive": "IsActive",
+        "Save": "Save",
+        "Update": "Update",
+        "Edit": "Edit"
+
+    },
+    "errors": {
+
+    }
+
+}

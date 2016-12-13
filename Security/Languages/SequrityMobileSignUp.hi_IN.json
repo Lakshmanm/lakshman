@@ -1,0 +1,19 @@
+
+
+{
+    "labels": {
+        "Register": "रजिस्टर",
+        "UserName": "उपयोगकर्ता नाम",
+        "Password": "पासवर्ड",
+        "EmailId": "ईमेल आईडी",
+        "FirstName": "पहला नाम",
+          "MiddleName": "मध्य नाम",
+          "LastName":"अंतिम नाम",
+        "Submit": "जमा करें"
+       
+    },
+    "errors": {
+        
+        }
+    
+}

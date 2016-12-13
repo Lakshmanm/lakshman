@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "name": "పేరు",
+        "relationType": "సంబంధం రకం",
+        "isGaurdian": "గార్డియన్ ఉంది",
+        "submit": "సపింమర్చండి",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "relative": "సంబంధిత"
+
+    },
+    "errors": {
+
+    }
+}

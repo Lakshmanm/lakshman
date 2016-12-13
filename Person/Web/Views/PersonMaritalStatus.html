@@ -1,0 +1,143 @@
+<!--
+===========================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+============================================================================
+****************************************************************************
+ Name               : Person Marital Status
+ Type               : html 
+ Description        : html page for person Identity 
+ References         :
+ Author             : Kiranmai Labhala
+ Created Date       : 19-Apr-2016
+****************************************************************************                          
+MODIFICATION LOG
+**************************************************************************** 
+S.No  Ver   Date         Modified By    Description
+1.   1.0    29-04-2019   Kiranmai       DEfine ReferenceKey  
+****************************************************************************                            
+Code Review LOG
+**************************************************************************** 
+Sno# Ver        Date                Code Review By            Observations
+****************************************************************************
+
+create the Root module and name it n3Person also include Dependency Modules 
+-->
+<div id="main-wrapper">
+    <div class="panel-white">
+            <form name="maritalStatusForm" novalidate>
+<div class="col-lg-12">
+            <h2>{{maritalLables.MaritalStatus}}</h2></div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{maritalLables.MaritalStatusName}}<span style="color:red">*</span></label>
+                <input class="form-control " type="text" ng-model="marital.maritalStatusName" name="title" required>
+                <div class="padding" ng-if="maritalStatusForm.title.$touched || maritalStatusForm.$submitted" style="color:red">
+                    <p ng-show="maritalStatusForm.title.$error.required "> Title is mandatory</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <div class="panel-body">
+                <label>{{maritalLables.StartDate}}<span style="color:red">*</span></label>
+
+                <input class="form-control " type="date" ng-model="marital.startDate" name="startDate" required>
+                <div class="padding" ng-if="maritalStatusForm.startDate.$touched || maritalStatusForm.$submitted" style="color:red">
+                    <p ng-show="maritalStatusForm.startDate.$error.required ">Start date is required</p>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel-body">
+                <label>{{maritalLables.EndDate}}<span style="color:red">*</span></label>
+
+                <input class="form-control " type="date" ng-model="marital.endDate" name="endDate" required>
+                <div class="padding" ng-if="maritalStatusForm.endDate.$touched || maritalStatusForm.$submitted" style="color:red">
+                    <p ng-show="maritalStatusForm.endDate.$error.required ">End date is required</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel-body">
+                <label>{{maritalLables.MaritalStatusType}}<span style="color:red">*</span></label>
+                <select class="form-control" style="width: 100%" ng-options="marital.maritalStatusTypeId as marital.maritalStatusTypeName for marital in maritalStatusTypeList" ng-model="marital.maritalStatusTypeId" name="maritalStatus" required>
+
+                    <option value="">--Select--</option>
+
+
+                </select>
+                <div class="padding" ng-if="maritalStatusForm.maritalStatus.$touched || maritalStatusForm.$submitted" style="color:red">
+                    <p ng-show="maritalStatusForm.maritalStatus.$error.required ">Marital status type is required</p>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="maritalStatusForm.$valid&&saveMaritalStatus()" class="btn btn-primary">{{maritalLables.Submit}}</button>
+        </div>
+    </div>
+</form>
+<div class="row">
+            <div class="col-md-12">
+
+                <div class="panel-body">
+                    <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>{{maritalLables.MaritalStatusName}}</th>
+                    <th>{{maritalLables.MaritalStatusType}}</th>
+                    <th>{{maritalLables.StartDate}}</th>
+                    <th>{{maritalLables.EndDate}}</th>
+                    <th>{{maritalLables.edit}}</th>
+                    <th>{{maritalLables.delete}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="marital in maritalStatusList">
+                    <td>{{marital.maritalStatusName}}</td>
+                    <td>{{marital.maritalStatusTypeName}}</td>
+                    <td>{{marital.startDate|date:"MM/dd/yyyy"}}</td>
+                    <td>{{marital.startDate|date:"MM/dd/yyyy"}}</td>
+                    <td>
+                        <a ng-click="getMaritalStatusById(marital.referenceKey)"><i class="fa fa-pencil"></i></a>
+                    </td>
+                    <td>
+                        <a ng-click="deleteMaritalStatusById(marital.referenceKey)"><i class="fa fa-trash"></i></a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+</div>
+</div>

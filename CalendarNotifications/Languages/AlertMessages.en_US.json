@@ -1,0 +1,32 @@
+{
+    "messages": {
+        "loginSuccess": "login successfully",
+        "loginUnSuccess": "user login Unsuccessfull",
+        "employeeDeleted": "Employee Details Deleted Successfully",
+
+
+        "UserprofileUpdate": "user profile details updated successfully",
+        "UserprofileSave": "user profile details Saved successfully", 
+        "EventSave": "event created successfully",
+        "EventUnSave":"event created unsuccessfully",
+        "EventUpdate": "event updated successfully",
+        "EventUpdateUnsucess": "event updated unsuccessfully",
+        "EventDelete": "Event Deletion successfull",
+        "EventDeleteunsucess":"Event Deletion Unsuccessfull",
+        "CalenderSave": "calendar created successfully",
+        "CalenderUnSave": "calendar created Unsuccessfully",
+        "CalenderUpdate": "calendar updated successfully",
+        "CalenderUpdateUnsucess": "calendar updated unsuccessfully",
+        "CalenderDelete": "Calender Deleteed successfully",
+        "CalenderDeleteunsuccess": "Calendar Deletion Unsuccessfull",
+        "TaskSave": "Event created successfully",
+        "TaskUnSave": "Event created unsuccessfully",
+        "TaskUpdate": "Event updated successfully",
+        "TaskDelete": "Event Deleted successfully",
+        "experienceDeleted": "Experience Details Deleted Successfully"
+       
+    },
+    "errors": {
+
+    }
+}

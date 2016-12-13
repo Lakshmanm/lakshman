@@ -1,0 +1,221 @@
+<style>
+    ng-map {
+        /*padding: 0px;*/
+        width: 100%;
+        height: 200px;
+    }
+    
+    ,
+    .geo {
+        text-align: center;
+    }
+  
+</style>
+
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Organization Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div ng-controller="Aarush.MainOrganization">
+                <!-- start: USER TABSET -->
+                <div class="col-md-6">
+                    <!-- organization basic Details  -->
+                    <form name="OrgProfileForm" novalidate>
+                        <fieldset>
+                            <legend> Profile </legend>
+                            <div class="row">
+                                <div class="form-group" ng-class="{'has-error':OrgProfileForm.orgName.$dirty && OrgProfileForm.orgName.$invalid, 'has-success':OrgProfileForm.orgName.$valid}">
+                                    <label class="control-label"> Organization Name <span class="symbol required"></span></label>
+                                    <input type="text" placeholder="" class="form-control" name="orgName" ng-model="organization.basicInfo.organizationName" ng-minlength="2" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9\_\- ]*$/" required /> <span class="error text-small block" ng-if="OrgProfileForm.orgName.$dirty && OrgProfileForm.orgName.$invalid">    
+                                        
+                                        <p ng-show="OrgProfileForm.orgName.$invalid && OrgProfileForm.orgName.$error.required">Organization name is required</p>
+                        <p ng-show="OrgProfileForm.orgName.$error.minlength">Organization name should be maximum of 2 characters</p>
+                        <p ng-show="OrgProfileForm.orgName.$error.maxlength">Organization name should be minumum of 50 characters</p>
+                        <p ng-show="OrgProfileForm.orgName.$error.pattern">Alphabets only</p>
+                                    
+                                    </span> </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Description </label>
+                                    <textarea type="text" placeholder="" class="form-control" name="Description" ng-model="organization.basicInfo.organizationDetails"></textarea>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error':OrgProfileForm.establishedOn.$dirty && OrgProfileForm.establishedOn.$invalid, 'has-success':OrgProfileForm.establishedOn.$valid}">
+                                    <label class="control-label">Year Of Established</label>
+    <input type="number"   class="form-control " name="establishedOn" 
+           ng-model="organization.basicInfo.establishedOn" ng-pattern="/^[0-9]{4}$/" >
+                                    
+                                    
+                                  
+                                   
+                                  <span class="error text-small block" ng-if="OrgProfileForm.establishedOn.$invalid">    
+                              <p ng-show="OrgProfileForm.establishedOn.$error.pattern">Invalid Year</p>             
+                                 <p ng-show="OrgProfileForm.establishedOn.$error.max">Invalid Year</p>         
+                   
+                       
+                                    
+                                    </span> </div>
+                             <div class="form-group" ng-class="{'has-error':OrgProfileForm.recognitionType.$dirty && OrgProfileForm.recognitionType.$invalid, 'has-success':OrgProfileForm.recognitionType.$valid}">
+                                    <label class="control-label"> Type of Recognition <span class="symbol required"></span> </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="organization.basicInfo.typeOfRecognition" ng-options="recognition.RecognitionTypeKey as recognition.ReconitionTypeName for recognition in recognitionList"  name="recognitionType" required>
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> <span class="error text-small block" ng-if="OrgProfileForm.recognitionType.$dirty && OrgProfileForm.recognitionType.$invalid">    
+                                        
+                                        <p ng-show="OrgProfileForm.recognitionType.$invalid && OrgProfileForm.recognitionType.$error.required">Recognition Type is required</p>
+                       
+                                    
+                                    </span> </div>
+                                
+
+                                <div class="form-group">
+                                    <label class="control-label"> Website URL </label>
+                                    <input type="text" placeholder="www.domainname.com" class="form-control" ng-model="organization.basicInfo.websiteUrl" name="websiteUrl"> </div>     
+                                
+                                
+                            </div>
+                        </fieldset>
+                    </form>
+                    <!-- organization contact Details  -->
+                    <form name="OrgContactForm" novalidate>
+                        <fieldset>
+                            <legend> Contact Details </legend>
+                            <div class="row">
+                                <div class="form-group" ng-class="{'has-error':OrgContactForm.Mobile.$dirty && OrgContactForm.Mobile.$invalid, 'has-success':OrgContactForm.Mobile.$valid}">
+                                    <label class="control-label"> Mobile <span class="symbol required"></span></label>
+                                    <input type="text" class="form-control" placeholder="" ng-model="organization.contact.Mobile" name="Mobile" ng-pattern="/^[0-9]{1,10}$/" required> <span class="error text-small block" ng-if="(OrgContactForm.Mobile.$dirty ||OrgContactForm.$submitted) && OrgContactForm.Mobile.$invalid">    
+                                       
+                                        <p ng-show="OrgContactForm.Mobile.$invalid && OrgContactForm.Mobile.$error.required" style="color:#a94442">Mobile number is required</p>
+                       <p ng-show="OrgContactForm.Mobile.$error.pattern" style="color:#a94442">Invalid mobile number</p>
+                                  </span> </div>
+                                <div class="form-group" ng-class="{'has-error':OrgContactForm.EmailId.$dirty && OrgContactForm.EmailId.$invalid, 'has-success':OrgContactForm.EmailId.$valid}">
+                                    <label class="control-label"> Email Id <span class="symbol required"></span></label>
+                                    <input type="text" class="form-control" placeholder="" ng-model="organization.contact.EmailId" name="EmailId" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/" required> <span class="error text-small block" ng-if="(OrgContactForm.EmailId.$dirty ||OrgContactForm.$submitted) && OrgContactForm.EmailId.$invalid">    
+                                       
+                                        <p ng-show="OrgContactForm.EmailId.$invalid && OrgContactForm.EmailId.$error.required" style="color:#a94442">Email id is required</p>
+                       <p ng-show="OrgContactForm.EmailId.$error.pattern" style="color:#a94442">Invalid email id</p>
+                                    
+                                    </span> </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <!-- organization location  Details  -->
+                    <div class="row">
+<h4 ng-click="OpenGeodiv()" ng-show="hideLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+<h4 ng-click="hideGeodiv()" ng-show="showLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+</div>
+<div class="row" ng-show="showGeo">
+                    <form name="OrgGeoLocationForm" novalidate>
+                        <fieldset>
+                         
+                            <div class="row">
+                                <ng-map default-size="false" class="map" center="{{mapCenter}}" zoom="{{mapZoom}}" on-click="getpos($event)" id="orgMap">
+                                    <marker position="{{locationPointer}}" title="Hello World!" on-dragend="getpos($event)" animation="DROP" draggable="true" id="orgMarker"></marker>
+                                </ng-map>
+                                <div class="form-group">
+                                    <label class="control-label"> Longitude </label>
+                                    <input type="text" placeholder="" class="form-control" name="longitude" ng-model="organization.address.longitude" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(organization.address.longitude,organization.address.latitude)"></i> </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Latitude </label>
+                                    <input type="text" placeholder="" class="form-control" name="latitude" ng-model="organization.address.latitude" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(organization.address.longitude,organization.address.latitude)"></i> </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="form-group">
+                        <label> Logo </label>
+                        <div>
+                            <!-- <div flow-init flow-object="obj.flow">-->
+                            <div class="user-image">
+                                <div class="thumbnail margin-bottom-5"> <img ng-src="{{profilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="document.getElementById('ID_profilePic').click()"> <img ng-src="{{profilePic2}}">
+                                    <!-- imageonload -->
+                                    <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="organization.profilePic" base-sixty-four-input /> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- organization Address Details  -->
+                    <form name="OrgAddressForm">
+                        <fieldset>
+                            <legend> Address </legend>
+                            <div class="form-group">
+                                <label class="control-label"> Address </label>
+                                <textarea type="text" placeholder="" class="form-control" name="Address" ng-model="organization.address.streetDetails"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"> Country </label> <span class="clip-select">
+                            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.countryId as country.countryName for country in countryList" ng-model="organization.address.countryId" ng-change="getStates(organization.address.countryId)"  name="countryname">
+                            <option value="">-select-</option>
+                        </select>
+                                             
+                                            </span> </div>
+                            <div class="form-group">
+                                <label class="control-label"> State </label> <span class="clip-select">
+                                    
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.stateId as state.stateName for state in stateList" ng-model="organization.address.stateId" ng-change="getCheckAddressMode(organization.address.stateId)"  name="statename">
+                            <option value="">-select-</option>
+
+                        </select>
+                                              
+                                            </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> District </label> <span class="clip-select">
+                                 <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.districtId as district.districtName for district in districtList" ng-change="getMandals(organization.address.districtId)" ng-model="organization.address.districtId"  name="districtname">
+                            <option value="">-select-</option>
+                                     </select>
+</span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> Mandal </label> <span class="clip-select">
+                                               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.mandalId as mandal.mandalName for mandal in mandalList" ng-change="getVillages(organization.address.mandalId)" ng-model="organization.address.mandalId" name="mandalname">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode">
+                                <label class="control-label"> Village </label> <span class="clip-select">
+                                               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="organization.address.villageId" ng-options="village.villageId as village.villageName for village in villageList" name="villagename">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group" ng-show="!isGovtAddressMode">
+                                <label class="control-label"> City </label> <span class="clip-select">   
+                                     <select class="js-statcontactTypees form-control" tabindex="-1" style="width: 100%" ng-options="city.cityId as city.cityName for city in citiesList" ng-model="organization.address.cityId" ng-change=""  name="cityname">
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> </div>
+                            <div class="form-group">
+                                <label class="control-label"> Pincode </label>
+                                <input type="text" placeholder="" class="form-control" name="pinCode" ng-model="organization.address.pincode" ng-pattern="/^\d{6}$/"> <span class="error text-small block" ng-if="(OrgAddressForm.pinCode.$dirty ||OrgAddressForm.$submitted) && OrgAddressForm.pinCode.$invalid">    
+                                    
+                       <p ng-show="OrgAddressForm.pinCode.$error.pattern" style="color:#a94442">6 digit number only</p>
+                                    
+                                    </span> </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <center>
+                        <button type="submit" ng-click="OrgContactForm.$valid&&updateOrganization()" class="btn btn-wide btn-primary"> Update </button>
+                    </center>
+                </div>
+                <!-- end: TAB EDIT ACCOUNT -->
+                <!-- start: TAB PROJECTS -->
+                <!-- end: TAB PROJECTS -->
+                <!-- end: USER TABSET -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: USER PROFILE -->

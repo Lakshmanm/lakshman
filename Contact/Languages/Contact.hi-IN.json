@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "ContactType": "पहला नाम",
+        "ContactInfo": "अंतिम नाम",
+        "EntityType": "जन्म तिथि",
+        "EntityId": "लिंग",
+        "Submit": "जमा करें",
+        "Update": "जमा करें",
+        "ContactBasicInfo1": "कर्मचारी बुनियादी जानकारी"
+
+    },
+    "errors": {
+
+    }
+}

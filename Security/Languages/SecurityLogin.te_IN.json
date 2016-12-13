@@ -1,0 +1,18 @@
+
+
+{
+    "labels": {
+        "SignIn": "సైన్ ఇన్",
+        "LoginHeader": "మీ ఖాతాలోకి నేను లాగిన్ దయచేసి .",
+        "EmailId": "ఇమెయిల్ ID",
+        "Password": "పాస్వర్డ్",
+        "Login": "లాగిన్",
+        "ForgotPassword": "పాస్వర్డ్ మరిచిపోయారా",
+        "DoNotHaveAnAccount": "ఖాతా లేదా?",
+        "CreateAccount": "క్రొత్త ఖాతా తెరువుము"
+    },
+    "errors": {
+        
+        }
+    
+}

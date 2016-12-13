@@ -1,0 +1,183 @@
+<!--=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : personWorkExperience.html
+ Type                : Angular js with ionic view
+ Description         : This file contains html controls
+ References          :
+ Author              : Sunitha Kumar V
+ Created Date        : 12-Apr-2016
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************-->
+<form name="workExperienceForm" novalidate>
+
+    <h2>{{workExperience.workExperiences}}</h2>
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.title}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workexperience.workExperienceName" name="title" required>
+
+            <div class="padding" ng-if="workExperienceForm.title.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.title.$error.required "> Title is mandatory</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.organizationName}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workexperience.organizationName" name="orgName" required>
+
+            <div class="padding" ng-if="workExperienceForm.orgName.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.orgName.$error.required "> Organization name is mandatory</p>
+
+            </div>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.designation}}<span style="color:red">*</span></span>
+
+            <select style="width: 100%" ng-options="designation.designationId as designation.designationName for designation in designationList" ng-model="workexperience.designationId" name="designation" required>
+
+                <option value="">--Select--</option>
+
+
+            </select>
+
+            <div class="padding" ng-if="workExperienceForm.designation.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.designation.$error.required "> Country is mandatory</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.occupation}}<span style="color:red">*</span></span>
+            <select style="width: 100%" ng-options="occupationType.occupationId as occupationType.occupationName for occupationType in occupationList" ng-model="workexperience.occupationId" name="occupation" required>
+
+                <option value="">--Select--</option>
+
+
+            </select>
+
+            <div class="padding" ng-if="workExperienceForm.occupation.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.occupation.$error.required "> Occupation is mandatory</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.location}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workExperienceLocation.geoLocation" name="geoLocation" ng-autocomplete options="options" details="details" required />
+            <div class="padding" ng-if="workExperienceForm.geoLocation.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.geoLocation.$error.required ">Locatin is required</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.totalYears}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workexperience.totalYears" name="totalYears" required>
+
+            <div class="padding" ng-if="workExperienceForm.totalYears.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.totalYears.$error.required "> Total years is mandatory</p>
+
+            </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.teachingExperience}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workexperience.teachingExperience" name="teaching" required>
+            <div class="padding" ng-if="workExperienceForm.teaching.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.teaching.$error.required ">Teaching experience is mandatory.</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.otherExperience}}<span style="color:red">*</span></span>
+
+            <input type="text" ng-model="workexperience.otherExperience" name="other" required>
+
+            <div class="padding" ng-if="workExperienceForm.other.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.other.$error.required "> Experience is mandatory</p>
+
+            </div>
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.startDate}}<span style="color:red">*</span></span>
+
+            <input type="date" ng-model="workexperience.startDate" name="startDate" required>
+
+            <div class="padding" ng-if="workExperienceForm.startDate.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.startDate.$error.required "> Start date is mandatory</p>
+
+            </div>
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <span>{{workExperience.endDate}}<span style="color:red">*</span></span>
+
+            <input type="date" ng-model="workexperience.endDate" name="endDate" required>
+
+            <div class="padding" ng-if="workExperienceForm.endDate.$touched || workExperienceForm.$submitted" style="color:red">
+                <p ng-show="workExperienceForm.endDate.$error.required "> End date is mandatory</p>
+
+            </div>
+        </label>
+    </div>
+
+
+
+
+    <div class="row">
+        <div style="text-align:center">
+            <button type="submit" ng-click="workExperienceForm.$valid&&saveWorkExperience()" class=" button button-stable">{{workExperience.submit}}</button>
+        </div>
+    </div>
+</form>
+<br>
+<div style="text-align:center">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{{workExperience.organizationName}}</th>
+                <th>{{workExperience.designation}}</th>
+                <th>{{workExperience.occupation}}</th>
+                <th>{{workExperience.edit}}</th>
+                <th>{{workExperience.delete}}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="workexp in workexperienceList">
+                <td>{{workexp.organizationName}}</td>
+                <td>{{workexp.designationName}}</td>
+                <td>{{workexp.occupationName}}</td>
+
+
+                <td>
+                    <a ng-click="getWorkExperienceById(workexp.referenceKey)"><i class="fa fa-pencil"></i>Edit</a>
+                </td>
+                <td><a ng-click="deleteWorkExperience(workexp.referenceKey)"><i class="fa fa-trash"></i>Delete</a></td>
+
+
+
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

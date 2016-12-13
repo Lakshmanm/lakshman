@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "disease": "Disease"
+        , "diseaseType": "Disease Type"
+        , "diseasePercentage": "Disease Percentage"
+        , "identifiedDate": "Identified Date"
+        , "diseaseDetails": "Disease Details "
+        , "documents": "Documents"
+        , "isHospitalized": "Is Hospitalized ?"
+        , "hospitalName": "Hospital Name"
+        , "isLifeThreatDisease": "Is LifeThreatDisease ?"
+        , "curedDate": "Cured Date"
+        , "remarks": "Remarks"
+        , "submit": "Submit"
+        , "edit": "Edit"
+        , "delete": "Delete"
+    }
+    , "errors": {}
+}

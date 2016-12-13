@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "name": " Person Name",
+        "email": "Email ID",
+        "contact": "Mobile Number",
+        "occupation": "Occupation ",
+        "address": "Address",
+        "know": "How do you know the person",
+        "howLong": "How long do you know this person ?",
+        "submit":"Submit",
+        "years":"Years",
+        "months":"Months",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

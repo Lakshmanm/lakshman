@@ -1,0 +1,28 @@
+{
+    "messages": {
+        "boardSaved": "Board Saved Successfully"
+        , "boardUpdated": "Board Updated Successfully"
+        , "boardDeleted": " Board Deleted Successfully"
+        ,"groupSaved": "Group Saved Successfully"
+        , "groupUpdated": "Group Updated Successfully"
+        , "groupDeleted": "Group Deleted Successfully"
+        ,"coursSaved": "Course Saved Successfully"
+        , "coursUpdated": "Course Updated Successfully"
+        , "coursDeleted": "Course Deleted Successfully"
+         ,"termSaved": "Term Saved Successfully"
+        , "termUpdated": "Term Updated Successfully"
+        , "termDeleted": "Term Deleted Successfully"
+         ,"electiveGroupSaved": "Elective Group Saved Successfully"
+        , "electiveGroupUpdated": "Elective Group Updated Successfully"
+        , "electiveGroupDeleted": "Elective Group Deleted Successfully"
+         ,"subjectSaved": "Subject Saved Successfully"
+        , "subjectUpdated": "Subject Updated Successfully"
+        , "subjectDeleted": "Subject Deleted Successfully"
+        
+        , "Proceeded": "Proceded Successfully"
+        , "Invalid": "Invalid Number"
+    }
+    , "errors": {
+
+    }
+}

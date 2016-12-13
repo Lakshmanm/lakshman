@@ -1,0 +1,18 @@
+
+
+{
+    "labels": {
+        "Role": "Role",
+        "RoleName": "Role Name",
+        "RoleDescription": "Role Description",
+        "IsActive": "IsActive",
+        "Save": "Save",
+        "Update": "Update",
+        "Edit": "Edit"
+
+    },
+    "errors": {
+
+    }
+
+}

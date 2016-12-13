@@ -1,0 +1,26 @@
+{
+    "lables": {
+       "firstName":"First Name",
+        "middleName":"Middle Name",
+        "lastName ": "Last Name ",
+        "dob":"D.O.B",
+        "gender":"Gender"  , 
+        "branch":"Branch",
+		"designation":"Designation",
+		"specialization":"Specialization",
+		"staffProfile":"Staff Profile",
+		"contactdetails":"Contact Details",
+		"contacttype":"Contact Type",
+		"contactInfo":"Contact Info",
+		"type":"type",
+		"security":"Security",
+		"role":"Role",
+		"loginId":"Login Id",	
+		"password":"Password",
+		"confirmPassword":"Confirm Password"
+		
+		
+		
+		
+    }
+}

@@ -1,0 +1,93 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: EditTeamMember.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+         <form name="MemberForm" novalidate>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> {{labelsTeamMember.editTeamMemberTitle}}  </h2>
+            </div>
+             <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">  
+    					 <label>{{labelsTeamMember.taemTitle}}</label>
+                     <select ng-options="team.teamkey as team.teamtitle for team in  teams" value="3" class="form-control "  ng-model="entityTeamMember.teamKey" name="teamKey" ng-required="true"  > 
+						 <option value="">--Select--</option>
+					 </select>
+                   <div class="padding" ng-if="MemberForm.teamKey.$touched || MemberForm.$submitted" style="color:red">
+                            <p ng-show="MemberForm.teamKey.$error.required "><span style="color:red"> Team Title is required</span></p>
+                        </div>   
+                     
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+                     
+					 <label>{{labelsTeamMember.teamRoleKey}}</label>
+                      <select ng-options="role.teamrolekey as role.teamroletitle for role in  roles" value="3" class="form-control "  ng-model="entityTeamMember.teamRoleKey" name="teamRoleKey" ng-required="true" > 
+						 <option value="">--Select--</option>
+					 </select> 
+                      <div class="padding" ng-if="MemberForm.teamRoleKey.$touched || MemberForm.$submitted" style="color:red">
+                      <p ng-show="MemberForm.teamRoleKey.$error.required">Team Role key  is required</p>
+                    
+
+                        </div>
+					<!-- <select ng-options="" value="3" class="form-control "  ng-model="entityTeamMember.teamRoleKey" name="teamRoleKey" > 
+						 <option value="">--Select--</option>
+					 </select>-->
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeamMember.personKey}}</label>
+                     <input class="form-control" id="input-Default" ng-model="entityTeamMember.personKey" name="personKey" type="text" ng-minlength = "4" ng-maxlength = "80" >   
+					<!-- <select ng-options="" value="3" class="form-control "  ng-model="entityTeamMember.personKey" name="personKey" > 
+						 <option value="">--Select--</option>
+					 </select>-->
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeamMember.startDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityTeamMember.StartDate" name="StartDate" type="date"> 
+				 </div>
+			 </div>
+			 <div class="col-lg-3 col-md-6">
+				 <div class="panel-body">
+					 <label>{{labelsTeamMember.endDate}}</label>
+					 <input class="form-control date-picker"  ng-model="entityTeamMember.EndDate" name="EndDate" type="date"> 
+				 </div>
+			 </div>
+			 <div class="row"><div class="col-md-3">
+				 <div class="panel-body">
+					 <button type="submit" class="btn btn-default" ng-click=" MemberForm.$valid && updateTeamMember()">{{labelsTeamMember.update}}</button>
+				 </div>
+			 </div>
+		 </div>
+			 </div>
+        </form>
+		 </div>
+	 </div>

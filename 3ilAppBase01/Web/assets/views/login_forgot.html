@@ -1,0 +1,103 @@
+<!-- start: FORGOT -->
+<div style="background-image: url('3ilAppBase01/Web/assets/images/loginbg.jpg'); position: fixed; z-index:0;left:0;top:0px;bottom:0px;right:0px;margin-left: -120px;margin-top:-40px">
+    <div class="row">
+        <div class="main-login  col-xs-offset-1 col-sm-8 col-sm-offset-5 col-md-8 col-md-offset-5 col-lg-6 col-lg-offset-3" style="width:600px; margin-left:496px;margin-top:200px">
+            <div class="form-group" style="text-align: right;"> <a style="color:white;" href="#/signin">Back to Login </a> </div>
+            <div class="logo text-center"> <img src="3ilAppBase01/Web/assets/images/logo.png" alt="{{app.name}}" class="img-responsive" /> </div>
+            <!-- start:FORGOT BOX -->
+            <div class="box-forgot text-center">
+                <center>
+                    <form class="form-forgot" name="forgotpasswordform" novalidate>
+                    
+                            <div class=" text-center">
+                                <h5 style="color:white;font-weight:bold"> How do you want to recover your password?</h5> </div>
+                            <input type="radio" name="hmobile" ng-click="mail()" ng-model="Register.email" value="Email">
+                            <label style="color:white">Email</label>
+                            <input type="radio" name="pmail" ng-click="mobile()" ng-model="Register.MobileNumber" value="hmobile">
+                            <label style="color:white">Mobile</label>
+
+  <div ng-show="email">
+   <div class="col-md-7" style="float:left;text-align:left;margin-left:-13px;">
+                            <label>Enter your Registered Email ID</label>
+                            </div>
+                    <div class="form-group">
+                        <label>{{labelsCours.courseTitle}}</label>
+                        <input class="form-control" id="input-Default" ng-model="Register.PrimaryEmailAddress"  placeholder="Email Address" name="pmail" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required> 
+                        <span class="error text-small block" ng-if="forgotpasswordform.pmail.$dirty && forgotpasswordform.pmail.$invalid" style="color:red">          
+          <p ng-show="forgotpasswordform.pmail.$invalid && forgotpasswordform.pmail.$error.required" style="color:#a94442">Email ID is required</p>
+                                         
+           <p ng-show="forgotpasswordform.pmail.$error.pattern" style="color:#a94442">Invalid email ID</p>
+                                    
+                                    </span>
+                                    </div>
+
+                                    <div class="col-md-4">
+                     <button type="button" class="btn btn-wide btn-primary" ng-disabled="forgotpasswordform.pmail.$invalid" ng-click="forgotpasswordform.$valid && emailVerify()" v-pressable>{{securityForgotPassword.Verify}}</button>
+                     </div>
+
+             </div>
+
+
+
+
+
+
+                          <!--   <div ng-show="email">
+     
+                               <div class="col-md-7" style="float:left;text-align:left;margin-left:-13px;">
+                            <label>Enter your Registered Email ID</label>
+                            </div>
+                                <input type="text" name="pmail" class="form-control " placeholder="Email Address" ng-model="Register.PrimaryEmailAddress" ng-required="true">
+                                <br>
+                                <br> <span ng-if="ForgotPwdForm.$submitted || ForgotPwdForm.pmail.$touched" style="color:red;">
+            <p ng-show="ForgotPwdForm.pmail.$invalid && ForgotPwdForm.pmail.$error.required">EmailID is required</p>
+                                    </span>
+                               <!--  <button type="submit" class="btn btn-primary" ng-click="emailVerify()" name="">{{securityForgotPassword.Verify}}</button> -->
+<!-- <button type="button" class="btn btn-wide btn-primary" ng-disabled="forgotpassword.$invalid" ng-click="forgotpassword.$valid && emailVerify()" v-pressable>{{securityForgotPassword.Verify}}</button>
+ -->
+
+
+                            <!--</div> -->
+
+                            <label ng-show="eMessage">Email Does not Exist</label>
+                            <label ng-show="emailSuccess"><span style="color:red">Email has been sent. Kindly check your inbox and proceed further</span>.</label>
+                            <label ng-show="sMessage"><span style="color:red">Email has been sending please wait...</span></label>
+                           
+                            <div ng-show="mobil">
+                            <div class="row">
+                              <div class="col-md-7" style="float:left;text-align:left;margin-left:-13px;">
+                            <label>Enter your Registered Mobile Number</label>
+                            </div></div>
+                                <input type="tel" name="pmobile" class="form-control " onkeypress="return isNumberKey(event)" placeholder="Mobile Number" ng-minlength="10" ng-model="Register.MobileNumber" ng-pattern="/^[0-9]{1,10}$/" maxlength="10" required>
+                                <br>   <span class="error text-small block" ng-if="forgotpasswordform.pmobile.$dirty && forgotpasswordform.pmobile.$invalid" style="color:red">           
+                                        <p ng-show="forgotpasswordform.pmobile.$invalid && forgotpasswordform.pmobile.$error.required" style="color:#a94442">Mobile number is required</p>
+                       <p ng-show="forgotpasswordform.pmobile.$error.pattern" style="color:#a94442">Invalid mobile number</p>
+                                  </span> 
+                              <!--   <button ng-show="otp" type="submit" class="btn btn-primary" ng-click="mobileVerify()" name="">{{securityForgotPassword.SendOTP}}</button> -->
+   <button type="button" class="btn btn-wide btn-primary" ng-disabled="forgotpasswordform.pmobile.$invalid" ng-click="forgotpasswordform.$valid && mobileVerify()" v-pressable>{{securityForgotPassword.SendOTP}}</button>
+                     </div>
+
+
+                                <br>
+                                <button ng-show="reotp" type="submit" class="btn btn-primary" ng-click="reSend()" name="">{{securityForgotPassword.ReSendOTP}}</button>
+                                <label ng-show="mMessage">{{securityForgotPassword.MobileNumberDoesnotExist}} </label>
+                                <div ng-show="verif">
+                                    <label> Enter OTP </label>
+                                    <br>
+                                    <input type="text" name="mobile" class="form-control " ng-model="Register.totp">
+                                    <br>
+                                    <label ng-show="number">{{securityForgotPassword.InvalidOTPExpired}}</label>
+                                    <button type="submit" class="btn btn-primary" ng-click="confirmOtp()" name="">{{securityForgotPassword.Submit}}</button>
+                                </div>
+                            
+                    </form>
+                </center>
+                 <div style="position:fixed; bottom:-10px; right:15px;">
+                <p style="color:#fff; line-height:44px; float:left; margin-right:10px;">Copyright © 2016.All rights reserved.</p> <img style="float:right;" src="3ilAppBase01/web/assets/images/footer_logo.png"></div>
+                </div>
+            </div>
+            <!-- end: FORGOT BOX -->
+        </div>
+    </div>
+</div>
+<!-- end: FORGOT -->

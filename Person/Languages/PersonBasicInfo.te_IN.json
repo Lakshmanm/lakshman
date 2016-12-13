@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "firstName": "మొదటి పేరు",
+        "middleName": "మధ్య పేరు",
+        "lastName": "చివరి పేరు",
+        "dateOfBirth": "పుట్టిన తేది",
+        "placeOfBirth": "పుట్టిన స్థలం",
+        "gender": "లింగ",
+        "identificationMarks": "గుర్తింపు మార్క్స్",
+        "languages": "భాషలు",
+        "bloodGroup": "రక్త గుంపులు",
+        "submit": "సమర్పించండి",
+        "basicInfo": "్రాథమిక సమాచారం"
+    },
+    "errors": {
+
+    }
+}

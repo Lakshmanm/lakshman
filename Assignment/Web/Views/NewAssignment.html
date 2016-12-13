@@ -1,0 +1,485 @@
+<style>
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+</style>
+
+
+
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+
+    <h4 class="mainTitle no-margin">New Assignment</h4>
+
+
+
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="row">
+        <form name="branchForm" novalidate>
+
+            <div class="col-md-3">
+                <div class="panel-body" ng-class="{'has-error':branchForm.branches.$dirty && branchForm.branches.$invalid, 'has-success':branchForm.branches.$valid}">
+
+                    <label>{{labelsAssignment.branches}}<span class="symbol required"></span> </label> <span class="clip-select">
+
+
+
+                        <select ng-options="institute as institute.OrganizationName for institute in instituteList" value="3" class="form-control " ng-click="getBranchKey(entityAssignment.branchKey.InstituteKey,entityAssignment.branchKey.SubOrganizationKey,entityAssignment.branchKey.ParentOrganizationKey)" ng-model="entityAssignment.branchKey" ng-disabled="newInstitute"
+                            name="branches" ng-required="true"> 
+					  <option value="">--Select--</option>
+					 </select>
+
+                        </span>
+                    <span ng-if="branchForm.branches.$dirty && branchForm.branches.$invalid" class="validationMessage">
+                      <span ng-if="branchForm.branches.$invalid && branchForm.branches.$error.required ">Institute  is required.</span></span>
+
+
+                </div>
+            </div>
+        </form>
+
+
+        <div class=" col-md-3">
+            <div class="panel-body">
+                <br>
+
+                <label>{{labelsAssignment.staff}}</label>
+                <input type="radio" name="staff" ng-click=" getDetails(entityAssignment,entityAssignment.branchKey)" ng-model="entityAssignment.staff" value="staff">
+
+                <label>{{labelsAssignment.student}}</label>
+                <input type="radio" name="student" ng-click=" getDetails(entityAssignment,entityAssignment.branchKey)" ng-model="entityAssignment.staff" value="student">
+
+            </div>
+        </div>
+
+        <form name="assignmentStaffForm" novalidate>
+
+            <div ng-show="staff">
+<div class="row">
+                <div class="col-md-3">
+                    <!-- <div class="form-group" "> -->
+
+                    <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.departmentName.$dirty && assignmentStaffForm.departmentName.$invalid, 'has-success':assignmentStaffForm.departmentName.$valid}">
+                        <label>{{labelsAssignment.departmentName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="assignment.referenceKey as assignment.departmentName for assignment in departmentList" value="3" class="form-control " ng-click="getStaff(entityAssignment.branchKey.ParentOrganizationKey,entityAssignmentStaff.departmentKey,entityAssignment.branchKey.InstituteKey)" ng-model="entityAssignmentStaff.departmentKey" name="departmentName" ng-required="true"> 
+                      <option value="">--Select--</option>
+                            </select></span>
+
+                        <span ng-if="assignmentStaffForm.$submitted || assignmentStaffForm.departmentName.$touched" class="validationMessage">
+                            <span ng-show="assignmentStaffForm.departmentName.$invalid && assignmentStaffForm.departmentName.$error.required ">Department Name  is required.</span></span>
+
+
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    <label  style="color:black">Staff List</label>
+
+                    <table id="tblAssignmentList" class="table table-stripped" cellspacing="0" width="100 % ">
+
+                        <tbody>
+                            <tr ng-repeat="assignment in teacherList">
+                                <td>
+                                    <!-- <input type="checkbox" id="checkbox{{$index}}" ng-click="getElective(assignment.StaffKey)" ng-model="assignment.StaffKey" value="elective" name="isElective"> -->
+                                    <div class="form-group">
+                                        <input type="checkbox" id="checkbox{{$index}}" ng-click="getStaffKey(assignment.StaffKey)">
+                                        <label for="checkbox{{$index}}">{{ assignment.FirstName }} </label>
+                                    </div>
+                                </td>
+
+                                <!-- <td>{{ assignment.firstName + assignment.MiddleName }}</td> -->
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <!--  <div class="form-group" > -->
+
+                        <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.assignmentName.$dirty && assignmentStaffForm.assignmentName.$invalid, 'has-success':assignmentStaffForm.assignmentName.$valid}">
+                            <label>{{labelsAssignment.assignmentName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" id="input-Default" autocomplete="off" ng-model="entityAssignmentStaff.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true">
+                            </span>
+                            <span ng-if="assignmentStaffForm.$submitted || assignmentStaffForm.assignmentName.$touched" class="validationMessage">
+                        <span ng-show="assignmentStaffForm.assignmentName.$invalid && assignmentStaffForm.assignmentName.$error.required ">Assignment Name  is required.</span>
+                            <span ng-show="assignmentStaffForm.assignmentName.$error.minlength">Assignment Name is too small.</span>
+                            <span ng-show="assignmentStaffForm.assignmentName.$error.maxlength">Assignment Name is too long.</span>
+                            <span ng-show="assignmentStaffForm.assignmentName.$error.pattern">Alphabets only.</span>
+                            </span>
+
+                            <!--                         </div>
+ -->
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!--   <div class="form-group" > -->
+
+                        <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.assignmentType.$dirty && assignmentStaffForm.assignmentType.$invalid, 'has-success':assignmentStaffForm.assignmentType.$valid}">
+                            <label>{{labelsAssignment.assignmentType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="assignment.AssignmentTypeKey as assignment.AssignmentTypeName for assignment in assignmentCollections" class="form-control " ng-model="entityAssignmentStaff.assignmentTypeKey" name="assignmentType" ng-required="true"> 
+                      <option value="">--Select--</option>
+                            </select></span>
+                            <span ng-if="assignmentStaffForm.$submitted || assignmentStaffForm.assignmentType.$touched" class="validationMessage">
+                          <span ng-show="assignmentStaffForm.assignmentType.$invalid && assignmentStaffForm.assignmentType.$error.required ">Assignment Type  is required.</span></span>
+                        </div>
+                        <!--                     </div>
+ -->
+                    </div>
+                    <div class=" col-md-6">
+                        <div class="panel-body">
+                            <label>{{labelsAssignment.topicTitle}}</label>
+                            <input class="form-control" id="input-Default" ng-model="entityAssignmentStaff.topicTitle" name="topicTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/">
+                            <span class="validationMessage" ng-if="assignmentStaffForm.topicTitle.$dirty && assignmentStaffForm.topicTitle.$invalid">    
+                               <span ng-show=" assignmentStaffForm.topicTitle.$error.pattern">Alpha numeric Only</span>
+                            <span ng-show=" assignmentStaffForm.topicTitle.$error.minlength">Minimum number of characters required 3</span>
+                            <span ng-show=" assignmentStaffForm.topicTitle.$error.maxlength">Maximum number of characters required 80</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                          <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.startDate.$dirty && assignmentStaffForm.startDate.$invalid, 'has-success':assignmentStaffForm.startDate.$valid}">
+                            <label>{{labelsAssignment.startDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                              <input class="form-control date-picker" ng-model="entityAssignmentStaff.startDate" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" name="startDate" type="date" required></span>
+                            <span class="validationMessage" ng-if="assignmentStaffForm.startDate.$dirty && assignmentStaffForm.startDate.$invalid">    
+                                <span ng-show="assignmentStaffForm.startDate.$invalid && assignmentStaffForm.startDate.$error.required ">Start Date  is required </span>          
+                         <span ng-show="assignmentStaffForm.startDate.$invalid && assignmentStaffForm.startDate.$error.min">Start date is not a valid date</span>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.status.$dirty && assignmentStaffForm.endDate.$invalid, 'has-success':assignmentStaffForm.endDate.$valid}">
+
+
+                            <label>{{labelsAssignment.endDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control date-picker" min="{{entityAssignmentStaff.startDate | date:'yyyy-MM-dd'}}" ng-model="entityAssignmentStaff.endDate" name="endDate" type="date" required></span>
+                            <span class="validationMessage" ng-if="assignmentStaffForm.endDate.$dirty && assignmentStaffForm.endDate.$invalid">    
+                                <span ng-show="assignmentStaffForm.endDate.$invalid && assignmentStaffForm.endDate.$error.required ">End Date  is required   </span>               
+                         <span ng-show="assignmentStaffForm.endDate.$invalid && assignmentStaffForm.endDate.$error.min">End date is not a valid date</span>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+
+                    <div class=" col-md-3">
+                        <div class="panel-body">
+                            <label>{{labelsAssignment.priority}}</label>
+                            <select ng-options="priority.priorityKey as priority.priorityStatus  for priority in priorityList" class="form-control " ng-model="entityAssignmentStaff.priorityKey" name="priority"> 
+                         <option value="">--Select--</option>
+                     </select>
+                        </div>
+                    </div>
+
+
+                    <div class=" col-md-3">
+
+
+                        <div class="panel-body" ng-class="{'has-error':assignmentStaffForm.status.$dirty && assignmentStaffForm.status.$invalid, 'has-success':assignmentStaffForm.status.$valid}">
+                            <label>{{labelsAssignment.status}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" ng-required="true" value="3" class="form-control " ng-model="entityAssignmentStaff.assignmentStatusKey" name="status"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                            <span ng-if="assignmentStaffForm.$submitted || assignmentStaffForm.status.$touched" class="validationMessage">
+                          <span ng-show="assignmentStaffForm.status.$invalid && assignmentStaffForm.status.$error.required ">Status  is required.</span></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class=" col-md-12">
+                        <div class="panel-body">
+                            <label>{{labelsAssignment.description}}</label>
+                            <textarea class="form-control" ng-model="entityAssignmentStaff.description" name="description" type="text"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel-body">
+                            <label>{{labelsAssignment.folderKey}}</label><span class="symbol required"></span>
+                            <input type="file" name="myFile" ng-change="getName(dms.documents)" id="myFile" ng-model="dms.documents" multiple base-sixty-four-input>
+                          <label>{{filename}}</label>
+                        </div>
+                    </div>
+                    <div class=" col-md-9">
+                        <div class="panel-body" align="right">
+
+
+                            <button type="button" class="btn btn-wide btn-primary" ng-disabled="assignmentStaffForm.$invalid" ng-click="assignmentStaffForm.$valid && addAssignmentStaff(entityAssignmentStaff,dms)">{{labelsAssignment.submit}}</button>
+
+                            <button type="submit" class="btn btn-wide btn-primary" ng-click="cancelAssignment()">{{labelsAssignment.cancel}}</button>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    <!--  </div>
+                 </div>
+                </div>
+            
+            -->
+    </form>
+
+    <form name="assignmentForm" novalidate>
+
+
+        <div ng-show="student">
+            <!--
+   <div class="row">
+-->
+
+            <div class="col-md-3">
+                <!-- <div class="form-group"> -->
+
+
+                <div class="panel-body" ng-class="{'has-error':assignmentForm.groupName.$dirty && assignmentForm.groupName.$invalid, 'has-success':assignmentForm.groupName.$valid}">
+                    <label>{{labelsAssignment.groupTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="group.InstituteGroupkey as group.GroupTitle  for group in groupList" value="3" class="form-control " ng-change="getCourse(entityAssignment.groupKey)" ng-model="entityAssignment.groupKey" name="groupName" ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                    <span ng-if="assignmentForm.$submitted || assignmentForm.groupName.$touched" class="validationMessage">
+                          <span ng-show="assignmentForm.groupName.$invalid && assignmentForm.groupName.$error.required ">Group  is required.</span></span>
+                </div>
+                <!--                     </div>
+ -->
+            </div>
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.courseTitle}}</label>
+                    <select ng-options="course.InstituteCourseKey as course.CourseTitle  for course in courseList" value="3" class="form-control " ng-change="getBatch(entityAssignment.courseKey)" ng-model="entityAssignment.courseKey" name="courseName"> 
+                         <option value="">--Select--</option>
+                     </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                 <div class="panel-body" ng-class="{'has-error':assignmentForm.batchName.$dirty && assignmentForm.batchName.$invalid, 'has-success':assignmentForm.batchName.$valid}">
+                    <label>{{labelsAssignment.batchTitle}}<span class="symbol required"></span> </label> <span class="clip-select">
+                    <select ng-options="batch.InstituteBatchKey as batch.BatchName  for batch in batchList" value="3" class="form-control " ng-change="getStudentList(entityAssignment.batchKey)" ng-model="entityAssignment.batchKey" name="batchName" required> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                       <span ng-if="assignmentForm.$submitted || assignmentForm.batchName.$touched" class="validationMessage">
+                          <span ng-show="assignmentForm.batchName.$invalid && assignmentForm.batchName.$error.required ">Batch  is required.</span></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel-body">
+                    <label>{{labelsAssignment.subjectTitle}}</label>
+                    <select ng-options="subject.InstituteSubjectkey as subject.SubjectTitle  for subject in subjectList" value="3" class="form-control " ng-model="entityAssignment.subjectKey" name="subjectName"> 
+                         <option value="">--Select--</option>
+                     </select>
+                </div>
+            </div>
+            <!-- </div>-->
+            <div class="row">
+                <div class=" col-md-3">
+
+                    
+
+                    <table id="tblAssignmentStudentList" class="table table-stripped" cellspacing="0" width="100 % ">
+  <label style="color:black">Student List</label> 
+                        <tbody>
+                       
+
+                            <tr ng-repeat="assignment in studentList">
+                                <td>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="studentname" id="checkbox{{$index}}" ng-click="getStudentKey(assignment.StudentKey)">
+                                        <label for="checkbox{{$index}}">{{ assignment.FirstName}}{{assignment.LastName}}   </label>
+
+                                    </div>
+                                </td>
+
+
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <!-- <div class="form-group" > -->
+
+                    <div class="panel-body" ng-class="{'has-error':assignmentForm.assignmentName.$dirty && assignmentForm.assignmentName.$invalid, 'has-success':assignmentForm.assignmentName.$valid}">
+                        <label>{{labelsAssignment.assignmentName}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <input class="form-control" autocomplete="off" id="input-Default" ng-model="entityAssignment.assignmentName" name="assignmentName" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="/^[a-zA-Z0-9\s]*$/" ng-required="true">
+
+                        </span> <span ng-if="assignmentForm.$submitted || assignmentForm.assignmentName.$touched" class="validationMessage">
+                        <span ng-show="assignmentForm.assignmentName.$invalid && assignmentForm.assignmentName.$error.required ">Assignment Name  is required.</span>
+                        <span ng-show="assignmentForm.assignmentName.$error.minlength">Assignment Name is too small.</span>
+                        <span ng-show="assignmentForm.assignmentName.$error.maxlength">Assignment Name is too long.</span>
+                        <span ng-show="assignmentForm.assignmentName.$error.pattern">Alphabets only.</span>
+                        </span>
+
+                        <!--                         </div>
+ -->
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <!--   <div class="form-group" >
+ -->
+                    <div class="panel-body" ng-class="{'has-error':assignmentForm.assignmentType.$dirty && assignmentForm.assignmentType.$invalid, 'has-success':assignmentForm.assignmentType.$valid}">
+                        <label>{{labelsAssignment.assignmentType}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="assignment.AssignmentTypeKey as assignment.AssignmentTypeName for assignment in assignmentCollections" value="3" class="form-control " ng-model="entityAssignment.assignmentTypeKey"  name="assignmentType" ng-required="true"> 
+                      <option value="">--Select--</option>
+                     </select></span>
+                        <span ng-if="assignmentForm.$submitted || assignmentForm.assignmentType.$touched" class="validationMessage">
+                          <span ng-show="assignmentForm.assignmentType.$invalid && assignmentForm.assignmentType.$error.required ">Assignment Type  is required.</span></span>
+                        <!--                         </div>
+ -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.topicTitle}}</label>
+
+                        <input class="form-control" id="input-Default" ng-model="entityAssignment.topicTitle" name="topicTitle" type="text" ng-minlength="3" ng-maxlength="80" ng-pattern="[a-zA-Z0-9]+">
+                        <span class="validationMessage" ng-if="assignmentForm.topicTitle.$dirty && assignmentForm.topicTitle.$invalid">    
+                               <span ng-show=" assignmentForm.topicTitle.$error.pattern">Alphabets Only</span>
+                        <span ng-show=" assignmentForm.topicTitle.$error.minlength">Minimum number of characters required 3</span>
+                        <span ng-show=" assignmentForm.topicTitle.$error.maxlength">Maximum number of characters required 80</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                   
+                          <div class="panel-body" ng-class="{'has-error':assignmentForm.startDate.$dirty && assignmentForm.startDate.$invalid, 'has-success':assignmentForm.startDate.$valid}">
+                        <label>{{labelsAssignment.startDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                              <input class="form-control date-picker" ng-model="entityAssignment.startDate" min="{{requestedMinDate | date:'yyyy-MM-dd'}}" name="startDate" type="date" required></span>
+                        <span class="validationMessage" ng-if="assignmentForm.startDate.$dirty && assignmentForm.startDate.$invalid">    
+                             <span ng-show="assignmentForm.startDate.$invalid && assignmentForm.startDate.$error.required ">Start date  is required.</span>              
+                         <span ng-show="assignmentForm.startDate.$invalid && assignmentForm.startDate.$error.min">Start date is not a valid date</span>
+
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class=" col-md-3">
+                    <div class="panel-body" ng-class="{'has-error':assignmentForm.endDate.$dirty && assignmentForm.endDate.$invalid, 'has-success':assignmentForm.endDate.$valid}">
+
+
+                        <label>{{labelsAssignment.endDate}}<span class="symbol required"></span> </label> <span class="clip-select">
+                        <input class="form-control date-picker" min="{{entityAssignment.startDate | date:'yyyy-MM-dd'}}" ng-model="entityAssignment.endDate" name="endDate" type="date" required></span>
+                        <span class="validationMessage" ng-if="assignmentForm.endDate.$dirty && assignmentForm.endDate.$invalid">    
+                          <span ng-show="assignmentForm.endDate.$invalid && assignmentForm.endDate.$error.required ">End date  is required.</span>              
+                         <span ng-show="assignmentForm.endDate.$invalid && assignmentForm.endDate.$error.min">End date is not a valid date</span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.priority}}</label>
+                        <select ng-options="priority.priorityKey as priority.priorityStatus  for priority in priorityList" class="form-control " ng-model="entityAssignment.priorityKey" name="priority"> 
+                         <option value="">--Select--</option>
+                     </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+                    <!--  <div class="form-group">
+ -->
+                    <div class="panel-body" ng-class="{'has-error':assignmentForm.status.$dirty && assignmentForm.status.$invalid, 'has-success':assignmentForm.status.$valid}">
+                        <label>{{labelsAssignment.status}}<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="status.AssignmentStatusKey as status.AssignmentStatusName  for status in statusList" ng-required="true" value="3" class="form-control " ng-model="entityAssignment.assignmentStatusKey" name="status"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                        <span ng-if="assignmentForm.$submitted || assignmentForm.status.$touched" class="validationMessage">
+                          <span ng-show="assignmentForm.status.$invalid && assignmentForm.status.$error.required ">Status  is required.</span></span>
+                    </div>
+                </div>
+            </div>
+            <!-- </div>
+ -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.description}}</label>
+                        <textarea class="form-control " ng-model="entityAssignment.description" name="description" type="text"></textarea>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel-body">
+                        <label>{{labelsAssignment.folderKey}}</label><span class="symbol required"></span>
+                        <input type="file" name="myFile" ng-change="getName(dms.documents)" id="myFile" ng-model="dms.documents" multiple base-sixty-four-input>
+              <label>{{filename}}</label>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="panel-body" align="right">
+
+
+                        <button type="button" class="btn btn-wide btn-primary" ng-disabled="assignmentForm.$invalid" ng-click="assignmentForm.$valid && addAssignmentStudent(entityAssignment,dms)" v-pressable>{{labelsAssignment.submit}}</button>
+
+                        <button type="submit" class="btn btn-wide btn-primary" ng-click="cancelAssignment()">{{labelsAssignment.cancel}}</button>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+
+
+
+
+</div>
+<!-- end: USER PROFILE -->

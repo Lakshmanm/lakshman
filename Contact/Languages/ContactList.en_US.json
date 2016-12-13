@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "ContactType": "Contact Type",
+        "ContactInfo": "Contact Info",
+        "EntityType":"EntityType",
+        "Edit": "Edit",
+        "Delete": "Delete",
+        "ContactList": " Contact List"
+
+    }
+}

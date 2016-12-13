@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "Vaccination": "Vaccination",
+        "VaccinationName": "Vaccination Name",
+        "MedicineType": "Medicine Type",
+        "VaccinationType":"Vaccination Type",
+        "InspectionDate":"Inspection Date",
+        "Remarks":"Remarks",
+        "Submit": "Submit",
+        "Title":"Title",
+        "MedicineType": "Medicine Type",
+        "VaccinationType":"Vaccination Type",
+        "edit": "Edit",
+        "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

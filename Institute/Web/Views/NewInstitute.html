@@ -1,0 +1,293 @@
+<style>
+    ng-map {
+        /*padding: 0px;*/
+        width: 100%;
+        height: 200px;
+    }
+    
+    ,
+    .geo {
+        text-align: center;
+    }
+</style>
+<!-- start: BREADCRUMB -->
+<!-- end: BREADCRUMB -->
+<!-- start: USER PROFILE -->
+<script>
+    //var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+</script>
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- /// controller:  'UserCtrl' -  localtion: assets/js/controllers/userCtrl.js /// -->
+            <div>
+                <!-- start: USER TABSET -->
+                <div class="col-md-6">
+                    <form action="#" role="form" name="Form" id="form">
+                        <fieldset ng-disabled="details">
+                            <legend> Basic Info </legend>
+                            <div class="row">
+                                <div class="form-group" ng-class="{'has-error':Form.orgName.$dirty && Form.orgName.$invalid, 'has-success':Form.orgName.$valid}">
+                                    <label class="control-label"> Branch </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="institute.ParentOrganizationKey" ng-options="item.referenceKey as item.organizationName for item in subOrganizationList"  name="referenceKey">
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> </br>
+                                    <label class="control-label"> Institute Name <span class="symbol required"></span> </label>
+                                    <input type="text" placeholder="" class="form-control" name="orgName" ng-model="subOrganization.basicInfo.organizationName" required /> <span class="error text-small block" ng-if="Form.orgName.$dirty && Form.orgName.$invalid"> Institute Name  is required</span> </div>
+                                <div class="form-group" ng-class="{'has-error':Form.orgCode.$dirty && Form.orgCode.$invalid, 'has-success':Form.orgCode.$valid}">
+                                    <label class="control-label">Institute DISE Code <span class="symbol required"></span></label>
+                                    <input type="text" placeholder="" class="form-control" name="orgCode" ng-model="institute.instituteDISECode" ng-minlength="2" ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9]*$/" required /> <span class="error text-small block" ng-if="Form.orgCode.$dirty && Form.orgCode.$invalid">    
+                                        
+                                        <p ng-show="Form.orgCode.$invalid && Form.orgCode.$error.required">Institute code is required</p>
+                        <p ng-show="Form.orgCode.$error.minlength">Institute code should be minimum of 2 characters</p>
+                        <p ng-show="Form.orgCode.$error.maxlength">Institute code should be maximum of 50 characters</p>
+                        <p ng-show="Form.orgCode.$error.pattern">alphanumeric only</p>
+                                    
+                                    </span> </div>
+                                <div class="form-group">
+                                    <label class="control-label"> Institute Description </label>
+                                    <textarea placeholder="" class="form-control" name="orgDesc" ng-model="subOrganization.basicInfo.organizationDetails"></textarea>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error':Form.instituteType.$dirty && Form.instituteType.$invalid, 'has-success':Form.instituteType.$valid}">
+                                    <label class="control-label"> Type of Institution <span class="symbol required"></span> </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="institute.typeOfInstitute" ng-options="institute.InstituteTypeKey as institute.InstituteTitle for institute in instituteList"  name="instituteType" required>
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> <span class="error text-small block" ng-if="Form.instituteType.$dirty && Form.instituteType.$invalid">    
+                                        
+                                        <p ng-show="Form.instituteType.$invalid && Form.instituteType.$error.required">Institute Type is required</p>
+                       
+                                    
+                                    </span> </div>
+                                <div class="form-group" ng-class="{'has-error':Form.recognitionType.$dirty && Form.recognitionType.$invalid, 'has-success':Form.recognitionType.$valid}">
+                                    <label class="control-label"> Type of Recognition <span class="symbol required"></span> </label> <span class="clip-select">
+                                   
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="institute.recognitionType" ng-options="recognition.RecognitionTypeKey as recognition.ReconitionTypeName for recognition in recognitionList"  name="recognitionType" required>
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> <span class="error text-small block" ng-if="Form.recognitionType.$dirty && Form.recognitionType.$invalid">    
+                                        
+                                        <p ng-show="Form.recognitionType.$invalid && Form.recognitionType.$error.required">Recognition Type is required</p>
+                       
+                                    
+                                    </span> </div>
+                                <!--
+                                <div class="form-group">
+                                    <label class="control-label"> Branch Parent </label> <span class="clip-select">
+                                    
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%"  ng-model="subOrganization.basicInfo.parentOrganizationID" ng-options="parentsOrg.organizationId as parentsOrg.organizationName for parentsOrg in parentsOrganizations"  >
+                                        <option value="" >-select-</option>
+                                        </select>
+                                         
+                                    </span> </div>
+-->
+                                <div class="form-group">
+                                    <label class="control-label"> Website URL </label>
+                                    <input type="text" placeholder="www.domainname.com" class="form-control" ng-model="institute.websiteUrl" name="websiteUrl"> </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <form name="subOrgContactForm" novalidate>
+                        <fieldset ng-disabled="details">
+                            <legend> Contact Details </legend>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="control-label"> Contact Type </label> <span class="clip-select">
+                                                <select  class="form-control" name="contactType" ng-model="subOrganization.contact.contactTypeKey" ng-options="type.contactTypeKey as type.contactTypeTitle for type in contactTypes" required ng-change="contactTypeChange(subOrganization.contact.contactTypeKey)">
+                                                    <option value="">--select--</option>
+                                                </select>
+                                            </span> <span class="error text-small block" ng-if="(subOrgContactForm.contactType.$dirty ||subOrgContactForm.$submitted)  && subOrgContactForm.contactType.$invalid">    
+                                        
+                                        <p ng-show="subOrgContactForm.contactType.$invalid && subOrgContactForm.contactType.$error.required" style="color:#a94442">Contact Type is required</p>             
+                                    </span> </div>.
+                                        <div class="col-md-6">
+                                            <label class="control-label"> Contact Info </label>
+                                            <input type="text" placeholder="{{validation.placeHolder}}" class="form-control" ng-model="subOrganization.contact.contactItemInfo" name="contactItemInfo" required ng-pattern="validation.contactTypePattern"> <span class="error text-small block" ng-if="(subOrgContactForm.contactItemInfo.$dirty ||subOrgContactForm.$submitted) && subOrgContactForm.contactItemInfo.$invalid">    
+                                       
+                                        <p ng-show="subOrgContactForm.contactItemInfo.$invalid && subOrgContactForm.contactItemInfo.$error.required" style="color:#a94442">Contact Info is required</p>
+                       <p ng-show="subOrgContactForm.contactItemInfo.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    
+                                    </span> </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div ng-hide="OrganizationRemove">
+                                                    <button type="submit" value=""><img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" height="25px" ng-click="subOrgContactForm.$valid&&addContactItem()"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr ng-repeat="contact in contactList">
+                                                    <td>{{contact.contactTypeTitle}}</td>
+                                                    <td>{{contact.contactItemInfo}}</td>
+                                                    <td><i class="fa fa-remove" aria-hidden="true" ng-click="deleteContact(contact.contactKey,contact.contactItemKey)"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" height="500px"> </div>
+                            <div class="row"> </div>
+                        </fieldset>
+                    </form>
+
+
+<div class="row">
+<h4 ng-click="OpenGeodiv()" ng-show="hideLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+<h4 ng-click="hideGeodiv()" ng-show="showLabel">Geo Location <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h4>
+</div>
+
+
+<div class="row" ng-show="showGeo">
+                    <form name="subOrgGeoLocationForm" novalidate>
+                        <fieldset ng-disabled="details">
+                          
+                            <div class="row">
+                                <form>
+                                    <ng-map default-size="false" class="map" center="{{mapCenter}}" zoom="{{mapZoom}}" on-click="getpos($event)" id="subOrgMap">
+                                        <marker position="{{locationPointer}}" title="Hello World!" on-dragend="getpos($event)" animation="Animation.BOUNCE" animation="DROP" draggable="true" id="subOrgMarker"></marker>
+                                    </ng-map>
+                                    <div class="form-group">
+                                        <label class="control-label"> Longitude </label>
+                                        <input type="text" placeholder="" class="form-control" name="longitude" ng-model="subOrganization.address.longitude" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(subOrganization.address.longitude,subOrganization.address.latitude)"></i> <span class="error text-small block" ng-if="(subOrgGeoLocationForm.longitude.$dirty ||subOrgGeoLocationForm.$submitted) && subOrgGeoLocationForm.longitude.$invalid">    
+                       <p ng-show="subOrgGeoLocationForm.longitude.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    </span> </div>
+                                    <div class="form-group">
+                                        <label class="control-label"> Latitude </label>
+                                        <input type="text" placeholder="" class="form-control" name="latitude" ng-model="subOrganization.address.latitude" ng-pattern="/^[0-9]{1,7}(\.[0-9]+)?$/" /> <i class="fa fa-refresh" aria-hidden="true" ng-click="cordinatesRefresh(subOrganization.address.longitude,subOrganization.address.latitude)"></i> <span class="error text-small block" ng-if="(subOrgGeoLocationForm.latitude.$dirty ||subOrgGeoLocationForm.$submitted) && subOrgGeoLocationForm.latitude.$invalid">    
+                                    
+                       <p ng-show="subOrgGeoLocationForm.latitude.$error.pattern" style="color:#a94442">Invalid input</p>
+                                    
+                                    </span> </div>
+                                </form>
+                                <!--<single-geo-location></single-geo-location> -->
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="form-group">
+                        <label> Logo </label>
+                        <div>
+                            <!-- <div flow-init flow-object="obj.flow">-->
+                            <div class="user-image">
+                                <div class="thumbnail margin-bottom-5">
+                                    <!--  <img src="assets/images/person-icon.png" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Student" onclick="$('#ID_profilePic').click()">--><img ng-src="{{profilePic}}" id="ID_studentprofilepic" style="cursor:pointer;" width="200" alt="Institute" onclick="document.getElementById('ID_profilePic').click()"> <img ng-src="{{profilePic2}}">
+                                    <!-- imageonload -->
+                                    <input type="file" name="profilePic" id="ID_profilePic" style="display:none;" onchange="angular.element(this).scope().fileChange()" accept="image/*" ng-model="subOrganization.profilePic" base-sixty-four-input /> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form name="subOrgAddressForm">
+                        <fieldset ng-disabled="details">
+                            <legend> Address </legend>
+                            <div class="form-group" ng-class="{'has-error':subOrgAddressForm.Address.$dirty && subOrgAddressForm.Address.$invalid, 'has-success':subOrgAddressForm.Address.$valid}">
+                                <label class="control-label"> Address <span class="symbol required"></span> </label>
+                                <textarea type="text" placeholder="" class="form-control" name="Address" ng-model="subOrganization.address.streetDetails" required></textarea> <span class="error text-small block" ng-if="subOrgAddressForm.Address.$dirty && subOrgAddressForm.Address.$invalid">    
+                                <p ng-show="subOrgAddressForm.Address.$invalid && subOrgAddressForm.Address.$error.required">Address is required</p>
+                                                                         
+                                    </span> </div>
+                            <div class="form-group" ng-class="{'has-error':subOrgAddressForm.countryname.$dirty && subOrgAddressForm.countryname.$invalid, 'has-success':subOrgAddressForm.countryname.$valid}">
+                                <label class="control-label"> Country <span class="symbol required"></span></label> <span class="clip-select">
+                                    
+                                     <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.countryId as country.countryName for country in countryList" ng-model="subOrganization.address.countryId" ng-change="getStates(subOrganization.address.countryId)"  name="countryname" required>
+                            <option value="">-select-</option>
+                        </select>
+                                              
+                                            </span> <span class="error text-small block" ng-if="subOrgAddressForm.countryname.$dirty && subOrgAddressForm.countryname.$invalid">    
+                                        
+                                        <p ng-show="subOrgAddressForm.countryname.$invalid && subOrgAddressForm.countryname.$error.required">Country is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-class="{'has-error':subOrgAddressForm.statename.$dirty && subOrgAddressForm.statename.$invalid, 'has-success':subOrgAddressForm.statename.$valid}">
+                                <label class="control-label"> State <span class="symbol required"></span></label> <span class="clip-select">
+                                    
+                                    <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.stateId as state.stateName for state in stateList" ng-model="subOrganization.address.stateId" ng-change="getCheckAddressMode(subOrganization.address.stateId)"  name="statename" required>
+                            <option value="">-select-</option>
+
+                        </select>
+                                             
+                                            </span> <span class="error text-small block" ng-if="subOrgAddressForm.statename.$dirty && subOrgAddressForm.statename.$invalid">    
+                                        
+                                        <p ng-show="subOrgAddressForm.statename.$invalid && subOrgAddressForm.statename.$error.required">State is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode" ng-class="{'has-error':subOrgAddressForm.districtname.$dirty && subOrgAddressForm.districtname.$invalid, 'has-success':subOrgAddressForm.districtname.$valid}">
+                                <label class="control-label"> District <span class="symbol required"></span></label> <span class="clip-select">
+                                 <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.districtId as district.districtName for district in districtList" ng-change="getMandals(subOrganization.address.districtId)" ng-model="subOrganization.address.districtId"  name="districtname" >
+                            <option value="">-select-</option>
+                                     </select>
+</span> <span class="error text-small block" ng-if="subOrgAddressForm.districtname.$invalid">    
+                                        
+                                        <p ng-show="subOrgAddressForm.districtname.$invalid && subOrgAddressForm.districtname.$error.required">State is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode" ng-class="{'has-error':subOrgAddressForm.mandalname.$dirty && subOrgAddressForm.mandalname.$invalid, 'has-success':subOrgAddressForm.mandalname.$valid}">
+                                <label class="control-label"> Mandal <span class="symbol required"></span></label> <span class="clip-select">  <span class="symbol required"></span>
+                                <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.mandalId as mandal.mandalName for mandal in mandalList" ng-change="getVillages(subOrganization.address.mandalId)" ng-model="subOrganization.address.mandalId" name="mandalname">
+                                    <option value="">-select-</option>
+                                </select>
+                                </span> <span class="error text-small block" ng-if="subOrgAddressForm.mandalname.$invalid">    
+                                <p ng-show="subOrgAddressForm.mandalname.$invalid && subOrgAddressForm.mandalname.$error.required">Mandal is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-show="isGovtAddressMode" ng-class="{'has-error':subOrgAddressForm.villagename.$dirty && subOrgAddressForm.villagename.$invalid, 'has-success':subOrgAddressForm.villagename.$valid}">
+                                <label class="control-label"> Village <span class="symbol required"></span></label> <span class="clip-select">
+                                               <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="subOrganization.address.villageId" ng-options="village.villageId as village.villageName for village in villageList"  name="villagename" >
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> <span class="error text-small block" ng-if="subOrgAddressForm.villagename.$invalid">    
+                                <p ng-show="subOrgAddressForm.villagename.$invalid && subOrgAddressForm.villagename.$error.required">Village is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-show="!isGovtAddressMode" ng-class="{'has-error':subOrgAddressForm.cityname.$dirty && subOrgAddressForm.cityname.$invalid, 'has-success':subOrgAddressForm.cityname.$valid}">
+                                <label class="control-label"> City <span class="symbol required"></span></label> <span class="clip-select">   
+                                     <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="city.cityId as city.cityName for city in citiesList" ng-model="subOrganization.address.cityId" ng-change=""  name="cityname" required>
+                            <option value="">-select-</option>
+
+                        </select>
+                                               </span> <span class="error text-small block" ng-if="subOrgAddressForm.cityname.$invalid">    
+                                <p ng-show="subOrgAddressForm.cityname.$invalid && subOrgAddressForm.cityname.$error.required">City is required</p>
+                       
+                                    
+                                    </span> </div>
+                            <div class="form-group" ng-class="{'has-error':subOrgAddressForm.pinCode.$dirty && subOrgAddressForm.pinCode.$invalid, 'has-success':subOrgAddressForm.pinCode.$valid}">
+                                <label class="control-label"> Pincode <span class="symbol required"></span></label>
+                                <input type="text" placeholder="" class="form-control" name="pinCode" ng-model="subOrganization.address.pincode" ng-pattern="/^\d{6}$/" required> <span class="error text-small block" ng-if="(subOrgAddressForm.pinCode.$dirty ||subOrgAddressForm.$submitted) && subOrgAddressForm.pinCode.$invalid">    
+                                    
+                       <p ng-show="subOrgAddressForm.pinCode.$error.pattern" style="color:#a94442">6 digit number only</p>
+                 <p ng-show="subOrgAddressForm.pinCode.$invalid && subOrgAddressForm.pinCode.$error.required ">Pincode is required.</p>            
+                                    </span> </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <center>
+                        <button type="button" ng-disabled="Form.$invalid||subOrgAddressForm.$invalid||subOrgGeoLocationForm.$invalid" ng-click="Form.$valid&&subOrgAddressForm.$valid&&subOrgGeoLocationForm.$valid&&addSubOrganization()" class="btn btn-wide btn-primary" ng-hide="Organizationupdate" v-pressable> {{buttonText}} </button>
+                        <button type="button" class="btn btn-wide btn-primary" ng-click="cancel()" v-pressable> Cancel </button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

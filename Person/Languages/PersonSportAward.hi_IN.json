@@ -1,0 +1,17 @@
+{
+    "labels": {
+        
+        "sportAwardName": "खेल पुरस्कार का नाम",
+        "curricularActivity": "पाठयक्रम गतिविधि",
+         "gameDetails":"खेल विवरण",
+         
+       "submit": "जमा करें",
+         "edit": "संपादित करें",
+        "delete": "मिटाना",
+        "sportsAwards": "खेल पुरस्कार"
+
+    },
+    "errors": {
+
+    }
+}

@@ -1,0 +1,244 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div class="breadcrumb-wrapper">
+        <h4>Academics</h4>
+        <div ncy-breadcrumb class="pull-right"></div>
+    </div>
+    <uib-accordion close-others="true" class="accordion">
+        <uib-accordion-group ng-click="module={};module.newAcademicYear.flag = !module.newAcademicYear.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-calendar fa_icon" style="margin-right:10px; color:#337ab7"></i> AcademicYear</h5> </uib-accordion-heading>
+            <div ng-if="module.newAcademicYear.flag">
+                <new-Aacademic-Year></new-Aacademic-Year>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" ng-click="module={};module.board.flag = !module.board.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cogs" style="margin-right:10px; color:#337ab7"></i> Board</h5> </uib-accordion-heading>
+            <div ng-if="module.board.flag">
+                <board></board>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.group.flag = !module.group.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cogs" style="margin-right:10px; color:#337ab7"></i> Group</h5> </uib-accordion-heading>
+            <div ng-if="module.group.flag">
+                <group></group>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.course.flag = !module.course.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-file fa_icon" style="margin-right:10px; color:#337ab7"></i> Course</h5> </uib-accordion-heading>
+            <div ng-if="module.course.flag">
+                <course></course>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.term.flag = !module.term.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-cog" style="margin-right:10px; color:#337ab7"></i> Term</h5> </uib-accordion-heading>
+            <div ng-if="module.term.flag">
+                <term></term>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.examinationType.flag = !module.examinationType.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-bullseye fa_icon" style="margin-right:10px; color:#337ab7"></i> Examination Type</h5> </uib-accordion-heading>
+            <div ng-if="module.examinationType.flag">
+                <examination-Type></examination-Type>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.examination.flag = !module.examination.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-bullseye fa_icon" style="margin-right:10px; color:#337ab7"></i> Examination</h5> </uib-accordion-heading>
+            <div ng-if="module.examination.flag">
+                <examination></examination>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.electiveGroup.flag = !module.electiveGroup.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-users fa_icon" style="margin-right:10px; color:#337ab7"></i> Elective Group</h5> </uib-accordion-heading>
+            <div ng-if="module.electiveGroup.flag">
+                <elective-Group></elective-Group>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.subject.flag = !module.subject.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-file-text fa_icon" style="margin-right:10px; color:#337ab7"></i> Subject</h5> </uib-accordion-heading>
+            <div ng-if="module.subject.flag">
+                <subject></subject>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group ng-click="module={};module.subjectComponent.flag = !module.subjectComponent.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-file-text fa_icon" style="margin-right:10px; color:#337ab7"></i> Subject Component</h5> </uib-accordion-heading>
+            <div ng-if="module.subjectComponent.flag">
+                <subject-Component></subject-Component>
+            </div>
+        </uib-accordion-group>
+        <!--  <uib-accordion-group  ng-click="module={};module.subjectMarksRange.flag = !module.subjectMarksRange.flag">
+             <uib-accordion-heading>
+               <h5><i class="fa fa-certificate fa_icon" style="margin-right:10px; color:#337ab7"></i> Subject Marks Range</h5>
+             </uib-accordion-heading>
+            
+            <div ng-if="module.subjectMarksRange.flag">
+                <subject-Marks-Range></subject-Marks-Range>
+            </div>
+        </uib-accordion-group>-->
+        <uib-accordion-group ng-click="module={};module.examSchedule.flag = !module.examSchedule.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-bullseye fa_icon" style="margin-right:10px; color:#337ab7"></i> Exam Schedule</h5> </uib-accordion-heading>
+            <div ng-if="module.examSchedule.flag">
+                <exam-Schedule></exam-Schedule>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="Grade" ng-click="module={};module.grade.flag = !module.grade.flag">
+            <uib-accordion-heading>
+                <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i> Grade</h5> </uib-accordion-heading>
+            <div ng-if="module.grade.flag">
+                <grade></grade>
+            </div>
+        </uib-accordion-group>
+    </uib-accordion>
+</body>
+
+</html>
+<!--
+
+    
+<html>
+<head>
+ 
+</head>
+<body>
+
+<button class="accordion" ng-click="module.board.flag = !module.board.flag">Board</button>
+    <div ng-show="module.board.flag">
+      <board></board>
+    </div>
+
+   <button class="accordion" ng-click="module.course.flag = !module.course.flag">Course</button>
+    <div ng-show="module.course.flag">
+     <course></course>
+    </div>
+  <button class="accordion" ng-click="module.electiveGroup.flag = !module.electiveGroup.flag">Elective Group</button>
+    <div ng-show="module.electiveGroup.flag">
+     <elective-Group></elective-Group>
+    </div>
+
+ <button class="accordion" ng-click="module.examinationType.flag = !module.examinationType.flag">Examination Type</button>
+    <div ng-show="module.examinationType.flag">
+     <examination-Type></examination-Type>
+    </div>
+
+
+<button class="accordion" ng-click="module.subject.flag = !module.subject.flag">Subject</button>
+    <div ng-show="module.subject.flag">
+     <subject></subject>
+    </div>
+
+<button class="accordion" ng-click="module.examination.flag = !module.examination.flag">Examination</button>
+    <div ng-show="module.examination.flag">
+     <examination></examination>
+    </div>
+
+<button class="accordion" ng-click="module.examSchedule.flag = !module.examSchedule.flag">Exam Schedule</button>
+    <div ng-show="module.examSchedule.flag">
+     <exam-Schedule></exam-Schedule>
+    </div>
+    <button class="accordion" ng-click="module.group.flag = !module.group.flag">Group</button>
+    <div ng-show="module.group.flag">
+     <group></group>
+    </div>
+ <button class="accordion" ng-click="module.subjectComponent.flag = !module.subjectComponent.flag">Subject Component</button>
+    <div ng-show="module.subjectComponent.flag">
+     <subject-Component></subject-Component>
+    </div>
+ <button class="accordion" ng-click="module.subjectMarksRange.flag = !module.subjectMarksRange.flag">Subject Marks Range</button>
+    <div ng-show="module.subjectMarksRange.flag">
+     <subject-Marks-Range></subject-Marks-Range>
+    </div>
+ <button class="accordion" ng-click="module.term.flag = !module.term.flag">Term</button>
+    <div ng-show="module.term.flag">
+     <term></term>
+    </div>
+
+
+
+
+</body>
+</html>
+    
+ 
+
+<style>
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    button.accordion.active,
+    button.accordion:hover {
+        background-color: #ddd;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="panel-white">
+    <div class="col-lg-12">
+        <h2>{{labelsBoardList.boardHeading}}</h2></div>
+    <table>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body">
+				 <table id="tblBoardList" class="table table-stripped" cellspacing="0" width="100 % ">
+					 <thead>
+						 <tr> <th>Board Title</th>
+							 <th>Edit</th>
+							 <th>Delete</th>
+						 </tr> 
+						 </thead> 
+					 <tbody> 
+						 <tr ng-repeat="entityBoard in boardCollection">
+                             <td>{{entityBoard.boardkey}}</td>
+							 <td><a ng-click="" href="#/app/editBoard/{{entityBoard.boardkey}}"><i class="fa fa-pencil"></i></a></td>
+							 <td><a ng-click="deleteBoard(entityBoard.boardkey)"><i class="fa fa-trash"></i></a></td>
+					 </tr>
+			 </tbody>
+		 </table>
+		 </div>
+</div>
+         </div>
+    </table>
+</div>
+ 
+
+    -->

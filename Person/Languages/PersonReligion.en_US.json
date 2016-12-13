@@ -1,0 +1,15 @@
+{
+    "religionLabels": {
+        "nationality": "Nationality",
+        "socialGroup": "Social Group",
+        "religionType": "Religion Type",
+       
+        "religion": "Religion ",
+        "submit": "Submit",
+          "edit": "Edit",
+           "delete": "Delete"
+    },
+    "errors": {
+
+    }
+}

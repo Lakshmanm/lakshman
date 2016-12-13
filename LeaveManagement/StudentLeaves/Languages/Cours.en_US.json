@@ -1,0 +1,18 @@
+{
+    "labels": {
+        "coursHeading": "Services ",
+        "ServiceCategory": "Service Category",
+        "servicename": "Service Name",
+        "serviceType": "Service Type",
+        "taxtype":"Tax Type",
+        "measurement": "Measurement Of Units",
+        "amount": "Amount",
+        "submit": "Save",
+        "update": "Update"
+
+
+    },
+    "errors": {
+
+    }
+}

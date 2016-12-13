@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "award": "पुरस्कार",
+        "awardedName": "सम्मानित नाम",
+        "awardedDate": "सम्मानित दिनांक",
+        "description": "विवरण",
+        "awardedOrganization": "सम्मानित संगठन",
+        "location": "स्थान",
+        "submit": "जमा करें",
+        "edit": "संपादित",
+        "delete": "मिटाना"
+    },
+    "errors": {
+
+    }
+}

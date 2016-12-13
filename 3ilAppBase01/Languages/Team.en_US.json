@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "teamTitle": "Team Title",
+        "teamDescription": "Team Description",
+        "teamLogoKey":"Team Logo Key",
+        "teamDocFolderKey":"Team Doc Folder Key",
+        "associatedOrganizationKey":"Branch List",
+        "rootOrganizationKey":"Root Organization Key",
+        "submit": "Save",
+        "teamHeading": "New Team",
+        "editTeamHeading":"Edit Team",
+        "update":"Update"
+
+    },
+    "errors": {
+
+    }
+}
+
+
+  

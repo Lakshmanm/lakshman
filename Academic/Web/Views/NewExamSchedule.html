@@ -1,0 +1,216 @@
+<!--/*//=============================================================================
+// All rights reserved to Thrill Innovative Labs.
+// THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+// FITNESS FOR A PARTICULAR PURPOSE.
+//=============================================================================
+//*****************************************************************************
+//* Name		    	: NewExamSchedule.html 
+//* Type		    	: HTML File
+//* Description		    :
+//* References		    :
+//* Author	    		:
+//* Created Date        : 
+//*****************************************************************************
+//*                             MODIFICATION LOG
+//*****************************************************************************
+//*  S.No  Ver	     Date	         Modified By			Description
+
+//*****************************************************************************
+//*                             Code Review LOG
+//*****************************************************************************
+
+//*****************************************************************************
+*/-->
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="panel-white"> -->
+        <form name="examScheduleForm" novalidate>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.boardTitle.$dirty && examScheduleForm.boardTitle.$invalid, 'has-success':examScheduleForm.boardTitle.$valid}">
+                        <label>{{labelsExamSchedule.boardTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="board.boardKey as board.boardTitle for board in boardList" value="3" class="form-control" ng-change="getBoardGroups(entityExamSchedule.boardKey)" ng-model="entityExamSchedule.boardKey" name="boardTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select>
+                        <span class="error text-small block" ng-if="examScheduleForm.boardTitle.$dirty && examScheduleForm.boardTitle.$invalid" style="color:red">    
+                        <p ng-show="examScheduleForm.boardTitle.$error.required ">Board title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.groupTitle.$dirty && examScheduleForm.groupTitle.$invalid, 'has-success':examScheduleForm.groupTitle.$valid}">
+                        <label>{{labelsExamSchedule.groupTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="group.groupKey as group.groupTitle for group in groupList " value="3" class="form-control " ng-change="getGroupCourse(entityExamSchedule.groupKey)" ng-model="entityExamSchedule.groupKey" name="groupTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.groupTitle.$dirty && examScheduleForm.groupTitle.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.groupTitle.$error.required ">Group title is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.courseTitle.$dirty && examScheduleForm.courseTitle.$invalid, 'has-success':examScheduleForm.courseTitle.$valid}">
+                        <label>{{labelsExamSchedule.courseTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="course.courseKey as course.courseTitle for course in courseList " value="3" class="form-control " ng-change="getCourseTerm(entityExamSchedule.courseKey)" ng-model="entityExamSchedule.courseKey" name="courseTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.courseTitle.$dirty && examScheduleForm.courseTitle.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.courseTitle.$error.required ">Course title  is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.termTitle.$dirty && examScheduleForm.termTitle.$invalid, 'has-success':examScheduleForm.termTitle.$valid}">
+                        <label>{{labelsExamSchedule.termTitle}}<span class="symbol required"></span></label>
+                        <select ng-options="term.termKey as term.termTitle for term in termList" value="3" class="form-control" ng-model="entityExamSchedule.termKey" ng-change="getTermSubject(entityExamSchedule.termKey)" name="termTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.termTitle.$dirty && examScheduleForm.termTitle.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.termTitle.$error.required ">Term title  is required</p> </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.subjectTitle.$dirty && examScheduleForm.subjectTitle.$invalid, 'has-success':examScheduleForm.subjectTitle.$valid}">
+                        <label>{{labelsExamSchedule.subject}}<span class="symbol required"></span></label>
+                        <select ng-options="subject.subjectKey as subject.subjectTitle for subject in subjectList" value="3" class="form-control " ng-model="entityExamSchedule.subjectKey" name="subjectTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.subjectTitle.$dirty && examScheduleForm.subjectTitle.$invalid" class="error text-small block">
+                        <span ng-if="examScheduleForm.subjectTitle.$invalid && examScheduleForm.subjectTitle.$error.required ">Subject title  is required</span> </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.examinationTypeTitle.$dirty && examScheduleForm.examinationTypeTitle.$invalid, 'has-success':examScheduleForm.examinationTypeTitle.$valid}">
+                        <label>{{labelsExamSchedule.examinationType}}<span class="symbol required"></span></label>
+                        <select ng-options="exam.examinationTypeKey as exam.examinationTypeTitle for exam in examinationTypeList" value="3" class="form-control " ng-change="getExaminationTypeExamination(entityExamSchedule.examinationTypeKey)" ng-model="entityExamSchedule.examinationTypeKey" name="examinationTypeTitle" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.examinationTypeTitle.$dirty && examScheduleForm.examinationTypeTitle.$invalid" class="error text-small block">
+                        <p ng-if="examScheduleForm.examinationTypeTitle.$error.required ">ExaminationType title  is required</p> </span> </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.examination.$dirty && examScheduleForm.examination.$invalid, 'has-success':examScheduleForm.examination.$valid}">
+                        <label>{{labelsExamSchedule.examination}}<span class="symbol required"></span></label>
+                        <select ng-options="Exam.examinationKey as Exam.examinationTitle for Exam in examinationList " value="3" class="form-control " ng-model="entityExamSchedule.examinationKey" name="examination" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select> <span ng-if="examScheduleForm.examination.$dirty && examScheduleForm.examination.$invalid" class="error text-small block">
+                        <span ng-if="examScheduleForm.examination.$error.required ">Examination is required</span> </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.examinationDate.$dirty && examScheduleForm.examinationDate.$invalid, 'has-success':examScheduleForm.examinationDate.$valid}">
+                        <label>{{labelsExamSchedule.examinationDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityExamSchedule.examinationDate" name="examinationDate" type="date" ng-required="true"> <span ng-if="examScheduleForm.examinationDate.$dirty && examScheduleForm.examinationDate.$invalid" class="error text-small block">
+                        <p ng-if="examScheduleForm.examinationDate.$error.required ">Examination date is required.</p> </span> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.startDate.$dirty && examScheduleForm.startDate.$invalid, 'has-success':examScheduleForm.startDate.$valid}">
+                        <label>{{labelsExamSchedule.startDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityExamSchedule.startDate" name="startDate" type="date" ng-required="true"> <span ng-if="xamScheduleForm.startDate.$dirty && examScheduleForm.startDate.$invalid" class="error text-small block">
+                        <span ng-if="examScheduleForm.startDate.$error.required" >Start date is required</span> </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.endDate.$dirty && examScheduleForm.endDate.$invalid, 'has-success':examScheduleForm.endDate.$valid}">
+                        <label>{{labelsExamSchedule.endDate}}<span class="symbol required"></span></label>
+                        <input class="form-control date-picker" ng-model="entityExamSchedule.endDate" name="endDate" type="date" ng-required="true" min="{{entityExamSchedule.startDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}"> <span ng-if="examScheduleForm.endDate.$dirty && examScheduleForm.endDate.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.endDate.$invalid && examScheduleForm.endDate.$error.required">End date is required</p> </span> </div>
+                </div>
+
+ 
+  
+
+<div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.startHours.$dirty && examScheduleForm.startHours.$invalid, 'has-success':examScheduleForm.startHours.$valid}">
+                        <label>{{labelsExamSchedule.StartHours}}<span class="symbol required"></span></label>
+                    <select ng-options="startHours.startHoursKey as startHours.Title for startHours in startHoursList" value="3" class="form-control"  ng-model="entityExamSchedule.StartHours" name="startHours" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select>
+                        <span ng-if="examScheduleForm.startHours.$dirty && examScheduleForm.startHours.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.startHours.$invalid && examScheduleForm.startHours.$error.required">Start Hours is required</p> </span>
+    
+    </div>
+                </div>
+
+<div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.startMinutes.$dirty && examScheduleForm.startMinutes.$invalid, 'has-success':examScheduleForm.startMinutes.$valid}">
+                        <label>{{labelsExamSchedule.StartMinutes}}<span class="symbol required"></span></label>
+                    <select ng-options="startMinutes.startMinutesKey as startMinutes.Title for startMinutes in startMinutesList" value="3" class="form-control"  ng-model="entityExamSchedule.StartMinutes" name="startMinutes" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select>
+                        <span ng-if="examScheduleForm.startMinutes.$dirty && examScheduleForm.startMinutes.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.startMinutes.$invalid && examScheduleForm.startMinutes.$error.required">Start Minutes is required</p> </span>
+    </div>
+                </div>
+               </div>  
+                <div class="row">
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.endHours.$dirty && examScheduleForm.endHours.$invalid, 'has-success':examScheduleForm.endHours.$valid}">
+                        <label>{{labelsExamSchedule.EndHours}}<span class="symbol required"></span></label>
+                    <select ng-options="endHours.endHourssKey as endHours.Title for endHours in endHoursList" value="3" class="form-control"  ng-model="entityExamSchedule.EndHours" name="endHours" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select>
+                       <span ng-if="examScheduleForm.endHours.$dirty && examScheduleForm.endHours.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.endHours.$invalid && examScheduleForm.endHours.$error.required">End Hours is required</p> </span>   
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group" ng-class="{'has-error':examScheduleForm.endMinutes.$dirty && examScheduleForm.endMinutes.$invalid, 'has-success':examScheduleForm.endMinutes.$valid}">
+                        <label>{{labelsExamSchedule.EndMinutes}}<span class="symbol required"></span></label>
+                    <select ng-options="endMinitus.endMinutesKey as endMinitus.Title for endMinitus in endMinutesist" value="3" class="form-control"  ng-model="entityExamSchedule.EndMinutes" name="endMinutes" ng-required="true">
+                            <option value="">--Select--</option>
+                        </select>
+  <span ng-if="examScheduleForm.endMinutes.$dirty && examScheduleForm.endMinutes.$invalid" class="error text-small block">
+                        <p ng-show="examScheduleForm.endMinutes.$invalid && examScheduleForm.endMinutes.$error.required">End Minutes is required</p> </span>  
+                    </div>
+                </div>
+
+</div>
+
+
+
+           
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group">
+                        <center>
+                            <div ng-if="save">
+                     <button type="submit" ng-disabled="examScheduleForm.$invalid" class="btn btn-wide btn-primary" ng-click="examScheduleForm.$valid&&addExamSchedule()">{{labelsExamSchedule.save}}</button>
+                            </div>
+                            <div ng-if="update">
+                      <button type="submit" ng-disabled="examScheduleForm.$invalid" class="btn btn-wide btn-primary" ng-click="examScheduleForm.$valid&&updateExamSchedule()">{{labelsExamSchedule.update}}</button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="tblExamScheduleList" class="table table-stripped" cellspacing="0" width="100 % ">
+                            <thead>
+                                <tr>
+                                    <th>{{labelsExamSchedule.subjectTitle }}</th>
+                                    <th>{{labelsExamSchedule.examinationDate }}</th>
+                                    <th>{{labelsExamSchedule.startDate }}</th>
+                                    <th>{{labelsExamSchedule.endDate }}</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="entityExamSchedule in examScheduleCollection">
+                                    <td>{{ entityExamSchedule.subjectTitle }}</td>
+                                    <td>{{ entityExamSchedule.examinationDate|date : "dd/MM/yy" }}</td>
+                                    <td>{{ entityExamSchedule.startDate|date : "dd/MM/yy" }}</td>
+                                    <td>{{ entityExamSchedule.endDate|date : "dd/MM/yy" }}</td>
+                                    <td><a ng-click="editExamSchedule(entityExamSchedule.examScheduleKey)"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a ng-click="deleteExamSchedule(entityExamSchedule.examScheduleKey)"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </table>
+    </div>
+</div>

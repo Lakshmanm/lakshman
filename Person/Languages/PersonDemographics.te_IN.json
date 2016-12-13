@@ -1,0 +1,17 @@
+{
+    "labels": {
+        "height": "ఎత్తు",
+        "weight": "బరువు",
+        "bmi": "BMI",
+        "temperature": "ఉష్ణోగ్రత",
+        "hemoglobin": "హిమోగ్లోబిన్",
+        "inspectionDate": "తనిఖీ తేదీ",
+        "edit": "మార్చు",
+        "delete": "తొలగించండి",
+        "submit": "సమర్పించండి",
+        "demographics": "జనాభా వివరాలు"
+    },
+    "errors": {
+
+    }
+}

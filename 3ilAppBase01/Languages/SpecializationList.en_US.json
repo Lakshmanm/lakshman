@@ -1,0 +1,15 @@
+{
+    "labels": {
+        "specializationTitle": "Specialization Title",
+        "submit": "submit",
+		
+        "edit":"Edit",
+        "delete": "Delete",
+        "update": "Update",
+		"specializationDetails": "Specialization Details",
+        "specializationHeading": "Specialization"
+ },
+    "errors": {
+
+    }
+}

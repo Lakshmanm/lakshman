@@ -1,0 +1,18 @@
+
+
+{
+    "labels": {
+        "Registration":"Registration",
+        "MobileNumber": "Enter Mobile Number",
+        "Send": "Send",
+        "ReSend":"Re-Send",
+        "EnterOtp":"Enter OTP",
+        "Verify":"Verify",
+
+
+           },
+    "errors": {
+        
+        }
+    
+}

@@ -1,0 +1,151 @@
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Staff Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<div class="container-fluid container-fullw bg-white">
+
+<uib-accordion close-others="true" class="accordion">
+
+         <uib-accordion-group  is-open="true" is-disabled="false" ng-click="module={};module.basic.flag = !module.basic.flag">
+         <uib-accordion-heading>
+     <h5><i class="fa fa-info-circle fa_icon" style="margin-right:10px; color:#337ab7"></i> Basic Information</h5>
+            </uib-accordion-heading>
+        <div ng-if="module.basic.flag">
+            <basic></basic>
+        </div>
+    </uib-accordion-group>
+    <div ng-show="openothers">
+       <uib-accordion-group  ng-click="module={};module.education.flag = !module.education.flag">
+        <uib-accordion-heading>
+               <h5><i class="fa fa-graduation-cap fa_icon" style="margin-right:10px; color:#337ab7"></i>Past Education</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.education.flag">
+                <education></education>
+            </div>
+
+
+            
+        </uib-accordion-group>
+        
+          <uib-accordion-group   is-disabled="status.isFirstDisabled" ng-click="module={};module.family.flag = !module.family.flag">
+        <uib-accordion-heading>
+               <h5><i class="fa fa-users fa_icon" style="margin-right:10px; color:#337ab7"></i>Family</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.family.flag">
+                <family></family>
+            </div>
+        </uib-accordion-group>
+      
+         <uib-accordion-group  is-disabled="status.isFirstDisabled" ng-click="module={};module.health.flag = !module.health.flag">
+         <uib-accordion-heading>
+               <h5><i class="fa fa-medkit fa_icon" style="margin-right:10px; color:#337ab7"></i>Health Information</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.health.flag">
+               <!-- <health></health> -->
+
+                <uib-tabset justified="false" class="tabbable">
+                <uib-tab ng-show="true">
+                    <uib-tab-heading>Vitals Inspection
+                        <!--<img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"> -->
+                    </uib-tab-heading>
+                        <demographics></demographics>                      
+                       
+                </uib-tab>
+                <uib-tab >
+                    <uib-tab-heading >Immunization And Vaccination
+                        <!--<img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png">-->
+                    </uib-tab-heading>
+                    <vaccination></vaccination>
+                   </uib-tab>
+                <uib-tab >
+                    <uib-tab-heading >Diseases And Conditions
+                        <!--<img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"> -->
+                    </uib-tab-heading>
+                      <diseases></diseases>
+                       
+                </uib-tab>
+                 <uib-tab >
+                    <uib-tab-heading >Insurance Details
+                        <!--<img alt="" src="3ilAppBase01/Web/assets/images/basicInfo.png"> -->
+                    </uib-tab-heading>
+                       <insurance></insurance>
+                       
+                </uib-tab>
+                    </uib-tabset>
+            </div>
+        
+        </uib-accordion-group>
+         <uib-accordion-group heading="" ng-click="module={};module.address.flag = !module.address.flag">
+             <uib-accordion-heading>
+               <h5><i class="fa fa-map-marker fa_icon" style="margin-right:10px; color:#337ab7"></i>Address</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.address.flag">
+                <address></address>
+            </div>
+        </uib-accordion-group>
+     
+        <uib-accordion-group ng-click="module={};module.bank.flag = !module.bank.flag">
+         <uib-accordion-heading>
+               <h5><i class="fa fa-building fa_icon" style="margin-right:10px; color:#337ab7"></i>Bank</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.bank.flag">
+                <bank></bank>
+            </div>
+        </uib-accordion-group>
+ <uib-accordion-group  ng-click="module={};module.experiance.flag = !module.experiance.flag">
+   <uib-accordion-heading>
+               <h5><i class="fa fa-cog fa_icon" style="margin-right:10px; color:#337ab7"></i>Experience</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.experiance.flag">
+                <experiance></experiance>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading=""  ng-click="module={};module.activity.flag = !module.activity.flag">
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-gamepad fa_icon" style="margin-right:10px; color:#337ab7"></i>Curricular Activities</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.activity.flag">
+              <activity></activity>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="" ng-click="module={};module.awards.flag = !module.awards.flag">
+             <uib-accordion-heading>
+               <h5><i class="fa fa-trophy fa_icon" style="margin-right:10px; color:#337ab7"></i>Awards</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.awards.flag">
+                <award></award>
+            </div>
+        </uib-accordion-group>
+ 
+           
+          <uib-accordion-group heading=""  ng-click="module={};module.reference.flag = !module.reference.flag">
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-gamepad fa_icon" style="margin-right:10px; color:#337ab7"></i>References</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.reference.flag">
+              <reference></reference>
+            </div>
+        </uib-accordion-group>
+      
+        <uib-accordion-group heading="" is-disabled="status.isFirstDisabled" ng-click="module={};module.test.flag = !module.test.flag">
+                <uib-accordion-heading>
+               <h5><i class="fa fa-lock fa_icon" style="margin-right:10px; color:#337ab7"></i>E-Locker</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.test.flag">
+                <elocker></elocker>
+            </div>
+        </uib-accordion-group>
+        <uib-accordion-group heading="" is-disabled="status.isFirstDisabled" ng-click="module={};module.test.flag = !module.test.flag">
+                 <uib-accordion-heading>
+               <h5><i class="fa fa-file-o fa_icon" style="margin-right:10px; color:#337ab7"></i>Notes</h5>
+            </uib-accordion-heading>
+            <div ng-if="module.test.flag">
+                <notes></notes>
+            </div>
+        </uib-accordion-group>
+
+     
+      </div>
+    </uib-accordion>
+    </div>
+

@@ -1,0 +1,103 @@
+     <table class="table table-hover" id="sample-table-1">
+
+                               
+                                <tbody>
+                                   
+                                  <tr  dir-paginate="period in dailyPeriodList | itemsPerPage:pageSize | filter:branchSearch | orderBy:sortColumn:reverseSort">{{}}
+    
+                                      
+                                        <td >
+<!--
+                                            Subject:{{period.SubjectTitle}}
+                                            Teacher:{{period.StaffName}} 
+-->
+                                            Subject:{{period.WeekDayId === 1 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 1 ? period.StaffName :  undefined }}  
+                                         
+                                          
+                                            <div   align="right" class="panel-body">
+                                         
+                                       <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="1:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>           
+                                           
+                                               
+                                            </div>
+ 
+                                   
+                                  </td>
+
+
+
+                                       
+                                          <td  >Subject:{{period.WeekDayId === 2 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 2 ? period.StaffName :  undefined }}
+                                           
+                                            <div class="panel-body">
+                                         <p align="right">
+                                             
+                                       <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="2:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>    
+                                                </p>
+                                            </div>   
+                                        </td>
+                                          <td  >Subject:{{period.WeekDayId === 3 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 3 ? period.StaffName :  undefined }}  
+                                            
+                                            <div class="panel-body">
+                                         <p align="right">
+                                           
+                                       <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="3:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>    
+                                                </p>
+                                            </div> 
+                                        </td>
+                                          <td  >Subject:{{period.WeekDayId === 4 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 4 ? period.StaffName :  undefined }}  
+                                        
+                                            <div class="panel-body">
+                                         <p align="right">
+                                            
+                                       <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="4:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>    
+                                                </p>
+                                            </div>
+                                        </td>
+                                          <td >Subject:{{period.WeekDayId === 5 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 5 ? period.StaffName :  undefined }} 
+                                     
+                                            <div class="panel-body">
+                                         <p align="right">
+                                      <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="5:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>  
+                                                </p>
+                                            </div>
+                                        </td>
+                                          <td  >Subject:{{period.WeekDayId === 6 ?  period.SubjectTitle : undefined }}
+                                            Teacher:{{period.WeekDayId === 6 ? period.StaffName :  undefined }}     
+                                           
+                                            <div class="panel-body">
+                                         <p align="right">
+                                     <button class="glyphicon glyphicon-edit" data-toggle="modal"  id="6:{{period.periodslotKey}}"   ng-click="getId()" data-target=".bs-example-modal-sm">
+                                          
+                                              
+                                                </button>  
+                                                </p>
+                                            </div>
+                                        </td>
+
+                                  
+                                     
+
+                                    </tr>
+                                    <tbody>
+                            </table>

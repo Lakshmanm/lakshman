@@ -1,0 +1,408 @@
+<style>
+    /* The Modal (background) */
+    
+    .validationMessage {
+        color: red
+    }
+    
+    .validationStar {
+        color: red
+    }
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    
+    .upload {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content */
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+    }
+    
+    .file-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #888;
+        width: 30%;
+    }
+    /* The Close Button */
+    
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .btnclose {
+        color: #58748B;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .fclose {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .fclose:hover,
+    .fclose:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .test {
+        color: #aaaaaa;
+        background: blue;
+    }
+</style>
+
+
+
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin">Fee Details</h4>
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<div id="main-wrapper">
+    <div class="container-fluid container-fullw bg-white" ng-controller="feeDetailController">
+        <form name="courseForm" novalidate>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':examinationForm.FirstName.$dirty && examinationForm.FirstName.$invalid, 'has-success':examinationForm.FirstName.$valid}">
+                        <label class="control-label">
+                            Name
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <input type="text" class="form-control" name="FirstName" ng-model="PayFee.Name" ng-disabled="true">
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':examinationForm.AdmissionNo.$dirty && examinationForm.AdmissionNo.$invalid, 'has-success':examinationForm.AdmissionNo.$valid}">
+                        <label class="control-label">
+                           Admission Number
+                       <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <input type="text" class="form-control" name="AdmissionNo" ng-model="PayFee.AdmissionNumber" ng-disabled="true">
+                    </div>
+
+                </div>
+             <!--    <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':examinationForm.scourse.$dirty && examinationForm.scourse.$invalid, 'has-success':examinationForm.scourse.$valid}">
+                        <label class="control-label">
+                            Course
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <input type="text" class="form-control" name="scourse" ng-model="PayFee.Course" ng-disabled="true">
+                    </div>
+
+                </div> 
+                <div class="col-md-3">
+                    <div class="form-group" ng-class="{'has-error':examinationForm.sbatch.$dirty && examinationForm.sbatch.$invalid, 'has-success':examinationForm.sbatch.$valid}">
+                        <label class="control-label">
+                            Batch
+                        <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                        <input type="text" class="form-control" name="sbatch" ng-model="PayFee.Batch" ng-disabled="true">
+                    </div>
+
+                </div>-->
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <h5> <a  ng-click="goStructure()">Flexible Structure </a></h5>
+                </div>
+                <div class="col-md-5">
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col-md-1">
+                        <img ng-src="3ilAppBase01/Web/assets/images/Add.PNG" alt="" ng-if="!obj.flow.files.length &amp;&amp; !noImage" class="ng-scope pull-right" src="3ilAppBase01/Web/assets/images/Add.PNG" ng-click="addNew()" height="18px">
+                        <h5> <a id="myBtn" ng-click="addStudent1()">AddNew</a></h5>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div id="myModal" class="modal">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <span class="close">×</span>
+                    <h4>Add New Item</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group" ng-class="{ 'has-success':courseForm.category.$valid}">
+
+                                <label>Service Category<span class="symbol required"></span> </label> <span class="clip-select">
+                                <select ng-options="category.ServiceTypeID as category.ServiceTypeName for category in CategoryCollection" value="3" class="form-control" ng-model="FeeDetail.ServiceTypeID" ng-change="getName()" name="category" ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                                <span ng-if="courseForm.$submitted || courseForm.category.$touched" class="validationMessage">
+                        <span ng-if="courseForm.category.$valid && courseForm.category.$error.required ">Service Category is required.</span>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" ng-class="{'has-success':courseForm.ServiceName.$valid}">
+
+                                <label>Service Name<span class="symbol required"></span> </label> <span class="clip-select">
+                            <select ng-options="serv.ServiceName as serv.ServiceName for serv in NameCollection" value="3" class="form-control" ng-model="FeeDetail.ServiceName" ng-change="getType()" name="ServiceName" ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                                <span ng-if="courseForm.$submitted || courseForm.ServiceName.$touched" class="validationMessage">
+                        <span ng-if="courseForm.ServiceName.$valid && courseForm.ServiceName.$error.required ">Service Name is required.</span>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" ng-class="{ 'has-success':courseForm.ServiceType.$valid}">
+
+
+                                <label>Type<span class="symbol required"></span> </label> <span class="clip-select">
+                                <select ng-options="servi.ServiceType as servi.ServiceType for servi in TypeCollection" value="3" class="form-control" ng-model="FeeDetail.ServiceType" ng-change="getMOU()" name="ServiceType" ng-required="true"> 
+                         <option value="">--Select--</option>
+                     </select></span>
+                                <span ng-if="courseForm.$submitted || courseForm.ServiceType.$touched" class="validationMessage">
+                        <span ng-if="courseForm.ServiceType.$valid && courseForm.ServiceType.$error.required ">Type is required.</span>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" ng-class="{'has-error':courseForm.UnitMesurementName.$dirty && courseForm.UnitMesurementName.$invalid, 'has-success':courseForm.UnitMesurementName.$valid}">
+
+                                <label>Measurement Of Units <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                                <input class="form-control" id="input-Default" ng-model="FeeDetail.UnitMesurementName" name="UnitMesurementName" type="text" ng-minlength="1" ng-maxlength="80" ng-required="true"></div>
+                        </div>
+
+</div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group" ng-class="{'has-error':courseForm.MOUCost.$dirty && courseForm.MOUCost.$invalid, 'has-success':courseForm.MOUCost.$valid}">
+
+                                    <label>MOU Cost <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                                    <input class="form-control" id="input-Default" ng-model="FeeDetail.MOUCost" name="MOUCost" type="text" ng-minlength="2" ng-maxlength="80" ng-required="true">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group" ng-class="{'has-success':courseForm.qty.$valid}">
+
+                                    <label>Quantity <span class="symbol required"></span> </label> <span class="clip-select"></span>
+                                    <input class="form-control" id="input-Default" ng-model="FeeDetail.Quantity" ng-change="totalCost(FeeDetail.Quantity)" name="qty" type="text" ng-pattern="/^[0-9]{1,7}$/" ng-minlength="1" ng-maxlength="10" ng-required="true">
+                                    <span ng-if="examinationForm.$submitted || examinationForm.qty.$touched" class="validationMessage">
+                        <span ng-if="examinationForm.qty.$invalid && examinationForm.qty.$error.required ">Quantity is required.</span>
+                                    <span ng-if="examinationForm.qty.$error.pattern">Numericals only.</span>
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group" ng-class="{'has-error':courseForm.amount.$dirty && courseForm.amount.$invalid, 'has-success':courseForm.amount.$valid}">
+
+                                    <label>Amount(in Rs.)<span class="symbol required"></span> </label> <span class="clip-select"></span>
+                                    <input class="form-control" id="input-Default" ng-model="FeeDetail.UnitPrice" name="amount" type="text" ng-minlength="1" ng-maxlength="80" ng-required="true">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btnclose" type="submit" ng-click="courseForm.$valid&& AddDetails()">Add</button>
+
+                            </div>
+                            <div class="col-md-2" ng-show="hide">
+                                <button class="btnclose" type="button" ng-click="createFolder()">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-md-12">
+
+                <div class="panel panel-white">
+                    <div class="panel-body">
+
+
+                        <table class="table table-hover" id="sample-table-1">
+                            <thead>
+                                <tr>
+
+                                    <th>Service Category</th>
+                                    <th>Service Name</th>
+                                    <th>Measurement Of Unit</th>
+                                    <th>MOU Cost(in ₹)</th>
+                                    <th>Quantity</th>
+                                    <th>Amount(in ₹)</th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="F in feeList | itemsPerPage:pageSize | filter:search | orderBy:sortColumn:reverseSort">
+
+
+
+                                    <td>{{F.ServiceTypeName}}</td>
+                                    <td>{{F.ServiceName}}</td>
+                                    <td>{{F.UnitMesurementName}}</td>
+                                    <td>{{F.MOUCost}}</td>
+                                    <td>{{F.Quantity}}</td>
+                                    <td>{{F.UnitPrice}}</td>
+
+
+
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+   <!--          <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4" style="background-color:#c64817; padding-top: 8px; width:30%">
+
+                    Amount &nbsp &nbsp:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ₹{{feeList[(feeList.length)-1].FinalAmount == ''|| feeList[(feeList.length)-1].FinalAmount==undefined?ResponseFinalAmount:feeList[(feeList.length)-1].FinalAmount}}
+                    <br> Tax(Service+Others) &nbsp:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ₹{{feeList[(feeList.length)-1].TaxTotalAmount == ''||feeList[(feeList.length)-1].TaxTotalAmount==undefined?ResponseTaxTotalAmount:feeList[(feeList.length)-1].TaxTotalAmount}}<br>                    TotalCharge &nbsp &nbsp: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp ₹{{feeList[(feeList.length)-1].FinalFee == ''||feeList[(feeList.length)-1].FinalFee==undefined?ResponseFinalFee:feeList[(feeList.length)-1].FinalFee}}
+                </div>
+            </div> -->
+
+             <div class="row">
+                <div class="col-md-8"></div>
+
+                <div class="def-pad">
+                    <table width=" 30px " style="background-color:#c64817; padding-top: 4px; width:30%;">
+
+                        <tr>
+                            <td>
+                                <h5 style="color:white;">1.Amount</h5></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <h5 style="color:white;">₹{{feeList[(feeList.length)-1].FinalAmount == ''|| feeList[(feeList.length)-1].FinalAmount==undefined?ResponseFinalAmount:feeList[(feeList.length)-1].FinalAmount}}/-</h5></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 style="color:white;">2.Tax(Service+Others)</h5></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <h5 style="color:white;">₹{{feeList[(feeList.length)-1].TaxTotalAmountt == ''||feeList[(feeList.length)-1].TaxTotalAmountt==undefined?ResponseTaxTotalAmount:feeList[(feeList.length)-1].TaxTotalAmountt}}/-</h5></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5 style="color:white;">3.TotalCharge</h5></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <h5 style="color:white;">₹{{feeList[(feeList.length)-1].FinalFee == ''||feeList[(feeList.length)-1].FinalFee==undefined?ResponseFinalFee:feeList[(feeList.length)-1].FinalFee}}/-</h5></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="panel-body">
+
+                        <button type="submit" class="btn btn-wide btn-primary" ng-click="StudentFee(feeList)">Save</button>
+
+
+
+
+
+                        <button type="submit" class="btn btn-wide btn-primary" ng-click="goMainPage()">Back</button>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-12" style="text-align:left">
+                <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+        </form>
+    </div>
+</div>

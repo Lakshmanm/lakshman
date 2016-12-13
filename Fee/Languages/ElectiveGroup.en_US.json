@@ -1,0 +1,21 @@
+{
+    "labels": {
+        "electiveGroupHeading": "Installment Plan ",
+        "planName": "Plan Name",
+        "tenure": "Tenure",
+        "additionalCharages": "Additional Charges",
+        "proccessingfee": "Processing Fee",
+        "installmentgap": "Installment Gap",
+        "instanceOrganizationKey": "Instance Organization Key",
+
+        "minimumSubjects": "Minimum Subjects",
+        "maximumSubjects": "Maximum Subjects",
+        "save": "Save",
+        "update": "Update"
+
+
+    },
+    "errors": {
+
+    }
+}

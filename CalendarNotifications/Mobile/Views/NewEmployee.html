@@ -1,0 +1,117 @@
+<!--/*=======================================================================
+ All rights reserved to Nunet Cube Software Solutions.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                :  
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  
+ Created Date        :  
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver Date       Modified By      Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+Ver        Date                Code Review By            Observations
+****************************************************************************/-->
+<ion-view view-title="New Employee">
+    <ion-content scroll="true">
+
+
+
+        <div class="text_container">
+            <div class="col col-100">
+                <h2>{{empInfoLables.EmployeeBasicInfo}}</h2></div>
+            <div class="row responsive-sm">
+
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.FirstName}}</span>
+                    <label class="item item-input">
+                        <input type="text" ng-model="employeeBasicInfo.FirstName">
+                    </label>
+
+                </div>
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.LastName}}</span>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Last Name" ng-model="employeeBasicInfo.LastName">
+                    </label>
+
+                </div>
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.DateofBirth}}</span>
+
+                    <input type="date" ng-model="data.dueDate" placeholder="Enter Date" ng-model="employeeBasicInfo.DOB">
+
+                </div>
+
+
+            </div>
+            <div class="row responsive-sm">
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.Gender}}</span>
+
+                    <ion-radio ng-model="employeeBasicInfo.GenderID" value="1">{{empInfoLables.Male}}</ion-radio>
+                    <ion-radio ng-model="employeeBasicInfo.GenderID1" value="2">{{empInfoLables.Female}}</ion-radio>
+
+
+
+                </div>
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.Languages}}</span>
+                    <ion-checkbox>{{empInfoLables.Telugu}}</ion-checkbox>
+                    <ion-checkbox> {{empInfoLables.English}}</ion-checkbox>
+                    <ion-checkbox>{{empInfoLables.Hindi}}</ion-checkbox>
+                </div>
+                <div class="col col-33">
+                    <div class="input-label"> {{empInfoLables.BloodGroup}}</div>
+                    <label class="item item-input item-select">
+
+                        <select ng-model="employeeBasicInfo.BloodGroupId">
+                            <option selected>Select Blood AGroup</option>
+                            <option value="1">O+</option>
+                            <option value="2">B+</option>
+                            <option value="3">B-</option>
+                        </select>
+                    </label>
+
+                </div>
+
+            </div>
+            <div class="row responsive-sm">
+
+                <div class="col col-33">
+                    <span class="input-label">{{empInfoLables.Address}}</span>
+                    <label class="item item-input">
+                        <textarea ng-model="employeeBasicInfo.Address"></textarea>
+                    </label>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="row responsive-sm">
+
+                <div class="col col-100">
+
+                    <button class="button" ng-click="addEmployee()">{{empInfoLables.Submit}}</button>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

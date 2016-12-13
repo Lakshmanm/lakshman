@@ -1,0 +1,129 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovative Labs.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                :  Location.Html
+ Type                : Javascript and JQuery 
+ Description         :
+ References          :
+ Author              :  
+ Created Date        :  
+****************************************************************************
+MODIFICATION LOG
+**************************************************************************** 
+Ver	Date	     Modified By			Description
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       14-April-2016         Sri Venkatesh.T          In "Type" section in header remove Javascript and Jquery and wirte HTML and also write the author name
+2         1.0       14-April-2016         Sri Venkatesh.T          Place Page header in the login.html,menu.html
+****************************************************************************/-->
+
+
+<form name="Locform" novalidate>
+    <h2>{{locationInfoLables.LocationTitle}}</h2>
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span>{{locationInfoLables.Country}}<span style="color:red">*</span></span>
+
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="country.CountryID as country.CountryName for country in countryList" ng-model="locationInfo.CountryID" ng-change="getStates(locationInfo.CountryID)" ng-required="true" name="countryname">
+                <option value="">-select-</option>
+            </select>
+            <span class="padding" ng-if="Locform.countryname.$touched || Locform.$submitted" style="color:red">
+                    <p ng-show="Locform.countryname.$error.required ">Country is required</p>
+                 </span>
+
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{locationInfoLables.State}}<span style="color:red">*</span></span>
+
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="state.StateID as state.StateName for state in stateList" ng-model="locationInfo.StateID" ng-change="getDistricts(locationInfo.StateID)" ng-required="true" name="statename">
+                <option value="">-select-</option>
+            </select>
+            <span class="padding" ng-if="Locform.statename.$touched || Locform.$submitted" style="color:red">
+                    <p ng-show="Locform.statename.$error.required ">state is required</p>
+                 </span>
+
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span>{{locationInfoLables.District}}<span style="color:red">*</span></span>
+
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="district.DistrictID as district.DistrictName for district in districtList" ng-change="getMandals(locationInfo.DistrictID)" ng-model="locationInfo.DistrictID" ng-required="true" name="districtname">
+                <option value="">-select-</option>
+            </select>
+            <span class="padding" ng-if="Locform.districtname.$touched || Locform.$submitted" style="color:red">
+                    <p ng-show="Locform.districtname.$error.required ">District is required</p>
+                 </span>
+
+
+        </label>
+        <label class="item item-input item-stacked-label">
+            <label>{{locationInfoLables.Mandal}} <span style="color:red;">*</span></label>
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-options="mandal.MandalID as mandal.MandalName for mandal in mandalList" ng-change="getVillages(locationInfo.MandalID)" ng-model="locationInfo.MandalID" ng-required="true" name="mandalname">
+                <option value="">-select-</option>
+            </select>
+            <span class="padding" ng-if="Locform.mandalname.$touched || Locform.$submitted" style="color:red">
+                    <p ng-show="Locform.mandalname.$error.required ">Mandal is required</p>
+                 </span>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <label>{{locationInfoLables.Village}} <span style="color:red;">*</span></label>
+            <select class="js-states form-control" tabindex="-1" style="width: 100%" ng-model="locationInfo.VillageID" ng-options="village.VillageID as village.VillageName for village in villageList" ng-required="true" name="villagename">
+                <option value="">-select-</option>
+            </select>
+            <span class="padding" ng-if="Locform.villagename.$touched || Locform.$submitted" style="color:red">
+                    <p ng-show="Locform.villagename.$error.required ">Village is required</p>
+                 </span>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <label>{{locationInfoLables.LocationName}}</label>
+            <input type="text" class="form-control" ng-autocomplete options="options" details="details" id="input-Default" ng-model="locationInfo.GeoLocation">
+
+        </label>
+
+        <label class="item item-input item-stacked-label">
+            <button type="submit" ng-click="orgform.$valid && addOrganization()" class=" button button-stable">{{orgLables.Submit}}</button>
+
+
+        </label>
+        <label class="item item-input item-stacked-label">
+
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>{{locationInfoLables.District}}</th>
+
+                        <th>{{locationInfoLables.Mandal}}</th>
+                        <th>{{locationInfoLabels.Village}}</th>
+                        <th>{{locationInfoLables.Location}}</th>
+                        <th>{{locationInfoLables.Edit}}</th>
+                        <th>{{locationInfoLables.Delete}}</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="location in locationDetails">
+                        <td> {{location.DistrictName }} </td>
+                        <td>{{ location.MandalName }} </td>
+                        <td>{{ location.VillageName }} </td>
+
+                        <td> {{location.GeoLocation}}</td>
+                        <td>
+                            <a ng-click="editLocation(location.LocationID)"><i class="fa fa-pencil"></i>Edit</a>
+                        </td>
+                        <td><a ng-click="removeLocation(location.LocationID)"><i class="fa fa-trash"></i>Delete</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </label>
+
+    </div>
+</form>

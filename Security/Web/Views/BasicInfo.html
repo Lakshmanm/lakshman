@@ -1,0 +1,182 @@
+<!--/*=======================================================================
+ All rights reserved to Thrill Innovations Lab.
+ THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY
+ OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR
+ FITNESS FOR A PARTICULAR PURPOSE.
+===========================================================================
+****************************************************************************
+ Name                : BasicInfo
+ Type                : Html
+ Description         : This HTML file dispalys new registration Details
+ References          :
+ Author              :  Tulasi Ballada
+ Created Date        :  07-Apl-2016
+****************************************************************************
+MODIFICATION LOG
+
+**************************************************************************** 
+Ver Date         Modified By            Description
+
+****************************************************************************  
+Code Review LOG
+**************************************************************************** 
+S.No      Ver        Date                Code Review By            Observations
+1         1.0       15-April-2016         Sri Venkatesh.T           No Issues
+****************************************************************************
+*/-->
+
+<div id="main-wrapper">
+    <div class="panel-white">
+        <form name="UserForm">
+            <div class="page-title">
+                <h3>{{securityBasicInfo.SignUp}}</h3>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#basicInfo">{{securityBasicInfo.BasicInfo}}</a></li>
+                <li><a data-toggle="tab" href="#address">{{securityBasicInfo.Address}}</a></li>
+
+            </ul>
+            <div id="main-wrapper">
+                <div class="panel-white">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.FirstName}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.FirstName" type="textarea" name="FirstName" ng-minlength="2" ng-required="true" onkeydown="return isAlpha(event.keyCode);" onpaste="return false;" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+                                <span ng-if="UserForm.$submitted || UserForm.FirstName.$touched">
+                                        <p ng-show="UserForm.FirstName.$invalid && UserForm.FirstName.$error.required">
+                                            <span style="color:red">FirstName is required</span></p>
+                                <p ng-show="UserForm.FirstName.$error.minlength">FirstName is too short</p>
+                                <p ng-show="UserForm.FirstName.$error.pattern">Alphabets Only</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.MiddleName}}</label>
+                                <input class="form-control" ng-model="Regs.MiddleName" type="text" name="MiddleName" ng-minlength="2" onkeydown="return isAlpha(event.keyCode);" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.LastName}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.LastName" type="textarea" name="LastName" ng-minlength="2" ng-required="true" onkeydown="return isAlpha(event.keyCode);" ng-pattern="/^[a-zA-Z\s]*$/" maxlength="50" />
+
+                                <span ng-if="UserForm.$submitted || UserForm.LastName.$touched">
+                                        <p ng-show="UserForm.LastName.$invalid && UserForm.LastName.$error.required">
+                                        <span style="color:red">Last Name is required</span></p>
+                                <p ng-show="UserForm.LastName.$error.minlength">Last Name is too short</p>
+                                <p ng-show="UserForm.LastName.$error.pattern">Alphabets Only</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Gender}}<span style="color:red">*</span>:</label>
+                                <input type="radio" name="gender" ng-model="Regs.Gender" ng-required="true" value="Female">{{securityBasicInfo.Female}}
+                                <input type="radio" name="gender" ng-model="Regs.Gender" ng-required="true" value="Male">{{securityBasicInfo.Male}}
+                                <span ng-if="UserForm.$submitted || UserForm.gender.$touched">
+<p ng-show="UserForm.gender.$invalid && UserForm.gender.$error.required"><span style="color:red">Gender is required</span></p>
+
+                                </span>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.DateOfBirth}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.DateOfBirth" type="date" min="1916-01-01" max="{{maxdate}}" name="DOB" ng-required="true">
+
+                                <span ng-if="UserForm.$submitted || UserForm.DOB.$touched">
+                                    <p ng-show="UserForm.DOB.$invalid && UserForm.DOB.$error.required">
+                                    <span style="color:red">Date of Birth is required</span></p>
+                                <p ng-show="UserForm.DOB.$error.max">
+                                    <span style="color:red">Not a valid date</span> </p>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.MobileNumber}}<span style="color:red">*</span></label>
+                                <input class="form-control" ng-model="Regs.MobileNumber" name="mobileNumber" onkeypress="return isNumberKey(event)" type="tel" ng-minlength="10" ng-required="true" ng-pattern="/^[0-9\s]*$/" maxlength="10" />
+
+                                <span ng-if="UserForm.$submitted || UserForm.mobileNumber.$touched">
+<p ng-show="UserForm.mobileNumber.$invalid && UserForm.mobileNumber.$error.required"><span style="color:red">Mobile No is required</span></p>
+
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.PrimaryEmailAddress}}<span style="color:red">*</span></label>
+
+                                <input class="form-control" ng-model="Regs.PrimaryEmailAddress" type="email" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" />
+                                <div class="help-block" ng-messages="UserForm.email.$error">
+
+                                    <p style="color:red" ng-show="UserForm.email.$invalid && !UserForm.email.$pristine" ng- class="help-block" ng-messages-include="error-messages">Enter valid Email</p>
+                                </div>
+                                <span ng-if="UserForm.$submitted || UserForm.email.$touched">
+                                <p ng-show="UserForm.email.$invalid && UserForm.email.$error.required">
+                                <span style="color:red">Primary Email is required</span></p>
+                                </span>
+                                <label ng-show="errorMsg">
+                                    <h4><span style="color:red">Enter a valid EmailID</h4></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.SecondaryEmailAddress}}</label>
+
+                                <input class="form-control" ng-model="Regs.SecondaryEmailAddress" type="email" name="mail" />
+
+                                <!--  <div ng-show="!UserForm.mail.$error.required&&Regs.smail==Regs.pmail"><span style="color:red;">Both Email's Cannot be the same.</span></div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel-body">
+                                <label>{{securityBasicInfo.Captcha}} <span style="color:red">*</span></label>
+                                <image src="{{img}}" alt="captcha" title="click to refresh" class="captcha"></image>
+                                <image src="Security/Web/assets/images/refresh.png" ng-click="refresh()"></image>
+                                <br>
+                                <input name="captcha" type="text" ng-model="Regs.captchaa" ng-required="true" placeholder="input captcha">
+                                <br>
+                                <span ng-if="UserForm.$submitted || UserForm.captcha.$touched">
+                                    <p ng-show="UserForm.captcha.$invalid && UserForm.captcha.$error.required">
+                                    <span style="color:red">Captcha is required</span></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <label ng-show="message"><span style="color:red"><h4>Enter valid captcha</h4></span> </label>
+
+                    <label ng-show="errorMsg">
+                        <h3><span style="color:red">EmailID already registered.Kindly register with another Email Address.</span></h3>
+                    </label>
+                    <label ng-show="Mmessage">
+                        <h3><span style="color:red">MobileNumber already exists.Kindly enter another mobile number.</h3></span>
+                    </label>
+                    <div style="text-align:center" class="row">
+                        <button name="type_saveid" ng-click="  postperson()" class="btn btn-primary">{{securityBasicInfo.SaveContinue}}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- form -->
+    </div>
+    <!-- panel white -->
+</div>
+<!-- Main Wrapper -->

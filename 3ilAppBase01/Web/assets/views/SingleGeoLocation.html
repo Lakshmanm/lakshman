@@ -1,0 +1,42 @@
+
+
+    <form ng-controller="geoController">
+
+
+        <ng-map default-size="false" class="map" center="20,20" zoom="3" on-click="getpos($event)">
+            <marker position="{{location}}" title="Hello World!" on-dragend="getpos($event)" animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
+        </ng-map>
+        <div style="text-align:left">
+            Longitude:
+            <input type="text" ng-model="long">
+            <br/> Latitude:
+            <input type="text" ng-model="lat">
+            <br/>
+            <button type="submit" ng-click="update(long,lat)">Update</button>
+        </div>
+
+
+
+    </form>
+    <script>
+       // var app = angular.module('geoLocation', ['ngMap']);
+
+        app.controller('geoController', ['$scope', function ($scope) {
+            $scope.long = 20;
+            $scope.lat = 20;
+
+            $scope.latlng = [20, 20];
+            $scope.getpos = function(event) {
+
+                $scope.long = event.latLng.lng();
+                $scope.lat = event.latLng.lat();
+                $scope.location = [event.latLng.lat(), event.latLng.lng()];
+
+            };
+            $scope.update = function(long, lat) {
+
+                $scope.location = [lat, long];
+            };
+        }]);
+    </script>
+

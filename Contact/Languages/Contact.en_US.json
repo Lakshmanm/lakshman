@@ -1,0 +1,23 @@
+{
+    "labels": {
+        "ContactType": "Contact Type",
+        "ContactInfo": "Contact Info",
+        "EntityType": "Entity Type",
+        "EntityId": "Entity ID",
+        "Submit": "Submit",
+        "Update": "Update",
+        "ContactBasicInfo1": "Contact Basic Info",
+        "contactHeading":"Contact Heading",
+        "contactItemInfo":"contact Item Info",
+        "contactType":"contactType",
+        "ContactItemTitle":"Contact Item Title",
+        "ContactItemListTitle":"Contact Item List Title",
+        "contactItemInfo":"contact Item Info",
+        "contactTypeHeading":"contact Type Heading",
+        "contacttypetitle":"contact Type Title",
+        "isPrimary":"Is Primary"
+    },
+    "errors": {
+
+    }
+}
